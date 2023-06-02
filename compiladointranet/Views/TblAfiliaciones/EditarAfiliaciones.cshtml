@@ -1,0 +1,240 @@
+﻿@model iveCincoFrame.Models.TblAfiliaciones
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body ">
+                <div class="card-body ">
+                    <div class="container">
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <h1 class="fc-toolbar-title">Afiliacion No. @Model.idTblAfiliaciones</h1>
+                                    </div>
+                                    @using (Html.BeginForm("Edit", "TblAfiliaciones", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="row d-none">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">ID</label>
+                                                @Html.EditorFor(model => model.idTblAfiliaciones, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Tipo de solicitud</label>
+                                                @Html.DropDownList("idCatZuma", null, htmlAttributes: new { @class = "form-select" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Codigo de Asociado</label>
+                                                @Html.EditorFor(model => model.codigoAsociado, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.codigoAsociado, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Nombre Completo</label>
+                                                @Html.EditorFor(model => model.nombreCompleto, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.nombreCompleto, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Agencia</label>
+                                                @Html.DropDownList("idCatUbicaciones", null, htmlAttributes: new { @class = "form-select" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Fecha de la solicitud</label>
+                                                @Html.EditorFor(model => model.fechaSolicitud, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.fechaSolicitud, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="contratoVisa1" class="form-label">Contrato Visa No. 1</label>
+                                                    <div class="row">
+
+                                                        <div class="col-8">
+                                                            <span>Cargar un nuevo archivo</span>
+                                                            <div>
+                                                                @Html.TextBoxFor(model => model.contratoVisa1, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                            </div>
+                                                        </div>
+                                                        @if (!string.IsNullOrEmpty(Model.contratoVisa1))
+                                                        {
+                                                            <div class="col-4">
+                                                                <span>Ver Contrato Visa No.1</span>
+                                                                <div class="text-center">
+                                                                    <a href="~/Documentos/@Model.contratoVisa1" target="_blank" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-file-pdf"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="contratoVisa2" class="form-label">Contrato Visa No. 2</label>
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <span>Cargar un nuevo archivo</span>
+                                                            <div>
+                                                                @Html.TextBoxFor(model => model.contratoVisa2, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                            </div>
+                                                        </div>
+                                                        @if (!string.IsNullOrEmpty(Model.contratoVisa2))
+                                                        {
+                                                            <div class="col-4">
+                                                                <span>Ver Contrato Visa No.2</span>
+                                                                <div class="text-center">
+                                                                    <a href="~/Documentos/@Model.contratoVisa2" target="_blank" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-file-pdf"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="Cartadebanco" class="form-label">Carta de banco</label>
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <span>Cargar un nuevo archivo</span>
+                                                            <div>
+                                                                @Html.TextBoxFor(model => model.cartaBanco, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                            </div>
+                                                        </div>
+                                                        @if (!string.IsNullOrEmpty(Model.cartaBanco))
+                                                        {
+                                                            <div class="col-4">
+                                                                <span>Ver Carta de Banco</span>
+                                                                <div class="text-center">
+                                                                    <a href="~/Documentos/@Model.cartaBanco" target="_blank" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-file-pdf"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="cartaCooperativa" class="form-label">Carta de coperativa</label>
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <span>Cargar un nuevo archivo</span>
+                                                            <div>
+                                                                @Html.TextBoxFor(model => model.cartaCooperativa, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                            </div>
+                                                        </div>
+                                                        @if (!string.IsNullOrEmpty(Model.cartaCooperativa))
+                                                        {
+                                                            <div class="col-4">
+                                                                <span>Ver Carta de coperativa</span>
+                                                                <div class="text-center">
+                                                                    <a href="~/Documentos/@Model.cartaCooperativa" target="_blank" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-file-pdf"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="boletaPagoPos" class="form-label">Boleta de Pago POS</label>
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <span>Cargar un nuevo archivo</span>
+                                                            <div>
+                                                                @Html.TextBoxFor(model => model.boletaPagoPos, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                            </div>
+                                                        </div>
+                                                        @if (!string.IsNullOrEmpty(Model.boletaPagoPos))
+                                                        {
+                                                            <div class="col-4">
+                                                                <span>Ver Boleta de pago POS</span>
+                                                                <div class="text-center">
+                                                                    <a href="~/Documentos/@Model.boletaPagoPos" target="_blank" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-file-pdf"></i></a>
+                                                                </div>
+                                                            </div>
+
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Fecha de envio a Visa</label>
+                                                @Html.EditorFor(model => model.fechaEnvioVisa, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.fechaEnvioVisa, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Fecha de recepecion de afiliacion</label>
+                                                @Html.EditorFor(model => model.fechaRecepcionAfiliacion, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.fechaRecepcionAfiliacion, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Codigo de afiliacion</label>
+                                                @Html.EditorFor(model => model.codigoAfiliacion, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.codigoAfiliacion, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Terminal Id</label>
+                                                @Html.EditorFor(model => model.idTerminal, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.idTerminal, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Usuario</label>
+                                                @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Contraseña</label>
+                                                @Html.EditorFor(model => model.contrasenia, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.contrasenia, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Numero de Cuenta de Ahorro</label>
+                                                @Html.EditorFor(model => model.numeroCuentaAhorro, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.numeroCuentaAhorro, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Numero de Recibo</label>
+                                                @Html.EditorFor(model => model.numeroRecibo, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.numeroRecibo, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <button type="submit" value="Edit" class="btn btn-primary">Guardar</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

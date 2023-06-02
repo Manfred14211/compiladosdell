@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Indexvicnulacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header mb-0">
+                <div class="container">
+                    <h1 class="fc-toolbar-title text-center">Reporte de Captaciones</h1>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <button type="button" class="btn btn-primary" id="vincular">Vincular</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on('click', '#vincular', function () {
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("vicnulacion", "Sorteo")',
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+                    if (response == "ok") {
+                        function toasterOptions() {
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                        };
+
+
+                        toasterOptions();
+
+                        toastr.success('Vicnulacion con exito');
+                    }
+                    else {
+                        function toasterOptions() {
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                        };
+                    toasterOptions();
+
+                    toastr.error('Vicnulacion con exito');
+                    }
+
+                }
+            });
+            return false;
+            });
+</script>

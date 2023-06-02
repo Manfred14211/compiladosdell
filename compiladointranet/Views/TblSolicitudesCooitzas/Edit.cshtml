@@ -1,0 +1,195 @@
+﻿@model iveCincoFrame.Models.SolicitudesCooitza.SolicitudesMovientosDto
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+<h2>Edit</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+
+        <h4>TblSolicitudesCooitzas</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Solicitudes.idTblSolicitudesCooitzas)
+
+        <div class="row px-1 px-sm-1 px-md-12 px-lg-12">
+            <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                @Html.Label("Gerencia", new { @class = "form-label" })
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="align-middle me-2 fas fa-fw fa-users"></i>
+                    </span>
+                    @*@Html.DropDownList("idGerencia", null, htmlAttributes: new { @class = "form-select" })*@
+                    @Html.DropDownListFor(m => m.Solicitudes.idGerencia, ViewBag.idGerencia as SelectList, "Seleccione una opcion", new { @class = "form-control",@disabled = "disabled" })
+                </div>
+                @Html.ValidationMessageFor(model => model.Solicitudes.idGerencia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row px-1 px-sm-1 px-md-12 px-lg-12">
+            <div class="col-12 col-sm-6  col-md-12 col-lg-6">
+                @Html.Label("Descripción", new { @class = "form-label" })
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="align-middle me-2 fas fa-fw fa-pencil-alt"></i>
+                    </span>
+                    @*@Html.TextAreaFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.EditorFor(model => model.Solicitudes.descripcion, new { htmlAttributes = new { @class = "form-control", rows = "2", @readonly="readonly" } })
+                    @*<textarea class="form-control" id="descripcion" name="descripcion" aria-label="With textarea" rows="2" placeholder="Descripción de la Solicitud"></textarea>*@
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Solicitudes.descripcion, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12 col-sm-6  col-md-12 col-lg-6">
+                @Html.Label("Observación", new { @class = "form-label" })
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="align-middle me-2 fas fa-fw fa-star"></i>
+                    </span>
+                    @Html.EditorFor(model => model.Solicitudes.observacion, new { htmlAttributes = new { @class = "form-control", rows = "2", @readonly = "readonly" } })
+                    @*<textarea class="form-control" id="observacion" name="observacion" aria-label="With textarea" rows="2" placeholder="Observacion de la Solicitud"></textarea>*@
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Solicitudes.observacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row px-1 px-sm-1 px-md-12 px-lg-12">
+            <div class="col-12 col-sm-6  col-md-6 col-lg-6">
+                @Html.Label("Proveedor", new { @class = "form-label" })
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="align-middle me-2 fas fa-fw fa-dolly"></i>
+                    </span>
+                    @*@Html.TextAreaFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.DropDownListFor(m => m.Movientos.idCatProveedoresCooitzas, ViewBag.idCatProveedoresCooitzas as SelectList, "Seleccione una opcion", new { @class = "form-control" })
+                    @*@Html.DropDownList("idCatProveedoresCooitzas", null, htmlAttributes: new { @class = "form-select" })*@
+                    @*<textarea class="form-control" id="descripcion" name="descripcion" aria-label="With textarea" rows="2" placeholder="Descripción de la Solicitud"></textarea>*@
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Solicitudes.descripcion, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12 col-sm-6  col-md-6 col-lg-6">
+                @Html.Label("Estado de la Solicitud", new { @class = "form-label" })
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="align-middle me-2 fas fa-fw fa-check-square"></i>
+                    </span>
+                    @Html.DropDownListFor(m => m.Movientos.idCatEstadoSolicitudes, ViewBag.idCatEstadoSolicitudes as SelectList, "Seleccione una opcion", new { @class = "form-control" })
+                    @*@Html.DropDownList("idCatEstadoSolicitudes", null, htmlAttributes: new { @class = "form-select" })*@
+                    @*<textarea class="form-control" id="observacion" name="observacion" aria-label="With textarea" rows="2" placeholder="Observacion de la Solicitud"></textarea>*@
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Solicitudes.observacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row px-1 px-sm-1 px-md-12 px-lg-12">
+            <div class="col-12 col-sm-6  col-md-6 col-lg-6">
+                @Html.Label("Fecha", new { @class = "form-label" })
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="align-middle me-2 far fa-fw fa-calendar"></i>
+                    </span>
+                    @*@Html.TextAreaFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @*@Html.DropDownList("idCatProveedoresCooitzas", null, htmlAttributes: new { @class = "form-select" })*@
+                    @Html.EditorFor(model => model.Movientos.fecha, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy" } })
+                    @*<textarea class="form-control" id="descripcion" name="descripcion" aria-label="With textarea" rows="2" placeholder="Descripción de la Solicitud"></textarea>*@
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Movientos.fecha, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-12 col-sm-6  col-md-6 col-lg-6">
+                @Html.Label("Fecha Fin", new { @class = "form-label" })
+                <div class="input-group input-group-lg mb-3">
+                    <span class="input-group-text">
+                        <i class="align-middle me-2 far fa-fw fa-calendar-check"></i>
+                    </span>
+                    @Html.EditorFor(model => model.Movientos.fechaFin, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy" } })
+                    @*@Html.DropDownList("idCatEstadoSolicitudes", null, htmlAttributes: new { @class = "form-select" })*@
+                    @*<textarea class="form-control" id="observacion" name="observacion" aria-label="With textarea" rows="2" placeholder="Observacion de la Solicitud"></textarea>*@
+
+                </div>
+                @Html.ValidationMessageFor(model => model.Movientos.fechaFin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row px-1 px-sm-1 px-md-3 px-lg-4 text-end">
+            <div class="col-12 col-sm-12  col-md-12 col-lg-12 align-items-end">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-primary btn-lg" id="agregar">Agregar <i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+<div class="row">
+    <div class="col-12">
+        <table class="table" id="datatables-reponsive-m">
+            <thead>
+                <tr class="small">
+                    @*<th style="width:15%;">Gerencia</th>*@
+                    <th style="width:15%;">Descripcion</th>
+                    <th style="width:15%;">Proveedor</th>
+                    <th style="width:15%;">Estado de la Solicitud</th>
+                    <th style="width:15%;">Fecha</th>
+                    <th style="width:10%;">Fecha Fin</th>
+                    <th style="width:10%;">Usuario</th>
+                    <th style="width:10%;">Estado</th>
+                    <th style="width:10%;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="small" id="tbody-tblSolicitud">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var dataTable;
+
+    $(document).ready(function () {
+        /*Funcion para obtener las solicitudes*/
+        getSolicitudes();
+        function getSolicitudes() {
+            Pace.track(function () {
+               $.ajax({
+                  type: 'POST',
+                   url: '@Url.Action("GetSolicitudesMovimientos", "TblSolicitudesMoviemientos")',
+                   dataType: "json",
+                   data: { id: @Model.Solicitudes.idTblSolicitudesCooitzas},
+                   beforeSend: function (response) {},
+                   success: function (result) {
+                     $("#tbody-tblSolicitud").html('');//limiar el tbody
+                       console.log(result.moviemientos);
+                       $.each(result.moviemientos, function (key, item) {
+                        var html = '';
+                                html += '<tr>';
+                                html += '<td>' + item.Descripcion + '</td>';
+                                html += '<td>' + item.Proveedor + '</td>';
+                                html += '<td>' + item.EstadoSolicitud + '</td>';
+                                html += '<td>' + item.Fecha + '</td>';
+                                html += '<td>' + item.FechaFin + '</td>';
+                                html += '<td>' + item.Usuario + '</td>';
+                                html += '<td>' + item.Estado + '</td>';
+                                html += `<td class="table-action">
+                                        <a href="#" id="detalle-movimiento" codigo="${item.IdTblSolicitudesMovimeintos}"><i class="align-middle me-2 fas fa-fw fa-hand-paper"></i></a>
+                                        <a href="#" id="editar-solicitud" codigo="${item.IdTblSolicitudesMovimeintos}"><i class="align-middle me-2 fas fa-fw fa-pencil-alt"></i></a>
+                                        <a href="#" id="eliminar-solicitud" codigo="${item.IdTblSolicitudesMovimeintos}"><i class="align-middle fas fa-fw fa-trash"></i></a>
+                                        </td >`;
+                                html += '</tr>';
+                        $("#tbody-tblSolicitud").append(html);
+                     });
+                  }
+               });
+            });
+        }
+        $(document).on('click', '#detalle-movimiento', function () {
+             var codigo = $(this).attr('codigo');
+                window.location.href = "@Url.Action("Details", "TblSolicitudesMoviemientos")?id=" + codigo;
+        });
+    });
+
+
+</script>

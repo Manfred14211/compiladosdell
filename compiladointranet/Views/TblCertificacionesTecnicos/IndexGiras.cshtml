@@ -1,0 +1,50 @@
+﻿@model iveCincoFrame.Models.TblGirasTecnicos
+@{
+    ViewBag.Title = "IndexGiras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/CSS/stylecardsbiblioteca.css" rel="stylesheet">
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12 col-lg-12 mb-5">
+                                            <div class="card-data">
+                                                <div class="card info-body">
+                                                    <div class="card-header text-center info-name">
+                                                        <h4 class="text-white pb-4"><span>Gira Numero </span>@Model.numeroGira</h4>
+
+                                                    </div>
+                                                    <div class="card-body ifno-general">
+                                                        <h5>Año de la Gira <strong style="color: #153d77 !important;">@Model.anio</strong></h5>
+                                                        <h5>Fecha de Inicio: <strong style="color: #153d77 !important;">@Model.fechaInicio</strong></h5>
+                                                        <h5>Fecha fin de la Gira: <strong style="color: #153d77 !important;">@Html.DisplayFor(modelItem => modelItem.fechaFin)</strong></h5>
+                                                    </div>
+                                                    <div class="card-footer text-center">
+                                                        <a href="@Url.Action("Index/"+Model.idTblGirasTecnicos,"TblCertificacionesTecnicos")" target="_blank" class="btn btn-primary btn-lg" style="background: #0c4899 !important;">Continuar <i class="align-middle me-2 fas fa-fw fa-arrow-down"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <img src="~/Content/img/imagenCOnfig.png" class="img-fluid" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

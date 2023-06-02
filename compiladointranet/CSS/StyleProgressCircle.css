@@ -1,0 +1,49 @@
+﻿/*#progresso {
+    display: flex;
+    justify-content: center;
+}*/
+
+.progress-item {
+    display: flex;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    font-size: 0;
+    animation: .4s ease-out reverse;
+    margin: 1rem;
+}
+
+    .progress-item::after {
+        content: attr(data-value);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 85px;
+        margin: 10px;
+        border-radius: 50%;
+        background: white;
+        font-size: 1rem;
+        text-align: center;
+    }
+.progress-item-cero {
+    display: flex;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    font-size: 0;
+    animation: .4s ease-out reverse;
+    margin: 1rem;
+}
+
+    .progress-item-cero::after {
+        content: attr(data-value);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 85px;
+        margin: 10px;
+        border-radius: 50%;
+        background: white;
+        font-size: 1rem;
+        text-align: center;
+    }

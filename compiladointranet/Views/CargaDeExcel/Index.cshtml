@@ -1,0 +1,118 @@
+﻿@model IEnumerable<iveCincoFrame.Models.tblpremora>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cuenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minimo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.saldo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visacuota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dpi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.agencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idagencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaingreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaactualizacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblUsuarios.usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblUsuarios1.usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.catestadoscallcenter.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cuenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.minimo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saldo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visacuota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dpi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.agencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idagencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaingreso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaactualizacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TblUsuarios1.usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.catestadoscallcenter.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idtblpremora }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idtblpremora }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idtblpremora })
+        </td>
+    </tr>
+}
+
+</table>

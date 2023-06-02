@@ -1,0 +1,241 @@
+﻿@model iveCincoFrame.Models.CatProveedoresExternos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CatProveedoresExternos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.solicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpiRepresentante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpiRepresentante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.representacionLegal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.representacionLegal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionServicios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionServicios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solvenciaFiscal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solvenciaFiscal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rtu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rtu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patenteComercio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patenteComercio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patenteSociedad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patenteSociedad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.condicionesGarantias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.condicionesGarantias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.referencias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.referencias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroCuentaCooitza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroCuentaCooitza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroCuenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroCuenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactoInmediato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactoInmediato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroSoporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroSoporte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblUsuarios.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblUsuarios.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TblUsuarios1.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TblUsuarios1.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatEstados.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatBancos.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatBancos.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatTiposCuentas.idCatTiposCuentas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatTiposCuentas.idCatTiposCuentas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatTiposEmpresasProveedores.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatTiposEmpresasProveedores.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatTiposProveedores.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatTiposProveedores.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

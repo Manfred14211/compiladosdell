@@ -1,0 +1,110 @@
+﻿@model iveCincoFrame.Models.TblConvivio
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <h2>Eliminar Registro </h2>
+                            <div>
+                                <h4>TblConvivio</h4>
+                                <hr />
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.nombreCompleto)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.nombreCompleto)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.numeroTelefono)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.numeroTelefono)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.fechaIngreso)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.fechaIngreso)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.asociado)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.asociado)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.asociadoFundafor)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.asociadoFundafor)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.seguro)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.seguro)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.tarjetaCredito)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.tarjetaCredito)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.credito)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.credito)
+                                    </dd>
+
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.genero)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.genero)
+                                    </dd>
+
+                                </dl>
+
+                                @using (Html.BeginForm())
+                                {
+
+                                    <div class="form-actions no-color">
+                                        <input type="submit" value="Delete" class="btn btn-default" /> |
+                                        @Html.ActionLink("Back to List", "Index")
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

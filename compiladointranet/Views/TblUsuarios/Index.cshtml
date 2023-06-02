@@ -1,0 +1,711 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblUsuarios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+            <div class="card" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                <div class="card-body" >
+                        <div class="card-body px-5" id="busqueda">
+                            @Html.Action("BuscarUsuario", "TblUsuarios")
+                        </div>
+
+                    <div class="my-5">
+                        <div class="card-body" id="listarUsuarios">
+                            @Html.Action("listarUsuarios")
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+<!-- Modal Agregar Usuario -->
+<button type="button" class="btn btn-warning modal-usuario d-none" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">
+    Agregar Usuario Local
+</button>
+<div class="modal fade" id="defaultModalPrimary" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h2 class="modal-title text-white">Detalle del usuario</h2>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body m-3">
+                <div class="card-body">
+
+
+                    <div id="detallebusqueda"></div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary cerrar-modal" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="guardarUsuario">Guardar Usuario</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Actualizar Usuario -->
+<button type="button" class="btn btn-primary modal-editar-usuario d-none" data-bs-toggle="modal" data-bs-target="#defaultModalPrimary">
+    Modal 2
+</button>
+<div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Editar Usuario</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body m-3">
+                <div class="card-body">
+
+
+                    <div id="detalleeditar"></div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary cerrar-modal" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="actualizar">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+        //cargardetalle();
+
+
+
+        $('.buscar-colaborador').empty;
+
+        $(document).on('click', '#buscar-colaborador', function () {
+            var usuario = $('#usuario-texto').val();
+
+            var busqueda = { "usuario": usuario };
+
+            /*            alert(busqueda);*/
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("buscarColaborador", "TblUsuarios")',
+                data: busqueda,
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+
+                    if (response == "Not found") {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'No encontrado',
+                            text: 'Usuario no encontrado'
+
+                        })
+                    }
+                    else {
+                        $('#detallebusqueda').html(response);
+                        $('#defaultModalPrimary').modal('show');
+                        $('#usuario-texto').val("");
+                    }
+
+                    /*$('#detalledestinos')*/
+                    //$('#'+impresion+'').html(response);s
+
+                },
+            });
+            return false;
+
+
+        });
+
+        $('#guardarUsuario').click(function () {
+/*            alert("Hola");*/
+            var usuario = $('#Usuario').val();
+            var PrimerNombre = $('#PrimerNombre').val();
+            var SegundoNombre = $('#SegundoNombre').val();
+            var TercerNombre = $('#TercerNombre').val();
+            var PrimerApellido = $('#PrimerApellido').val();
+            var SegundoApeliido = $('#SegundoApeliido').val();
+            var ApellidoDeCasada = $('#ApellidoDeCasada').val();
+            var Direccion = $('#Direccion').val();
+            var Correo = $('#Correo').val();
+            var FechaNacimiento = $('#FechaNacimiento').val();
+            var Nit = $('#Nit').val();
+            var Dpi = $('#Dpi').val();
+            var idTblRoles = $('#idTblRoles').val();
+            var idCatPersonas = $('#idCatPersonas').val();
+            var idCatDepartamentosTrabajo = $('#idCatDepartamentosTrabajo').val();
+            var idCatOpciones = tienePersonal.checked;
+            var idCodigoGerenete = esGerenteDeArea.checked;
+            var idCoordinador = $('#Coordinadores').val();
+            var idCatUbicaciones = $('#idCatUbicaciones').val();
+
+            var i = idCatOpciones ? 1 : 0;
+            var j = idCodigoGerenete ? 1 : 0;
+            //alert(i);
+            //alert(j);
+
+            var UsuarioGuardar = {
+                usuario: usuario,
+                PrimerNombre: PrimerNombre,
+                SegundoNombre: SegundoNombre,
+                TercerNombre: TercerNombre,
+                PrimerApellido: PrimerApellido,
+                SegundoApeliido: SegundoApeliido,
+                ApellidoDeCasada: ApellidoDeCasada,
+                Direccion: Direccion,
+                Correo: Correo,
+                FechaNacimiento: FechaNacimiento,
+                Nit: Nit,
+                Dpi: Dpi,
+                idTblRoles: idTblRoles,
+                idCatPersonas: idCatPersonas,
+                idCatDepartamentosTrabajo: idCatDepartamentosTrabajo,
+                idCatOpciones: i,
+                idCodigoGerente: j,
+                idCatUbicaciones: idCatUbicaciones,
+                idCoordinador: idCoordinador
+            };
+
+
+            //cargar
+
+            function cargar() {
+                let timerInterval
+                Swal.fire({
+                    title: 'Actualizando afiliaciones!',
+                    html: 'Tiempo restante <b></b> espere profavor.',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                            b.textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log('I was closed by the timer')
+                    }
+                })
+            }
+
+
+            //console.log(usuarios);
+                $.ajax({
+                    type: 'POST',
+                    url:  '@Url.Action("guardarUsuario", "TblUsuarios")',
+                    data: UsuarioGuardar,
+                    cache: false,
+                    beforeSend: function (response) {
+
+                        //return false;
+                       // alert('ingrese');
+
+                    },
+                    success: function (response) {
+                        cargar();
+                        if (response == "ok") {
+                            $('.cerrar-modal').click();
+
+                            cargardetalle();
+                            cargarbusqueda();
+
+                            $('#detallebusqueda').html('');
+                            limpiar();
+
+                            $('#usuario').val("");
+                            $('#usuario-texto').val("");
+
+
+
+                            function toasterOptions() {
+                                toastr.options = {
+                                    "closeButton": false,
+                                    "debug": false,
+                                    "newestOnTop": false,
+                                    "progressBar": true,
+                                    "positionClass": "toast-bottom-right",
+                                    "preventDuplicates": false,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
+                                };
+                            };
+
+
+                            toasterOptions();
+
+                            toastr.success('Usuario agregado con exito');
+                        }
+                        else
+                        {
+                            $('.cerrar-modal').click();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Ocurrio un problema al guardar el usuario',
+                                text: response
+                            })
+
+                        }
+                        //window.location.reload();
+
+                        //$('#detalledestinos').html('');
+                        /*$('#detalledestinos')*/
+                        //$('#'+impresion+'').html(response);
+                        //cargardetalle();
+
+                    },
+
+                });
+            return false;
+
+
+            /*funsion listar usuarios*/
+                    function cargardetalle() {
+                        $.ajax({
+                            type: 'GET',
+                            url:  '@Url.Action("listarUsuarios", "TblUsuarios")',
+                            beforeSend: function (response) {},
+                            success: function (response) {
+                                $('#listarUsuarios').html('');
+                                $('#listarUsuarios').html(response);
+                            },
+                        });
+                            return false;
+                    }
+            /*funsion cargar vista busqueda*/
+                    function cargarbusqueda() {
+                        $.ajax({
+                            type: 'POST',
+                            url:  '@Url.Action("BuscarUsuario", "TblUsuarios")',
+                            beforeSend: function (response) {},
+                            success: function (response) {
+                                $('#busqueda').html('');
+                                $('#busqueda').html(response);
+                            },
+                        });
+                            return false;
+                    }
+
+                    /*funsion limpiar*/
+                    function limpiar() {
+                        $('#Usuario').val("");
+                        $('#PrimerNombre').val("");
+                        $('#SegundoNombre').empty();
+                        $('#TercerNombre').val("");
+                        $('#PrimerApellido').val("");
+                        $('#ApellidoDeCasada').val("");
+                        $('#Direccion').val("");
+                        $('#Correo').val("");
+                        $('#FechaNacimiento').val("");
+                        $('#Nit').val("");
+                        $('#Dpi').val("");
+                        $('#idTblRoles').val("");
+                    }
+
+
+        });
+
+        //$(document).on('click', '.editarUsuario', function () {
+        //   function toasterOptions() {
+        //        toastr.options = {
+        //            "closeButton": false,
+        //            "debug": false,
+        //            "newestOnTop": false,
+        //            "progressBar": true,
+        //            "positionClass": "toast-bottom-right",
+        //            "preventDuplicates": false,
+        //            "onclick": null,
+        //            "showDuration": "300",
+        //            "hideDuration": "1000",
+        //            "timeOut": "5000",
+        //            "extendedTimeOut": "1000",
+        //            "showEasing": "swing",
+        //            "hideEasing": "linear",
+        //            "showMethod": "fadeIn",
+        //            "hideMethod": "fadeOut"
+        //        };
+        //    };
+
+
+        //    toasterOptions();
+        //    toastr.warning('Fallo la conexion con el servicio de Autenticacion');
+        //});
+
+
+
+        $(document).on('click', '.editarUsuario', function () {
+            var codigo = $(this).attr('codigo');
+            //alert(codigo);
+
+            var dataUsr = {
+                "id": codigo
+            };
+
+            $.ajax({
+            type: 'POST',
+            url:  '@Url.Action("DetalleactualizarAsync", "TblUsuarios")',
+                data: dataUsr,
+            beforeSend: function (response) {
+            },
+                success: function (response) {
+                    $('#listarUsuarios').html('');
+                    $('#busqueda').html('');
+                    $('#busqueda').html(response);
+            },
+        });
+        });
+
+
+       $(document).on('click', '#actualizar', function () {
+           var idUsuario = $('#idUsuario').val();
+           var usuario = $('#Usuario').val();
+           var PrimerNombre = $('#PrimerNombre').val();
+           var SegundoNombre = $('#SegundoNombre').val();
+           var TercerNombre = $('#TercerNombre').val();
+           var PrimerApellido = $('#PrimerApellido').val();
+           var SegundoApeliido = $('#SegundoApeliido').val();
+           var ApellidoDeCasada = $('#ApellidoDeCasada').val();
+           var Direccion = $('#Direccion').val();
+           var Correo = $('#Correo').val();
+           var FechaNacimiento = $('#FechaNacimiento').val();
+           var Nit = $('#Nit').val();
+           var Dpi = $('#Dpi').val();
+           var idTblRoles = $('#idTblRoles').val();
+           var idCatPersonas = $('#idCatPersonas').val();
+           var idCatDepartamentosTrabajo = $('#idCatDepartamentosTrabajo').val();
+           var idCatOpciones = tienePersonal.checked;
+           var idCodigoGerenete = esGerenteDeArea.checked;
+           var idCoordinador = $('#Coordinadores').val();
+           var idCatUbicaciones = $('#idCatUbicaciones').val();
+
+           var i = idCatOpciones ? 1 : 0;
+           var j = idCodigoGerenete ? 1 : 0;
+           //alert(i);
+           //alert(j);
+
+           var usuarioEditar = {
+               idUsuario: idUsuario,
+               usuario: usuario,
+               PrimerNombre: PrimerNombre,
+               SegundoNombre: SegundoNombre,
+               TercerNombre: TercerNombre,
+               PrimerApellido: PrimerApellido,
+               SegundoApeliido: SegundoApeliido,
+               ApellidoDeCasada: ApellidoDeCasada,
+               Direccion: Direccion,
+               Correo: Correo,
+               FechaNacimiento: FechaNacimiento,
+               Nit: Nit,
+               Dpi: Dpi,
+               idTblRoles: idTblRoles,
+               idCatPersonas: idCatPersonas,
+               idCatDepartamentosTrabajo: idCatDepartamentosTrabajo,
+               idCatOpciones: i,
+               idCodigoGerente: j,
+               idCatUbicaciones: idCatUbicaciones,
+               idCoordinador: idCoordinador
+           };
+
+             $.ajax({
+                   type: 'POST',
+                   url:  '@Url.Action("EditarUsuario", "TblUsuarios")',
+                   data: usuarioEditar,
+                   beforeSend: function (response) {
+                   },
+                   success: function (response) {
+                       if (response == 'ok') {
+                           cargarbusqueda()
+                           cargardetalle();
+                           limpiar();
+                           function toasterOptions() {
+                               toastr.options = {
+                                   "closeButton": false,
+                                   "debug": false,
+                                   "newestOnTop": false,
+                                   "progressBar": true,
+                                   "positionClass": "toast-bottom-right",
+                                   "preventDuplicates": false,
+                                   "onclick": null,
+                                   "showDuration": "300",
+                                   "hideDuration": "1000",
+                                   "timeOut": "5000",
+                                   "extendedTimeOut": "1000",
+                                   "showEasing": "swing",
+                                   "hideEasing": "linear",
+                                   "showMethod": "fadeIn",
+                                   "hideMethod": "fadeOut"
+                               };
+                           };
+
+
+                           toasterOptions();
+
+                           toastr.success('Usuario Modificado con exito');
+                       }
+                       else
+                       {
+                           Swal.fire({
+                               icon: 'error',
+                               title: 'Ocurrio un problema al editar el usuario',
+                               text: response
+                           })
+
+                       }
+
+
+                   }
+             });
+            return false;
+
+
+            /*funsion listar usuarios*/
+                    function cargardetalle() {
+                        $.ajax({
+                            type: 'GET',
+                            url:  '@Url.Action("listarUsuarios", "TblUsuarios")',
+                            beforeSend: function (response) {},
+                            success: function (response) {
+                                $('#listarUsuarios').html('');
+                                $('#listarUsuarios').html(response);
+                            },
+                        });
+                            return false;
+                    }
+            /*funsion cargar vista busqueda*/
+                    function cargarbusqueda() {
+                        $.ajax({
+                            type: 'POST',
+                            url:  '@Url.Action("BuscarUsuario", "TblUsuarios")',
+                            beforeSend: function (response) {},
+                            success: function (response) {
+                                $('#busqueda').html('');
+                                $('#busqueda').html(response);
+                            },
+                        });
+                            return false;
+                    }
+
+                    /*funsion limpiar*/
+                    function limpiar() {
+                        $('#Usuario').val("");
+                        $('#PrimerNombre').val("");
+                        $('#SegundoNombre').empty();
+                        $('#TercerNombre').val("");
+                        $('#PrimerApellido').val("");
+                        $('#SegundoApeliido').val("");
+                        $('#ApellidoDeCasada').val("");
+                        $('#Direccion').val("");
+                        $('#Correo').val("");
+                        $('#FechaNacimiento').val("");
+                        $('#Nit').val("");
+                        $('#Dpi').val("");
+                        $('#idTblRoles').val("");
+                        $('#idCatPersonas').val("");
+                        $('#idCatDepartamentosTrabajo').val("");
+                        $('#Coordinadores').val("");
+                        $('#idCatUbicaciones').val("");
+                    }
+
+
+        });
+
+       $(document).on('click', '.eliminarUsuario', function () {
+
+            var idUsuario = $(this).attr('codigo');
+
+            var UsuarioEditar = {
+                "IdTblUsuario": idUsuario
+            };
+
+
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Desactivar este Usuario?',
+                showConfirmButton: true,
+                confirmButtonText: 'DESACTIVAR',
+                confirmButtonColor: '#3085d6',
+                showCancelButton: true,
+                cancelButtonText: 'CANCELAR',
+                cancelButtonColor: '#d33',
+                buttonsStyling: true,
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("DeleteConfirmed", "TblUsuarios")',
+                        data: UsuarioEditar,
+                        success: function (response) {
+
+
+                            if (response == "200") {
+                                function toasterOptions() {
+                                    toastr.options = {
+                                        "closeButton": false,
+                                        "debug": false,
+                                        "newestOnTop": false,
+                                        "progressBar": true,
+                                        "positionClass": "toast-bottom-right",
+                                        "preventDuplicates": false,
+                                        "onclick": null,
+                                        "showDuration": "300",
+                                        "hideDuration": "1000",
+                                        "timeOut": "5000",
+                                        "extendedTimeOut": "1000",
+                                        "showEasing": "swing",
+                                        "hideEasing": "linear",
+                                        "showMethod": "fadeIn",
+                                        "hideMethod": "fadeOut"
+                                    };
+                                };
+
+                                toasterOptions();
+                                toastr.success('El usuario se elimino con exito!');
+
+                                cargardetalle();
+                            }
+                            else
+                            {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Ocurrio un problema al eliminar el usuario',
+                                    text: response
+                                })
+                            }
+
+
+                        }
+                    });
+                }
+            });
+
+
+            /*funsion listar usuarios*/
+            function cargardetalle() {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("listarUsuarios", "TblUsuarios")',
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+                $('#listarUsuarios').html(response);
+                },
+            });
+            return false;
+            }
+
+
+        });
+        $(document).on('click', '.activarUsuario', function () {
+
+            var idUsuario = $(this).attr('codigo');
+
+            var UsuarioEditar = {
+                "IdTblUsuario": idUsuario
+            };
+
+
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Activar este Usuario?',
+                showConfirmButton: true,
+                confirmButtonText: 'ACTIVAR',
+                confirmButtonColor: '#3085d6',
+                showCancelButton: true,
+                cancelButtonText: 'CANCELAR',
+                cancelButtonColor: '#d33',
+                buttonsStyling: true,
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ActivarUsuario", "TblUsuarios")',
+                        data: UsuarioEditar,
+                        success: function (response) {
+
+
+                            if (response == "200") {
+                                function toasterOptions() {
+                                    toastr.options = {
+                                        "closeButton": false,
+                                        "debug": false,
+                                        "newestOnTop": false,
+                                        "progressBar": true,
+                                        "positionClass": "toast-bottom-right",
+                                        "preventDuplicates": false,
+                                        "onclick": null,
+                                        "showDuration": "300",
+                                        "hideDuration": "1000",
+                                        "timeOut": "5000",
+                                        "extendedTimeOut": "1000",
+                                        "showEasing": "swing",
+                                        "hideEasing": "linear",
+                                        "showMethod": "fadeIn",
+                                        "hideMethod": "fadeOut"
+                                    };
+                                };
+
+                                toasterOptions();
+                                toastr.success('El usuario se activo con exito!');
+
+                                cargardetalle();
+                            }
+                            else
+                            {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Ocurrio un problema al activar el usuario',
+                                    text: response
+                                })
+                            }
+
+
+                        }
+                    });
+                }
+            });
+
+
+            /*funsion listar usuarios*/
+            function cargardetalle() {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("listarUsuarios", "TblUsuarios")',
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+                $('#listarUsuarios').html(response);
+                },
+            });
+            return false;
+            }
+
+
+        });
+
+    });
+
+</script>

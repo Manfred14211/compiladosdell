@@ -1,0 +1,167 @@
+﻿@model iveCincoFrame.Models.TblVehiculos
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    
+
+
+
+<div class="card">
+    <div>
+        @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-primary" })
+    </div>
+    @using (Html.BeginForm())
+    {
+
+    <div class="px-1 px-sm-1 px-md-3 px-lg-4 py-3">
+            <div class="col-xl-5">
+                <!-- Profile picture card-->
+                
+            </div>
+            <div class="col-xl-12">
+                <!-- Account details card-->
+                <div class="card mb-4" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                    <div class="card-header">Listado de Vehiculos</div>
+                    <!-- Button trigger modal -->
+                    <div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Agregar Vehiculo
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        @Html.Action("Index", "TblVehiculos")
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header  bg-dark">
+                           
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card mb-4 mb-xl-0" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                                <div class="card-header">Datos del Vehiculo</div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 d-none">
+                                            <label class="control-label">id Usuario</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                                                @Html.EditorFor(model => model.idTblUsuarios, new { htmlAttributes = new { @class = "form-control", id = "FechaInicio" } })
+                                                @Html.ValidationMessageFor(model => model.idTblUsuarios, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Tipo de Vehiculo</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-car"></i></span>
+                                                @Html.DropDownList("idCatOpcionesVehiculos", null, htmlAttributes: new { @class = "form-select" })
+                                                @Html.ValidationMessageFor(model => model.idCatOpcionesVehiculos, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Nit propietario</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
+                                                @Html.EditorFor(model => model.nitPropietario, new { htmlAttributes = new { @class = "form-control", id = "FechaFin" } })
+                                                @Html.ValidationMessageFor(model => model.nitPropietario, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12">
+                                            <label class="control-label">Nombre del Propietario</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                                @Html.EditorFor(model => model.nombrePropietario, new { htmlAttributes = new { @class = "form-control", id = "FechaFin" } })
+                                                @Html.ValidationMessageFor(model => model.nombrePropietario, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Marca </label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="align-middle me-2 fas fa-fw fa-bookmark"></i></span>
+                                                @Html.EditorFor(model => model.marca, new { htmlAttributes = new { @class = "form-control", id = "FechaFin" } })
+                                                @Html.ValidationMessageFor(model => model.marca, "", new { @class = "text-danger" })
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Modelo </label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                                                @Html.EditorFor(model => model.modelo, new { htmlAttributes = new { @class = "form-control", id = "FechaFin" } })
+                                                @Html.ValidationMessageFor(model => model.modelo, "", new { @class = "text-danger" })
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Linea </label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-square-parking"></i></span>
+                                                @Html.DropDownList("idCatTipoPlacas", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idCatTipoPlacas, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Tipo de placa</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-square-parking"></i></span>
+                                                @Html.DropDownList("idCatTipoPlacas", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idCatTipoPlacas, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Estado</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-circle-check"></i></span>
+                                                @Html.DropDownList("idCatEstados", null, htmlAttributes: new { @class = "form-select" })
+                                                @Html.ValidationMessageFor(model => model.idCatOpcionesVehiculos, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                            <label class="control-label">Numero de placa</label>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text"><i class="fa-solid fa-hashtag"></i></span>
+                                                @Html.EditorFor(model => model.noPlaca, new { htmlAttributes = new { @class = "form-control", id = "FechaFin" } })
+                                                @Html.ValidationMessageFor(model => model.noPlaca, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+
+
+
+    </div>
+
+    }
+
+</div>

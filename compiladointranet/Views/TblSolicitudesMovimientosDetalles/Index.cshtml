@@ -1,0 +1,94 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblSolicitudesMovimientosDetalle>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaAlta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTblUsuariosModifica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaModificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.archivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblUsuarios.usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatTiposMonedas.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatTiposMovimientos.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblSolicitudesMoviemientos.idTblSolicitudesMoviemientos)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaAlta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTblUsuariosModifica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaModificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.archivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatTiposMonedas.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatTiposMovimientos.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TblSolicitudesMoviemientos.idTblSolicitudesMoviemientos)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTblSolicitudesMovimientosDetalle }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTblSolicitudesMovimientosDetalle }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTblSolicitudesMovimientosDetalle })
+        </td>
+    </tr>
+}
+
+</table>

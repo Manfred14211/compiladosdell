@@ -1,0 +1,158 @@
+﻿@model iveCincoFrame.Models.TblAfiliaciones
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body ">
+                <div class="card-body ">
+                    <div class="container">
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <h1 class="fc-toolbar-title">Afiliacion No. @Model.idTblAfiliaciones</h1>
+                                    </div>
+                                    @using (Html.BeginForm("Edit", "TblAfiliaciones", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="row d-none">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">ID</label>
+                                                @Html.EditorFor(model => model.idTblAfiliaciones, new { htmlAttributes = new { @class = "form-control" } })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Tipo de solicitud</label>
+                                                @Html.DropDownList("idCatZuma", null, htmlAttributes: new { @class = "form-select" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Codigo de Asociado</label>
+                                                @Html.EditorFor(model => model.codigoAsociado, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.codigoAsociado, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Nombre Completo</label>
+                                                @Html.EditorFor(model => model.nombreCompleto, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.nombreCompleto, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Agencia</label>
+                                                @Html.DropDownList("idCatUbicaciones", null, htmlAttributes: new { @class = "form-select" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Fecha de la solicitud</label>
+                                                @Html.EditorFor(model => model.fechaSolicitud, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.fechaSolicitud, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="contratoVisa1" class="form-label">Contrato Visa No. 1</label>
+                                                    @Html.TextBoxFor(model => model.contratoVisa1, new { @class = "form-control", type = "file", accept = ".pdf", value = "word1.pdf" })
+                                                    @Html.ValidationMessageFor(model => model.contratoVisa1, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Contrato Visa No. 2</label>
+                                                    @Html.TextBoxFor(model => model.contratoVisa2, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                    @Html.ValidationMessageFor(model => model.contratoVisa2, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Carta de banco</label>
+                                                    @Html.TextBoxFor(model => model.cartaBanco, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                    @Html.ValidationMessageFor(model => model.cartaBanco, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Carta de coperativa</label>
+                                                    @Html.TextBoxFor(model => model.cartaCooperativa, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                    @Html.ValidationMessageFor(model => model.cartaCooperativa, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Boleta de Pago POS</label>
+                                                    @Html.TextBoxFor(model => model.boletaPagoPos, new { @class = "form-control", type = "file", accept = ".pdf" })
+                                                    @Html.ValidationMessageFor(model => model.boletaPagoPos, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Fecha de envio a Visa</label>
+                                                @Html.EditorFor(model => model.fechaEnvioVisa, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.fechaEnvioVisa, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Fecha de recepecion de afiliacion</label>
+                                                @Html.EditorFor(model => model.fechaRecepcionAfiliacion, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                                                @Html.ValidationMessageFor(model => model.fechaRecepcionAfiliacion, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Codigo de afiliacion</label>
+                                                @Html.EditorFor(model => model.codigoAfiliacion, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.codigoAfiliacion, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputPassword4">Terminal Id</label>
+                                                @Html.EditorFor(model => model.idTerminal, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.idTerminal, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Usuario</label>
+                                                @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Contraseña</label>
+                                                @Html.EditorFor(model => model.contrasenia, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.contrasenia, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Numero de Cuenta de Ahorro</label>
+                                                @Html.EditorFor(model => model.numeroCuentaAhorro, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.numeroCuentaAhorro, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3 col-md-6">
+                                                <label for="inputEmail4">Numero de Recibo</label>
+                                                @Html.EditorFor(model => model.numeroRecibo, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.numeroRecibo, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <button type="submit" value="Edit" class="btn btn-primary">Guardar</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

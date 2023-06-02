@@ -1,0 +1,75 @@
+﻿@model iveCincoFrame.Models.TblRoles
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TblRoles</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idTblUsuarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTblUsuarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idTblUsuarioModifica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTblUsuarioModifica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatColaboradores.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatColaboradores.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatEstados.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTblRoles }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

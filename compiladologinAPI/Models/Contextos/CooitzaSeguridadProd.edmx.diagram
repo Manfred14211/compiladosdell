@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4a0ff5acef25474cade6186ffed85e37" Name="Diagram1" ZoomLevel="10">
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadBitacoraPeticiones" Width="1.5" PointX="19.5" PointY="51.625" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadBitacoras" Width="1.5" PointX="3" PointY="36.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadCambioDivisas" Width="1.5" PointX="9.75" PointY="44.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadCargasIniciales" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadClaseTipos" Width="1.5" PointX="0.75" PointY="42.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadConfiguraciones" Width="1.5" PointX="6" PointY="37.25" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadCorporaciones" Width="1.5" PointX="5.25" PointY="41.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadDepartamentos" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadDesplegableReportes" Width="1.5" PointX="3" PointY="57.125" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadDocumentos" Width="1.5" PointX="12.75" PointY="46" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadEmpresaConfiguraciones" Width="1.5" PointX="8.25" PointY="39.5" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadEmpresas" Width="1.5" PointX="7.5" PointY="44.25" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadFrontEndEmpresas" Width="1.5" PointX="9.75" PointY="58.25" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadIniciosDeSesions" Width="1.5" PointX="24.75" PointY="50.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadLecturaHuellas" Width="1.5" PointX="19.5" PointY="58" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadLugares" Width="1.5" PointX="5.25" PointY="0.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadMacAddresses" Width="1.5" PointX="22.5" PointY="52.625" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadModuloOpciones" Width="1.5" PointX="3" PointY="31.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadModuloOpcionReglaPersonalizadas" Width="1.5" PointX="7.5" PointY="29.5" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadModuloOpcionReglas" Width="1.5" PointX="5.25" PointY="29.25" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadModulos" Width="1.5" PointX="0.75" PointY="37" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadMunicipios" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadNivelesDeAccesos" Width="1.5" PointX="0.75" PointY="32.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadPatterns" Width="1.5" PointX="3" PointY="27.5" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadRegiones" Width="1.5" PointX="9.75" PointY="63.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadReporteCategorias" Width="1.5" PointX="6" PointY="33.5" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadReporteGraficas" Width="1.5" PointX="10.5" PointY="35.625" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadReportePersonalizadoParametros" Width="1.5" PointX="5.25" PointY="51.125" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadReportes" Width="1.5" PointX="8.25" PointY="35.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadReportesPersonalizados" Width="1.5" PointX="3" PointY="60.25" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadRoles" Width="1.5" PointX="5.25" PointY="45.375" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadSucursales" Width="1.5" PointX="12" PointY="51.625" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadTipoDocumentos" Width="1.5" PointX="10.5" PointY="32.375" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadTipos" Width="1.5" PointX="3" PointY="42.125" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadUsuarioConfiguraciones" Width="1.5" PointX="19.5" PointY="47.125" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadUsuarioDetalle" Width="1.5" PointX="14.25" PointY="52.5" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadUsuarios" Width="1.5" PointX="17.25" PointY="49.125" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadValidacionesPorModulos" Width="1.5" PointX="10.75" PointY="40" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.GpiSeguridadValidacionesPorRoles" Width="1.5" PointX="9.75" PointY="48.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.NoUsarIdentityRoles" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.NoUsarIdentityUsuarioRoles" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.NoUsarUsuarioClaims" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CooitzaSeguridadProdModel.NoUsarUsuarioLogins" Width="1.5" PointX="0.75" PointY="7.75" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadBitacoraPeticiones_SucursalId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadBitacoraPeticiones_UsuarioId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadBitacoras_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadBitacoras_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadBitacoras_SucursalId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadBitacoras_UsuarioId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadCambioDivisas_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadCambioDivisas_TipoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadCambioDivisas_UsuarioId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadTipos_ClaseTipoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadConfiguraciones_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadConfiguraciones_TipoConfiguracionId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadConfiguraciones_TipoValorId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadEmpresaConfiguraciones" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadEmpresas_CorporacionId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadMunicipios_DepartamentoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadDesplegableReportes_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReportePersonalizadoParametros_DesplegableId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.Fk_GpiSeguridadDocumentos_GpiSeguridadEmpresas" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.Fk_GpiSeguridadDocumentos_GpiSeguridadTipoDocumentos" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadEmpresaConfiguraciones_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadEmpresaConfiguraciones_SucursalId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadEmpresas_RoleId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadFrontEndEmpresas_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadModuloOpcionReglaPersonalizadas_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadRegiones_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadSucursales_EmpresasId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadValidacionesPorModulos_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadValidacionesPorRoles_EmpresaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadIniciosDeSesions_MacAddressId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadIniciosDeSesions_UsuarioId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadLecturaHuella_UsuarioId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadLugares_MunicipioId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadMacAddresses_SucursalId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadMacAddresses_UsuarioId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadModuloOpciones_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadModuloOpciones_NivelDeAccesoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadModuloOpcionReglas_ModuloOpcionId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadModuloOpcionReglaPersonalizadas_ModuloOpcionReglaId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadModuloOpcionReglaPersonalizadas_PatternId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadModuloOpcionReglas_PatternId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReporteCategorias_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReportes_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReportesPersonalizados_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadTipos_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadValidacionesPorModulos_ModuloId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadNivelesDeAccesos_Id" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadRoles_NivelDeAccesoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadSucursales_RegionId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReporteCategorias_TipoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReporteGraficas_ReporteId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReportePersonalizadoParametros_ReportePersonalizadoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadReportePersonalizadoParametros_TipoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadRoles_TipoId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadUsuarios_RoleId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadValidacionesPorModulos_RoleId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadValidacionesPorRoles_RoleId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadUsuarioDetalle_SucursalId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadUsuarioConfiguraciones_Id" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_GpiSeguridadUsuarioDetalle_Id" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.FK_NoUsarIdentityUsuarioRoles_RoleId" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.GpiSeguridadModuloOpcionDependencias" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.GpiSeguridadReportesCategorias" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.GpiSeguridadRoleModuloOpciones" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.GpiSeguridadRoleReportes" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.GpiSeguridadRoleReportesPersonalizados" />
+        <AssociationConnector Association="CooitzaSeguridadProdModel.GpiSeguridadUsuarioSucursales" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

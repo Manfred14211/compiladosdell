@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+                        <div id="transac-cenrtificaciones">
+                            @Html.Action("CertificacionesIndex")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '#nueva-certificacion', function () {
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("nuvacertificacion", "TblMonitorGrabacion")',
+                data: {
+                    id: 1
+                },
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+
+                    console.log(response);
+                    $('#transac-cenrtificaciones').html('');
+                    $('#transac-cenrtificaciones').html(response);
+                },
+            });
+            return false;
+        });
+    });
+</script>

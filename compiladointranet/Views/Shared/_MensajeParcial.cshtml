@@ -1,0 +1,318 @@
+﻿
+@if (TempData["ErrorMessage"] != null)
+{
+    @*<div class="alert alert-danger">
+            <div class="container">
+                <h3 class="text-white">@TempData["ErrorMessage"]</h3>
+            </div>
+        </div>*@
+    <script>
+        $(document).ready(function () {
+            function toasterOptions() {
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-bottom-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+            };
+
+
+            toasterOptions();
+            toastr.error('@TempData["ErrorMessage"]');
+        });
+    </script>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    @*<div class="alert alert-success">
+            <div>
+                <h3>
+                    @TempData["SuccessMessage"]
+                </h3>
+            </div>
+        </div>*@
+
+    <script>
+        $(document).ready(function () {
+            function toasterOptions() {
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-bottom-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+            };
+
+
+            toasterOptions();
+            toastr.success('@TempData["SuccessMessage"]');
+        });
+    </script>
+}
+
+
+@if (TempData["InfoMessage"] != null)
+{
+    @*<div class="alert alert-success">
+            <div>
+                <h3>
+                    @TempData["SuccessMessage"]
+                </h3>
+            </div>
+        </div>*@
+
+    <script>
+        $(document).ready(function () {
+            function toasterOptions() {
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-bottom-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+            };
+
+
+            toasterOptions();
+            toastr.info('@TempData["InfoMessage"]');
+        });
+    </script>
+}
+
+
+@if (TempData["WarningMessage"] != null)
+{
+    @*<div class="alert alert-success">
+            <div>
+                <h3>
+                    @TempData["SuccessMessage"]
+                </h3>
+            </div>
+        </div>*@
+
+    <script>
+        $(document).ready(function () {
+            function toasterOptions() {
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": true,
+                    "positionClass": "toast-bottom-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+            };
+
+
+            toasterOptions();
+            toastr.warning('@TempData["WarningMessage"]');
+        });
+    </script>
+}
+
+@if (TempData["SwSuccess"] != null)
+{
+
+    <script>
+    $(document).ready(function () {
+
+        Swal.fire({
+            title: 'Correcto',
+            text: '@TempData["SwSuccess"]',
+            icon: 'success',
+            confirmButtonColor: '#153d77',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+
+        })
+
+    });
+    </script>
+}
+
+@if (TempData["SwError"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Ocurrio un problema',
+                text: '@TempData["SwError"]',
+            })
+        });
+    </script>
+}
+@if (TempData["SwForm"] != null)
+{
+    <script>
+        $(document).ready(function () {
+            Swal.fire({
+                title: 'Eres Padrino de Agencias y Administrador',
+                text: "Elije como deseas continuar",
+                icon: 'info',
+                showCancelButton: true,
+                allowOutsideClick: false,
+                confirmButtonColor: '#153d77',
+                cancelButtonColor: '#198754',
+                cancelButtonText: 'Padrino de agencias',
+                confirmButtonText: 'Administrador'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "@Url.Action("Tablero", "TableroGerencial")?padrino=0";
+                }
+                else
+                {
+                    window.location.href = "@Url.Action("Tablero", "TableroGerencial")?padrino=1";//padrino 1 si es adminstrador
+                }
+            })
+        });
+    </script>
+}
+@if (TempData["SwFormTablero"] != null)
+{
+<link href="~/CSS/StyleAlert.css" rel="stylesheet" />
+<script>
+        $(document).ready(function () {
+            (async () => {
+                  const { value: fechas } = await Swal.fire({
+                    title: 'Selecciona la fecha del reporte',
+                    icon: 'info',
+                      html:`
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                        <label>Selecciona el Año</label>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">
+                                                <i class="align-middle me-2 fas fa-fw fa-calendar-check"></i>
+                                            </span>
+                                            <select class="form-select" id="idCatAnios" aria-label="Default select example">
+                                                <option selected value="4">2023</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                        <label>Selecciona el Mes</label>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">
+                                                <i class="align-middle me-2 fas fa-fw fa-calendar-alt"></i>
+                                            </span>
+                                            <select class="form-select" id="idCatMeses" aria-label="Default select example">
+                                                <option value="3">Marzo</option>
+                                                <option selected value="4">Abril</option>
+                                                <option disabled value="5">Mayo</option>
+                                                <option disabled value="6">Junio</option>
+                                                <option disabled value="7">Julio</option>
+                                                <option disabled value="8">Agosto</option>
+                                                <option disabled value="9">Septiembre</option>
+                                                <option disabled value="10">Octubre</option>
+                                                <option disabled value="11">Noviembre</option>
+                                                <option disabled value="12">Diciembre</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`,
+                    focusConfirm: false,
+                    showLoaderOnConfirm: true,
+                      confirmButtonText: 'Continuar <i class="align-middle me-2 fas fa-fw fa-hand-point-right"></i>',
+                      confirmButtonHtml: true,
+                      customClass: {
+                          confirmButton: 'btn-lg'
+                      },
+                    allowOutsideClick: false,
+                    preConfirm: () => {
+                      return [
+                          document.getElementById('idCatAnios').value,
+                          document.getElementById('idCatMeses').value
+                      ]
+                    }
+                  })
+
+                  if (fechas) {
+                    @*$.ajax({
+                      url: '@Url.Action("TableroGerenciaItems", "TableroGerencial")',
+                      type: 'POST',
+                      data: { idCatAnios: fechas[0], idCatMeses: fechas[1] },
+                      success: function(response) {
+                        Swal.fire('Respuesta del servidor', response)
+                      },
+                      error: function() {
+                        Swal.fire('Ha ocurrido un error', '', 'error')
+                      }
+                    })*@
+                      window.location.href = "@Url.Action("TableroGerenciaItems", "TableroGerencial")?idCatAnios=" + fechas[0] + "&idCatMeses=" + fechas[1] + "";
+                  }
+            })()
+
+        });
+        // Escuchar el evento "click" en cualquier elemento "a" o "button"
+        //document.addEventListener('click', function (event) {
+        //    // Obtener el elemento que se hizo clic
+        //    var target = event.target;
+        //    // Verificar si el elemento es un enlace o un botón
+        //    if (target.tagName.toLowerCase() === 'a' || target.tagName.toLowerCase() === 'button') {
+        //        // Mostrar el cuadro de diálogo de carga
+        //        Swal.fire({
+        //            title: 'Cargando',
+        //            html: 'Espere un momento por favor...',
+        //            allowOutsideClick: false,
+        //            showConfirmButton: false,
+        //            willOpen: () => {
+        //                Swal.showLoading();
+        //            }
+        //        });
+        //    }
+        //});
+        // Ocultar el cuadro de diálogo de carga una vez que se ha cargado la página
+        //window.addEventListener('load', function () {
+        //    Swal.close();
+        //});
+</script>
+}

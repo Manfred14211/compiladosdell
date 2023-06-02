@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="83acc0ec150c40c1a409cdd22c0917a6" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAbonoDescuentos" Width="1.5" PointX="21.75" PointY="170.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAgrupadorPuestoDetalles" Width="1.5" PointX="10.5" PointY="207.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAgrupadorPuestos" Width="1.5" PointX="8.25" PointY="201.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAguinaldo" Width="1.5" PointX="11.25" PointY="165" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAguinaldoDetalles" Width="1.5" PointX="13.5" PointY="181.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAlergias" Width="1.5" PointX="5.25" PointY="313.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAsignacionEmpleadoDetalles" Width="1.5" PointX="19.5" PointY="172.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAsignacionEmpleados" Width="1.5" PointX="11.25" PointY="156.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhAsuetos" Width="1.5" PointX="8.25" PointY="236.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBajas" Width="1.5" PointX="14.25" PointY="155" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBancos" Width="1.5" PointX="3" PointY="189.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBitacoraPorcentajeIncentivos" Width="1.5" PointX="26.75" PointY="182.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBitacoraPuestos" Width="1.5" PointX="13.5" PointY="193.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBonificacionDatalles" Width="1.5" PointX="24.5" PointY="162.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBonificaciones" Width="1.5" PointX="11.25" PointY="174.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBono14" Width="1.5" PointX="14.25" PointY="165.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhBono14Detalles" Width="1.5" PointX="16.5" PointY="181.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhCambioPuestos" Width="1.5" PointX="16.5" PointY="187.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhClaseEstados" Width="1.5" PointX="6.75" PointY="130.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhClaseTipos" Width="1.5" PointX="6.75" PointY="140.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhComentarios" Width="1.5" PointX="16.5" PointY="166.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhComisionDetalles" Width="1.5" PointX="10.5" PointY="187.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhComisiones" Width="1.5" PointX="29.5" PointY="185" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhConfiguracionPlanillas" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhCuentaBancarias" Width="1.5" PointX="11.25" PointY="152.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhCuentasContables" Width="1.5" PointX="16.5" PointY="200.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhCuotasDescuentos" Width="1.5" PointX="25" PointY="173.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDepartamentos" Width="1.5" PointX="3.75" PointY="149.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDepartamentoTrabajo" Width="1.5" PointX="0.75" PointY="162.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDescuentoDetalles" Width="1.5" PointX="24.75" PointY="195.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDescuentos" Width="1.5" PointX="15.75" PointY="194.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDesembolsos" Width="1.5" PointX="21.75" PointY="187.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDetalleBonificacionDecretos" Width="1.5" PointX="19.5" PointY="161.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDiaExtras" Width="1.5" PointX="19.25" PointY="156.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDiaLaborales" Width="1.5" PointX="11.25" PointY="134.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhDocumentos" Width="1.5" PointX="19.5" PointY="166.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoActualizacionFechas" Width="1.5" PointX="5.25" PointY="324.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoAsociados" Width="1.5" PointX="5.25" PointY="316.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoConsumoDetalles" Width="1.5" PointX="7.5" PointY="321" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoConsumos" Width="1.5" PointX="5.25" PointY="320.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoInterinoReemplazos" Width="1.5" PointX="5.25" PointY="180.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoInterinos" Width="1.5" PointX="3" PointY="191.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoLenguajes" Width="1.5" PointX="14.25" PointY="173.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoLicencias" Width="1.5" PointX="8.25" PointY="179.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleadoNivelAcademicos" Width="1.5" PointX="5.25" PointY="158.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpleados" Width="1.5" PointX="3" PointY="156.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEmpresaContrataciones" Width="1.5" PointX="17.25" PointY="151" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEstados" Width="1.5" PointX="9" PointY="128.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhEtnias" Width="1.5" PointX="0.75" PointY="182.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhFolios" Width="1.5" PointX="14.25" PointY="141.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhFondoRetiros" Width="1.5" PointX="10.5" PointY="160.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhFormatoReportes" Width="1.5" PointX="14.25" PointY="137.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhFormatoReporteTamanios" Width="1.5" PointX="12" PointY="126.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhFotos" Width="1.5" PointX="16.5" PointY="160.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhHoraExtras" Width="1.5" PointX="21.5" PointY="155.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIncentivoDetalles" Width="1.5" PointX="10.5" PointY="192" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIncentivoDetalleTipos" Width="1.5" PointX="18.75" PointY="197" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIncentivoPenalizaciones" Width="1.5" PointX="24.25" PointY="157.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIncentivoPuestoDetalles" Width="1.5" PointX="10.5" PointY="203.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIncentivoPuestos" Width="1.5" PointX="8.25" PointY="183.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIncentivos" Width="1.5" PointX="24.5" PointY="165.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIncentivoTipoCalculados" Width="1.5" PointX="26.75" PointY="167.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIngresoExtras" Width="1.5" PointX="22.25" PointY="165.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIsr" Width="1.5" PointX="8.25" PointY="175.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhIsrDetalles" Width="1.5" PointX="19.5" PointY="176.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhJerarquiaPuestos" Width="1.5" PointX="13.5" PointY="206.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhLenguajes" Width="1.5" PointX="12" PointY="143.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhLiquidaciones" Width="1.5" PointX="19.5" PointY="182.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhLugares" Width="1.5" PointX="3.75" PointY="185.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhMunicipios" Width="1.5" PointX="1.5" PointY="185.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhNacionalidades" Width="1.5" PointX="0.75" PointY="179.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhNotaAbonos" Width="1.5" PointX="32" PointY="187.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhOtroDescuentos" Width="1.5" PointX="21.75" PointY="194.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaActividades" Width="1.5" PointX="8.25" PointY="154.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaAjustes" Width="1.5" PointX="16.5" PointY="172.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaBonificacionDetalles" Width="1.5" PointX="13.5" PointY="188.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaBonificaciones" Width="1.5" PointX="26.5" PointY="187.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaBonificacionPorcentajes" Width="1.5" PointX="11.25" PointY="130.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaColumnas" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaDepartamentos" Width="1.5" PointX="13.5" PointY="199.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaDetalles" Width="1.5" PointX="22.5" PointY="176.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaDiaLaborados" Width="1.5" PointX="10.5" PointY="199.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillaFolios" Width="1.5" PointX="16.5" PointY="157" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPlanillas" Width="1.5" PointX="8.25" PointY="163.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhProfesiones" Width="1.5" PointX="0.75" PointY="174.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhPuestos" Width="1.5" PointX="8.25" PointY="204.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhReferenciasBancarias" Width="1.5" PointX="5.25" PointY="176.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhReferenciasFamiliares" Width="1.5" PointX="8.25" PointY="159.25" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhRegionEmpleados" Width="1.5" PointX="0.75" PointY="177.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhRegiones" Width="1.5" PointX="0.75" PointY="167.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhReligiones" Width="1.5" PointX="0.75" PointY="172" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhReporteDescuentoDetalles" Width="1.5" PointX="24" PointY="189.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhReporteDescuentos" Width="1.5" PointX="10.5" PointY="181.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhSanciones" Width="1.5" PointX="14.25" PointY="177.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhSolicitudes" Width="1.5" PointX="5.25" PointY="152.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhSucursales" Width="1.5" PointX="6" PointY="162.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhSuspensionDetalles" Width="1.5" PointX="10.5" PointY="149.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhSuspensiones" Width="1.5" PointX="8.25" PointY="148.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoBonificaciones" Width="1.5" PointX="9" PointY="218.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoDescuentos" Width="1.5" PointX="8.25" PointY="232.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoDetalleBonificacionDecretos" Width="1.5" PointX="17.25" PointY="142.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoDocumentos" Width="1.5" PointX="17.25" PointY="148.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoEmpleadoConfiguraciones" Width="1.5" PointX="11.25" PointY="138" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoEmpleados" Width="1.5" PointX="0.75" PointY="160.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoFondoRetiros" Width="1.5" PointX="8.25" PointY="188" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoFotos" Width="1.5" PointX="14.25" PointY="145.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoHoraExtras" Width="1.5" PointX="19.25" PointY="145.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoIncentivos" Width="1.5" PointX="22.25" PointY="161.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoLiquidaciones" Width="1.5" PointX="17.25" PointY="207.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoPlanillaAgrupadorDetalles" Width="1.5" PointX="20.25" PointY="153.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoPlanillaAgrupadores" Width="1.5" PointX="26.5" PointY="158" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoPlanillaCaracteristicas" Width="1.5" PointX="26.5" PointY="152.125" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoPlanillaDepartamentos" Width="1.5" PointX="8.25" PointY="228.375" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoPlanillas" Width="1.5" PointX="24.25" PointY="150.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipos" Width="1.5" PointX="9" PointY="135.625" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoSuspensiones" Width="1.5" PointX="6" PointY="149" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTipoTurnos" Width="1.5" PointX="11.25" PointY="145.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTurnoMontos" Width="1.5" PointX="10.5" PointY="214" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhTurnos" Width="1.5" PointX="13.5" PointY="159.875" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhVacacionDetalles" Width="1.5" PointX="19.5" PointY="149.5" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.GpiRrhhVacaciones" Width="1.5" PointX="14.25" PointY="148.75" />
+        <EntityTypeShape EntityType="CooitzaRrhhModel.CambioSalario2023" Width="1.5" PointX="2.75" PointY="3.75" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAbonoDescuentos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAbonoDescuentos_ReporteDescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAbonoDescuentos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuotasDescuentos_AbonoDescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAgrupadorPuestoDetalles_AgrupadorPuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAgrupadorPuestoDetalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldo_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldo_FormaPagoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldo_RegionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldo_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldo_TipoPlanillaAgrupadorId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldo_TipoPlanillaDepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldo_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldoDetalles_AguinaldoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComentarios_AguinaldoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDocumentos_AguinaldoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFotos_AguinaldoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaAjustes_AguinaldoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldoDetalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhAguinaldoDetalles_EstadoEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldoDetalles_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldoDetalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAguinaldoDetalles_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAlergias_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAsignacionEmpleadoDetalles_AsignacionEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAsignacionEmpleadoDetalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAsignacionEmpleados_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAsignacionEmpleados_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhAsuetos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDiaLaborados_AsuetoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBajas_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBajas_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentaBancarias_BancoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReferenciasBancarias_BancoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPorcentajeIncentivos_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPorcentajeIncentivos_NivelId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPorcentajeIncentivos_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPorcentajeIncentivos_PuestoPadreId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPorcentajeIncentivos_TipoDistribucionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPorcentajeIncentivos_TipoIncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPuestos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPuestos_PuestoAnteriorId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPuestos_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBitacoraPuestos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhBonificacionDatalles_BonificacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhBonificacionDatalles_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBonificaciones_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBonificaciones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhBonificaciones_TipoBonificacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhBonificaciones_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14_FormaPagoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14_RegionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14_TipoPlanillaAgrupadorId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14_TipoPlanillaDepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14Detalles_Bono14Id" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComentarios_BonoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDocumentos_BonoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFotos_BonoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaAjustes_Bono14Id" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14Detalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhBono14Detalles_EstadoEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14Detalles_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14Detalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhBono14Detalles_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCambioPuestos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCambioPuestos_PuestoActualId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCambioPuestos_PuestoPromovidoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCambioPuestos_SucursalActualId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCambioPuestos_SucursalNuevaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEstados_ClaseEstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipos_ClaseTipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComentarios_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhComentarios_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComentarios_LiquidacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComentarios_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisionDetalles_ComisionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisionDetalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisionDetalles_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisionDetalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisiones_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisiones_FormaPagoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisiones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisiones_TipoPlanillaDepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhComisiones_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentaBancarias_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentaBancarias_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentasContables_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentasContables_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentasContables_TipoAsignacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentasContables_TipoDescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentasContables_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuentasContables_TipoReferenciaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhCuotasDescuentos_DescuentoDetalleId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpresaContrataciones_DepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhMunicipios_DepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSucursales_DepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_DepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDepartamentos_DepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDescuentoDetalles_DescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDescuentoDetalles_LiquidacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhNotaAbonos_DescuentoDetalleId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDescuentos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDescuentos_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDescuentos_ReporteDescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDescuentos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDescuentos_TipoDecuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.PK_GpiRrhhReporteDescuentoDetalles_DescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.PK_GpiRrhhDesembolso_LiquidacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDetalleBonificacionDecretos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDetalleBonificacionDecretos_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDetalleBonificacionDecretos_TipoDetalleBonificacionDecretoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDiaExtras_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDiaExtras_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDiaLaborales_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDocumentos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhDocumentos_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDocumentos_LiquidacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDocumentos_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhDocumentos_TipoDocumentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoActualizacionFechas_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoAsociados_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoConsumoDetalles_EmpleadoConsumoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoConsumos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoInterinoReemplazos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoInterinoReemplazos_EmpleadoInterinoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoInterinoReemplazos_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoInterinos_SexoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoLenguajes_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoLenguajes_LenguajeId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoLenguajes_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoLicencias_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoLicencias_TipoLicenciaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoLicencias_NivelAcademicoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleadoNivelAcademicos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_EmpresaContratacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhEmpleados_EstadoCivilId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhEmpleados_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_EtniaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_LugarId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_NacionalidadId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_OrigenId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_ProfesionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_RegionEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_RegionIncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_ReligionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhEmpleados_SexoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_SucursalVendedorId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpleados_TipoEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhEmpleados_TipoSangreId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFondoRetiros_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFotos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhHoraExtras_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoDetalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIngresoExtras_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIsrDetalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhLiquidaciones_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhOtroDescuentos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaActividades_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaAjustes_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificacionDetalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDetalles_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReferenciasBancarias_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReferenciasFamiliares_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReporteDescuentos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSanciones_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSolicitudes_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSolicitudes_EncargadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSuspension_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTurnos_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhVacaciones_EmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpresaContrataciones_MunicipioId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhEmpresaContrataciones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoDetalles_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivos_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIsrDetalles_EstadoEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhLiquidaciones_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificacionDetalles_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificaciones_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhPlanillaDetalles_EstadoEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDetalles_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSolicitudes_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhVacaciones_EstadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaFolios_FolioId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFondoRetiros_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFondoRetiros_TipoFondoRetiroId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFormatoReportes_FormatoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFormatoReportes_TamanioId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFormatoReportes_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhFotos_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFotos_LiquidacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFotos_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhFotos_TipoFotoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhHoraExtras_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhHoraExtras_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhHoraExtras_TipoHoraExtraId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoDetalles_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoDetalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoDetalles_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoDetalleTipos_IncentivosDetalleId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoDetalleTipos_TipoIncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoPenalizaciones_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoPenalizaciones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoPuestoDetalles_IncentivoPuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoPuestoDetalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoPuestos_JerarquiaPuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoPuestos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoPuestos_TipoIncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivos_FormaPagoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivos_TipoIncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoTipoCalculados_IncentivoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIncentivoTipoCalculados_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIngresoExtras_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIngresoExtras_TipoIngresoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIsr_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhIsrDetalles_ISRId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhJerarquiaPuestos_NivelId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhJerarquiaPuestos_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhJerarquiaPuestos_PuestoPadreId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpirrhhJerarquiaPuestos_TipoDistribucionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhLiquidaciones_FormaPagoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhLiquidaciones_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhLiquidaciones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhLiquidaciones_TipoLiquidacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhOtroDescuentos_LiquidacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhLugares_MunicipioId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSucursales_LugarId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSucursales_MunicipioId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhNotaAbonos_PlanillaDetalleId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GGpiRrhhOtroDescuentos_TipoDescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhOtroDescuentos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaActividades_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaActividades_TipoPlanillaAgrupadorId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaAjustes_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificacionDetalles_PlanillaBonificacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificacionDetalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificaciones_FormaPagoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificaciones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificaciones_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificaciones_TipoPlanillaDepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificaciones_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaBonificacionPorcentajes_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDepartamentos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDepartamentos_TipoPlanillaDepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDetalles_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDetalles_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDetalles_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDiaLaborados_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDiaLaborados_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaDiaLaborados_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillaFolios_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_FormaPagoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_QuincenaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_RegionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_TipoPlanillaAgrupadorId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_TipoPlanillaDepartamentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPlanillas_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReporteDescuentos_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSuspensionDetalles_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTurnos_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhVacacionDetalles_PlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhPuestos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReporteDescuentos_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTurnoMontos_PuestoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhReferenciasFamiliares_SexoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReferenciasFamiliares_TipoFamiliarId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSucursales_RegionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillaAgrupadores_RegionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.PK_GpiRrhhReporteDescuentoDetalles_ReporteDescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhReporteDescuentos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSanciones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSolicitudes_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSuspensiones_SolicitudId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhVacaciones_SolicitudId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSuspensiones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoDescuentos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoIncentivos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillaAgrupadorDetalles_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillaDepartamentos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillas_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTurnos_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhVacaciones_SucursalId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSuspensionDetalles_SuspensionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSuspensiones_TipoDescuentoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhSuspensiones_TipoSuspensionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoEmpleadoConfiguraciones_FormatoContratoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhTipoEmpleadoConfiguraciones_FormatoConvenioId" />
+        <AssociationConnector Association="CooitzaRrhhModel.Fk_GpiRrhhTipoEmpleadoConfiguraciones_FormatoDeclaracionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoEmpleadoConfiguraciones_TipoEmpleadoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillaAgrupadorDetalles_TipoPlanillaAgrupadorId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillaAgrupadores_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillaCaracteristicas_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillaCaracteristicas_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillas_ManejoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoPlanillas_TipoPlanillaId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTipoSuspensiones_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhVacaciones_TipoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhTurnos_TipoTurnoId" />
+        <AssociationConnector Association="CooitzaRrhhModel.FK_GpiRrhhVacacionDetalles_VacacionId" />
+        <AssociationConnector Association="CooitzaRrhhModel.GpiRrhhTipoIncentivoFormaPagos" />
+        <AssociationConnector Association="CooitzaRrhhModel.GpiRrhhTipoLiquidacionFormaPagos" />
+        <AssociationConnector Association="CooitzaRrhhModel.GpiRrhhTipoPlanillaFormaPagos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,67 @@
+﻿@model iveCincoFrame.Models.TblSmsCore
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TblSmsCore</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mensaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.segmento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.segmento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaHoraRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaHoraRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.resultadoMensaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resultadoMensaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.llave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.llave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTblSmsCore }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

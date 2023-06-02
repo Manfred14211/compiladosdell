@@ -1,0 +1,251 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div class="card-header">
+                            <h2 class="text-center">Cargar nuevo archivo</h2>
+                            <h6 class="Historial Cartera Credito"></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <form>
+                                    <div class="row g-2 mx-3">
+
+                                        <div class="col-md">
+                                            <div class="form-floating">
+                                                <select class="form-select" id="mes">
+                                                    <option value= "0" selected disabled>Elija un mes del año</option>
+                                                    <option value="1">Enero</option>
+                                                    <option value="2">Febrero</option>
+                                                    <option value="3">Marzo</option>
+                                                    <option value="4">Abril</option>
+                                                    <option value="5">Mayo</option>
+                                                    <option value="6">Junio</option>
+                                                    <option value="7">Julio</option>
+                                                    <option value="8">Agosto</option>
+                                                    <option value="9">Septiembre</option>
+                                                    <option value="10">Octubre</option>
+                                                    <option value="11">Noviembre</option>
+                                                    <option value="12">Diciembre</option>
+                                                </select>
+                                                <label for="floatingSelectGrid">Mes</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md">
+                                            <div class="form-floating">
+                                                <select class="form-select" id="anio">
+                                                    <option value= "0" selected disabled>Elija el año del archivo</option>
+                                                    <option value="2020">2020</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                </select>
+                                                <label for="floatingSelectGrid">Año</label>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="formFileLg" class="form-label">Archivo Excel</label>
+                                            <input class="form-control form-control-lg" id="archivos-upload" type="file">
+                                        </div>
+                                        <duv class="container mt-4">
+                                            <label for="progress" class="form-label">Progreso de carga</label>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                            </div>
+                                        </duv>
+                                    </div>
+                                    <footer class="col-md">
+                                        <hr>
+                                        <button type="button" id="cargar-archivo" class="btn btn-primary btn-lg" style="background: #153d77;"><i class="align-middle me-2 fas fa-fw fa-arrow-circle-up"></i> Subir Archivo</button>
+                                    </footer>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var percent = 0;
+        $('#progress-bar').css('width', percent + '%');
+        $('#progress-bar').attr('aria-valuenow', percent);
+        $('#progress-bar').text(percent + '%');
+
+        $(document).on('click', '#cargar-archivo', function () {
+
+            var selectFile = ($("#archivos-upload"))[0].files[0];
+
+
+            var dataString = new FormData();
+
+            dataString.append("file", selectFile);
+            dataString.append("mes", $("#mes").val() == null ? 0 : $("#mes").val());
+            dataString.append("anio", $("#anio").val() == null ? 0 : $("#anio").val());
+            dataString.append("estatusRequest", 1);
+
+            console.log(dataString.get('mes'));
+            console.log(dataString.get('anio'));
+           
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("SubirExcel", "TblCarteraCredito")',
+                data: dataString,
+                contentType: false,
+                processData: false,
+                async:true,
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+
+                    if (response.data.Codigo == 0) {
+                        dataString.set('estatusRequest', 0);
+                        uploadFetch(dataString);
+                    }
+                    else {
+                        setTimeout(() => {
+                            Swal.fire({
+                                title: "Ocurrio un problema",
+                                text: response.data.Descripcion,
+                                icon: 'warning',
+                                showCancelButton: false,
+                                confirmButtonColor: '#153d77',
+                                cancelButtonColor: false,
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.reload();
+                                }
+                            })
+                        }, 1000);
+                    }
+                },
+            });
+            return false;
+
+            function uploadFetch(fetchdata) {
+                 $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("SubirExcel", "TblCarteraCredito")',
+                    data: fetchdata,
+                    contentType: false,
+                    processData: false,
+                    async:true,
+                    beforeSend: function (response) {
+                        var percent = 50;
+                        $('#progress-bar').css('width', percent + '%');
+                        $('#progress-bar').attr('aria-valuenow', percent);
+                        $('#progress-bar').text(percent + '%');
+                        var percent = 65;
+                        $('#progress-bar').css('width', percent + '%');
+                        $('#progress-bar').attr('aria-valuenow', percent);
+                        $('#progress-bar').text(percent + '%');
+                    },
+                    success: function (response) {
+                        if (response.data.Codigo == 1) {
+                            const update = () => {
+                                return new Promise(resolve => {
+                                    setTimeout(() => {
+                                        var percent = 70;
+                                        while (percent < 100) {
+                                            percent += 5;
+                                            $('#progress-bar').css('width', percent + '%');
+                                            $('#progress-bar').addClass("progress-bar progress-bar-striped bg-success");
+                                            $('#progress-bar').attr('aria-valuenow', percent);
+                                            $('#progress-bar').text(percent + '%');
+
+                                        }
+                                        var data = 1;
+                                        resolve(data);
+                                    }, 1000);
+
+                                });
+
+                            }
+
+                            function loadda() {
+                                Swal.fire({
+                                    title: response.data.Descripcion,
+                                    text: "Archivo" + response.data.NombreArchivo,
+                                    icon: 'success',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#153d77',
+                                    cancelButtonColor: false,
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.reload();
+                                    }
+                                })
+                            }
+
+                            async function callerFun() {
+
+                                const m = await update();
+                                //console.log(m);
+
+                                setTimeout(() => {
+                                    Swal.fire({
+                                        title: response.data.Descripcion,
+                                        text: "Archivo" + response.data.NombreArchivo,
+                                        icon: 'success',
+                                        showCancelButton: false,
+                                        confirmButtonColor: '#153d77',
+                                        cancelButtonColor: false,
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.reload();
+                                        }
+                                    })
+                                }, 1500);
+
+                                //alert("carga completada");
+                                //console.log("After waiting");
+                            }
+                            callerFun();
+                        }
+                        else {
+                            
+                            percent = 50;
+                            $('#progress-bar').css('width', percent + '%');
+                            $('#progress-bar').addClass("progress-bar progress-bar-striped bg-danger");
+                            $('#progress-bar').attr('aria-valuenow', percent);
+                            $('#progress-bar').text(percent + '%');
+                            setTimeout(() => {
+                                Swal.fire({
+                                    title: "Ocurrio un problema",
+                                    text: response.data.Descripcion,
+                                    icon: 'error',
+                                    showCancelButton: false,
+                                    confirmButtonColor: '#153d77',
+                                    cancelButtonColor: false,
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.reload();
+                                    }
+                                })
+                            }, 1500);
+                        }
+
+                    },
+                 });
+                 return false;
+            }
+        });
+
+    });
+</script>

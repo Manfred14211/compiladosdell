@@ -1,0 +1,563 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblSolicitudes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-xl-12 col-md-12 col-sm-12 col-lg-12">
+    <div class="card-body col-xl-12 col-md-12 col-sm-12 col-lg-12 ">
+        <h1>Listado de Solicitudes</h1>
+ 
+        <div class="btn-group py-2">
+            @Html.ActionLink("Nueva Solicitud", "Create", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Historial", "HistorialS", null, new { @class = "btn btn-primary" })
+        </div>
+
+        <table class="table table-bordered table-striped table-hover" id="tbl-solicitudes" width="100%" cellpadding="0">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Tipo Solicitud</th>
+                    <th>Motivo</th>
+                    <th>Monto</th>
+                    <th>Estado del Proceso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            @{var iterador = 1;}
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td scope="row">@iterador</td>
+                        <td>
+                            @String.Format("{0:dd/MM/yyyy}", item.fechaInicio)
+                        </td>
+                        <td>
+                            @String.Format("{0:dd/MM/yyyy}", item.fechaFinal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatTipoSolicitudes.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombreSolicitud)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.monto)
+                        </td>
+                        <td>
+                            @if (item.idCatEstados == 1)
+                            {
+                                <!-- ESTADO DE GERENTE -->
+                                <button type="button" class="btn btn-outline-info btn-sm detalleEstadoGerente" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Gerente" data-bs-toggle="modal" data-bs-target="#modalEstadoGerente">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                                <!-- ESTADO DE CONTABILIDAD -->
+                                <button type="button" class="btn btn-outline-info btn-sm detalleEstadoContabilidad" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Contabilidad" data-bs-toggle="modal" data-bs-target="#modalEstadoContabilidad">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                                <!-- ESTADO DE AUDITORIA -->
+                                <button type="button" class="btn btn-outline-info btn-sm detalleEstadoAuditoria" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Auditoria" data-bs-toggle="modal" data-bs-target="#modalEstadoAuditoria">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                            }
+                            else
+                            {
+                                <!-- ESTADO DE GERENTE -->
+                                <button type="button" class="btn btn-success btn-sm detalleEstadoGerente" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Gerente" data-bs-toggle="modal" data-bs-target="#modalEstadoGerente">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                                <!-- ESTADO DE CONTABILIDAD -->
+                                <button type="button" class="btn btn-success btn-sm detalleEstadoContabilidad" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Contabilidad" data-bs-toggle="modal" data-bs-target="#modalEstadoContabilidad">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                                <!-- ESTADO DE AUDITORIA -->
+                                <button type="button" class="btn btn-success btn-sm detalleEstadoAuditoria" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Auditoria" data-bs-toggle="modal" data-bs-target="#modalEstadoAuditoria">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                            }
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="align-middle me-2 fas fa-fw fa-cog"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>@Html.ActionLink("Editar", "Edit", new { id = item.idTblSolicitudes }, htmlAttributes: new { @class = "btn btn-outline-warning btn-sm form-control" })</li>
+                                <li><a class="dropdown-item VerDepositosSC" codigo="@item.idTblSolicitudes"><i class="align-middle me-2 fas fa-fw fa-money-bill"></i>  Depositar</a></li>
+                                <li><a class="dropdown-item detalleAgregarFactura" codigo="@item.idTblSolicitudes"><i class="align-middle me-2 fas fa-fw fa-clipboard-list"></i>  Agregar Factura</a></li>
+                                <li><a class="dropdown-item eliminarSo" codigo="@item.idTblSolicitudes"><i class="align-middle me-2 fas fa-fw fa-trash-alt"></i> Eliminar</a></li>
+                                <li><a class="dropdown-item terminarC" codigo="@item.idTblSolicitudes"><i class="align-middle me-2 fas fa-fw fa-check-square"></i> Culminar</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    iterador++;
+                }
+            </tbody>
+
+
+
+        </table>
+    </div>
+
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#tbl-solicitudes').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "(Filtrado de MAX total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+
+            //Ver estados
+        $(document).on('click', '.detalleEstadoGerente', function ()
+        {
+            var codigo = $(this).attr('codigo');
+                //alert(codigo);
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("estadoGerente", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#VerdetalleEstadoGerente').html(response);
+                },
+            });
+            return false;
+        });
+
+        $('.detalleEstadoContabilidad').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+                //alert(codigo);
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("estadoContabilidad", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    detalleDepositoGl();
+                    $('#VerdetalleEstadoContabilidad').html(response);
+                },
+            });
+            return false;
+            function detalleDepositoGl(){
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleDepositosGlobales", "TblSolicitudes")',
+                    data: {
+                        id: codigo,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response)
+                    {
+                        $('#DetalleDeposito').html(response);
+                    },
+                });
+                return false;
+            }
+        });
+
+        $('.detalleEstadoAuditoria').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+                //alert(codigo);
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("estadoAuditoria", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#VerdetalleEstadoAuditoria').html(response);
+                },
+            });
+            return false;
+        });
+
+        $('.terminarC').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Estás seguro/a de culminar la comision?',
+                showConfirmButton: true,
+                confirmButtonText: 'CULMINAR',
+                confirmButtonColor: '#3085d6',
+                showCancelButton: true,
+                cancelButtonText: 'CANCELAR',
+                cancelButtonColor: '#d33',
+                buttonsStyling: true,
+
+            }).then((result) =>
+            {
+                if (result.isConfirmed)
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("culminarComision", "TblSolicitudes")',
+                        data: {
+                            id: codigo,
+                        },
+                        beforeSend: function (response)
+                        {
+                            response.setRequestHeader("If-Modified-Since", "0");
+                            response.setRequestHeader("Cache-Control", "no-cache");
+                        },
+                        success: function (response)
+                        {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Comision culminada',
+                                showConfirmButton: false,
+                                timer: 1500,
+                            }),
+                                number = response;
+                            //cargardetalle(number);
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+            return false;
+        });
+
+        $('.eliminarSo').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Estás seguro/a de eliminar la solicitud?',
+                showConfirmButton: true,
+                confirmButtonText: 'ELIMINAR',
+                confirmButtonColor: '#3085d6',
+                showCancelButton: true,
+                cancelButtonText: 'CANCELAR',
+                cancelButtonColor: '#d33',
+                buttonsStyling: true,
+
+            }).then((result) =>
+            {
+                if (result.isConfirmed)
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("eliminarSolicitud", "TblSolicitudes")',
+                        data:
+                        {
+                            id: codigo
+                        },
+                        beforeSend: function (response)
+                        {
+                            response.setRequestHeader("If-Modified-Since", "0");
+                            response.setRequestHeader("Cache-Control", "no-cache");
+                        },
+                        success: function (response)
+                        {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Solicitud eliminada exitosamente',
+                                showConfirmButton: false,
+                                timer: 1500,
+                            }),
+                                number = response;
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+            return false;
+        });
+
+        $('.detalleAgregarFactura').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("detalleFacturas", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#agregarFacturasDetalle').html(response);
+                    $('#modalAgregarFacturaSolicitud').modal('show');
+                },
+            });
+            return false;
+        });
+
+        $('.VerDepositosSC').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("detalleBoletasSolicitanteS", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#modalDepositoSolicitante').modal("show");
+                    $('#detalleBoletasSolicitud').html(response);
+                },
+            });
+            return false;
+        });
+
+        $('#agregarBSolicitante').click(function ()
+        {
+            if (window.FormData !== undefined)
+            {
+                var fieleBoletaC = $("#FileImagenBoletaS").get(0);
+                var fileC = fieleBoletaC.files[0];
+
+                // Create  a FormData object
+                var fileData = new FormData();
+
+                if (fileC != null)
+                {
+                    fileData.append("imagenBoletaConta", fileC);
+                }
+                if (fileC == null)
+                {
+                    fileData.append("imgBoletaConta", "sinBoletaItza0");
+                }
+
+                // datos generales del formulario para registro de vehiculo
+                fileData.append("descripcionBoleta", $("#descripcion").val());
+                fileData.append("idSolicitudContabilidad", $("#idSoliciC").val());
+                fileData.append("fDepositoC", $("#fechaDeposito").val());
+                fileData.append("noBoletaC", $("#noBoleta").val());
+                fileData.append("numeroCuenta", $("#noCuenta").val());
+                fileData.append("montoBoleta", $("#monto").val());
+
+                $.ajax({
+                    url: '/TblSolicitudes/UploadFileBoletaSolicitante',
+                    type: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: fileData,
+                    beforeSend: function (result)
+                    {
+                        result.setRequestHeader("If-Modified-Since", "0");
+                        result.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (result) {
+                        limpiarDepositoSolicita();
+                        $('#cerrarModalSD').click();
+                        $('#modalDepositoSolicitante').modal("show");
+                        detalleDepositosSolicitante(result);
+                    },
+                    error: function (err) {
+                        limpiarDepositoS();
+                        alert(err.statusText);
+                    }
+                });
+            }
+            else
+            {
+                alert("Archivos no soportados.");
+            }
+            function detalleDepositosSolicitante(num)
+            {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleBoletasSolicitanteS", "TblSolicitudes")',
+                    data:
+                    {
+                        id: num,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response)
+                    {
+                        $('#modalDepositoSolicitante').modal("show");
+                        $('#detalleBoletasSolicitud').html(response);
+                    },
+                });
+                return false;
+            }
+            function limpiarDepositoSolicita()
+            {
+                $('#descripcion').val("");
+                $('#idASolicitudConta').val("");
+                $('#fechaDeposito').val("");
+                $('#noBoleta').val("");
+                $('#noCuenta').val("");
+                $('#monto').val("");
+                $('#FileImagenBoletaC').val("");
+                $("#idTblDepositos").val("");
+            }
+        });
+
+
+    });
+</script>
+
+
+
+
+
+<!-- MODAL VER ESTADO DEL GERENTE -->
+<div class="modal fade" id="modalEstadoGerente" tabindex="-1" aria-labelledby="modalEstadoGerenteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title text-light" id="modalEstadoGerenteLabel">Estado Gerente</h5>
+                <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="VerdetalleEstadoGerente"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL VER ESTADO DE CONTABILIDAD -->
+<div class="modal fade" id="modalEstadoContabilidad" tabindex="-1" aria-labelledby="modalEstadoContabilidadLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title text-light" id="modalEstadoContabilidadLabel">Estado Contabilidad</h5>
+                <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="VerdetalleEstadoContabilidad"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL VER ESTADO DE AUDITORIA -->
+<div class="modal fade" id="modalEstadoAuditoria" tabindex="-1" aria-labelledby="modalEstadoAuditoriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title text-light" id="modalEstadoAuditoriaLabel">Estado Auditoria</h5>
+                <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="VerdetalleEstadoAuditoria"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para agregar boletas de pago o deposito-->
+<div class="modal fade" id="modalAgregarDepositoSo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAgregarDepositoSoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title text-light" id="modalAgregarDepositoSoLabel">Agregar Boleta de Pago ó Deposito</h5>
+                <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="agregarBSolicitud"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cerrarModalSD" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="agregarBSolicitante">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Agregar Facturas -->
+<div class="modal fade" id="modalAgregarFacturaSolicitud" tabindex="-1" aria-labelledby="modalAgregarFacturaSolicitudLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title text-light" id="modalAgregarFacturaSolicitudLabel">Facturas</h5>
+                <button type="button" class="btn-close text-light" id="cerrarModalFacturasI" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="agregarFacturasDetalle"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para ver los pagos realizados y agregar boletas-->
+<div class="modal fade" id="modalDepositoSolicitante" tabindex="-1" aria-labelledby="modalDepositoSolicitanteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title text-light" id="modalDepositoSolicitanteLabel">Boletas de Pago ó Deposito</h5>
+                <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="detalleBoletasSolicitud"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

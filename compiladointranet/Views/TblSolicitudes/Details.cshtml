@@ -1,0 +1,124 @@
+﻿@model iveCincoFrame.Models.TblSolicitudes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-botom">
+    <h2>Details</h2>
+
+    <div>
+        <h4>TblSolicitudes</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaInicio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaInicio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaFinal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaFinal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreSolicitud)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombreSolicitud)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.monto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.monto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Observacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Observacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaCreacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaCreacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.idTblUsuarios)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idTblUsuarios)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fechaModificacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fechaModificacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.idCatUsuarioModifica)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idCatUsuarioModifica)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.idCatEstados)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idCatEstados)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CatOpciones.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CatOpciones.descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CatTipoAnticipo.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CatTipoAnticipo.descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CatTipoSolicitudes.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CatTipoSolicitudes.descripcion)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idTblSolicitudes }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

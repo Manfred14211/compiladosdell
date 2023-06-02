@@ -1,0 +1,205 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblSucrusalesProductosCooitza>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="container text-center">
+                                <h1 class="text-primary" style="color: #0c4899 !important;">Asignación de Metas</h1>
+                                <hr />
+                            </div>
+                            <div class="d-flex justify-content-center justify-content-md-start">
+                                <div class=""><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Create", "TblSucrusalesProductosCooitzas")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-plus"></i> Nueva Asignación</button></div>
+                            </div>
+                            <br />
+                            @Html.Partial("_MensajeParcial")
+                            <table class="table table-striped" style="width:100%" id="datatables-buttons">
+                                <thead class="table-dark small">
+                                    <tr>
+                                        <th>
+                                            Sucursal
+                                        </th>
+                                        <th>
+                                            Saldo
+                                        </th>
+                                        <th>
+                                            Cantidad
+                                        </th>
+                                        <!--calcular esta sumatoria-->
+                                        @*<th>
+                                            Meta Anual
+                                        </th>
+                                        <th>
+                                            Cantidad de Meta Anual
+                                        </th>*@
+                                        <th>
+                                            Meta Mensual
+                                        </th>
+                                        <th>
+                                            Cantidad de Meta Mensual
+                                        </th>
+                                        <th>
+                                            Fecha de Alta
+                                        </th>
+                                        <th>
+                                            Fecha de Modificacion
+                                        </th>
+                                        <th>
+                                            Usuario Alta
+                                        </th>
+                                        <th>
+                                            Usuario Modifica
+                                        </th>
+                                        <th>
+                                            Anio
+                                        </th>
+                                        <th>
+                                            Mes
+                                        </th>
+                                        <th>
+                                            Estado
+                                        </th>
+                                        <th>
+                                            Producto
+                                        </th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="small">
+                                                @Html.DisplayFor(modelItem => item.CatUbicaciones.codigoNombre)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.saldo)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.cantidad)
+                                            </td>
+                                            @*<td  class="small">
+                                                @Html.DisplayFor(modelItem => item.metasAnual)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.cantidadMetaAnual)
+                                            </td>*@
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.metasMensual)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.cantidadMetaMensual)
+                                            </td>
+                                            <td class="small">
+                                                @Html.DisplayFor(modelItem => item.fechaCreacion)
+                                            </td>
+                                            <td class="small">
+                                                @Html.DisplayFor(modelItem => item.fechaModificacion)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.TblUsuarios1.usuario)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.CatAnios.descripcion)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.CatMeses.descripcion)
+                                            </td>
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+                                            </td>
+
+                                            <td  class="small">
+                                                @Html.DisplayFor(modelItem => item.TblProductosCooitza.descripcion)
+                                            </td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <a class="btn btn-warning" href=" @Url.Action("Edit", "TblSucrusalesProductosCooitzas", new { id = item.idTblSucrusalesProductosCooitza })">Editar</a>
+                                                    <button class="btn btn-danger" id="eliminarSucursalProducto" codigo="@item.idTblSucrusalesProductosCooitza">Eliminar</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+		
+
+			
+<script>
+    $(document).ready(function () {
+
+        var datatablesButtons = $("#datatables-buttons").DataTable({
+            responsive: true,
+            lengthChange: !1,
+            ordering: false
+        });
+        datatablesButtons.buttons().container().appendTo("#datatables-buttons_wrapper .col-md-6:eq(0)");
+
+
+       
+
+        $(document).on('click', '#eliminarSucursalProducto', function () {
+             var codigo = $(this).attr('codigo');
+             //alert(codigo);
+             Swal.fire({
+                    icon: 'warning',
+                    title: '¿Estás seguro/a de eliminar a este registro?',
+                    showConfirmButton: true,
+                    confirmButtonText: 'ELIMINAR',
+                    confirmButtonColor: '#3085d6',
+                    showCancelButton: true,
+                    cancelButtonText: 'CANCELAR',
+                    cancelButtonColor: '#d33',
+                    buttonsStyling: true,
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("DeleteConfirmed", "TblSucrusalesProductosCooitzas")',
+                            data: {
+                                id: codigo
+                            },
+                            success: function (response) {
+
+                                if (response.data == "ok") {
+                                    toastr.success('Registro eliminado con exito!');
+                                    window.location.href = '@Url.Action("Index", "TblSucrusalesProductosCooitzas")';
+                                }
+                                else
+                                {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Ocurrio un error al eliminar el registro',
+                                        text: response.data
+
+                                    })
+                                }
+
+                            }
+                        });
+                    }
+             });
+        });
+    });
+</script>

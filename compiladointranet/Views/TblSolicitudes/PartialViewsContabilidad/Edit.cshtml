@@ -1,0 +1,463 @@
+﻿
+@model iveCincoFrame.Models.Auditoria.SolicitudesVM
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = null;
+}
+
+
+<!-- ============================================ SOLICITUD VIATICOS ============================================ -->
+
+@if (Convert.ToUInt32(Model.idCatTipoSolicitudes) == 1)
+{
+    using (Html.BeginForm("Edit", "TblSolicitudes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form">
+            <div class="container border py-4">
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Solicitud</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-clipboard-check-fill"></i></span>
+                            @Html.DropDownList("idCatTipoSolicitudes", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoSolicitudes, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">Fecha de Inicio</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                            @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control", Type = "date", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">Fecha Finaliza</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="bi bi-calendar-check-fill"></i></span>
+                            @Html.EditorFor(model => model.fechaFinal, new { htmlAttributes = new { @class = "form-control", Type = "date", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.fechaFinal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Motivo de la solicutud</label>
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.nombreSolicitud, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.nombreSolicitud, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Monto</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text">Q</span>
+                            <input type="number" name="monto" value="@Model.monto" placeholder="00.00" class="form-control" disabled />
+                            @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Anticippo</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="bi bi-cash-stack"></i></span>
+                            @Html.DropDownList("idCatTipoAnticipo", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoAnticipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opcionesdestino">
+                    <div class="col-12">
+                        <div id="detalledestinos">
+                            @Html.Action("detalleDestinoGlob", new { id = Model.idTblSolicitudes, @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opcionesVehiculo">
+                    <div class="col-12">
+                        <div id="detalleVehiculos">
+                            @Html.Action("detalleVehiculosGlob", new { id = Model.idTblSolicitudes, @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opcionesFacturas">
+                    <div class="col-12">
+                        <br />
+                        <div id="detalleFacturas">
+                            @Html.Action("detalleFacturasGlob" + "", new { id = Model.idTblSolicitudes, @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Observaciones</label>
+                        <div class="form-floating">
+                            @Html.EditorFor(model => model.Observacion, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", placeholder = "Descripcion", @disabled = "disabled" } })
+                            <label for="floatingTextarea1">Descripcion</label>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <input type="hidden" name="idEstadoSC" id="idEstadoSC" value="@Model.idCatEstadoSolicitud" class="form-control" disabled />
+                <div class="row">
+                    <label for="CatEstadoSolicitud" class="form-label">Estado Solicitud</label>
+                    @Html.DropDownList("CatEstadoSolicitud", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+                <div class="row">
+                    <label for="detalleSolicitudG" class="form-label">Detalle de Solicitud</label>
+                    @Html.TextAreaFor(model => model.detalleEstadoSolicitud, new { @class = "form-control" })
+                    @*<textarea class="form-control" id="detalleSolicitudG" rows="3"></textarea>*@
+                    <div id="recepcionHelp" class="form-text">Detalle del estado de la solicitud</div>
+                </div>
+                <div class="row">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- ============================================ CAJA CHICA ============================================ -->
+
+@if (Convert.ToUInt32(Model.idCatTipoSolicitudes) == 2)
+{
+    using (Html.BeginForm())
+    {
+        <div class="form">
+            <div class="container border py-4">
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Solicitud</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="bi bi-clipboard-check-fill"></i></span>
+                            @Html.DropDownList("idCatTipoSolicitudes", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoSolicitudes, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="control-label">Fecha en la que inicia la solicitud</label>
+                        <div class="input-group mb-6">
+                            <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                            @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Motivo de la solicutud</label>
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.nombreSolicitud, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.nombreSolicitud, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Monto</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text">Q</span>
+                            <input type="number" name="monto" value="@Model.monto" placeholder="00.00" class="form-control" disabled />
+                            @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Anticippo</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="bi bi-cash-stack"></i></span>
+                            @Html.DropDownList("idCatTipoAnticipo", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoAnticipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opcionesFacturas">
+                    <div class="col-12">
+                        <br />
+                        <div id="detalleFacturas">
+                            @Html.Action("detalleFacturasGlob" + "", new { id = Model.idTblSolicitudes, @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Observaciones</label>
+                        <div class="form-floating">
+                            @Html.EditorFor(model => model.Observacion, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", placeholder = "Descripcion", @disabled = "disabled" } })
+                            <label for="floatingTextarea1">Descripcion</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- ============================================ COMPRA DE ACTIVOS ============================================ -->
+
+@if (Convert.ToUInt32(Model.idCatTipoSolicitudes) == 3)
+{
+    using (Html.BeginForm())
+    {
+        <div class="form">
+            <div class="container border py-4">
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Solicitud</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="bi bi-clipboard-check-fill"></i></span>
+                            @Html.DropDownList("idCatTipoSolicitudes", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoSolicitudes, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="control-label">Fecha en la que inicia la solicitud</label>
+                        <div class="input-group mb-6">
+                            <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                            @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Motivo de la solicutud</label>
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.nombreSolicitud, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.nombreSolicitud, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Monto</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text">Q</span>
+                            <input type="number" name="monto" value="@Model.monto" placeholder="00.00" class="form-control" disabled />
+                            @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Anticippo</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="bi bi-cash-stack"></i></span>
+                            @Html.DropDownList("idCatTipoAnticipo", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoAnticipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opcionesFacturas">
+                    <div class="col-12">
+                        <br />
+                        <div id="detalleFacturas">
+                            @Html.Action("detalleFacturasGlob" + "", new { id = Model.idTblSolicitudes, @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Observaciones</label>
+                        <div class="form-floating">
+                            @Html.EditorFor(model => model.Observacion, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", placeholder = "Descripcion", @disabled = "disabled" } })
+                            <label for="floatingTextarea1">Descripcion</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- ============================================ SOLICITUD DE GASTOS ============================================ -->
+
+@if (Convert.ToUInt32(Model.idCatTipoSolicitudes) == 4)
+{
+    using (Html.BeginForm())
+    {
+        <div class="form">
+            <div class="container border py-4">
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Solicitud</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="bi bi-clipboard-check-fill"></i></span>
+                            @Html.DropDownList("idCatTipoSolicitudes", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoSolicitudes, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="control-label">Fecha en la que inicia la solicitud</label>
+                        <div class="input-group mb-6">
+                            <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                            @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Motivo de la solicutud</label>
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.nombreSolicitud, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", @disabled = "disabled" } })
+                            @Html.ValidationMessageFor(model => model.nombreSolicitud, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label class="control-label">Monto</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text">Q</span>
+                            <input type="number" name="monto" value="@Model.monto" placeholder="00.00" class="form-control" disabled />
+                            @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label class="control-label">Tipo de Anticippo</label>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text"><i class="bi bi-cash-stack"></i></span>
+                            @Html.DropDownList("idCatTipoAnticipo", null, htmlAttributes: new { @class = "form-select", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.idCatTipoAnticipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opcionesVehiculo">
+                    <div class="col-12">
+                        <div id="detalleVehiculos">
+                            @Html.Action("detalleVehiculosGlob", new { id = Model.idTblSolicitudes, @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="opcionesFacturas">
+                    <div class="col-12">
+                        <br />
+                        <div id="detalleFacturas">
+                            @Html.Action("detalleFacturasGlob" + "", new { id = Model.idTblSolicitudes, @disabled = "disabled" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="control-label">Observaciones</label>
+                        <div class="form-floating">
+                            @Html.EditorFor(model => model.Observacion, new { htmlAttributes = new { @class = "form-control", id = "floatingTextarea2", placeholder = "Descripcion", @disabled = "disabled" } })
+                            <label for="floatingTextarea1">Descripcion</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+<script>
+        $(document).ready(function () {
+            $("#idSolicitud").hide();
+
+            //modal agregar destinos
+            $('#exampleModal').modal({
+                backdrop: 'static',   // This disable for click outside event
+                keyboard: false        // This for keyboard event
+            })
+            //modal editar destinos
+            $('#modeleditar').modal({
+                backdrop: 'static',
+                keyboard: false
+            })
+
+            //modal agregar vehiculos
+            $('#exampleModal1').modal({
+                backdrop: 'static',   // This disable for click outside event
+                keyboard: false        // This for keyboard event
+            })
+            //modal editar vehiculos
+            $('#exampleModal2').modal({
+                backdrop: 'static',
+                keyboard: false
+            })
+
+            //modal agregar facturas
+            $('#modalAgregarFacturas').modal({
+                backdrop: 'static',   // This disable for click outside event
+                keyboard: false        // This for keyboard event
+            })
+            //modal editar factura
+            $('#modalEditarFacturas').modal({
+                backdrop: 'static',
+                keyboard: false
+            })
+
+            function cargarDestinos() {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleDestinoGlob", "TblSolicitudes")',
+                    data: {
+                        id: @Model.idTblSolicitudes,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response)
+                    {
+                        $('#detalleDestinoGlob').html(response);
+                    },
+                });
+                return false;
+            }
+
+            function cargarVehiculos() {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleVehiculosGlob", "TblSolicitudes")',
+                    data: {
+                        id: @Model.idTblSolicitudes,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response) {
+                        $('#detalleVehiculosGlob').html(response);
+                    },
+                });
+                return false;
+            }
+
+            function cargardetallefacturas() {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleFacturasGlob", "TblSolicitudes")',
+                    data: {
+                        id: @Model.idTblSolicitudes,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response)
+                    {
+                        $('#detalleFacturasGlob').html(response);
+                    },
+                });
+                return false;
+            }
+
+
+        });
+</script>

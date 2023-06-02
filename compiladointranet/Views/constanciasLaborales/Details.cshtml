@@ -1,0 +1,124 @@
+﻿@model iveCincoFrame.Models.constanciasLaborales
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            height: 842px;
+            width: 595px;
+            /* to centre page on screen*/
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script src="~/Scripts/qrcode.js"></script>
+    @*<center><button onclick="imprimir()" class="btn btn-primary">Imprimir pantalla</button></center>*@
+</head>
+<body>
+    <style>
+        .texto-justificado {
+            text-align: justify;
+        }
+    </style>
+
+    <img src="@ViewBag.imagenLogo" style=" height: 11%;">
+
+    <script>
+        function imprimir() {
+            window.print();
+        }
+    </script>
+
+
+
+
+
+    <p style="text-align: right">Guatemala, @Html.DisplayFor(model => model.fechaEmision)</p>
+
+
+
+
+    @if (!string.IsNullOrEmpty(Model.otroDestino))
+    {
+        <p>Dirigida a:</p>
+        <p>
+            <b> @Html.DisplayFor(model => model.otroDestino)</b>
+        </p>
+
+    }
+    else
+    {
+        <p>Agencia</p>
+        <p>
+
+            <b>@Html.DisplayFor(model => model.CatUbicaciones.codigoNombre)</b>
+        </p>
+        <p>
+            <b>Cooperativa Itzá</b>
+        </p>
+    }
+
+
+    <p class="texto-justificado">
+        Por este medio de la presente se hace constar que @if (Model.idCatGeneros == 1)
+        {<span>el colaborador</span>}
+        else
+        {<span>la colaboradora</span>}
+        <b> @Html.DisplayFor(model => model.nombreCompleto)</b>, quien se identifica con –DPI- @Html.DisplayFor(model => model.dpi) labora para la
+        Cooperativa Integral de Ahorro y Crédito Itzá. R.L. desde el  @Html.DisplayFor(model => model.inicioLabores) hasta la
+        fecha, desempeñando el puesto de  @Html.DisplayFor(model => model.puesto), devengando un salario de
+        base mensual de Q. @Html.DisplayFor(model => model.salarioBase) y una bonificación de ley de Q. @Html.DisplayFor(model => model.bonificacionesLey).
+        Sin más que agregar, se extiende la presente para los fines que al interesado convengan.
+    </p>
+    <p>
+        Atentamente,
+    </p>
+    <center>
+        <img src="~/Content/img/firmarrhh.png" style="
+    height: 150px !important;
+" />
+    </center>
+    <div id="qrcode" style="width:150px; height:150px; margin-top:15px;"></div>
+
+    <center>  <img src="~/Content/img/logodos.png" /></center>
+    <script type="text/javascript">
+        // Genera el objeto qrcode
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width: 150,
+            height: 150
+        });
+        // Funcion para crear el codigo
+        function makeCode() {
+            /*var elText = document.getElementById("text");
+            if (!elText.value) {
+              alert("Ingresa un texto");
+              elText.focus();
+              return;
+            }*/
+            var codigo = @Html.DisplayFor(model => model.keyConstancia);
+            var eltexto = 'https://api.cooitza.gt/sistema/constanciasLaborales/Details/' + codigo;
+            qrcode.makeCode(eltexto);
+        }
+        // Al cargar crear el qr inicial
+        makeCode();
+        // Al pulsar teclar Enter, genera en QR
+        $("#text").
+            on("blur", function () {
+                makeCode();
+            }).
+            on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    makeCode();
+                }
+            });
+    </script>
+
+</body>
+</html>

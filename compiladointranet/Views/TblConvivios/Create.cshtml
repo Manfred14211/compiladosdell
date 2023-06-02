@@ -1,0 +1,175 @@
+﻿@model iveCincoFrame.Models.TblConvivio
+
+@{
+    ViewBag.Title = "Create";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Modern, flexible and responsive Bootstrap 5 admin &amp; dashboard template">
+    <meta name="author" content="Bootlab">
+
+    <title>REGISTRO DE ASISTENCIA</title>
+    <!--jquery min-->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <!-- Estilos -->
+    <link href="~/Content/css/modern.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+
+    <!-- PICK ONE OF THE STYLES BELOW -->
+    <!-- <link href="css/modern.css" rel="stylesheet"> -->
+    <!-- <link href="css/classic.css" rel="stylesheet"> -->
+    <!-- <link href="css/dark.css" rel="stylesheet"> -->
+    <!-- <link href="css/light.css" rel="stylesheet"> -->
+    <!-- BEGIN SETTINGS -->
+    <!-- You can remove this after picking a style -->
+    <!-- END SETTINGS -->
+</head>
+<!-- SET YOUR THEME -->
+
+<style>
+    body {
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        background-color: #040200 !important;
+        color: #ffffff !important;
+        font-family: var(--bs-body-font-family);
+        font-size: var(--bs-body-font-size);
+        font-weight: var(--bs-body-font-weight);
+        line-height: var(--bs-body-line-height);
+        margin: 0;
+        text-align: var(--bs-body-text-align);
+    }
+
+    h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+        font-family: Jost,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+    }
+
+    .card {
+        word-wrap: break-word;
+        background-clip: border-box;
+        background-color: #fff0 !important;
+        border: 0 solid rgba(0,0,0,.125);
+        border-radius: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        position: relative;
+    }
+</style>
+<body class="theme-blue">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="splash active">
+            <div class="splash-icon"></div>
+        </div>
+
+        <main class="main h-100 w-100">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                        <div class="d-table-cell align-middle">
+
+                            <div class="text-center mt-12">
+                                <p class="lead">
+                                    <img src="~/Content/img/uno.png" class="img-fluid" alt="Logo Cooitza R.L">
+
+                                </p>
+                                <h1 class="h2">REGISTRATE Y PARTICIPA EN EL SORTEO</h1>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="m-sm-4">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label>Nombre Completo</label>
+                                                @Html.EditorFor(model => model.nombreCompleto, new { htmlAttributes = new { @required = "required", @class = "form-control form-control-lg" } })
+                                                @Html.ValidationMessageFor(model => model.nombreCompleto, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>Número de teléfono</label>
+                                                @Html.EditorFor(model => model.numeroTelefono, new { htmlAttributes = new { @required = "required", @type = "number", @minlength = "8", @maxlength = "8", @class = "form-control form-control-lg" } })
+                                                @Html.ValidationMessageFor(model => model.numeroTelefono, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label>¿Quieres ser Asociado?</label>
+                                                <select class="form-control form-control-lg text-box single-line" id="asociado" name="asociado" required>
+                                                    <option value="" selected disabled>Seleccione una opción</option>
+                                                    <option value="SI">SI</option>
+                                                    <option value="NO">NO</option>
+                                                    <option value="Soy Asociado">Soy Asociado</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.asociado, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>¿Queres ser Asociado Fundador</label>
+                                                <select class="form-control form-control-lg text-box single-line" id="asociadoFundafor" name="asociadoFundafor" required>
+                                                    <option value="" selected disabled>Seleccione una opción</option>
+                                                    <option value="SI">SI</option>
+                                                    <option value="NO">NO</option>
+                                                    <option value="Soy Asociado Fundador">Soy Asociado Fundador</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.asociadoFundafor, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>¿Estas interesado en alguno de nuestros productos o servicios?</label>
+                                                <select class="form-control form-control-lg text-box single-line" id="tarjetaCredito" name="tarjetaCredito" required>
+                                                    <option value="" selected disabled>Seleccione una opción</option>
+                                                    <option value="SI">SI</option>
+                                                    <option value="NO">NO</option>
+                                                </select>
+                                                @Html.ValidationMessageFor(model => model.tarjetaCredito, "", new { @class = "text-danger" })
+                                            </div>
+
+
+
+
+                                            <div class="mb-3">
+                                                <center>
+                                                    <input type="submit" value="REGISTRARME" class="btn btn-lg btn-primary" />
+                                                </center>
+                                            </div>
+
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+
+
+    }
+    <script src="~/Content/js/app.js"></script>
+    <script src="~/Scripts/login.js"></script>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

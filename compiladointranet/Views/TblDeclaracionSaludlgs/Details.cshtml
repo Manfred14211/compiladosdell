@@ -1,0 +1,3279 @@
+﻿@model iveCincoFrame.Models.TblDeclaracionSaludlg
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:x="urn:schemas-microsoft-com:office:excel"
+      xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <meta name=ProgId content=Excel.Sheet>
+    <meta name=Generator content="Microsoft Excel 15">
+    <link rel=File-List
+          href="Copia%20de%20Copia%20de%20Copia%20de%202_DECLARACION%20DE%20SALUD%20(1).fld/filelist.xml">
+
+    <style id="Copia de Copia de Copia de 2_DECLARACION DE SALUD (1)_28137_Styles">
+        <!-- table {
+            mso-displayed-decimal-separator: "\.";
+            mso-displayed-thousand-separator: "\,";
+        }
+
+        .font5 {
+            color: black;
+            font-size: 8.0pt;
+            font-weight: 700;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+        }
+
+        tr {
+            mso-height-source: auto;
+        }
+
+        col {
+            mso-width-source: auto;
+        }
+
+        br {
+            mso-data-placement: same-cell;
+        }
+
+        .style0 {
+            mso-number-format: General;
+            text-align: general;
+            vertical-align: bottom;
+            white-space: nowrap;
+            mso-rotate: 0;
+            mso-background-source: auto;
+            mso-pattern: auto;
+            color: black;
+            font-size: 11.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Calibri, sans-serif;
+            mso-font-charset: 0;
+            border: none;
+            mso-protection: locked visible;
+            mso-style-name: Normal;
+            mso-style-id: 0;
+        }
+
+        td {
+            mso-style-parent: style0;
+            padding: 0px;
+            mso-ignore: padding;
+            color: black;
+            font-size: 11.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Calibri, sans-serif;
+            mso-font-charset: 0;
+            mso-number-format: General;
+            text-align: general;
+            vertical-align: bottom;
+            border: none;
+            mso-background-source: auto;
+            mso-pattern: auto;
+            mso-protection: locked visible;
+            white-space: nowrap;
+            mso-rotate: 0;
+        }
+
+        .xl65 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl66 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl67 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl68 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl69 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl70 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl71 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl72 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl73 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl74 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl75 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl76 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl77 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl78 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl79 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl80 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl81 {
+            mso-style-parent: style0;
+            color: white;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: #0F243E;
+            mso-pattern: black none;
+        }
+
+        .xl82 {
+            mso-style-parent: style0;
+            color: white;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: #0F243E;
+            mso-pattern: black none;
+        }
+
+        .xl83 {
+            mso-style-parent: style0;
+            color: white;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: #0F243E;
+            mso-pattern: black none;
+        }
+
+        .xl84 {
+            mso-style-parent: style0;
+            vertical-align: top;
+        }
+
+        .xl85 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl86 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl87 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl88 {
+            mso-style-parent: style0;
+            vertical-align: middle;
+        }
+
+        .xl89 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: top;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl90 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl91 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl92 {
+            mso-style-parent: style0;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .xl93 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl94 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl95 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl96 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl97 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl98 {
+            mso-style-parent: style0;
+            color: windowtext;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border: .5pt solid windowtext;
+            white-space: normal;
+        }
+
+        .xl99 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl100 {
+            mso-style-parent: style0;
+            color: white;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border: .5pt solid windowtext;
+            white-space: normal;
+        }
+
+        .xl101 {
+            mso-style-parent: style0;
+            font-size: 10.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl102 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl103 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl104 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl105 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl106 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl107 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl108 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl109 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl110 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl111 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl112 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl113 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl114 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl115 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl116 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl117 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl118 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl119 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+        }
+
+        .xl120 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .xl121 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: 1.0pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl122 {
+            mso-style-parent: style0;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+        }
+
+        .xl123 {
+            mso-style-parent: style0;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+        }
+
+        .xl124 {
+            mso-style-parent: style0;
+            font-size: 8.0pt;
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+        }
+
+        .xl125 {
+            mso-style-parent: style0;
+            font-size: 8.0pt;
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+        }
+
+        .xl126 {
+            mso-style-parent: style0;
+            font-size: 8.0pt;
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+        }
+
+        .xl127 {
+            mso-style-parent: style0;
+            font-size: 8.0pt;
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+        }
+
+        .xl128 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl129 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl130 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl131 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl132 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl133 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl134 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl135 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl136 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl137 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl138 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl139 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl140 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl141 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl142 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl143 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl144 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl145 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl146 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl147 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl148 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl149 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl150 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl151 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl152 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl153 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl154 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl155 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl156 {
+            mso-style-parent: style0;
+            text-align: center;
+            border: .5pt solid windowtext;
+        }
+
+        .xl157 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-style: italic;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl158 {
+            mso-style-parent: style0;
+            font-weight: 700;
+            font-style: italic;
+            text-align: center;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+        }
+
+        .xl159 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl160 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl161 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl162 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl163 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl164 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl165 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl166 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl167 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl168 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl169 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl170 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: 1.0pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl171 {
+            mso-style-parent: style0;
+            color: white;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #0F243E;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl172 {
+            mso-style-parent: style0;
+            color: white;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #0F243E;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl173 {
+            mso-style-parent: style0;
+            color: white;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #0F243E;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl174 {
+            mso-style-parent: style0;
+            color: windowtext;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            white-space: normal;
+        }
+
+        .xl175 {
+            mso-style-parent: style0;
+            color: windowtext;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            white-space: normal;
+        }
+
+        .xl176 {
+            mso-style-parent: style0;
+            color: windowtext;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            white-space: normal;
+        }
+
+        .xl177 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl178 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl179 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl180 {
+            mso-style-parent: style0;
+            color: windowtext;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border: .5pt solid windowtext;
+            white-space: normal;
+        }
+
+        .xl181 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl182 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: right;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl183 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: right;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl184 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl185 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl186 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl187 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl188 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl189 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: top;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl190 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl191 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl192 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: left;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl193 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: white;
+            mso-pattern: black none;
+        }
+
+        .xl194 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #92CDDC;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl195 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: 1.0pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl196 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl197 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: 1.0pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl198 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl199 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: 1.0pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl200 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl201 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: 1.0pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl202 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #92CDDC;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl203 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: 1.0pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl204 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl205 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl206 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: top;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+            white-space: normal;
+        }
+
+        .xl207 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl208 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: .5pt solid windowtext;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl209 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl210 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl211 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: none;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl212 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl213 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: none;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl214 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            text-align: center;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+
+        .xl215 {
+            mso-style-parent: style0;
+            font-size: 9.0pt;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+            mso-font-charset: 0;
+            border-top: none;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #92CDDC;
+            mso-pattern: black none;
+        }
+        -->
+    </style>
+</head>
+
+<body link=blue vlink=purple>
+    <!--[if !excel]>&nbsp;&nbsp;<![endif]-->
+    <!--La siguiente información se generó mediante el Asistente para publicar como
+    página web de Microsoft Excel.-->
+    <!--Si se vuelve a publicar el mismo elemento desde Excel, se reemplazará toda
+    la información comprendida entre las etiquetas DIV.-->
+    <!----------------------------->
+    <!--INICIO DE LOS RESULTADOS DEL ASISTENTE PARA PUBLICAR COMO PÁGINA WEB DE
+    EXCEL -->
+    <!----------------------------->
+
+    <div id="Copia de Copia de Copia de 2_DECLARACION DE SALUD (1)_28137"
+         align=center x:publishsource="Excel">
+
+        <table border=0 cellpadding=0 cellspacing=0 width=887 style='border-collapse:
+ collapse;table-layout:fixed;width:665pt'>
+            <col width=229 style='mso-width-source:userset;mso-width-alt:7338;width:172pt'>
+            <col width=64 style='mso-width-source:userset;mso-width-alt:2048;width:48pt'>
+            <col width=45 style='mso-width-source:userset;mso-width-alt:1450;width:34pt'>
+            <col width=188 style='mso-width-source:userset;mso-width-alt:6016;width:141pt'>
+            <col width=51 style='mso-width-source:userset;mso-width-alt:1621;width:38pt'>
+            <col width=40 style='mso-width-source:userset;mso-width-alt:1280;width:30pt'>
+            <col width=72 style='mso-width-source:userset;mso-width-alt:2304;width:54pt'>
+            <col width=100 style='mso-width-source:userset;mso-width-alt:3200;width:75pt'>
+            <col width=47 style='mso-width-source:userset;mso-width-alt:1493;width:35pt'>
+            <col width=51 style='mso-width-source:userset;mso-width-alt:1621;width:38pt'>
+            <col width=243 style='mso-width-source:userset;mso-width-alt:7765;width:182pt'>
+            <col width=261 style='mso-width-source:userset;mso-width-alt:8362;width:196pt'>
+            <col width=247 style='mso-width-source:userset;mso-width-alt:7893;width:185pt'>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 width=229 style='height:15.0pt;width:172pt' align=left
+                    valign=top>
+                    <![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:3px;margin-top:0px;width:389px;height:81px'>
+                   <img width=292 height=61 src="http://localhost:63817/Content/img/chn.png" v:shapes="_x0039__x0020_Imagen">
+                    </span><![endif]><span style='mso-ignore:vglayout2'>
+                        <table cellpadding=0 cellspacing=0>
+                            <tr>
+                                <td height=20 class=xl73 width=229 style='height:15.0pt;width:172pt'>
+                                    <a name="Print_Area">&nbsp;</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </span>
+                </td>
+                <td class=xl74 width=64 style='width:48pt'>&nbsp;</td>
+                <td class=xl74 width=45 style='width:34pt'>&nbsp;</td>
+                <td class=xl74 width=188 style='width:141pt'>&nbsp;</td>
+                <td class=xl74 width=51 style='width:38pt'>&nbsp;</td>
+                <td class=xl74 width=40 style='width:30pt'>&nbsp;</td>
+                <td class=xl74 width=72 style='width:54pt'>&nbsp;</td>
+                <td colspan=3 class=xl124 width=198 style='border-right:.5pt solid black;
+  width:148pt'>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td colspan=3 class=xl126 style='border-right:.5pt solid black'></td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl83 style='height:15.0pt'>
+                    DECLARACIÓN DE SALUD.<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl81>&nbsp;</td>
+                <td class=xl82>&nbsp;</td>
+            </tr>
+            <tr class=xl84 height=20 style='height:15.0pt'>
+                <td colspan=10 height=20 class=xl171 width=887 style='border-right:.5pt solid black;
+  height:15.0pt;width:665pt'>
+                    Este documento<span style='mso-spacerun:yes'>
+                    </span>debe ser completado por el empleado si solicita seguro para sí mismo
+                    y/o sus dependientes.
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl107 style='height:15.0pt;border-top:none'>
+                    Póliza No.:
+                    @Html.DisplayFor(model => model.lg1)
+                </td>
+                <td colspan=3 class=xl177 style='border-right:.5pt solid black;border-left:
+  none'>
+                    Certificado No. @Html.DisplayFor(model => model.lg2)
+                </td>
+                <td class=xl113 colspan=3 style='mso-ignore:colspan'>Fecha de Inicio:</td>
+                <td class=xl111 style='border-top:none'>@Html.DisplayFor(model => model.lg3)</td>
+                <td class=xl111 style='border-top:none'>&nbsp;</td>
+                <td class=xl112 style='border-top:none'>&nbsp;</td>
+            </tr>
+            <tr class=xl84 height=19 style='mso-height-source:userset;height:14.5pt'>
+                <td colspan=4 height=19 class=xl174 width=526 style='height:14.5pt;
+  width:395pt'>
+                    Nombres:<span style='mso-spacerun:yes'>  </span>@Html.DisplayFor(model => model.lg4)
+                </td>
+                <td colspan=6 class=xl175 width=361 style='border-right:.5pt solid black; width:270pt'>
+                    Apellidos: @Html.DisplayFor(model => model.lg5)
+                </td>
+
+            </tr>
+
+            <tr class=xl84 height=31 style='mso-height-source:userset;height:23.75pt'>
+                <td height=31 class=xl98 width=229 style='height:23.75pt;border-top:none;
+width:172pt'>
+                    Peso en Libras:<span style='mso-spacerun:yes'>
+                    </span>@Html.DisplayFor(model => model.lg6)
+                </td>
+                <td colspan=3 class=xl180 width=297 style='border-left:none;width:223pt'>
+                    Estatura:<span style='mso-spacerun:yes'> </span> @Html.DisplayFor(model => model.lg7) metros<span style='mso-spacerun:yes'>  </span>@Html.DisplayFor(model => model.lg8) centímetros
+                </td>
+                <td colspan=3 class=xl98 width=163 style='border-left:none;width:122pt'>
+                    No.
+                    DPI:<span style='mso-spacerun:yes'> </span> @Html.DisplayFor(model => model.lg109)
+                </td>
+                <td colspan=2 class=xl98 width=147 style='border-left:none;width:110pt'>
+                    No de
+                    NIT:<span style='mso-spacerun:yes'> </span> @Html.DisplayFor(model => model.lg9)
+                </td>
+                <td class=xl100 width=51 style='border-top:none;border-left:none;width:38pt'>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td colspan=10 rowspan=2 height=40 class=xl139 width=887 style='border-right:
+.5pt solid black;border-bottom:.5pt solid black;height:30.0pt;width:665pt'>
+                    1.
+                    MARQUE CON UNA X EN DONDE CORRESPONDA, SI HA RECIBIDO USTED O SU DEPENDIENTE
+                    ALGÚN TRATAMIENTO O ES DE SU CONOCIMIENTO QUE PADECE O HA PADECIDO DE LO
+                    SIGUIENTE:
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'> &nbsp;</td>
+                <td class=xl93 style='border-top:none'> SI </ td >
+                <td class=xl75>NO</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl75>SI</td>
+                <td class=xl75>NO</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl75>SI</td>
+                <td class=xl99>NO<span style='mso-spacerun:yes'> </span></td>
+            </tr>
+            <tr height=16 style='mso-height-source:userset;height:12.75pt'>
+                <td height=16 class=xl85 width=229 style='height:12.75pt;width:172pt'>
+                    Enfermedad
+                    o Defecto de la Vista
+                </td>
+                <td colspan=2 class=xl194 width=109 style='border-right:1.0pt solid black;
+border-left:none;width:82pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn1.descripcion)
+                </td>
+                <td class=xl97 width=188 style='width:141pt'>
+                    Transtornos del<span style='mso-spacerun:yes'> </ span > Colon y Recto
+                </td>
+                <td colspan=2 class=xl194 width=91 style='border-right:1.0pt solid black;
+border-left:none;width:68pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn16.descripcion)
+                </td>
+                <td colspan=2 class=xl181 width=172 style='border-right:.5pt solid black;
+width:129pt'>
+                    Enfermedades de la Sangre
+                </td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn33.descripcion)
+                </td>
+            </tr>
+            <tr class=xl84 height=20 style='height:15.0pt'>
+                <td height=20 class=xl77 width=229 style='height:15.0pt;width:172pt'>
+                    Transtorno
+                    Urinario
+                </td>
+                <td colspan=2 class=xl194 width=109 style='border-right:1.0pt solid black;
+border-left:none;width:82pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn2.descripcion)
+                </td>
+                <td class=xl97 width=188 style='border-top:none;width:141pt'>Venas Varicosas</td>
+                <td colspan=2 class=xl194 width=91 style='border-right:1.0pt solid black;
+border-left:none;width:68pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn18.descripcion)
+                </td>
+                <td colspan=2 class=xl130 style='border-right:.5pt solid black'>
+                    Enfermedades
+                    Venéreas
+                </td>
+                <td colspan=2 class=xl200 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn33.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl71 style='height:15.0pt;border-top:none'>
+                    Presión
+                    arterial alta
+                </td>
+                <td colspan=2 class=xl194 width=109 style='border-right:1.0pt solid black;
+border-left:none;width:82pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn3.descripcion)
+                </td>
+                <td class=xl97 width=188 style='border-top:none;width:141pt'>
+                    Enfermedades
+                    Cardíacas
+                </td>
+                <td colspan=2 class=xl194 width=91 style='border-right:1.0pt solid black;
+border-left:none;width:68pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn19.descripcion)
+                </td>
+                <td colspan=2 class=xl132 width=172 style='border-right:.5pt solid black;
+width:129pt'>
+                    Enfermedades de Riñones
+                </td>
+                <td colspan=2 class=xl194 width=98 style='border-right:.5pt solid black;
+border-left:none;width:73pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn34.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl87 style='height:15.0pt;border-top:none'>
+                    Presión
+                    arterial baja
+                </td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn10.descripcion)
+                </td>
+                <td class=xl105 style='border-top:none'> Diarrea Crónica</td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn20.descripcion)
+                </td>
+                <td colspan=2 class=xl134 style='border-right:.5pt solid black'> Convulsiones </ td >
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn35.descripcion)
+                </td>
+            </tr>
+            <tr class=xl88 height=35 style='height:26.0pt'>
+                <td height=35 class=xl86 width=229 style='height:26.0pt;border-top:none;
+width:172pt'>
+                    Diabetes o Problemas del Azúcar en la Sangre
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn5.descripcion)
+                </td>
+                <td class=xl114 width=188 style='border-top:none;width:141pt'>
+                    Osteoporosis,
+                    problemas en los huesos
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn21.descripcion)
+                </td>
+                <td colspan=2 class=xl168 width=172 style='border-right:.5pt solid black;
+width:129pt'>
+                    Enfermedades hormonales (endócrinas)
+                </td>
+                <td colspan=2 class=xl198 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn36.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl71 style='height:15.0pt;border-top:none'>
+                    Cancer, Tumor
+                    o Quiste
+                </td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn6.descripcion)
+                </td>
+                <td class=xl115 style='border-top:none'> Problemas de la Próstata</td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn22.descripcion)
+                </td>
+                <td colspan=2 class=xl117 style='border-right:.5pt solid black'>
+                    Transtornos
+                    Nerviosos
+                </td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn37.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl87 style='height:15.0pt;border-top:none'>
+                    Bocio,
+                    Problemas de la Tiroides
+                </td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn7.descripcion)
+                </td>
+                <td class=xl105 style='border-top:none'> Transtornos Femeninos</td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn23.descripcion)
+                </td>
+                <td colspan=2 class=xl134 style='border-right:.5pt solid black'> Tuberculosis </ td >
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn38.descripcion)
+                </td>
+            </tr>
+            <tr class=xl88 height=51 style='mso-height-source:userset;height:38.75pt'>
+                <td height=51 class=xl90 width=229 style='height:38.75pt;border-top:none;
+width:172pt'>
+                    Enfermedades del Sistema Digestivo (esófago, estómago, intestino
+                    delgado)
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn8.descripcion)
+                </td>
+                <td class=xl114 width=188 style='border-top:none;width:141pt'>
+                    Enfermedades
+                    del Sistema Respiratorio(pulmones, bronquios, etc)
+                </td>
+                <td colspan=2 class=xl202 width=91 style='border-right:1.0pt solid black;
+border-left:none;width:68pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn24.descripcion)
+                </td>
+                <td colspan=2 class=xl166 width=172 style='width:129pt'>
+                    Cualquier Defecto
+                    Físico o Mental, Amputacion o Limitación Fisica
+                </td>
+                <td colspan=2 class=xl198 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn39.descripcion)
+                </td>
+            </tr>
+            <tr class=xl88 height=31 style='mso-height-source:userset;height:23.75pt'>
+                <td height=31 class=xl90 width=229 style='height:23.75pt;border-top:none;
+width:172pt'>
+                    Lesiones o enfermedades de la Cabeza o de la Columna<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn9.descripcion)
+                </td>
+                <td class=xl114 width=188 style='border-top:none;width:141pt'>
+                    Pérdida de Peso
+                    o Aumento de Peso
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn25.descripcion)
+                </td>
+                <td colspan=2 class=xl168 width=172 style='border-right:.5pt solid black;
+width:129pt'>
+                    Cálculos Renales o de la Vesícula Biliar
+                </td>
+                <td colspan=2 class=xl198 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn40.descripcion)
+                </td>
+            </tr>
+            <tr height=19 style='mso-height-source:userset;height:14.75pt'>
+                <td height=19 class=xl71 style='height:14.75pt;border-top:none'> VIH y/o Sida</td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn10.descripcion)
+                </td>
+                <td class=xl95 style='border-top:none'>
+                    Enfermedades de la Piel<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn26.descripcion)
+                </td>
+                <td colspan=2 class=xl134 style='border-right:.5pt solid black'> Hemorroides </ td >
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn41.descripcion)
+                </td>
+            </tr>
+            <tr class=xl88 height=35 style='mso-height-source:userset;height:26.75pt'>
+                <td height=35 class=xl89 style='height:26.75pt;border-top:none'>
+                    Preeclamsia,
+                    Eclampsia
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn11.descripcion)
+                </td>
+                <td class=xl114 width=188 style='border-top:none;width:141pt'>
+                    Enfermedad de
+                    la Boca, Dientes, Labios<span style='mso-spacerun:yes'> </ span ></ td >
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn27.descripcion)
+                </td>
+                <td colspan=2 class=xl168 width=172 style='border-right:.5pt solid black;
+width:129pt'>
+                    Enfermedades del Hígado o la Vesicula Biliar
+                </td>
+                <td colspan=2 class=xl198 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn42.descripcion)
+                </td>
+            </tr>
+            <tr class=xl92 height=33 style='mso-height-source:userset;height:25.5pt'>
+                <td height=33 class=xl91 style='height:25.5pt;border-top:none'>
+                    Albúmina o
+                    Azúcar en la Orina
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn12.descripcion)
+                </td>
+                <td class=xl114 width=188 style='border-top:none;width:141pt'>
+                    Enfermedades de
+                    los Oídos, Naríz o Garganta
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn28.descripcion)
+                </td>
+                <td class=xl117 style='border-top:none'> Anemia </ td >
+                <td class=xl96 style='border-top:none'> &nbsp;</td>
+                <td colspan=2 class=xl198 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn43.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl71 style='height:15.0pt;border-top:none'>
+                    Enfermedades
+                    de los Senos
+                </td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn13.descripcion)
+                </td>
+                <td class=xl115 style='border-top:none'> Artritis o Reumatismo</td>
+                <td colspan=2 class=xl196 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn29.descripcion)
+                </td>
+                <td colspan=2 class=xl137 style='border-right:.5pt solid black'>
+                    Alteraciones
+                    Menstruales
+                </td>
+                <td colspan=2 rowspan=2 class=xl208 style='border-right:.5pt solid black;
+border-bottom:.5pt solid black'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn44.descripcion)
+                </td>
+            </tr>
+            <tr class=xl84 height=33 style='mso-height-source:userset;height:25.25pt'>
+                <td height=33 class=xl87 style='height:25.25pt;border-top:none'>
+                    Hernia de
+                    cualquier tipo
+                </td>
+                <td colspan=2 class=xl198 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn14.descripcion)
+                </td>
+                <td class=xl115 style='border-top:none'> Desmayos o Mareos</td>
+                <td colspan=2 class=xl200 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn31.descripcion)
+                </td>
+                <td colspan=2 class=xl128 width=172 style='border-right:.5pt solid black;
+width:129pt'>
+                    ¿Ha tenido algún aborto, parto o cesárea?
+                </td>
+            </tr>
+            <tr class=xl84 height=39 style='mso-height-source:userset;height:29.5pt'>
+                <td height=39 class=xl89 style='height:29.5pt;border-top:none'>
+                    Enfermedad de
+                    los Ovarios y/o Matriz
+                </td>
+                <td colspan=2 class=xl200 style='border-right:1.0pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn15.descripcion)
+                </td>
+                <td class=xl121 width=188 style='border-top:none;border-left:none;width:141pt'>
+                    Dolores
+                    de Cabeza Severos, Migraña
+                </td>
+                <td colspan=2 class=xl202 width=91 style='border-right:1.0pt solid black;
+border-left:none;width:68pt'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn32.descripcion)
+                </td>
+                <td colspan=2 class=xl170 width=172 style='border-left:none;width:129pt'>
+                    ¿Está
+                    actualmente embarazada?
+                </td>
+                <td colspan=2 class=xl200 style='border-right:.5pt solid black;border-left:
+none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn45.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl66 style='height:15.0pt'> &nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td colspan=3 class=xl182>Página 1 de 3</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl119 style='height:15.0pt'></ td >
+                <td class=xl119></td>
+                <td class=xl119></td>
+                <td class=xl119></td>
+                <td class=xl119></td>
+                <td class=xl119></td>
+                <td class=xl119></td>
+                <td class=xl119></td>
+                <td class=xl120>SI</td>
+                <td class=xl120>NO</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl109 colspan=6 style='height:15.0pt;mso-ignore:colspan'>
+                    2)
+                    ¿Ha estado Usted como paciente en un Hospital o Institución similar durante
+                    los ultimos tres (3) años?
+                </td>
+                <td class=xl104>&nbsp;</td>
+                <td class=xl104>&nbsp;</td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black'>@Html.DisplayFor(model => model.CatOpcionesChn46.descripcion)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl109 colspan=5 style='height:15.0pt;mso-ignore:colspan'>
+                    3)
+                    ¿Ha sido examinado por o ha consultado algún Médico durante los últimos tres
+                    (3) años?
+                </td>
+                <td class=xl104 style='border-top:none'>&nbsp;</td>
+                <td class=xl104 style='border-top:none'>&nbsp;</td>
+                <td class=xl104 style='border-top:none'>&nbsp;</td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black'>@Html.DisplayFor(model => model.CatOpcionesChn47.descripcion)</td>
+            </tr>
+            <tr height=39 style='mso-height-source:userset;height:29.5pt'>
+                <td colspan=8 height=39 class=xl190 width=789 style='border-right:.5pt solid black;
+  height:29.5pt;width:592pt'>
+                    4) ¿Se le ha aconsejado internarse en un Hospital
+                    u otra Institucion similar para diagnóstico, reposo o tratamiento, pero usted
+                    no lo hizo?
+                </td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black;border-left:
+  none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn48.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td colspan=8 height=20 class=xl135 style='height:15.0pt'>
+                    5) ¿Se le ha
+                    aconsejado una operación quirúrgica o tratamiento médico pero usted no lo
+                    hizo?
+                </td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black'>@Html.DisplayFor(model => model.CatOpcionesChn49.descripcion)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td colspan=8 height=20 class=xl135 style='height:15.0pt'>
+                    6) ¿Tiene
+                    conocimiento de algún defecto fisico, deformidad o problema de salud?
+                </td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black'>@Html.DisplayFor(model => model.CatOpcionesChn50.descripcion)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td colspan=8 height=20 class=xl151 style='height:15.0pt'>
+                    7) ¿Tiene o ha
+                    tenido transtornos mentales o nerviosos a causa de drogas o estupefacientes?
+                </td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black'>@Html.DisplayFor(model => model.CatOpcionesChn51.descripcion)</td>
+            </tr>
+            <tr height=35 style='mso-height-source:userset;height:26.0pt'>
+                <td colspan=8 height=35 class=xl153 width=789 style='border-right:.5pt solid black;
+  height:26.0pt;width:592pt'>
+                    8) ¿Le ha sido alguna vez rechazada, aplazada,
+                    aceptada con recargo o modificada de alguna manera, una solicitud para
+                    obtener o para rehabilitar una Poliza de Seguro de Vida, Accidente o Salud?
+                </td>
+                <td colspan=2 class=xl196 style='border-right:.5pt solid black;border-left:
+  none'>
+                    @Html.DisplayFor(model => model.CatOpcionesChn52.descripcion)
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl108 colspan=4 style='height:15.0pt;mso-ignore:colspan'>
+                    9.)
+                    ¿ Ha estado alguna vez asegurado con alguna Póliza de Seguro de Gastos
+                    Medicos?<span style='mso-spacerun:yes'>  </span>
+                </td>
+                <td class=xl102 style='border-top:none'>&nbsp;</td>
+                <td class=xl102 style='border-top:none'>&nbsp;</td>
+                <td class=xl102 style='border-top:none'>&nbsp;</td>
+                <td class=xl102 style='border-top:none'>&nbsp;</td>
+                <td colspan=2 class=xl212 style='border-right:.5pt solid black'>@Html.DisplayFor(model => model.CatOpcionesChn53.descripcion)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl110 colspan=5 style='height:15.0pt;mso-ignore:colspan'>
+                    En
+                    caso afirmativo, Indique el nombre de la Aseguradora, si está vigente y la
+                    fecha del Seguro:
+                </td>
+                <td class=xl103>&nbsp;</td>
+                <td class=xl103>&nbsp;</td>
+                <td colspan=2 class=xl193>&nbsp;</td>
+                <td class=xl72>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl110 colspan=6 style='height:15.0pt;mso-ignore:colspan'>
+                    10)
+                    ¿Ha estado contagiado con el virus SARS-CoV 2 o enfermedado por
+                    COVID-19?<span style='mso-spacerun:yes'>
+                    </span><span style='display:none'>
+                        <span style='mso-spacerun:yes'>              </span>SI<span style='mso-spacerun:yes'>                         </span>NO
+                    </span>
+                </td>
+                <td colspan=3 class=xl214>@Html.DisplayFor(model => model.CatOpcionesChn54.descripcion)</td>
+                <td class=xl72>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl110 colspan=2 style='height:15.0pt;mso-ignore:colspan'>
+                    11)
+                    ¿Ha sido vacunado en los últimos 24 meses?
+                </td>
+                <td class=xl103>&nbsp;</td>
+                <td class=xl103>&nbsp;</td>
+                <td class=xl103>&nbsp;</td>
+                <td class=xl103>&nbsp;</td>
+                <td class=xl215>&nbsp;</td>
+                <td colspan=2 class=xl214>@Html.DisplayFor(model => model.CatOpcionesChn54.descripcion)</td>
+                <td class=xl72>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl109 colspan=7 style='height:15.0pt;mso-ignore:colspan'>
+                    10)
+                    ¿Toma regularmente alguna medicina? Si la respuesta es afirmativa,
+                    proporcione detalles a continuación.
+                </td>
+                <td colspan=2 class=xl93>&nbsp;</td>
+                <td class=xl105 style='border-top:none'>&nbsp;</td>
+            </tr>
+            <tr class=xl88 height=39 style='mso-height-source:userset;height:29.75pt'>
+                <td height=39 class=xl118 style='height:29.75pt;border-top:none'>
+                    Nombre de la
+                    Medicina
+                </td>
+                <td class=xl118 style='border-top:none;border-left:none'>Dosis</td>
+                <td colspan=2 class=xl158 style='border-left:none'>
+                    Razón por la que Toma la
+                    Medicina
+                </td>
+                <td colspan=3 class=xl157 width=163 style='border-left:none;width:122pt'>
+                    Tiempo
+                    de estar Tomando la Medicina
+                </td>
+                <td colspan=3 class=xl118 style='border-left:none'>Recetada por:</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl70 style='height:15.0pt;border-top:none'>@Html.DisplayFor(model => model.lg65)</td>
+                <td class=xl70 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg66)</td>
+                <td colspan=2 class=xl156 style='border-left:none'>@Html.DisplayFor(model => model.lg67)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg68)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg69)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl70 style='height:15.0pt;border-top:none'>@Html.DisplayFor(model => model.lg70)</td>
+                <td class=xl70 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg71)</td>
+                <td colspan=2 class=xl156 style='border-left:none'>@Html.DisplayFor(model => model.lg72)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg73)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg74)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl70 style='height:15.0pt;border-top:none'>@Html.DisplayFor(model => model.lg75)</td>
+                <td class=xl70 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg76)</td>
+                <td colspan=2 class=xl156 style='border-left:none'>@Html.DisplayFor(model => model.lg77)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg78)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg79)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl70 style='height:15.0pt;border-top:none'>@Html.DisplayFor(model => model.lg80)</td>
+                <td class=xl70 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg81)</td>
+                <td colspan=2 class=xl156 style='border-left:none'>@Html.DisplayFor(model => model.lg82)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg83)</td>
+                <td colspan=3 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg84)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl70 style='height:15.0pt;border-top:none'>&nbsp;</td>
+                <td class=xl70 style='border-top:none;border-left:none'>&nbsp;</td>
+                <td colspan=2 class=xl156 style='border-left:none'>&nbsp;</td>
+                <td colspan=3 class=xl70 style='border-left:none'>&nbsp;</td>
+                <td colspan=3 class=xl70 style='border-left:none'>&nbsp;</td>
+            </tr>
+            <tr height=32 style='page-break-before:always;mso-height-source:userset;
+  height:24.5pt'>
+                <td colspan=10 height=32 class=xl159 width=887 style='border-right:.5pt solid black;
+  height:24.5pt;width:665pt'>
+                    Si ha contestado SI a algunas de las preguntas en
+                    este cuestionario, explique los detalles a continuacion: <font class="font5">
+                        (si
+                        los espacios son insuficientes incluir hoja adicional)
+                    </font>
+                </td>
+            </tr>
+            <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+                <td rowspan=3 height=60 class=xl145 width=229 style='border-bottom:.5pt solid black;
+  height:45.0pt;border-top:none;width:172pt'>
+                    Nombre de la Persona de quien se
+                    da la información de salud
+                </td>
+                <td rowspan=3 class=xl148 width=64 style='border-top:none;width:48pt'>
+                    No. De
+                    Pregunta
+                </td>
+                <td colspan=2 rowspan=3 class=xl150 width=233 style='width:175pt'>
+                    Nombre de
+                    la Enfermedad, Lesión o Condición Médica
+                </td>
+                <td colspan=2 rowspan=3 class=xl150 width=91 style='width:68pt'>
+                    Duracion de
+                    la Incapacidad o Enfermedad
+                </td>
+                <td colspan=2 rowspan=2 class=xl162 style='border-right:.5pt solid black;
+  border-bottom:.5pt solid black'>
+                    Fecha de Recuperacion Total
+                </td>
+                <td colspan=2 rowspan=3 class=xl150 width=98 style='width:73pt'>
+                    Nombres y
+                    Direcciones de Médicos y Hospitales
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl79 style='height:15.0pt;border-left:none'>Mes</td>
+                <td class=xl80>Año</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl71 style='height:15.0pt;border-top:none'>@Html.DisplayFor(model => model.lg85)</td>
+                <td class=xl71 style='border-left:none'>@Html.DisplayFor(model => model.lg86)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg87)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg88)</td>
+                <td class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg89)</td>
+                <td class=xl71 style='border-left:none'>@Html.DisplayFor(model => model.lg90)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg91)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl71 style='height:15.0pt;border-top:none'>@Html.DisplayFor(model => model.lg92)</td>
+                <td class=xl71 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg93)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg94)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg95)</td>
+                <td class=xl70 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg96)</td>
+                <td class=xl71 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg97)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg98)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl71 style='height:15.0pt;border-top:none'>@Html.DisplayFor(model => model.lg99)</td>
+                <td class=xl71 style='border-top:none;border-left:none'>
+                    @Html.DisplayFor(model => model.lg100)<span style='display:none'></span>
+                </td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg101)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg102)</td>
+                <td class=xl70 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg103)</td>
+                <td class=xl71 style='border-top:none;border-left:none'>@Html.DisplayFor(model => model.lg104)</td>
+                <td colspan=2 class=xl70 style='border-left:none'>@Html.DisplayFor(model => model.lg105)</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl66 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl66 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td colspan=3 class=xl183>Página 2 de 3</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl73 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl74>&nbsp;</td>
+                <td class=xl106>&nbsp;</td>
+                <td class=xl106>&nbsp;</td>
+                <td class=xl106>&nbsp;</td>
+                <td class=xl106>&nbsp;</td>
+                <td class=xl106>&nbsp;</td>
+                <td class=xl122>&nbsp;</td>
+                <td class=xl122>&nbsp;</td>
+                <td class=xl123>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl116>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl116>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl101 style='height:15.0pt'>AUTORIZACIÓN:</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl76>&nbsp;</td>
+                <td class=xl116>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 colspan=8 style='height:15.0pt;mso-ignore:colspan'>
+                    Con
+                    presentar una fotocopia o el original de este Consentimiento de Seguro,
+                    autorizo como propuesto asegurado ,voluntariamente:
+                </td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=39 style='mso-height-source:userset;height:29.75pt'>
+                <td colspan=10 height=39 class=xl184 width=887 style='border-right:.5pt solid black;
+  height:29.75pt;width:665pt'>
+                    1. A cualquier médico, profesional, hospital,
+                    clínica, entidad o persona médica o relacionada médicamente para proveer a la
+                    Aseguradora la información que esta requiera, incluyendo registros, cuidados
+                    o tratamientos proporcionados a mí (y/o a mis dependientes) sin limitacion
+                    alguna.
+                </td>
+            </tr>
+            <tr height=32 style='mso-height-source:userset;height:24.75pt'>
+                <td colspan=10 height=32 class=xl184 width=887 style='border-right:.5pt solid black;
+  height:24.75pt;width:665pt'>
+                    2. A la Aseguradora para que pueda corroborar la
+                    veracidad de toda la información, por cualquier medio<span style='mso-spacerun:yes'>  </span>legal, incluyendo la lectura del
+                    dispositivo incorporado en mi documento personal de indentificación.<span style='mso-spacerun:yes'> </span>
+                </td>
+            </tr>
+            <tr height=37 style='mso-height-source:userset;height:28.25pt'>
+                <td colspan=10 height=37 class=xl187 width=887 style='border-right:.5pt solid black;
+  height:28.25pt;width:665pt'>
+                    DEPARTAMENTO DE SEGUROS Y PREVISIÓN DE EL CRÉDITO
+                    HIPOTECARIO NACIONAL DE GUATEMALA se reserva el derecho de rechazar o aceptar
+                    cualquier solicitud o consentimiento de seguro.
+                </td>
+            </tr>
+            <tr height=33 style='mso-height-source:userset;height:25.5pt'>
+                <td colspan=10 height=33 class=xl187 width=887 style='border-right:.5pt solid black;
+  height:25.5pt;width:665pt'>
+                    Las respuestas y declaraciones que forman parte de
+                    este consentimiento son completas, verídicas, a mi mejor juicio y
+                    conocimiento. La omisión, falsa o inexacta declaración hecha en este
+                    consentimiento, dará derecho a la Aseguradora a dar por terminada la
+                    cobertura del certificado.
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl67>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl65 style='height:15.0pt'>_______________________________</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66 colspan=3 style='mso-ignore:colspan;border-right:.5pt solid black'>__________________________</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl94 style='height:15.0pt'>Firma del Contratante</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td class=xl66>&nbsp;</td>
+                <td colspan=3 class=xl76 style='border-right:.5pt solid black'>
+                    Firma del
+                    Propuesto Asegurado
+                </td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 class=xl68 style='height:15.0pt'>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl69>&nbsp;</td>
+                <td class=xl72>&nbsp;</td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 colspan=7 style='height:15.0pt;mso-ignore:colspan'></td>
+                <td colspan=3 class=xl182>Página 3 de 3</td>
+            </tr>
+            <![if supportMisalignedColumns]>
+            <tr height=0 style='display:none'>
+                <td width=229 style='width:172pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=45 style='width:34pt'></td>
+                <td width=188 style='width:141pt'></td>
+                <td width=51 style='width:38pt'></td>
+                <td width=40 style='width:30pt'></td>
+                <td width=72 style='width:54pt'></td>
+                <td width=100 style='width:75pt'></td>
+                <td width=47 style='width:35pt'></td>
+                <td width=51 style='width:38pt'></td>
+            </tr>
+            <![endif]>
+        </table>
+
+    </div>
+
+
+    <!----------------------------->
+    <!--FINAL DE LOS RESULTADOS DEL ASISTENTE PARA PUBLICAR COMO PÁGINA WEB DE
+    EXCEL-->
+    <!----------------------------->
+</body>
+
+</html>
+

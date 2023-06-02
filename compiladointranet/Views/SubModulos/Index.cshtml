@@ -1,0 +1,102 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblSubModulos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <h2>Index</h2>
+                            @ViewBag.idTblModulos
+                            <p>
+                                @Html.ActionLink("Create New", "Create", new { id = ViewBag.idTblModulos })
+                                
+                            </p>
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.descripcion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.icono)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.controlador)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.accion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.titulo)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ordenar)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TblModulos.descripcion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TblUsuarios.usuario)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.descripcion)
+                                        </td>
+                                        <td>
+                                            <i class="@Html.DisplayFor(modelItem => item.icono)"></i>
+                                            
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.controlador)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.accion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.titulo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ordenar)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblModulos.descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.idTblSubModulos, idTblModulos = item.idTblModulos }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.idTblSubModulos }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.idTblSubModulos })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
