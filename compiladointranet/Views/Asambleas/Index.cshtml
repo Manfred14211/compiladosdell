@@ -127,10 +127,11 @@
                                                         <i class="fa-solid fa-street-view"></i>
                                                     </span>
                                                     @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @class = "form-control", @placeholder = "----------", @readOnly = "readonly" } })
-                                                    @*<input type="text" class="form-control" id="genero" name="genero" placeholder="MASCULINO/FEMENINO" readonly value="TEST-GENERO" />*@
+                                                    
                                                 </div>
                                                 @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
                                             </div>
+
                                             <div class="row px-1 px-sm-1 px-md-3 px-lg-4 text-center" id="container-boton">
                                                 <div class="col-12 col-sm-12  col-md-12 col-lg-12 align-items-center">
                                                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -314,9 +315,6 @@ document.addEventListener("DOMContentLoaded", function () {
               toastr.error(respuesta.Descripcion);
             } else {
               swal.close();
-              if (respuesta.Listado.CLASEASOCIADO == "ASOCIADO FUNDADOR") {
-                alert("ESTA PERSONA ES ASOCIADO FUNDADOR!");
-              }
               if (respuesta.Listado.Estado == 201) {
                 toasterOptions(); //configuracion de toaster
                 toastr.success(respuesta.Listado.Descripcion);
