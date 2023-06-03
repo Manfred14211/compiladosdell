@@ -1,0 +1,82 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblDestinos>
+@{
+    Layout = null;
+}
+<br>
+<div class="container border mb-3" id="containerHeader">
+    <div class="divider-custom1">
+        <div class="divider-custom-line"></div>
+        <h2>Listado de Destinos <i class="fa-solid fa-map-location"></i></h2>
+        <div class="divider-custom-line"></div>
+    </div>
+    <div class="table-responsive tbl-destinos">
+        <table class="table table-bordered table-striped table-hover" id="tbl-destinos" width="100%" cellpadding="0">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th>
+                        Ubicaciones
+                    </th>
+                    <th>
+                        Observacion
+                    </th>
+
+                    <th>Fecha Registro</th>
+                </tr>
+            </thead>
+            @{var iterador = 1;}
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td scope="row">@iterador</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatUbicaciones.codigoNombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.observaciones)
+                        </td>
+                        <td>
+                            @String.Format("{0:dd/MM/yyyy}", item.fechaCreacion)
+                        </td>
+                    </tr>
+                    iterador++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#tbl-destinos').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "(Filtrado de MAX total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+
+
+    });
+
+</script>

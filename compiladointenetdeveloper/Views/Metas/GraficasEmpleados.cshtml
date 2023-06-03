@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "GraficasEmpleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="card-header">
+                                <div class="container text-center">
+                                    <h1 class="text-primary" style="color: #0c4899 !important;">Comportamiento de errores reportados por Monitoreo</h1>
+                                    <br />
+                                    <h4 class="card-subtitle text-muted">
+                                        El comportamiento de la grafica indica la cantidad total de cámaras que presentaron error en la fecha espcificada.
+                                    </h4>
+                                    <hr />
+                                </div>
+                                <div class="d-flex justify-content-center justify-content-md-start">
+                                    <button type="button" id="actualizar" class="btn btn-primary btn-lg" style="background: #0c4899 !important;">Actualizar Grafica</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart">
+                                    <div id="apexcharts-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $(document).on('click', '#actualizar', function () {
+            cargarGrafica();
+        });
+        cargarGrafica();
+        function cargarGrafica() {
+            // Line chart
+			 $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetraficasEmpleado", "Metas")',
+                beforeSend: function (response) {
+                },
+				 success: function (response) {
+                     console.log(response.data);
+                     //console.log(response.data.fecha);
+
+                     //new_arr1 = []
+
+                     //response.data.forEach(element => new_arr1.push(element.errores));
+
+                     //new_arr2 = []
+
+                     //response.data.forEach(element => new_arr2.push(element.fecha));
+
+                     //console.log(new_arr1);
+                     //console.log(new_arr2);
+
+
+
+                     //var options = {
+                     //    chart: {
+                     //        height: 350,
+                     //        type: "line",
+                     //        zoom: {
+                     //            enabled: true
+                     //        },
+                     //    },
+                     //    dataLabels: {
+                     //        enabled: true
+                     //    },
+                     //    stroke: {
+                     //        width: [5, 7, 5],
+                     //        curve: "straight",
+                     //        dashArray: [0, 8, 5]
+                     //    },
+                     //    series: [{
+                     //        name: "Errores de Camaras:",
+                     //        data: new_arr1
+                     //    }
+
+                     //    ],
+                     //    markers: {
+                     //        size: 0,
+                     //        style: "hollow", // full, hollow, inverted
+                     //    },
+                     //    xaxis: {
+                     //        categories: new_arr2,
+                     //    },
+                     //    tooltip: {
+                     //        y: [{
+                     //            title: {
+                     //                formatter: function (val) {
+                     //                    return val + " Total"
+                     //                }
+                     //            }
+
+                     //        }]
+                     //    },
+                     //    grid: {
+                     //        borderColor: "#f1f1f1",
+                     //    }
+                     //}
+                     //var chart = new ApexCharts(
+                     //    document.querySelector("#apexcharts-line"),
+                     //    options
+                     //);
+                     //chart.render();
+                },
+            });
+            return false;
+        }
+
+
+
+
+		});
+</script>
+

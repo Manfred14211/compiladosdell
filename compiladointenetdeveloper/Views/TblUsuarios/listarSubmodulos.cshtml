@@ -1,0 +1,240 @@
+﻿@model IEnumerable<iveCincoFrame.Models.Usuarios.ListarSubModulosActivos>
+
+<div class="card card-body" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+    <table class="table table-striped table-hover table-sm">
+        <thead>
+            <tr>
+                <th class="d-none">
+                    @Html.DisplayNameFor(model => model.IdRol)
+                </th>
+                <th class="d-none">
+                    @Html.DisplayNameFor(model => model.IdModulo)
+                </th>
+                <th class="d-none">
+                    @Html.DisplayNameFor(model => model.IdSubModulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+
+                <th>
+                    Inactivo/Activo
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td class="d-none">
+                        @Html.DisplayFor(modelItem => item.IdRol)
+                    </td>
+                    <td class="d-none">
+                        @Html.DisplayFor(modelItem => item.IdModulo)
+                    </td>
+                    <td class="d-none">
+                        @Html.DisplayFor(modelItem => item.IdSubModulo)
+                    </td>
+                    <td>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            @Html.DisplayFor(modelItem => item.Descripcion)
+                        </label>
+                    </td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input cambioestado" codigoSubMod="@item.IdSubModulo" codigoMod="@item.IdModulo" codigoRol="@item.IdRol" type="checkbox" @Html.DisplayFor(modelItem => item.Check)>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        }
+
+    </table>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+
+
+
+
+        //cargardetalle();
+
+    /*    $('#flexSwitch').click(function () {*/
+
+        $('.cambioestado').on('click', function () {
+
+
+            var idSubModulo = $(this).attr('codigoSubMod');
+            var idModulo = $(this).attr('codigoMod');
+            var idRol = $(this).attr('codigoRol');
+
+
+            var permisos = {
+                "idSubModulo": idSubModulo,
+                "idModulo": idModulo,
+                "idRol": idRol
+            };
+
+
+            if (this.checked) // if changed state is "CHECKED"
+            {
+                //alert(idSubModulo);
+                //alert(idModulo);
+                //alert(idRol);
+
+
+                Swal.fire({
+                    icon: 'warning',
+                    title: '¿Agregar este permiso?',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Agregar',
+                    confirmButtonColor: '#3085d6',
+                    showCancelButton: true,
+                    cancelButtonText: 'CANCELAR',
+                    cancelButtonColor: '#d33',
+                    buttonsStyling: true,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '@Url.Action("agregarPermisos", "TblUsuarios")',
+                                    data: permisos,
+                                    success: function (response) {
+
+                                        if (response == "ok") {
+                                            $('#defaultModalAccesos').modal('hide');
+                                            $('#detalleModulos').html('');
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Permiso asignado exitosamente',
+                                                showConfirmButton: false,
+                                                timer: 1500,
+                                            })
+                                        }
+                                        else
+                                        {
+
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'El rol ya cuenta con este permiso',
+                                                showConfirmButton: true,
+                                                timer: 1500,
+                                            })
+                                        }
+
+
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                var id = $(this).attr('codigoMod');
+                                var idRol = $(this).attr('codigoRol');
+                                alert('restaurando');
+                                alert(id);
+                                alert(idRol);
+                                var _modulos = {
+                                    "id": id,
+                                    "idRol": idRol
+                                };
+                                cargardetalle(_modulos);
+
+                                function cargardetalle(modulos) {
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url:  '@Url.Action("listarSubmodulos", "TblUsuarios")',
+                                        data: modulos,
+                                        beforeSend: function (response) {
+                                        },
+                                        success: function (response) {
+                                            $('#detalleModulos').html(response);
+                                        },
+                                    });
+                                return false;
+
+
+                                }
+                            }
+                });
+
+
+
+            }
+            else
+            {
+
+                 Swal.fire({
+                    icon: 'warning',
+                    title: '¿Eliminar permiso?',
+                    showConfirmButton: true,
+                    confirmButtonText: 'Eliminar',
+                    confirmButtonColor: '#3085d6',
+                    showCancelButton: true,
+                    cancelButtonText: 'CANCELAR',
+                    cancelButtonColor: '#d33',
+                    buttonsStyling: true,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '@Url.Action("EliminarPermisos", "TblRoles")',
+                                    data: permisos,
+                                    success: function (response) {
+
+
+                                        if (response == "ok") {
+                                            $('#defaultModalAccesos').modal('hide');
+                                            $('#detalleModulos').html('');
+
+
+                                            function toasterOptions() {
+                                                toastr.options = {
+                                                    "closeButton": false,
+                                                    "debug": false,
+                                                    "newestOnTop": false,
+                                                    "progressBar": true,
+                                                    "positionClass": "toast-bottom-right",
+                                                    "preventDuplicates": false,
+                                                    "onclick": null,
+                                                    "showDuration": "300",
+                                                    "hideDuration": "1000",
+                                                    "timeOut": "5000",
+                                                    "extendedTimeOut": "1000",
+                                                    "showEasing": "swing",
+                                                    "hideEasing": "linear",
+                                                    "showMethod": "fadeIn",
+                                                    "hideMethod": "fadeOut"
+                                                };
+                                            };
+
+
+                                            toasterOptions();
+
+                                            toastr.success('Permiso Eliminado con exito');
+                                        }
+                                        else {
+                                            $('#defaultModalAccesos').modal('hide');
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Ocurrio un problema al guardar el usuario',
+                                                text: response
+                                            })
+
+                                        }
+                                    }
+                                });
+                            }
+                });
+
+            }
+        });
+
+       /* });*/
+    });
+
+</script>

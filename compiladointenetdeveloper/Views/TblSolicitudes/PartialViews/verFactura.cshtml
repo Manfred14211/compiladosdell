@@ -1,0 +1,37 @@
+﻿@model iveCincoFrame.Models.TblFacturas
+
+@if (Model.monto != null && Model.imagenFactura != null)
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                Monto
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.monto)
+            </dd>
+            <dt>
+                Imagen o Comprobante Factura
+            </dt>
+            <dd>
+                <img src="~/Imagenes/Facturas/@Url.Content(Model.imagenFactura)" style="height:300px;width:460px;" />
+            </dd>
+        </dl>
+    </div>
+}
+else
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                No a agregado el monto a la Factura.
+            </dt>
+            <br />
+            <br />
+            <dt>
+                No a cargado la imagen de la factura.
+            </dt>
+        </dl>
+    </div>
+}

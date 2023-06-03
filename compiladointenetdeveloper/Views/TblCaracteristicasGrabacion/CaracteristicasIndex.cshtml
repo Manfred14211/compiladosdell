@@ -1,0 +1,159 @@
+﻿@model IEnumerable<iveCincoFrame.Models.CaracteristicasGrabacion.CaracteristicasList>
+<div class="container text-center">
+    <h1 class="text-primary" style="color: #0c4899 !important;">Caracteristicas de Grabacion de las Sucursales</h1>
+    <hr />
+</div>
+<div class="d-flex justify-content-center justify-content-md-start">
+    <button type="button" id="agregar" class="btn btn-primary btn-lg" style="background: #0c4899 !important;">Agregar</button>
+</div>
+<table class="table table-hover table-sm" id="tbl-caracter">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Sucrusal
+            </th>
+            <th>
+                ipDvr
+            </th>
+            <th>
+                marcaDvr
+            </th>
+            <th>
+                canalesDvr
+            </th>
+            <th>
+                cantidadCamarasInstaladas
+            </th>
+            <th>
+                cantidadDiscosDuros
+            </th>
+            <th>
+                capacidadDvr
+            </th>
+            <th>
+                tiempoAlmacenamiento
+            </th>
+            <th>
+                usuarioDvr
+            </th>
+            <th>
+                diferenciaDeTiempo
+            </th>
+            <th>
+                Estado del tiempo
+            </th>
+            <th>
+                Observaciones
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{var iterador = 1;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @iterador
+                </td>
+                <th>
+                    @item.Sucrusal
+                </th>
+                <td>
+                    @item.ipDvr
+                </td>
+                <td>
+                    @item.marcaDvr
+                </td>
+                <td>
+                    @item.canalesDvr
+                </td>
+                <td>
+                    @item.cantidadCamarasInstaladas
+                </td>
+                <td>
+                    @item.cantidadDiscosDuros
+                </td>
+                <td>
+                    @item.capacidadDvr
+                </td>
+                <td>
+                    @item.tiempoAlmacenamiento
+                </td>
+                <td>
+                    @item.usuarioDvr
+                </td>
+                <td>
+                    @item.diferenciaDeTiempo
+                </td>
+                <td>
+                    @item.EstadoTiempo
+                </td>
+                <td>
+                    <div class="dropdown-center">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: #0c4899 !important;">
+                            <i class="align-middle me-2 fas fa-fw fa-comment-alt"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">@item.Observaciones</a></li>
+                        </ul>
+                    </div>
+                    
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-ellipsis-v"></i></button>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="editar-caracteristicas" codigo="@item.idTblCaCaracteristicasGrabacion"><i class="align-middle me-2 fas fa-fw fa-pen"></i> Editar</a></li>
+                            <li><a class="dropdown-item" href="#" id="eliminar-directorio" codigo="@item.idTblCaCaracteristicasGrabacion"><i class="align-middle me-2 fas fa-fw fa-trash-alt"></i> Elimnar</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            iterador++;
+        }
+    </tbody>
+
+
+</table>
+
+
+<script>
+    $(document).ready(function () {
+        $('#tbl-caracter').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+
+    });
+
+
+
+</script>

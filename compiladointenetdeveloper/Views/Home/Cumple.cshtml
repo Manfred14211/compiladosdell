@@ -1,0 +1,25 @@
+﻿
+
+<div id="cumplea"></div>
+
+<script>
+    $(document).ready(function () {
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetCumple", "Home")',
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+                    $('#cumplea').html('');
+                    $('#cumplea').html(response);
+
+                },
+            });
+            return false;
+
+            
+    })
+
+
+</script>

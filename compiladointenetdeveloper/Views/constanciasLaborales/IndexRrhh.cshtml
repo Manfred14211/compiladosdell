@@ -1,0 +1,350 @@
+﻿@model iveCincoFrame.Models.Rrhh.TiposContancias
+
+@{
+    ViewBag.Title = "IndexRrhh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="row">
+                                <div class="my-3">
+                                    
+
+                                        <div class="mb-3 text-start"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Home")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+                                        <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-file-pdf"></i> Constancias Laborales</div>
+                                        <hr />
+                                        <!-- Tabs navs -->
+                                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i class="align-middle me-2 fas fa-fw fa-exclamation-triangle"></i> Pendientes de Aprobar</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="align-middle me-2 fas fa-fw fa-check"></i> Solicitudes Aprobadas</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="align-middle me-2 fas fa-fw fa-ban"></i> Solicitudes Rechazadas</button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                                <div class="row justify-content-center">
+
+                                                    <table id="tabla-afiliaciones" class="table table-striped" style="width:100%">
+                                                        <tr>
+                                                           
+                                                            <th>
+                                                                Dirigido
+                                                            </th>
+                                                            <th>
+                                                                Codigo Colaborador
+                                                            </th>
+                                                            <th>
+                                                                Nombre Completo
+                                                            </th>
+                                                            <th>
+                                                                DPI
+                                                            </th>
+                                                            <th>
+                                                                Inicio de Labores
+                                                            </th>
+                                                            <th>
+                                                                Puesto
+                                                            </th>
+                                                            <th>
+                                                                Salario Base
+                                                            </th>
+                                                            <th>
+                                                                Bonificacion
+                                                            </th>
+                                                            <th>
+                                                                Estado de la Solicitud
+                                                            </th>
+                                                            <th>
+                                                                Acciones
+                                                            </th>
+                                                        </tr>
+
+                                                        @foreach (var item in Model.pendientes)
+                                                        {
+                                                            <tr>
+
+
+                                                                <td>
+                                                                    @if (!string.IsNullOrEmpty(item.otroDestino))
+                                                                    {
+                                                                        @Html.DisplayFor(modelItem => item.otroDestino)
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.DisplayFor(modelItem => item.CatUbicaciones.nombre)
+                                                                    }
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.codigoEmpleado)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.nombreCompleto)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.dpi)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.inicioLabores)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.puesto)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.salarioBase)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.bonificacionesLey)
+                                                                </td>
+                                                                <td>
+
+                                                                    @Html.DisplayFor(modelItem => item.CatEstadosRrhh.descripcion)
+
+                                                                </td>
+                                                                <td>
+
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-ellipsis-v"></i></button>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            <span class="visually-hidden">Toggle Dropdown</span>
+                                                                        </button>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><a class="dropdown-item" href="@Url.Action("Edit/"+ item.idConstancias, "constanciasLaborales")"><i class="align-middle me-2 fas fa-fw fa-pen"></i> Ver Detalle</a></li>
+                                                                            @*<li><a class="dropdown-item" href="#" id="eliminar-reg-bbteca" codigo="@item.idTblBiblioteca"><i class="align-middle me-2 fas fa-fw fa-trash-alt"></i> Elimnar</a></li>*@
+                                                                        </ul>
+                                                                    </div>
+
+                                                                </td>
+
+                                                            </tr>
+                                                        }
+
+                                                    </table>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                                <div class="row justify-content-center">
+                                                    <table id="tabla-afiliaciones" class="table table-striped" style="width:100%">
+                                                        <tr>
+
+                                                            <th>
+                                                                Dirigido
+                                                            </th>
+                                                            <th>
+                                                                Codigo Colaborador
+                                                            </th>
+                                                            <th>
+                                                                Nombre Completo
+                                                            </th>
+                                                            <th>
+                                                                DPI
+                                                            </th>
+                                                            <th>
+                                                                Inicio de Labores
+                                                            </th>
+                                                            <th>
+                                                                Puesto
+                                                            </th>
+                                                            <th>
+                                                                Salario Base
+                                                            </th>
+                                                            <th>
+                                                                Bonificacion
+                                                            </th>
+                                                            <th>
+                                                                Estado de la Solicitud
+                                                            </th>
+                                                            <th>
+                                                                Acciones
+                                                            </th>
+                                                        </tr>
+
+                                                        @foreach (var item in Model.aceptadas)
+                                                        {
+                                                            <tr>
+
+
+                                                                <td>
+                                                                    @if (!string.IsNullOrEmpty(item.otroDestino))
+                                                                    {
+                                                                        @Html.DisplayFor(modelItem => item.otroDestino)
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.DisplayFor(modelItem => item.CatUbicaciones.nombre)
+                                                                    }
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.codigoEmpleado)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.nombreCompleto)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.dpi)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.inicioLabores)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.puesto)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.salarioBase)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.bonificacionesLey)
+                                                                </td>
+                                                                <td>
+
+                                                                    @Html.DisplayFor(modelItem => item.CatEstadosRrhh.descripcion)
+
+                                                                </td>
+                                                                <td>
+
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-ellipsis-v"></i></button>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            <span class="visually-hidden">Toggle Dropdown</span>
+                                                                        </button>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><a class="dropdown-item" href="@Url.Action("Edit/"+ item.idConstancias, "constanciasLaborales")"><i class="align-middle me-2 fas fa-fw fa-pen"></i> Ver Detalle</a></li>
+                                                                            @*<li><a class="dropdown-item" href="#" id="eliminar-reg-bbteca" codigo="@item.idTblBiblioteca"><i class="align-middle me-2 fas fa-fw fa-trash-alt"></i> Elimnar</a></li>*@
+                                                                        </ul>
+                                                                    </div>
+
+                                                                </td>
+
+                                                            </tr>
+                                                        }
+
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                                <div class="row justify-content-center">
+                                                    <table id="tabla-afiliaciones" class="table table-striped" style="width:100%">
+                                                        <tr>
+
+                                                            <th>
+                                                                Dirigido
+                                                            </th>
+                                                            <th>
+                                                                Codigo Colaborador
+                                                            </th>
+                                                            <th>
+                                                                Nombre Completo
+                                                            </th>
+                                                            <th>
+                                                                DPI
+                                                            </th>
+                                                            <th>
+                                                                Inicio de Labores
+                                                            </th>
+                                                            <th>
+                                                                Puesto
+                                                            </th>
+                                                            <th>
+                                                                Salario Base
+                                                            </th>
+                                                            <th>
+                                                                Bonificacion
+                                                            </th>
+                                                            <th>
+                                                                Estado de la Solicitud
+                                                            </th>
+                                                            <th>
+                                                                Acciones
+                                                            </th>
+                                                        </tr>
+
+                                                        @foreach (var item in Model.rechazadas)
+                                                        {
+                                                            <tr>
+
+
+                                                                <td>
+                                                                    @if (!string.IsNullOrEmpty(item.otroDestino))
+                                                                    {
+                                                                        @Html.DisplayFor(modelItem => item.otroDestino)
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @Html.DisplayFor(modelItem => item.CatUbicaciones.nombre)
+                                                                    }
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.codigoEmpleado)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.nombreCompleto)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.dpi)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.inicioLabores)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.puesto)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.salarioBase)
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DisplayFor(modelItem => item.bonificacionesLey)
+                                                                </td>
+                                                                <td>
+
+                                                                    @Html.DisplayFor(modelItem => item.CatEstadosRrhh.descripcion)
+
+                                                                </td>
+                                                                <td>
+
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-ellipsis-v"></i></button>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                            <span class="visually-hidden">Toggle Dropdown</span>
+                                                                        </button>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><a class="dropdown-item" href="@Url.Action("Edit/"+ item.idConstancias, "constanciasLaborales")"><i class="align-middle me-2 fas fa-fw fa-pen"></i> Ver Detalle</a></li>
+                                                                            @*<li><a class="dropdown-item" href="#" id="eliminar-reg-bbteca" codigo="@item.idTblBiblioteca"><i class="align-middle me-2 fas fa-fw fa-trash-alt"></i> Elimnar</a></li>*@
+                                                                        </ul>
+                                                                    </div>
+
+                                                                </td>
+
+                                                            </tr>
+                                                        }
+
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

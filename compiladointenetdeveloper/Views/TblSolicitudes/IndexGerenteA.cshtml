@@ -1,0 +1,193 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblSolicitudes>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card col-xl-12 col-md-12 col-sm-12 col-lg-12">
+    <div class="card-body col-xl-12 col-md-12 col-sm-12 col-lg-12 ">
+        <h1>Listado de Solicitudes</h1>
+
+        <div class="btn-group py-2">
+            @Html.ActionLink("Regresar", "IndexGerente", null, new { @class = "btn btn-primary" })
+        </div>
+
+        <table class="table table-bordered table-striped table-hover" id="tbl-solicitudes" width="100%" cellpadding="0">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Tipo Solicitud</th>
+                    <th>Motivo</th>
+                    <th>Monto</th>
+                    <th>Solicitante</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            @{var iterador = 1;}
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td scope="row">@iterador</td>
+                        <td>
+                            @String.Format("{0:dd/MM/yyyy}", item.fechaInicio)
+                        </td>
+                        <td>
+                            @String.Format("{0:dd/MM/yyyy}", item.fechaFinal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatTipoSolicitudes.descripcion)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombreSolicitud)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.monto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TblUsuarios.TblPersonas.primerNombre)
+                            @Html.DisplayFor(modelItem => item.TblUsuarios.TblPersonas.primerApellido)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="align-middle me-2 fa fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item editardetalleGerente" codigo="@item.idTblSolicitudes"><i class="fa fa-pencil" aria-hidden="true"></i>  Editar</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    iterador++;
+                }
+            </tbody>
+
+
+
+        </table>
+    </div>
+</div>
+
+        <script>
+    $(document).ready(function ()
+    {
+        $('#tbl-solicitudes').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "(Filtrado de MAX total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+
+        $('.editardetalleGerente').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+                //alert(codigo);
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("detalleEditarSGerente", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#detalleAprobarGerente').html(response);
+                    $('#modalAGerente').modal("show");
+                },
+            });
+            return false;
+        });
+
+        $('#actualizarGerente').click(function (e)
+        {
+            var idEstadoSolicitud = $('#CatEstadoSolicitud').val();
+            var obEstadoSolicitud = $('#detalleEstadoSolicitud').val();
+            var idSolicitudEstado = $('#idSolicitudGerenteS').val();
+            //alert(idEstadoSolicitud);
+            //alert(obEstadoSolicitud);
+
+            var grupoEstado = {
+                idCatEstados: idEstadoSolicitud,
+                idTblEstado_Solicitudes: idSolicitudEstado,
+                observaciones: obEstadoSolicitud
+            };
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GuardarEstadoSolicitudG", "TblSolicitudes")',
+                data: grupoEstado,
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                    $('#resultadoFotografias').html('');
+                    $('#resultadoFotografias').html(' <br><br><center><img class="img-responsive img-thumbnail" src="images/cargandocirculo.gif" alt="LGHD"></center>');
+                },
+                success: function (response)
+                {
+                    $('#cerrarModalG').click();
+                    limpiarDatosEstadoG();
+                },
+            });
+            return false;
+
+            function limpiarDatosEstadoG()
+            {
+                $('#CatEstadoSolicitud').val("");
+                $('#detalleSolicitudG').val("");
+                $('#detalleSolicitudG').val("");
+                $('#CatEstadoSolicitud').empty();
+            }
+        });
+
+
+    });
+        </script>
+
+
+
+        <!-- Modal Aprobar Solicitud por Gerente-->
+        <div class="modal fade" id="modalAGerente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalAGerenteLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title text-light" id="modalAGerenteLabel">Solicitud</h5>
+                        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="detalleAprobarGerente"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cerrarModalG" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="actualizarGerente">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>

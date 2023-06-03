@@ -1,0 +1,64 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblBiblioteca>
+<link href="~/CSS/stylecardsbiblioteca.css" rel="stylesheet">
+<div class="row justify-content-center">
+    @foreach (var item in Model)
+    {
+        if (item.idCatTipoArchivo != 4 && item.idCatTipoArchivo != 5)
+        {
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="card-data">
+                    <div class="card info-body">
+                        <div class="card-header text-center info-name">
+                            <h4 class="text-white pb-4">@item.titulo</h4>
+
+                        </div>
+                        <div class="card-body ifno-general">
+                            <h5>@item.CatJerarquia.descripcion: <strong style="color: #153d77 !important;">@item.detalle</strong></h5>
+                            <h5>Origen: <strong style="color: #153d77 !important;">@item.CatOrigen.descripcion</strong></h5>
+                            <h5>Fecha: <strong style="color: #153d77 !important;">@Html.DisplayFor(modelItem => item.fechaDocumento)</strong></h5>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="@Url.Action("VisualizarArchivo/"+item.idTblBiblioteca,"TblBiblioteca")" target="_blank" class="btn btn-primary btn-lg" style="background: #0c4899 !important;">Descargar Aqui <i class="align-middle me-2 fas fa-fw fa-arrow-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else if (item.idCatTipoArchivo == 4)
+        {
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="card-data">
+                    <div class="card info-body">
+                        <div class="card-header text-center info-name">
+                            <h4 class="text-white pb-4">@item.titulo</h4>
+
+                        </div>
+                        <div class="card-footer text-center">
+                            <img class="img-fluid" src="@item.nombreArchivo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else if (item.idCatTipoArchivo == 5)
+        {
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="card-data">
+                    <div class="card info-body">
+                        <div class="card-header text-center info-name">
+                            <h4 class="text-white pb-4">@item.titulo</h4>
+
+                        </div>
+                        <div class=" text-center">
+                            <div class="mb-3 mt-3">
+                                <iframe class="responsive-iframe" src="@item.urlVideo"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+</div>
+

@@ -1,0 +1,38 @@
+﻿
+@model iveCincoFrame.Models.TblSolicitudesXtblVehiculos
+
+@if (Model.kilomentrajeFinal != null && Model.imagenKilometrajeFinal != null)
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                Kilometraje Final
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kilomentrajeFinal)
+            </dd>
+            <dt>
+                Imagen Odometro
+            </dt>
+            <dd>
+                <img src="~/Imagenes/Kilometraje/@Url.Content(Model.imagenKilometrajeFinal)" style="height:300px;width:460px;" />
+            </dd>
+        </dl>
+    </div>
+}
+else
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                Kilometraje Final Vacio: debe ingresar el kilometraje al final de la comision.
+            </dt>
+            <br />
+            <br />
+            <dt>
+                Imagen del Kilometraje Final Vacio: debe cargar la imagen del odometro al culminar la comision.
+            </dt>
+        </dl>
+    </div>
+}

@@ -1,0 +1,157 @@
+﻿@model iveCincoFrame.Models.Asasmblea.AsignacionesAsambelasDto
+@{
+    ViewBag.Title = "EditarAsistencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <!--Inicio-->
+
+
+                            @Html.Partial("_MensajeParcial")
+                            <div class="row">
+                                
+                                <div class="container">
+                                    @using (Html.BeginForm("GuardarCambios", "TblAsistenciasAsambaleas"))
+                                    {
+                                        @Html.HiddenFor(model => model.idTblAsistenciasAsambaleas)
+                                        <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+
+                                            <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                @Html.Label("Nombre completo", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-id-card-clip"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.nombres, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del Asociado" } })
+                                                    @*<input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombre del Asociado" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.nombres, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                                                @Html.Label("Numero de asociado", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-person-dots-from-line"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.numeroAsociado, new { htmlAttributes = new { @class = "form-control", @placeholder = "COI00000"} })
+                                                    @*<input type="text" class="form-control" id="numeroAsociado" name="numeroAsociado" placeholder="COI00000" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.numeroAsociado, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12  col-md-4 col-lg-4">
+                                                @Html.Label("Numero de Identificación (DPI)*", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-address-card"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.numeroDpi, new { htmlAttributes = new { @class = "form-control", @placeholder = "0" } })
+                                                    @*<input type="text" class="form-control" id="numeroDpi" name="numeroDpi" placeholder="0000000000000" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.numeroDpi, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12  col-md-4 col-lg-4">
+                                                @Html.Label("Tipo de Asociado", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-user-tie"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.tipoAsociado, new { htmlAttributes = new { @class = "form-control", @placeholder = "-----" } })
+                                                    @*<input type="text" class="form-control" id="tipoAsociado" name="tipoAsociado" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.tipoAsociado, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+                                            <div class="col-12 col-sm-12  col-md-3 col-lg-3">
+                                                @Html.Label("Estado en Tarjeta de Credito", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-credit-card"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.estadoTarjetaCredito, new { htmlAttributes = new { @class = "form-control", @placeholder = "-----"} })
+                                                    @*<input type="text" class="form-control" id="estadoTarjetaCredito" name="estadoTarjetaCredito" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.estadoTarjetaCredito, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                                                @Html.Label("Estado en Creditos", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.estadoCreditos, new { htmlAttributes = new { @class = "form-control", @placeholder = "-----" } })
+                                                    @*<input type="text" class="form-control" id="estadoCreditos" name="estadoCreditos" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.estadoCreditos, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col-12 col-sm-12  col-md-3 col-lg-3">
+                                                @Html.Label("Telefono de Contacto", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-phone"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @placeholder = "-----"} })
+                                                    @*<input type="text" class="form-control" id="telefono" name="telefono" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12  col-md-3 col-lg-3">
+                                                @Html.Label("Genero", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-street-view"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @class = "form-control", @placeholder = "----------" } })
+                                                    @*<input type="text" class="form-control" id="genero" name="genero" placeholder="MASCULINO/FEMENINO" readonly value="TEST-GENERO" />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="row px-1 px-sm-1 px-md-3 px-lg-4 text-center" id="container-boton">
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12 align-items-center">
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+
+                                                        <div class="row px-1 px-sm-1 px-md-3 px-lg-4 text-center" id="container-boton">
+                                                            <div class="col-12 col-sm-12  col-md-12 col-lg-12 align-items-center">
+                                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                                    <button type="button" class="btn btn-warning btn-lg" id="cancelar-asistencia">Cancelar <i class="fa-solid fa-x"></i></button>
+                                                                    <button type="submit" class="btn btn-primary btn-lg" id="continuar-asistencia">Guardar Cambios <i class="fa-solid fa-check"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+
+                                </div>
+                            </div>
+
+                            <!--fin-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '#cancelar-asistencia', function () {
+                 window.location.href = '@Url.Action("Index", "TblAsistenciasAsambaleas")';
+        });
+    });
+</script>
+

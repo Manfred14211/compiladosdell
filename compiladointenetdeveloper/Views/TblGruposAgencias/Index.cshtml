@@ -1,0 +1,70 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblGruposAgencias>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaAlta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaModifica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTblUsuarioModifica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblUsuarios.usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TblUsuarios1.usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatUbicaciones.codigoNombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaAlta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaModifica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTblUsuarioModifica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TblUsuarios1.usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatUbicaciones.codigoNombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTblGruposAgencias }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTblGruposAgencias }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTblGruposAgencias })
+        </td>
+    </tr>
+}
+
+</table>

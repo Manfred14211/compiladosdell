@@ -1,0 +1,37 @@
+﻿@model iveCincoFrame.Models.TblDepositos
+
+@if(Model.monto != null && Model.imagenComprobanteDeposito != null)
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                Monto
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.monto)
+            </dd>
+            <dt>
+                Imagen del Comprobante de Deposito
+            </dt>
+            <dd>
+                <img src="~/Imagenes/BoletasDeposito/@Url.Content(Model.imagenComprobanteDeposito)" style="height:300px;width:460px;" />
+            </dd>
+        </dl>
+    </div>
+}
+else
+{
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                No a agregado el monto de la boleta.
+            </dt>
+            <br />
+            <br />
+            <dt>
+                No a ingresado el comprobante del deposito.
+            </dt>
+        </dl>
+    </div>
+}

@@ -1,0 +1,267 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblFacturas>
+<div class="container border mb-3" id="containerHeader">
+    <div class="divider-custom1">
+        <div class="divider-custom-line"></div>
+        <h2>Listado de Facturas <i class="fa-solid fa-file-lines"></i></h2>
+        <div class="divider-custom-line"></div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" id="tbl-facturas" width="100%" cellpadding="0">
+            <thead class="table-dark">
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Proveedor
+                    </th>
+                    <th>
+                        No. de Factura
+                    </th>
+                    <th>
+                        Fecha Factura
+                    </th>
+                    <th>
+                        Serie
+                    </th>
+                    <th>
+                        Monto
+                    </th>
+                    <th>
+                        Fecha Registro
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
+                </tr>
+            </thead>
+            @{var iterador = 1;}
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@iterador</th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TblProveedores.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.noFactura)
+                        </td>
+                        <td>
+                            @String.Format("{0:dd/MM/yyyy}", item.fechaFactura)
+                            @*@Html.DisplayFor(modelItem => item.fechaFactura)*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.serie)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.monto)
+                        </td>
+                        <td>
+                            @String.Format("{0:dd/MM/yyyy HH:mm:ss tt}", item.fechaCreacion)
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="align-middle me-2 fas fa-fw fa-cog"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item editarFactura" codigoFactura="@item.idTblFacturas"><i class="align-middle me-2 fas fa-fw fa-pen"></i> Editar</a></li>
+                                <li><a class="dropdown-item eliminarRFactura" codigoFactura="@item.idTblFacturas"><i class="align-middle me-2 fas fa-fw fa-trash-alt"></i> Eliminar</a></li>
+                                <li><a class="dropdown-item verImagenCFactura" codigoF="@item.idTblFacturas"><i class="fa-solid fa-gauge-simple-high"></i>  Factura</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    iterador++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        //Llamar a datatable
+        $('#tbl-facturas').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "(Filtrado de MAX total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+
+
+        $('.editarFactura').click(function ()
+        {
+             var codigofact = $(this).attr('codigoFactura');
+             $.ajax({
+                 type: 'POST',
+                 url: '@Url.Action("EdicionDetalleFactura", "TblSolicitudes")',
+                 data: {
+                     id: codigofact,
+                 },
+                 beforeSend: function (response)
+                 {
+                     response.setRequestHeader("If-Modified-Since", "0");
+                     response.setRequestHeader("Cache-Control", "no-cache");
+                     limpiarRubrosG();
+                 },
+                 success: function (response)
+                 {
+                           //alert("Ok");
+                     $('#detalleEditarFacturas').html(response);
+                     $('#modalEditarFacturas').modal('show');
+                 },
+             });
+             return false;
+         });
+
+        function limpiarRubrosG()
+        {
+            $("#noFactura").val("");
+            $('#idTblProveedores').val("");
+            $("#serieFactura").val("");
+            $('#fechaFactura').val();
+            $('#montoFactura').val();
+            $('#fechaVencimiento').val();
+        }
+
+        $('.verImagenCFactura').click(function ()
+        {
+            var codigoF = $(this).attr('codigoF');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("VerImagenFactura", "TblSolicitudes")',
+                data:
+                {
+                    id: codigoF,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#detalleFacturaC').html(response);
+                    $('#modalVerFactura').modal('show');
+                },
+            });
+            return false;
+        });
+
+        $('.eliminarRFactura').click(function ()
+        {
+            var codigo = $(this).attr('codigoFactura');
+            Swal.fire({
+                icon: 'warning',
+                title: '¿Estás seguro/a de eliminar la factura?',
+                showConfirmButton: true,
+                confirmButtonText: 'ELIMINAR',
+                confirmButtonColor: '#3085d6',
+                showCancelButton: true,
+                cancelButtonText: 'CANCELAR',
+                cancelButtonColor: '#d33',
+                buttonsStyling: true,
+
+            }).then((result) =>
+            {
+                if (result.isConfirmed)
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("EliminarFactura", "TblSolicitudes")',
+                        data:
+                        {
+                            id: codigo,
+                        },
+                        beforeSend: function (response)
+                        {
+                            response.setRequestHeader("If-Modified-Since", "0");
+                            response.setRequestHeader("Cache-Control", "no-cache");
+                        },
+                        success: function (response)
+                        {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Factura eliminada con exito',
+                                showConfirmButton: false,
+                                timer: 1500,
+                            }),
+                                number = response;
+                            cargardetallefacturas(response);
+                            limpiarDatosFactura();
+                        },
+                    });
+                }
+            });
+            return false;
+            function cargardetallefacturas(number)
+            {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleFacturas", "TblSolicitudes")',
+                    data: {
+                        id: number,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response)
+                    {
+                        $('#detalleFacturas').html(response);
+                    },
+                });
+                return false;
+            }
+            function limpiarDatosFactura()
+            {
+                $('#idTblSolicitudes').val("");
+                $("#noFactura").val("");
+                $('#idTblProveedores').empty();
+                $('#idTblProveedores').val("");
+                $("#serieFactura").val("");
+                $('#fechaFactura').val();
+                $('#montoFactura').val();
+                $('#fechaVencimiento').val();
+            }
+        });
+
+
+
+
+    });
+
+</script>
+<!-- Modal ver Comprobante Factura -->
+<div class="modal fade" id="modalVerFactura" tabindex="-1" aria-labelledby="modalVerFacturaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalVerFactura">Comprobante Deposito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="detalleFacturaC"></div>
+            </div>
+        </div>
+    </div>
+</div>

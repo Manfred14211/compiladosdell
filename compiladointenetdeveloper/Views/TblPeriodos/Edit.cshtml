@@ -1,0 +1,82 @@
+﻿@model iveCincoFrame.Models.TblPeriodos
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-12 col-xl-6">
+        <div class="card">
+
+            <div class="card-header">
+                <div class="row">
+                    <div class="container px-3 pb-3"><a class="btn btn-primary  btn-regresar-periodos" aria-current="page" href="~/TblPeriodos/VistaPeriodos"><span><i class="fa-solid fa-circle-left"></i></span> Regresar</a></div>
+                </div>
+                <h2 class="fc-toolbar-title"><strong class="text-primary">Editar</strong> registo</h2>
+                <h6 class="card-subtitle text-muted">Elija el rango de fechas y el archivo de Excel a subir</h6>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Edit", "TblPeriodos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+       
+                <div class="container">
+                    <div class="mb-3 col-sm-10 d-none">
+                        <label class="form-label">Fecha de Inicio</label>
+                        <div class="col-sm-10 input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
+                            <input type="text" name="idTblPeriodos" value="@Model.idTblPeriodos" class="form-control" id="" aria-describedby="text" placeholder="MM/dd/yyyy">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-sm-10">
+                        <label class="form-label">Fecha de Inicio</label>
+                        <div class="col-sm-10 input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-calendar-xmark"></i></span>
+                            <input type="datetime" name="fechaInicio" value="@Model.fechaInicio" class="form-control" id="" aria-describedby="text" placeholder="MM/dd/yyyy">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-sm-10">
+                        <label class="form-label">Fecha Fin</label>
+                        <div class="col-sm-10 input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-calendar-xmark"></i></span>
+                            <input type="date" name="fechaFin" value="@Model.fechaFin" class="form-control" id="" aria-describedby="text" placeholder="MM/dd/yyyy">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-sm-10 d-none">
+                        <label class="form-label">Fecha de creacion</label>
+                        <div class="col-sm-10 input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-calendar-xmark"></i></span>
+                            <input type="datetime" name="fechaCreacion" value="@Model.fechaCreacion" class="form-control" id="" aria-describedby="text" placeholder="MM/dd/yyyy">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-sm-10 d-none">
+                        <label class="form-label">Fecha modificacion</label>
+                        <div class="col-sm-10 input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-calendar-xmark"></i></span>
+                            <input type="datetime" name="fechaModificacion" value="@Model.fechaModificacion" class="form-control" id="" aria-describedby="text" placeholder="MM/dd/yyyy">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-sm-10">
+                        <label class="form-label">Estado</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text"><i class="fa-solid fa-check-to-slot"></i></span>
+                            @Html.DropDownList("idCatEstados", null, htmlAttributes: new { @class = "form-select" })
+                            @Html.ValidationMessageFor(model => model.idCatEstados, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-12 ms-sm-auto">
+                            <button type="submit" value="Guardar" class="btn btn-primary">Editar <i class="fa-solid fa-circle-check"></i></button>
+                        </div>
+                    </div>
+                </div>
+                }
+                @*<form>*@
+
+                @*</form>*@
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,151 @@
+﻿@model IEnumerable<iveCincoFrame.Models.tblpremora>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="container text-center">
+                                <h1 class="text-primary" style="color: #0c4899 !important;">Cuentas en Premora Cooitzá</h1>
+                                <hr />
+                            </div>
+                            @Html.Partial("_MensajeParcial")
+                            <br />
+                            <table class="table" id="tbl-premoras">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Acciones</th>
+
+                                        <th>
+                                            Estado
+                                        </th>
+                                        <th>
+                                            Cuenta
+                                        </th>
+                                        <th>
+                                            Asociado
+                                        </th>
+                                        <th>
+                                            Telefono
+                                        </th>
+                                        <th>
+                                            Pago Minimo
+                                        </th>
+                                        <th>
+                                            Saldo
+                                        </th>
+                                        <th>
+                                            Monto en Visacuotas
+                                        </th>
+                                        <th>
+                                            Dpi
+                                        </th>
+                                        <th>
+                                            Agencia
+                                        </th>
+                                        <th>
+                                            Fecha de Actualizacion
+                                        </th>
+                                        <th>
+                                            Usuario asignado
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+                                            <td>
+
+                                                @Html.ActionLink("Seguimientos", "Details", new { id = item.idtblpremora }, htmlAttributes: new { @class = "btn btn-primary" })
+
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.catestadoscallcenter.descripcion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.cuenta)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.nombre)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.telefono)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.minimo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.saldo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.visacuota)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.dpi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.agencia)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.fechaactualizacion)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+                                            </td>
+
+                                        </tr>
+
+
+                                    }
+                                </tbody>
+
+
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#tbl-premoras').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+    });
+</script>

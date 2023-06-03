@@ -1,0 +1,26 @@
+﻿@model iveCincoFrame.Models.TblAsistenciasAsambaleas
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <h1>Asistencia completada correctamente!</h1>
+                            <h3>Bienvenido a la Asamblea Cooitzá 2023: @Html.DisplayFor(model => model.nombres)</h3>
+                            <h3>Tu numero de registro es: @Html.DisplayFor(model => model.idTblAsistenciasAsambaleas)</h3>
+
+                            <div class=""><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Asambleas")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-plus"></i> Nuevo Registro</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

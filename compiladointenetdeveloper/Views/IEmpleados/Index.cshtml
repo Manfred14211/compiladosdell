@@ -1,0 +1,116 @@
+﻿@model IEnumerable<iveCincoFrame.Models.IEmpleados.Api.DataConteos>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+<style>
+    .nav-pills-bg-soft {
+        background-color: rgba(var(--bs-primary-rgb), 0.1);
+        padding: 0.625rem 0;
+        border-radius: 0.625rem;
+    }
+</style>
+<div class="row mb-4">
+    <div class="col-lg-8 mx-auto text-center">
+        <h2 class="fs-1">Control de fechas de expiracion para los DPI</h2>
+    </div>
+</div>
+<ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
+    <!-- Tab item -->
+    <li class="nav-item me-2 me-sm-5" role="presentation">
+        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" codigo="0" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="true">Asociados Vigentes</button>
+    </li>
+    <!-- Tab item -->
+    <li class="nav-item me-2 me-sm-5" role="presentation">
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-1" codigo="1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2" aria-selected="false" tabindex="-1">Asociados Vencidos</button>
+    </li>
+    <!-- Tab item -->
+    <li class="nav-item me-2 me-sm-5" role="presentation">
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-1" codigo="2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false" tabindex="-1">Asociados proximos a vencer</button>
+    </li>
+    <!-- Tab item -->
+    <li class="nav-item me-2 me-sm-5" role="presentation">
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-1" codigo="3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false" tabindex="-1">Empleados</button>
+    </li>
+    <!-- Tab item -->
+    <li class="nav-item me-2 me-sm-5" role="presentation">
+        <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-1" codigo="4" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-5" type="button" role="tab" aria-controls="course-pills-tabs-5" aria-selected="false" tabindex="-1">Empleados Proximos a vencer</button>
+    </li>
+</ul>
+<br />
+<div id="reportes">
+
+</div>
+<script>
+   $(document).ready(function() {
+     async function myAjax(param) {
+       let result
+       try {
+         result = await $.ajax({
+           url: '@Url.Action("GetReportes", "IEmpleados")',
+           type: 'POST',
+           dataType: 'html',
+           data: {
+             id: param
+           },
+           beforeSend: function(response) {
+
+             //btn.toggleClass('disabled');
+             response.setRequestHeader("If-Modified-Since", "0");
+             response.setRequestHeader("Cache-Control", "no-cache");
+             let timerInterval
+             Swal.fire({
+               title: 'Cargando registros',
+               html: 'Por favor espere mientras obtenemos la informacion',
+               allowOutsideClick: false,
+               timerProgressBar: true,
+               didOpen: () => {
+                 Swal.showLoading()
+               },
+               willClose: () => {
+                 clearInterval(timerInterval)
+               }
+             }).then((result) => {
+               /* Read more about handling dismissals below */
+               if (result.dismiss === Swal.DismissReason.timer) {
+                 console.log('I was closed by the timer')
+               }
+             })
+
+           },
+         })
+         return result
+       } catch (error) {
+         console.error(error)
+       }
+       }
+       myAjax(0).then((data) => {
+           //console.info('Response:', data)
+           swal.close();
+           $("#reportes").html('');
+           $("#reportes").html(data);
+       })
+     $(document).on('click', '#course-pills-tab-1', function (e) {
+     //$("#course-pills-tab-1").on('click', function(e) {
+       var codigo = $(this).attr('codigo');
+
+       //console.log(tblSucrusalesProductosCooitza);
+       e.preventDefault();
+       var btn = $(this);
+       if (!btn.hasClass('disabled')) {
+
+         //return false;
+         myAjax(codigo).then((data) => {
+           //console.info('Response:', data)
+           btn.removeClass('disabled');
+           swal.close();
+             $("#reportes").html('');
+             $("#reportes").html(data);
+         })
+
+       } else {
+         return false;
+       }
+     });
+   });
+</script>

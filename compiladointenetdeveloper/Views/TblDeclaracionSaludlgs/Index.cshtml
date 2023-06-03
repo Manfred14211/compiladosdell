@@ -1,0 +1,74 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblDeclaracionSaludlg>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <p>
+                                @Html.ActionLink("Create New", "Create")
+                            </p>
+                            <table class="table">
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        Poliza
+                                    </th>
+                                    <th>
+                                        Certificado
+                                    </th>
+                                    <th>
+                                        Nombres
+                                    </th>
+                                    <th>
+                                        Dpi
+                                    </th>
+                                    <th>
+                                        Nit
+                                    </th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.idTblDeclaracionSaludlg }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.idTblDeclaracionSaludlg }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.idTblDeclaracionSaludlg })
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg1)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg2)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg4) @Html.DisplayFor(modelItem => item.lg5)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg8)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg9)
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>Index</h2>
+

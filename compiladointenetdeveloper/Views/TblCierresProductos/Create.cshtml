@@ -1,0 +1,139 @@
+﻿@model iveCincoFrame.Models.Tableros.GuardarCierresProductos
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-plus-circle"></i> Nuevo Registro</div>
+                            <br />
+                            <div class="mb-3 row">
+                                <div class="col-1">
+                                    <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblSucrusalesProductosCooitzas")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button>
+                                </div>
+                                <div class="col-11 text-start">
+                                    <h2 class="text-primary" style="color: #0c4899 !important;">Cierre por producto</h2>
+                                    <hr />
+                                </div>
+                            </div>
+                            @using (Html.BeginForm())
+                            {
+                                <!-- Form Row-->
+                                <div class="row gx-3">
+
+                                    <div class="col-md-12">
+                                        @Html.Label("Tipo de producto", new { @class = "form-label" })
+                                        @Html.DropDownList("idCatTipificacionProductos", null, htmlAttributes: new { @class = "form-select" })
+                                    </div>
+                                    <div class="col-md-12">
+                                        @Html.Label("Producto", new { @class = "form-label" })
+                                        @Html.DropDownList("idTblProductosCooitza", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.idTblProductosCooitza, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <!-- Form Row-->
+                                <div class="row gx-3">
+                                    <div class="col-md-6">
+                                        @Html.Label("Saldo", new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.saldo, new { htmlAttributes = new { @class = "form-control", @placeholder = "0.00" } })
+                                        @Html.ValidationMessageFor(model => model.saldo, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.Label("Cantidad", new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control", @placeholder = "0" } })
+                                        @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <!-- Form Row-->
+                                <div class="row gx-3">
+                                    <div class="col-md-6">
+                                        @Html.Label("Anio", new { @class = "form-label" })
+                                        @Html.DropDownList("idCatAnios", null, htmlAttributes: new { @class = "form-select" })
+                                        @Html.ValidationMessageFor(model => model.idCatAnios, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.Label("Mes", new { @class = "form-label" })
+                                        @Html.DropDownList("idCatMeses", null, htmlAttributes: new { @class = "form-select" })
+                                        @Html.ValidationMessageFor(model => model.idCatMeses, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row ">
+                                    <button type="submit" value="Create" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-check"></i> Guardar Registro</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#idCatTipificacionProductos').select2();
+        $('#idTblProductosCooitza').select2();
+
+        $('#idCatAnios').select2();
+        $('#idCatMeses').select2();
+
+        /*llamdo de productos*/
+        var id = parseInt($("#idCatTipificacionProductos").val());
+        getProductos(id);
+
+        $("#saldo").on({
+            "focus": function (event) {
+                $(event.target).select();
+            },
+            "keyup": function (event) {
+                $(event.target).val(function (index, value) {
+                    return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+
+
+        $("#idCatTipificacionProductos").change(function () {
+
+            var id = parseInt($("#idCatTipificacionProductos").val());
+            getProductos(id);
+        })
+
+        function getProductos(number) {
+            $("#idTblProductosCooitza").empty();
+            $.ajax({
+                   type: 'POST',
+                   url: '@Url.Action("ObtenerProductos", "TblSucrusalesProductosCooitzas")',
+                   dataType:'json',
+                data: { IdTipificacion: number },
+                success: function (response) {
+                    //console.log(response);
+                    ////debugger;
+                    $("#idTblProductosCooitza").append('<option  value="0" disabled selected>Selececcione</option>');
+                    $.each(response, function (i, coordinadores) {
+                        $("#idTblProductosCooitza").append('<option value="'
+                            + coordinadores.Value + '">'
+                            + coordinadores.Text + '</option>');
+                    });
+
+                },
+                error: function (ex) {
+                       alert('No se pueden cargar los coordinadores' + ex)
+                }
+            });
+            return false;
+
+        }
+    });
+
+</script>

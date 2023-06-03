@@ -1,0 +1,107 @@
+﻿@model iveCincoFrame.Models.TblMonitorGrabacion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TblMonitorGrabacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadCamarasFuncionando)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadCamarasFuncionando)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capturaPatalla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capturaPatalla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dvrFuncionando)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dvrFuncionando)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sucursalTieneInternet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sucursalTieneInternet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dvrGrabando)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dvrGrabando)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idTblUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTblUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatEstados.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatUbicaciones.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatUbicaciones.codigo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTblMonitorGrabacion }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

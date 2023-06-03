@@ -1,0 +1,85 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblSucrusalesProductosCooitza>
+
+
+<table class="table" id="datatables-reponsive">
+    <thead>
+        <tr class="small">
+            <th style="width:10%;">Region</th>
+            <th style="width:25%;">Sucursal</th>
+            <th style="width:10%;">Producto</th>
+            <th style="width:10%;">Monto Meta Mensual</th>
+            <th style="width:10%;">Cantidad Meta Mensual</th>
+            <th style="width:10%;">Mes</th>
+            <th style="width:10%;">Año</th>
+            <th style="width:10%;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="small">
+                <th>
+                    @Html.DisplayFor(modelItem => item.CatUbicaciones.CatRegiones.codigoNombre)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.CatUbicaciones.codigoNombre)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TblProductosCooitza.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.metasMensual)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.cantidadMetaMensual)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CatMeses.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CatAnios.descripcion)
+                </td>
+                <td class="table-action">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="#" id="eliminar-meta-sucursal" codigo="@item.idTblSucrusalesProductosCooitza">
+                                <div class="row">
+                                    <i class="align-middle fas fa-fw fa-trash"></i>
+                                </div>
+                                <div class="row">
+                                    Eliminar
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <!---->
+                            <a href="#" id="asignar-meta-empleado" codigo="@item.idTblSucrusalesProductosCooitza" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <div class="row">
+                                    <i class="align-middle me-2 fas fa-fw fa-allergies"></i>
+                                </div>
+                                <div class="row">
+                                    Asignar
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+    @*<tfoot>
+        <tr class="align-right">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tfoot>*@
+</table>

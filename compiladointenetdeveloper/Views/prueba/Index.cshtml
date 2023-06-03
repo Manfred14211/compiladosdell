@@ -1,0 +1,814 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblDeclaracionConcentimientolg>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lg1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg9)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg10)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg11)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg13)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg14)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg15)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg16)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg17)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg18)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg19)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg20)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg21)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg23)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg24)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg25)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg26)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg27)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg29)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg30)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg31)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg32)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg33)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg34)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg36)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg37)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg38)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg39)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg40)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg42)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg43)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg44)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg45)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg46)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg47)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg48)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg49)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg50)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg51)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg52)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg53)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg54)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg55)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg56)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg57)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg58)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg59)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg60)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg61)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg62)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg63)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg64)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg65)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg66)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg67)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg68)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg69)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg70)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg71)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg72)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg73)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg74)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg75)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg76)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg77)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg78)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg79)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg80)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg81)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg82)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg83)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg84)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg85)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg86)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg87)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg88)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg89)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg90)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg91)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg92)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg93)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg94)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg95)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg96)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg97)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg98)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg99)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg100)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg101)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg102)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg103)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg104)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg105)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg106)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg107)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg108)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg109)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg110)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg111)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg112)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg113)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg114)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg115)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg116)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg117)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg118)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg119)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lg120)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTblUsuarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCatEstados)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescos.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescos1.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescos2.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescos3.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescosGastosM.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescosGastosM1.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescosGastosM2.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatParentescosGastosM3.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatTiposDocumentos.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatTiposDocumentos1.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatTiposDocumentos2.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatTiposDocumentos3.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg14)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg15)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg17)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg18)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg19)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg20)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg21)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg23)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg24)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg25)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg26)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg27)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg29)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg30)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg31)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg32)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg33)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg34)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg36)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg37)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg38)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg39)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg40)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg42)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg43)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg44)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg45)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg46)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg47)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg48)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg49)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg50)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg51)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg52)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg53)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg54)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg55)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg56)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg57)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg58)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg59)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg60)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg61)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg62)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg63)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg64)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg65)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg66)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg67)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg68)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg69)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg70)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg71)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg72)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg73)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg74)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg75)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg76)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg77)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg78)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg79)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg80)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg81)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg82)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg83)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg84)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg85)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg86)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg87)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg88)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg89)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg90)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg91)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg92)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg93)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg94)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg95)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg96)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg97)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg98)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg99)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg100)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg101)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg102)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg103)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg104)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg105)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg106)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg107)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg108)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg109)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg110)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg111)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg112)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg113)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg114)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg115)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg116)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg117)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg118)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg119)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lg120)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTblUsuarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCatEstados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescos.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescos1.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescos2.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescos3.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescosGastosM.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescosGastosM1.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescosGastosM2.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatParentescosGastosM3.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatTiposDocumentos.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatTiposDocumentos1.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatTiposDocumentos2.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatTiposDocumentos3.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTblDeclaracionConcentimientolg }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTblDeclaracionConcentimientolg }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTblDeclaracionConcentimientolg })
+        </td>
+    </tr>
+}
+
+</table>

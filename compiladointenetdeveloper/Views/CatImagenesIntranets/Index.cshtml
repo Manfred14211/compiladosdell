@@ -1,0 +1,72 @@
+﻿@model IEnumerable<iveCincoFrame.Models.CatImagenesIntranet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="container text-center">
+                                <h1 class="text-primary" style="color: #0c4899 !important;">Imagenes Intranet</h1>
+                                <hr />
+                            </div>
+                            <div class="d-flex justify-content-center justify-content-md-start">
+
+                                <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Create", "CatImagenesIntranets")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-plus"></i> Cargar Imagen</button></div>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.nombre)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.fechaCreacion)
+                                    </th>
+                                    <th>
+                                        Usuario
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+                                    </th>
+                                    <th>Acciones</th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.nombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.fechaCreacion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.idCatImagenesIntranet }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.idCatImagenesIntranet }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.idCatImagenesIntranet })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

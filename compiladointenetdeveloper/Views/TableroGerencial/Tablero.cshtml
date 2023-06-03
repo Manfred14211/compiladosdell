@@ -1,0 +1,1081 @@
+﻿
+@{
+    ViewBag.Title = "Tablero";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+<style>
+    .testimonial-card .card-up {
+        height: 120px;
+        overflow: hidden;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+    }
+
+    .aqua-gradient {
+        background: #153d77 !important;
+    }
+
+    .testimonial-card .avatar {
+        height: 100px !important;
+        width: 93px !important;
+        margin-top: -60px;
+        overflow: hidden;
+        border: 5px solid #ffff;
+        border-radius: 50%;
+    }
+    .icono-texto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .icono-texto i {
+            font-size: 1.2rem;
+        }
+
+        .icono-texto .texto {
+            font-size: 0.7rem;
+            margin-top: 0.15rem;
+        }
+
+
+</style>
+<link href="~/CSS/StyleTableroTable.css" rel="stylesheet">
+<link href="~/CSS/StyleProgressCircle.css" rel="stylesheet">
+<link href="~/CSS/StyleLoader.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+
+
+<div class="container d-none">
+    <input type="number" class="form-control" id="resp" value="@ViewBag.resp" />
+    <input type="number" class="form-control" id="idCatAnios" value="@ViewBag.idCatAnios" />
+    <input type="number" class="form-control" id="idCatMeses" value="@ViewBag.idCatMeses" />
+    <input type="number" class="form-control" id="valor" value="@ViewBag.valor" />
+    <input type="number" class="form-control" id="filtro" value="@ViewBag.filtro" />
+    <input type="number" class="form-control" id="padrino" value="@ViewBag.padrino" />
+    <input type="number" class="form-control" id="dashboardType" value="@ViewBag.dashboardType" />
+</div>
+<div id="titulos">
+
+</div>
+<div class="text-center">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary btn-lg" id="home">
+            <div class="icono-texto">
+                <i class="align-middle fas fa-fw fa-home"></i>
+                <span class="texto">Inicio</span>
+            </div>
+        </button>
+        <button type="button" class="btn btn-outline-success btn-lg" id="recargar">
+            <div class="icono-texto">
+                <i class="align-middle fas fa-fw fa-redo"></i>
+                <span class="texto">Recargar</span>
+            </div>
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-lg" id="fechas">
+            <div class="icono-texto">
+                <i class="align-middle far fa-fw fa-calendar-check"></i>
+                <span class="texto">Fechas</span>
+            </div>
+        </button>
+    </div>
+</div>
+<hr />
+
+<div id="loader">
+    <div class="spinner"></div>
+    <p>Cargando...</p>
+</div>
+
+<div class="row" id="tablero">
+    @Html.Partial("_MensajeParcial")
+    <div class="col-xxl-12">
+        <div class="card testimonial-card mt-2 mb-3" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+            <div class="card-up aqua-gradient"></div>
+            <div class="avatar mx-auto white">
+                <img src="~/Content/img/avatars/avatarCooitza.png" class="img-fluid img-placeholder" alt="woman avatar">
+            </div>
+            <div class="text-center mb-2">
+                <h4 class="placeholder-glow"><span class="placeholder col-3"></span></h4>
+                <h5 class="placeholder-glow">
+                    <span class="placeholder col-6"></span>
+                </h5>
+
+
+            </div>
+            <div class="text-center">
+                <a href="#" tabindex="-1" class="btn btn-success disabled placeholder col-3"></a>
+            </div>
+            <!-- barra de progreso del tiempo -->
+            <div class="row text-center mt-2 mb-0">
+                <p class="text-muted">Progreso del tiempo</p>
+            </div>
+            <div class="row text-center px-4">
+                <div class="col-1  text-end"> <i class="fa-solid fa-calendar"></i></div>
+                <div class="col-9 mx-0">
+                    <span class="placeholder col-12 bg-dark"></span>
+                </div>
+                <div class="col-2 mx-0 text-start">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </div>
+            </div>
+            <!-- fin  de progreso del tiempo -->
+            <div class="card-body text-center">
+                <div class="card">
+                    <table class="" width="100%">
+                        <thead role="rowgroup">
+                            <tr role="row">
+                                <th class="text-start" style="width:5%;" role="columnheader">#</th>
+                                <th class="text-start" style="width:30%;" role="columnheader">Producto</th>
+                                <th class="text-center" style="width:20%" role="columnheader">Logrado</th>
+                                <th class="text-center" style="width:20%" role="columnheader">Meta</th>
+                                <th style="width:20%" role="columnheader">Alcance</th>
+                                <th style="width:10%" class="small text-center" role="columnheader">% de alcance</th>
+                            </tr>
+                        </thead>
+                        <tbody role="rowgroup">
+                            @for (int i = 0; i < 8; i++)
+                            {
+                                <tr role="row">
+                                     <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+
+
+        let resp = document.getElementById('resp').value;
+        let idCatAnios = document.getElementById('idCatAnios').value;
+        let idCatMeses = document.getElementById('idCatMeses').value;
+
+        let valor = document.getElementById('valor').value;
+        let filtro = document.getElementById('filtro').value;
+        let padrino = document.getElementById('padrino').value;
+        let dashboardType = document.getElementById('dashboardType').value;
+
+        // Mostrar el SweetAlert al hacer clic en el botón de recarga
+        document.getElementById('home').addEventListener('click', function () {
+            Swal.fire({
+              title: 'Volveras al Inicio',
+              text: "Elije una opcion",
+              icon: 'info',
+              showCancelButton: true,
+              allowOutsideClick: false,
+              confirmButtonColor: '#153d77',
+              cancelButtonColor: '#198754',
+              confirmButtonText: 'Aceptar',
+              cancelButtonText: 'Cancelar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                  Swal.fire({
+                    title: 'Redireccionando al inicio',
+                    text: 'Espere un momento por favor...',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    showConfirmButton: false,
+                    didOpen: () => {
+                      Swal.showLoading();
+                    }
+                  });
+                // Recargar la página después de 2 segundos
+                setTimeout(function () {
+                    var url = "@Url.Action("Home", "TableroGerencial")";
+                  window.location.href = url;
+                }, 2000);
+              } else {
+                Swal.close();
+              }
+            })
+        });
+
+        // Mostrar el SweetAlert al hacer clic en el botón de recarga
+        document.getElementById('recargar').addEventListener('click', function () {
+            Swal.fire({
+                title: 'Recargando',
+                text: 'Espere un momento por favor...',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                showConfirmButton: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            // Recargar la página después de 2 segundos
+            setTimeout(function () {
+                location.reload();
+            }, 2000);
+        });
+
+        // Ocultar el contenedor de carga cuando la página haya terminado de cargar
+        window.addEventListener('load', function () {
+            document.getElementById('loader').style.display = 'none';
+        });
+
+
+        if (padrino == 1) {
+            $("#tablero").html('');//limiar el tablero
+            $("#tablero").html(`<div class="col-xxl-12">
+                <div class="card testimonial-card mt-2 mb-3" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                    <div class="card-up aqua-gradient"></div>
+                    <div class="avatar mx-auto white">
+                        <img src="~/Content/img/avatars/avatarCooitza.png" class="img-fluid img-placeholder" alt="woman avatar">
+                    </div>
+                    <div class="text-center mb-2">
+                        <h4 class="placeholder-glow"><span class="placeholder col-3"></span></h4>
+                        <h5 class="placeholder-glow">
+                            <span class="placeholder col-6"></span>
+                        </h5>
+
+
+                    </div>
+                    <div class="text-center">
+                        <a href="#" tabindex="-1" class="btn btn-success disabled placeholder col-3"></a>
+                    </div>
+                    <!-- barra de progreso del tiempo -->
+                    <div class="row text-center mt-2 mb-0">
+                        <p class="text-muted">Progreso del tiempo</p>
+                    </div>
+                    <div class="row text-center px-4">
+                        <div class="col-1  text-end"> <i class="fa-solid fa-calendar"></i></div>
+                        <div class="col-9 mx-0">
+                            <span class="placeholder col-12 bg-dark"></span>
+                        </div>
+                        <div class="col-2 mx-0 text-start">
+                            <p class="placeholder-glow">
+                                <span class="placeholder col-12"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- fin  de progreso del tiempo -->
+                    <div class="card-body text-center">
+                        <table class="" width="100%">
+                            <thead role="rowgroup">
+                                <tr role="row">
+                                    <th class="text-start" style="width:5%;" role="columnheader">#</th>
+                                    <th class="text-start" style="width:30%;" role="columnheader">Producto</th>
+                                    <th class="text-center" style="width:20%" role="columnheader">Logrado</th>
+                                    <th class="text-center" style="width:20%" role="columnheader">Meta</th>
+                                    <th style="width:20%" role="columnheader">Alcance</th>
+                                    <th style="width:10%" class="small text-center" role="columnheader">% de alcance</th>
+                                </tr>
+                            </thead>
+                            <tbody role="rowgroup">
+
+                                <tr role="row">
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                    <td class="text-center" role="cell">
+                                        <p class="placeholder-glow">
+                                            <span class="placeholder col-12"></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>`);//setera html  tablero
+        }
+        /*
+         *los elementos <a></a> por defecto traen resp=1 entonces cuando se este
+         * accediendo desde un elemnento de estos ya traera rep con valor por tanto
+         * ingresara al else del if
+         *
+         */
+        if (resp != 1) {
+            /*
+             * en este bloque de codigo se manda a llamar a la funcion para consultar si es padrino
+             * o no
+             */
+            let url = '@Url.Action("ConsultaPadrino", "TableroGerencial")';
+            obtenerInfoPadrino(url, function (opciones) {
+                return opciones;
+            })
+            .then(function (resp) {
+                /*validamos dentro de la respuesta que retorna la funcion existe una propuedad que se llama error
+                 *si error es true es porque ocurrio un error y no podemos continuar
+                 * si error es false continuamos con la ejecucion
+                 */
+                if (!resp.error) {
+                      let codigo = resp.data.Padrino;//<----- obtenemos el codigo de respuesta del json que retorna la funcion este codigo hace referecia si es padrino o no
+                          if (codigo == 1) {
+                            Swal.fire({
+                              title: 'Eres Padrino de Agencias y Administrador',
+                              text: "Elije como deseas continuar",
+                              icon: 'info',
+                              showCancelButton: true,
+                              allowOutsideClick: false,
+                              confirmButtonColor: '#153d77',
+                              cancelButtonColor: '#198754',
+                              cancelButtonText: 'Padrino de agencias',
+                              confirmButtonText: 'Administrador'
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                  window.location.href = "@Url.Action("Tablero", "TableroGerencial")?padrino=0&resp=1&dashboardType=" + dashboardType+"";
+                              } else {
+                                  window.location.href = "@Url.Action("Tablero", "TableroGerencial")?padrino=1&resp=1&dashboardType=" + dashboardType+"";
+                              }
+                            })
+                          } else if (codigo == 2) {//<--- el caso 2 tambien indica que es padrino pero no administrandor entonces se redidige al controlador con el valor padrino en 1
+                              window.location.href = "@Url.Action("Tablero", "TableroGerencial")?padrino=1&resp=1&dashboardType=" + dashboardType+"";
+                          } else {
+                              window.location.href = "@Url.Action("Tablero", "TableroGerencial")?padrino=0&resp=1&dashboardType=" + dashboardType+"";
+                          }
+
+                } else {
+                      /*
+                       *para este caso habra ocurrido un error entonces
+                       * se muestra en pantalla la alerta indicando que algo sucedio probalmenete sea
+                       * error de base de datos o de red entonces se proporciona un boton que al hacer
+                       * click se recarga la pagina
+                       */
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        allowOutsideClick: false,
+                        text: 'Ha ocurrido un error cunado se validaron los filtros padrinos',
+                        confirmButtonText: 'Intentar de nuevo',
+                        confirmButtonColor: '#198754'
+                      }).then(function() {
+                        location.reload();
+                      });
+                }
+
+             });
+            }
+        else
+        {
+            /*
+             * aqui se ejecuta la funcion getItemsTablero con los parametros que estan en los input en  hidden
+             *
+             */
+            getItemsTablero(idCatAnios, idCatMeses, filtro, valor, padrino, dashboardType,function (opciones) {
+
+                return opciones;
+            })
+            .then(function (resp) {
+                 console.log(resp);
+                 pintarTablero(resp.data);
+
+             });
+        }
+
+
+        function obtenerInfoPadrino(url, beforeSendCallback) {
+            // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+            let opciones = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+            if (beforeSendCallback && typeof beforeSendCallback === 'function') {
+                opciones = beforeSendCallback(opciones);
+            }
+            // Enviar solicitud
+            return fetch(url, opciones)
+                .then(function (response) {
+                    if (response.status >= 200 && response.status < 300) {
+                        swal.close();
+                        return response.json().then(data => ({ error: false, data }));
+                    } else {
+                        swal.close();
+                        // El código de estado está fuera del rango de éxito
+                        return { error: true, data: null };
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Ocurrio un problema en la peticion fetch para validar filtros del tablero:', error);
+                    swal.close();
+                    return { error: true, data: null };
+                });
+        }
+        $("#fechas").on('click', function (e) {
+            e.preventDefault();
+                var btn = $(this);
+                if (!btn.hasClass('disabled')) {
+                    (async () => {
+                        const { value: fechas } = await Swal.fire({
+                    title: 'Selecciona la fecha del reporte',
+                    icon: 'info',
+                    html: `
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                        <label>Selecciona el Año</label>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">
+                                                <i class="align-middle me-2 fas fa-fw fa-calendar-check"></i>
+                                            </span>
+                                            <select class="form-select" id="idAnios" aria-label="Default select example">
+                                                <option selected value="4">2023</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                        <label>Selecciona el Mes</label>
+                                        <div class="input-group input-group-lg mb-3">
+                                            <span class="input-group-text">
+                                                <i class="align-middle me-2 fas fa-fw fa-calendar-alt"></i>
+                                            </span>
+                                            <select class="form-select" id="idMeses" aria-label="Default select example">
+                                                <option value="3">Marzo</option>
+                                                <option value="4">Abril</option>
+                                                <option selected value="5">Mayo</option>
+                                                <option disabled value="6">Junio</option>
+                                                <option disabled value="7">Julio</option>
+                                                <option disabled value="8">Agosto</option>
+                                                <option disabled value="9">Septiembre</option>
+                                                <option disabled value="10">Octubre</option>
+                                                <option disabled value="11">Noviembre</option>
+                                                <option disabled value="12">Diciembre</option>
+                                              </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`,
+                    focusConfirm: false,
+                    showLoaderOnConfirm: true,
+                    confirmButtonText: 'Continuar <i class="align-middle me-2 fas fa-fw fa-hand-point-right"></i>',
+                    confirmButtonHtml: true,
+                    customClass: {
+                        confirmButton: 'btn-lg'
+                    },
+                    allowOutsideClick: false,
+                    preConfirm: () => {
+                        return [
+                            document.getElementById('idAnios').value,
+                            document.getElementById('idMeses').value
+                        ]
+                    }
+                })
+
+                    if (fechas) {
+                        console.log(fechas)
+                        getItemsTablero(fechas[0], fechas[1], filtro, valor, padrino, dashboardType, function (opciones) {
+
+                            return opciones;
+                        })
+                        .then(function (resp) {
+                            if (!resp.error) {
+                                console.log(resp);
+                                pintarTablero(resp.data);
+                            }
+                            else
+                            {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    allowOutsideClick: false,
+                                    text: 'Ha ocurrido un error al obtener los datos',
+                                    confirmButtonText: 'Intentar de nuevo',
+                                    confirmButtonColor: '#198754'
+                                }).then(function () {
+                                    location.reload();
+                                });
+                            }
+
+
+                        });
+                            }
+
+                    })();
+                }
+                else
+                {
+                return false;
+                }
+        });
+        // Función para mostrar la animación de carga
+        function mostrarAnimacion(titulo, texto) {
+            Swal.fire({
+                title: titulo,
+                html: texto,
+                allowOutsideClick: false,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+            })
+        }
+        function getItemsTablero(idCatAnios, idCatMeses, filtro, valor, padrino, dashboardType,beforeSendCallback) {
+            //var url = "@Url.Action("GetItemsTablero", "TableroGerencial")?idCatAnios=" + idCatAnios + `&idCatMeses="${idCatMeses}"&filtro="${filtro}"&valor="${valor}"&padrino="${padrino}"`;
+            //  - - - - -  show loading animation
+            mostrarAnimacion("Obteniendo datos para el tablero", "Espere un momento por favor...");
+            let opciones = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+            if (beforeSendCallback && typeof beforeSendCallback === 'function') {
+                opciones = beforeSendCallback(opciones);
+            }
+            var url = '@Url.Action("GetItemsTablero", "TableroGerencial")?idCatAnios=' + idCatAnios + '&idCatMeses=' + idCatMeses + '&filtro=' + filtro + '&valor=' + valor + '&padrino=' + padrino + '&dashboardType=' + dashboardType;
+            // Enviar solicitud
+            return fetch(url, opciones)
+                .then(function (response) {
+                        if (response.status >= 200 && response.status < 300) {
+                            swal.close();
+                            return response.json().then(data => ({ error: false, data }));
+                        } else {
+                            swal.close();
+                            // El código de estado está fuera del rango de éxito
+                            return { error: true, data: null };
+                        }
+                })
+                .catch(function (error) {
+                    console.error('Ocurrio un problema en la peticion fetch para obtener los items del tablero:', error);
+                    swal.close();
+                    return { error: true, data: null };
+                });
+        }
+
+
+
+        function pintarTablero(data) {
+            return new Promise((resolve, reject) => {
+
+                $("#tablero").html('');//limiar el tablero
+                $("#titulos").html(`<div class="row text-center mb-2">
+                                        <h1 style="color: #0c4899 !important;">${data.Titulo}</h1>
+                                    </div>`);
+                    let index = 0;
+                    $.each(data.Regionales, function (key, item) {
+                        var html = '';
+                        if (item.Imagen == "buXGn0nh0qP7OZAxqU4C.jpg")
+                        {
+                            item.Imagen = "lwKDct1KWYArYfvGTw1H.jpeg";
+                        }
+                        if(item.Imagen == "dXgOWIaUzIY2pZXz3gJm.jpg")
+                        {
+                            item.Imagen = "VdhP8zLNAHtZf8zT1YAE.jpeg";
+                        }
+                        if (item.Sucursal == null ) {
+                            item.Sucursal = '';
+                        }
+                        var tablaColumnasCompletas = '';
+                        var contenedorCrecimientos = '';
+                        // Aquí empieza el bucle que itera por la propiedad "productos"
+                        let contador = 0;
+
+                        if (item.notas) {
+                            $.each(item.Productos, function (productoKey, productoItem) {
+                                if (productoItem.IdCatTiposOperacion == 2) {
+                                    contador++;
+                                    tablaColumnasCompletas += `<tr>
+                                        <td class="text-start">${contador}</td>
+                                        <td class="text-start">${productoItem.Descripcion}</td>
+                                        <td class="text-center">${productoItem.CierreAnioAnterior}</td>
+                                        <td class="text-center">${productoItem.SaldoFechaActual}</td>
+                                        <td class="text-center">${productoItem.CrecimientoLogrado}</td>
+                                        <td class="text-center">${productoItem.MetaAcumulada}</td>
+                                        <td role="cell">
+                                                <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="${productoItem.Progreso}" aria-valuenow="${productoItem.Grafica}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                        </td>
+                                        <td class="text-center">${productoItem.Grafica}%</td>
+                                         <td class="text-center">${productoItem.Punteo}</td>
+                                         <td class="text-center fw-bold">${productoItem.Ponderacion}</td>
+                                    </tr>`;
+                                }
+                                else {
+                                    contador++;
+                                    html += `<tr>
+                                        <td class="text-start">${contador}</td>
+                                        <td class="text-start">${productoItem.Descripcion}</td>
+                                        <td class="text-center">${productoItem.ConteoData}</td>
+                                        <td class="text-center">${productoItem.Meta}</td>
+                                        <td role="cell">
+                                                <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="${productoItem.Progreso}" aria-valuenow="${productoItem.Grafica}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                        </td>
+                                        <td class="text-center">${productoItem.Grafica}%</td>
+                                         <td class="text-center">${productoItem.Punteo}</td>
+                                         <td class="text-center fw-bold">${productoItem.Ponderacion}</td>
+                                    </tr>`;
+                                }
+
+                            });
+                        }
+                        else
+                        {
+                            $.each(item.Productos, function (productoKey, productoItem) {
+                                if (productoItem.IdCatTiposOperacion == 2) {
+                                    contador++;
+                                    tablaColumnasCompletas += `<tr>
+                                        <td class="text-start">${contador}</td>
+                                        <td class="text-start">${productoItem.Descripcion}</td>
+                                        <td class="text-center">${productoItem.CierreAnioAnterior}</td>
+                                        <td class="text-center">${productoItem.SaldoFechaActual}</td>
+                                        <td class="text-center">${productoItem.CrecimientoLogrado}</td>
+                                        <td class="text-center">${productoItem.MetaAcumulada}</td>
+                                        <td role="cell">
+                                                <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="${productoItem.Progreso}" aria-valuenow="${productoItem.Grafica}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                        </td>
+                                        <td class="text-center">${productoItem.Grafica}%</td>
+                                    </tr>`;
+                                }
+                                else {
+                                    contador++;
+                                    html += `<tr>
+                                        <td class="text-start">${contador}</td>
+                                        <td class="text-start">${productoItem.Descripcion}</td>
+                                        <td class="text-center">${productoItem.ConteoData}</td>
+                                        <td class="text-center">${productoItem.Meta}</td>
+                                        <td role="cell">
+                                                <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="${productoItem.Progreso}" aria-valuenow="${productoItem.Grafica}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                        </td>
+                                        <td class="text-center">${productoItem.Grafica}%</td>
+                                    </tr>`;
+                                }
+
+                            });
+                        }
+
+                        let progresNotas = '';
+                        let columnasNotas = '';
+                        if (item.notas) {
+                            progresNotas = `<div class="row text-center mt-0 mb-0">
+                                                <span><i class="fa-solid fa-ranking-star"></i></i></span>
+                                                <p class="text-muted">Cumplimineto de metas</p>
+                                            </div>
+
+                                            <div class="row text-center px-4">
+                                                <div class="col-1  text-end"> <i class="fa-solid fa-flag-checkered"></i></div>
+                                                <div class="col-9 mx-0">
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                                            role="progressbar" style="${item.progresoNotas}"
+                                                            aria-valuenow="${item.procentajeNotas}" aria-valuemin="0"
+                                                            aria-valuemax="100"><div class="text-end"><h2>🚗</h2></div></div>
+                                                        </div>
+                                                    </div>
+                                                <div class="col-2 mx-0 text-start">
+                                                    ${item.procentajeNotas}%
+                                                </div>
+                                            </div>`;
+
+                            columnasNotas = `<th style="width:10%" class="small text-center" role="columnheader">Cumplimineto</th>
+                                             <th style="width:10%" class="small text-center" role="columnheader">Ponderación</th>`;
+                        }
+                        if (tablaColumnasCompletas != '') {
+                            contenedorCrecimientos = `<div class="card">
+                                                        <table class="" width="100%">
+                                                            <thead role="rowgroup">
+                                                                <tr role="row">
+                                                                    <th class="text-start" style="width:5%;" role="columnheader">#</th>
+                                                                    <th class="text-start" style="width:20%;" role="columnheader">Producto</th>
+                                                                    <th class="text-center" style="width:10%" role="columnheader">Cierre 2022</th>
+                                                                    <th class="text-center" style="width:10%" role="columnheader">Saldo a la Fecha</th>
+                                                                    <th class="text-center" style="width:10%" role="columnheader">Crecimiento 2023</th>
+                                                                    <th class="text-center" style="width:10%" role="columnheader">Meta Acumulada</th>
+                                                                    <th style="width:20%" role="columnheader">Alcance</th>
+                                                                    <th class="text-center small text-center" style="width:10%" role="columnheader">% de alcance</th>
+                                                                    ${columnasNotas}
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody role="rowgroup">
+                                                                ${tablaColumnasCompletas}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>`;
+                        }
+
+                        //let clase = (data.Regionales.length == 1) ? 'col-xxl-12' : 'col-xxl-6';
+                        //if (index == data.Regionales.length - 1) {
+                        //    //console.log('Si estamos en el último elemento, y la longitud del array es impar, hacer algo especial');
+                        //    // Si estamos en el último elemento, y la longitud del array es impar, hacer algo especial:
+                        //    if (data.Regionales.length % 2 !== 0) {
+                        //        //console.log('Estamos en el último elemento de un array impar');
+                        //        clase = 'col-xxl-12';
+                        //    }
+                        //} else {
+                        //    //console.log('No estamos en el último elemento');
+                        //}
+
+                        let enlace = ``;
+
+                        if (item.IdFiltroTablero === 4) {
+                            enlace = ``;
+                        }
+                        else
+                        {
+                            enlace = `<a href="@Url.Action("Tablero", "TableroGerencial")?valor=${item.IdRegion}&filtro=${item.Filtro}&idCatAnios=${item.IdCatAnios}&idCatMeses=${item.IdCatMeses}&dashboardType=${item.Crecimientos}&resp=1&padrino=0" class="btn btn-pill btn-success" id="filtro">Detalle</a>`;
+                        }
+
+                        html = `<div class="col-12" id="contenedor-principal">
+                                        <div class="card testimonial-card mt-2 mb-3" id="tarjeta" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                                            <div class="card-up aqua-gradient"></div>
+                                            <div class="avatar mx-auto white">
+                                                <img src="https://app.cooitza.com.gt/Images/Seguridad/Usuarios/${item.Imagen}"
+                                                    class="img-fluid" alt="Ejecutivo">
+                                            </div>
+                                            <div class="text-center mb-2">
+                                                <h4 style="color: #153d77 !important;">${item.NombreGerente}</h4>
+                                                <h5 class="text-muted">${item.Puesto}</h5>
+                                                <h5 class="lugar-region" style="color: #153d77 !important;">${item.Region}</h5>
+                                                <h5 class="lugar-sucursal" style="color: #153d77 !important; ">${item.Sucursal}</h5>
+                                            </div>
+                                            <div class="text-center">
+                                                ${enlace} <!-- Aquí se insertan en enlace de detalle -->
+                                            </div>
+                                            <div class="text-center">
+                                        <!-- barra de progreso del tiempo -->
+                                        <div class="row text-center mt-2 mb-0">
+                                            <span><i class="align-middle me-2 fas fa-fw fa-calendar-alt"></i>${item.Fecha}</span>
+                                            <p class="text-muted">Progreso del tiempo</p>
+                                        </div>
+                                        <div class="row text-center px-4">
+                                            <div class="col-1  text-end"> <i class="fa-solid fa-calendar"></i></div>
+                                            <div class="col-9 mx-0">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                                        role="progressbar" style="${item.ProgresoTiempo}"
+                                                        aria-valuenow="${item.CalculoTiempo}" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 mx-0 text-start">
+                                                ${item.CalculoTiempo}%
+                                            </div>
+                                        </div>
+                                        <!-- fin  de progreso del tiempo -->
+                                            ${progresNotas}
+                                        <div class="card-body text-center">
+                                            <div class="card">
+                                                <table class="" width="100%">
+                                                    <thead role="rowgroup">
+                                                        <tr role="row">
+                                                            <th class="text-start" style="width:5%;" role="columnheader">#</th>
+                                                            <th class="text-start" style="width:30%;" role="columnheader">Producto</th>
+                                                            <th class="text-center" style="width:20%" role="columnheader">Logrado</th>
+                                                            <th class="text-center" style="width:20%" role="columnheader">Meta</th>
+                                                            <th style="width:15%" role="columnheader">Alcance</th>
+                                                            <th style="width:10%" class="small text-center" role="columnheader">% de alcance</th>
+                                                            ${columnasNotas}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody role="rowgroup">
+                                                        ${html} <!-- Aquí se insertan las filas de productos -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            ${contenedorCrecimientos}
+                                            <hr />
+
+
+                                            <br />
+                                        </div>
+                                     </div>
+                                  </div>
+                               </div>`;
+                        $("#tablero").append(html);
+                        index++;
+
+                    });
+
+                // Resolver la promesa cuando se hayan pintado los datos en la tabla
+                resolve();
+                //let htmlModal = `<!-- Modal -->
+                //                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                //                  <div class="modal-dialog">
+                //                    <div class="modal-content">
+                //                      <div class="modal-header">
+                //                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                //                      </div>
+                //                      <div class="row text-center"><h5 class="modal-title" id="exampleModalLabel">Ponderaciones</h5></div>
+                //                      <div class="modal-body text-center mt-1 me-2 mb-3" id="tabla">
+                //                        ...
+                //                      </div>
+                //                    </div>
+                //                  </div>
+                //                </div>`;
+                //$("#tablero").append(htmlModal);
+
+                //se construye la grafica 
+                //$.each(data.Regionales, function (key, item) {
+
+                //});
+
+                
+                //function actualizarTabla(arrayDatos) {
+                //    var tablaHTML = '<table>';
+                //    tablaHTML += `<thead>
+                //    <tr>
+                //        <th class="text-start" style="width:5%;">#</th>
+                //        <th class="text-start" style="width:50%;">Descripción</th>
+                //        <th class="text-start" style="width:45%;">Punteo</th>
+                //    </tr>
+                //</thead>`;
+                //    tablaHTML += '<tbody>';
+
+                //    // Agregar filas de datos a la tabla
+                //    let contador = 0;
+                //    let totalPunteo = 0;
+                //    for (var i = 0; i < arrayDatos.length; i++) {
+                //        contador++;
+                //        tablaHTML += '<tr>';
+                //        tablaHTML += '<td>' + contador + '</td>';
+                //        tablaHTML += '<td class="text-start">' + arrayDatos[i].descripcion + '</td>';
+                //        tablaHTML += '<td class="text-start">' + arrayDatos[i].punteo + '</td>';
+                //        tablaHTML += '</tr>';
+
+                //        totalPunteo += arrayDatos[i].punteo;
+                //    }
+
+                //    tablaHTML += '<tr>';
+                //    tablaHTML += '<td colspan="2" class="text-end"><strong>Total:</strong></td>';
+                //    tablaHTML += '<td class="text-start">' + totalPunteo + '</td>';
+                //    tablaHTML += '</tr>';
+
+                //    tablaHTML += '</tbody></table>';
+
+                //    // Actualizar el contenido del elemento con el id "tabla"
+                //    document.querySelector("#tabla").innerHTML = tablaHTML;
+                //}
+
+                //actualizarTabla(data.PunteosProductos);
+                
+
+                // Seleccionar todos los enlaces de la página
+                const filtro = document.querySelector('#filtro');
+
+                // Agregar un controlador de eventos de clic al enlace de filtro
+                filtro.addEventListener('click', function () {
+                    // Mostrar el contenedor de carga
+                    Swal.fire({
+                        title: 'Redireccionando',
+                        text: 'Espere un momento por favor...',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                });
+
+
+                // Ocultar el contenedor de carga y el SweetAlert cuando la página haya terminado de cargar
+                window.addEventListener('load', function () {
+                    //document.getElementById('loader').style.display = 'none';
+                    Swal.close();
+                });
+
+
+                                                /*spiners de carga*/
+        let items = document.querySelectorAll('.progress-item');
+        const counters = Array(items.length);
+        const intervals = Array(items.length);
+        counters.fill(0);
+        items.forEach((number, index) => {
+            intervals[index] = setInterval(() => {
+                if (counters[index] == parseInt(number.dataset.num)) {
+                    clearInterval(intervals[index]);
+                } else {
+                    counters[index] += 1;
+                    number.style.background = "conic-gradient(#3c7cdc calc(" + counters[index] + "%), #e0e0e0 0deg)";
+                    number.setAttribute('data-value', counters[index] + "%");
+                    number.innerHTML = counters[index] + "%";
+                }
+            }, 15);
+        });
+
+
+        let itemsCero = document.querySelectorAll('.progress-item-cero');
+        const counterss = Array(itemsCero.length);
+        const intervalss = Array(itemsCero.length);
+        counterss.fill(0);
+        itemsCero.forEach((number, index) => {
+            intervalss[index] = setInterval(() => {
+                if (counterss[index] == parseInt(number.dataset.num)) {
+                    clearInterval(intervalss[index]);
+                } else {
+                    counterss[index] += 1;
+                    number.style.background = "conic-gradient(#e0e0e0 calc(" + counterss[index] + "%), #e0e0e0 0deg)";
+                    number.setAttribute('data-value', 0 + "%");
+                    number.innerHTML = "0%";
+                }
+            }, 15);
+        });
+        /*fin de spiners de carga*/
+
+
+            });
+        }
+
+    });
+</script>

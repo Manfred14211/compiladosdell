@@ -1,0 +1,153 @@
+﻿@model iveCincoFrame.Models.TblVehiculos
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TblVehiculos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idTblUsuarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTblUsuarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombrePropietario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombrePropietario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nitPropietario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nitPropietario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaActualizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaActualizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCatUsuarioModifica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCatUsuarioModifica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noPlaca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noPlaca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kilometraje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kilometraje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenOdometro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenOdometro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaProximoServicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaProximoServicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatEstados.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatOpcionesVehiculos.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatOpcionesVehiculos.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatTipoPlacas.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatTipoPlacas.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

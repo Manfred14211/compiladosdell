@@ -1,0 +1,426 @@
+﻿@model iveCincoFrame.Models.MonitorGrabacion.DataMonitorGrabacion
+<div class="row">
+    <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblMonitorGrabacion")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+    <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-exclamation-triangle"></i> Nueva Certificación</div>
+
+    <div class="col-xl-12 card" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+        <!-- Account details card-->
+
+        <div class="card-body">
+            <h3>Detalle de la certificación</h3>
+            <form>
+                <div class="row">
+                    <div class="col-6">
+
+                        <h5 class="mt-1">Validaciones Importantes*</h5>
+                        <div class="p-3 mb-4" style="border-width: 2px; border-style: dashed; border-color: #bdbdbd;">
+                            <div class="col-md-12">
+                                <label class="form-label" for="idCatUbicaciones">Sucursal</label>
+                                @Html.DropDownList("idCatUbicaciones", null, htmlAttributes: new { @class = "form-select" })
+                            </div>
+                            <br>
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="tieneconexioninternet">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">La agencia tiene conexion a internet</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="Dvrfunciona">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">El DVR esta funcionando</label>
+                                </div>
+                            </div>
+                            <br />
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="todasCamrasFuncionando">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Todas las camaras estan funcionando</label>
+                                </div>
+                            </div>
+                            <br />
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="Dvrgrabando">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">El DVR esta grabando</label>
+                                </div>
+                            </div>
+                            <br />
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12 mt-1" id="detalleDvr">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="form-label" for="cantidad-camaras-func">Inicio de la Grabación</label>
+                                        @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy", min = "2020-01-01" } })
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label" for="tiempoMedidas">Ultima Grabación</label>
+                                        @Html.EditorFor(model => model.FechaFin, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy", min = "2020-01-01" } })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br />
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="horarioError">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">El Horario de grabación presenta error</label>
+                                </div>
+                            </div>
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-12 mt-2" id="diferenciaTiempo">
+                                <div class="row">
+                                    <div class="col-4">
+                                        @Html.Label("Diferencia de Tiempo", htmlAttributes: new { @class = "form-label" })
+                                        @Html.DropDownList("idCatEstadosTiempo", null, htmlAttributes: new { @class = "form-select" })
+
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label" for="tiempoMedidas">Horas</label>
+                                        <input type="number" id="diferenciaHoras" value="0" class="form-control" />
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label" for="tiempoMedidas">Minutos</label>
+                                        <input type="number" id="diferenciaMinutos" value="0" class="form-control" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6 mb-3">
+                        <h5 class="mt-1">Detalle de las camaras</h5>
+                        <div class="p-3 mb-2" style="border-width: 2px; border-style: solid; border-color: #bdbdbd;">
+                            <div class="col-12" hidden>
+                                <label class="form-label" for="idCatUbicaciones">Certificación del dia</label>
+                                <input type="number" class="form-control" id="numeroCertificacionDia" value="@ViewBag.numeroCertificacionDia" />
+                            </div>
+                            <br />
+                            <!-- Form Group (first name)-->
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label class="form-label small" for="cantidad-camaras-func">Cantidad de cámaras instaladas</label>
+                                        <input type="number" id="cantidad-camaras-instaldas" class="form-control" readonly />
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small" for="cantidad-camaras-func">Cantidad de cámaras funcionando</label>
+                                        <input type="number" id="cantidad-camaras-func" value="0" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Form Group (first name)-->
+                            <div class="col-12">
+                                <label class="form-label" for="detalleCamaras">Detalle de las cámaras</label>
+                                <textarea id="detalleCamaras" class="form-control" placeholder="Observación acerca de las camaras"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Caputra de pantalla</label>
+                                    <input class="form-control" type="file" id="captura-pantalla" accept="image/png, image/jpeg">
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-12 mb-2">
+                            <div class="input-group">
+                                <span class="input-group-text">Comentario</span>
+                                <textarea class="form-control" id="comentario" aria-label="With textarea"  rows="4" placeholder="Agrega un comentario a la certificacion"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Form Row-->
+                <div class="row  mb-3">
+                    <button type="button" class="btn btn-primary btn-lg" id="guardar-centificacion" style="background: #0c4899 !important;">Guardar Certificación <i class="align-middle me-2 fas fa-fw fa-check"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var id = $("#idCatUbicaciones").val();
+        obtenerCnatidad(id);
+        function obtenerCnatidad(number) {
+
+            $.ajax({
+                   type: 'POST',
+                   url: '@Url.Action("ObtenerCantidadCamaras", "TblMonitorGrabacion")',
+                   dataType:'json',
+                   data: { idCatUbicaciones: number },
+                    success: function (response) {
+                        $("#cantidad-camaras-instaldas").val(response);
+                        console.log(response);
+                    },
+                    error: function (ex) {
+                           alert('Error al obtener la cantidad de camaras instaldas' + ex)
+                }
+            });
+            return number * number;
+        }
+
+        var id = $("#idCatUbicaciones").val();
+
+
+        $("#idCatUbicaciones").change(function () {
+            //alert("cambio");
+            //$("#Coordinadores").empty();
+            var idSubModulo = $(this).val();
+            //console.log(idSubModulo);
+
+            obtenerCnatidad(idSubModulo);
+            @*$.ajax({
+                   type: 'POST',
+                   url: '@Url.Action("ObtenerCantidadCamaras", "TblMonitorGrabacion")',
+                   dataType:'json',
+                data: { idCatUbicaciones: $("#idCatUbicaciones").val() },
+                success: function (response) {
+                    $("#cantidad-camaras-instaldas").val(response);
+                    console.log(response);
+                },
+                error: function (ex) {
+                       alert('No se pueden cargar los coordinadores' + ex)
+                }
+            });*@
+        return false;
+
+        })
+        //$('#diferenciaTiempo').hide();
+
+        //select search enable
+        $('#idCatUbicaciones').select2();
+
+
+
+
+
+        //$("#FechaFin").changeDate(function () {
+        //    var fechaInicio = new Date($('#FechaInicio').val()).getTime();
+        //    var fechaFin = new Date($('#FechaFin').val()).getTime();
+
+        //    var diff = fechaFin - fechaInicio;
+        //    var diferencia = diff / (1000 * 60 * 60 * 24);
+        //    console.log(diferencia);
+        //});
+
+
+        //$("#cantidad-camaras-func").blur(function () {
+        //    var contenido = $(this).val();
+
+        //    alert(contenido);
+        //});
+
+        //$('#Dvrgrabando').on('click', function () {
+        //    if (this.checked)
+        //    {
+        //        $('#diferenciaTiempo').show();
+        //    }
+        //    else
+        //    {
+
+        //        $('#diferenciaTiempo').hide();
+        //    }
+        //});
+        $('#diferenciaTiempo').hide();
+        $('#idCatEstadosTiempo').val(1);
+        $('#diferenciaHoras').val(0);
+        $('#diferenciaMinutos').val(0);
+
+
+        $(document).on('click', '#tieneconexioninternet', function () {
+            if (this.checked) {
+                $("#Dvrfunciona").prop("checked", true);
+            }
+            else {
+                $("#Dvrfunciona").prop("checked", false);
+            }
+        });
+
+        $(document).on('click', '#Dvrfunciona', function () {
+            if (this.checked) {
+                $("#tieneconexioninternet").prop("checked", true);
+            }
+            else {
+                $("#tieneconexioninternet").prop("checked", false);
+            }
+        });
+
+        $(document).on('click', '#todasCamrasFuncionando', function () {
+            if (this.checked) {
+                var cantidad = parseInt($('#cantidad-camaras-instaldas').val());
+
+                //console.log(cantidad);
+                $('#cantidad-camaras-func').val(cantidad);
+
+                $("#cantidad-camaras-func").attr("readonly", "readonly");
+            }
+            else {
+                //console.log(0);
+                $("#cantidad-camaras-func").removeAttr("readonly");
+                $('#cantidad-camaras-func').val(parseInt(0));
+            }
+        });
+
+        $('#horarioError').on('click', function () {
+            if (this.checked) {
+                $('#diferenciaTiempo').show();
+
+            }
+            else {
+
+                $('#diferenciaTiempo').hide();
+
+                $('#idCatEstadosTiempo').val(1);
+                $('#diferenciaHoras').val(0);
+                $('#diferenciaMinutos').val(0);
+            }
+        });
+
+        $(document).on('click', '#guardar-centificacion', function () {
+
+                var numeroCertificacionDia = $('#numeroCertificacionDia').val();
+                var idCatUbicaciones = $('#idCatUbicaciones').val();
+                var cantidadCamarasFuncionando = $('#cantidad-camaras-func').val();
+                var dvrFuncionando = Dvrfunciona.checked;
+                var sucursalTieneInternet = tieneconexioninternet.checked;
+                var dvrGrabando = Dvrgrabando.checked;
+                var comentario = $('#comentario').val();
+                var capturaPatalla = ($("#captura-pantalla"))[0].files[0];
+
+            /*nuevos controles*/
+            var detalleCamaras = $('#detalleCamaras').val();
+            var FechaInicio = $('#FechaInicio').val();
+            var FechaFin = $('#FechaFin').val();
+            var horarioDiferencia = horarioError.checked;
+            //var idDiferenciaTiempo = $('#idDiferenciaTiempo').val();
+            var diferenciaHoras = $('#diferenciaHoras').val();
+            var diferenciaMinutos = $('#diferenciaMinutos').val();
+            var idCatEstadosTiempo = $('#idCatEstadosTiempo').val();
+
+                var oData = {
+                    numeroCertificacionDia: numeroCertificacionDia,
+                    idCatUbicaciones : idCatUbicaciones,
+                    cantidadCamarasFuncionando: cantidadCamarasFuncionando,
+                    dvrFuncionando : dvrFuncionando,
+                    sucursalTieneInternet:sucursalTieneInternet,
+                    dvrGrabando:dvrGrabando,
+                    comentario:comentario,
+                    capturaPatalla: capturaPatalla,
+                    detalleCamaras: detalleCamaras,
+                    FechaInicio: FechaInicio,
+                    FechaFin: FechaFin,
+                    horarioDiferencia: horarioDiferencia,
+
+                    diferenciaHoras: diferenciaHoras,
+                    diferenciaMinutos: diferenciaMinutos,
+                    idCatEstadosTiempo: idCatEstadosTiempo
+
+                };
+
+
+
+                    var dataString = new FormData();
+                    dataString.append("numeroCertificacionDia", oData.numeroCertificacionDia);
+                    dataString.append("idCatUbicaciones",oData.idCatUbicaciones);
+                    dataString.append("cantidadCamarasFuncionando",oData.cantidadCamarasFuncionando == null ? 0 : cantidadCamarasFuncionando);
+                    dataString.append("dvrFuncionando",oData.dvrFuncionando);
+                    dataString.append("sucursalTieneInternet",oData.sucursalTieneInternet);
+                    dataString.append("dvrGrabando",oData.dvrGrabando);
+                    dataString.append("comentario",oData.comentario);
+                    dataString.append("capturaPatalla",oData.capturaPatalla);
+
+            dataString.append("detalleCamaras", oData.detalleCamaras);
+            dataString.append("FechaInicio", oData.FechaInicio);
+            dataString.append("FechaFin", oData.FechaFin);
+            dataString.append("horarioDiferencia", oData.horarioDiferencia);
+            dataString.append("idCatEstadosTiempo", oData.idCatEstadosTiempo);
+            dataString.append("diferenciaHoras", oData.diferenciaHoras);
+            dataString.append("diferenciaMinutos", oData.diferenciaMinutos);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GuardarCertificacion", "TblMonitorGrabacion")',
+                        data: dataString,
+                        contentType: false,
+                        processData: false,
+                        async: true,
+                        beforeSend: function (response) {
+                        },
+                        success: function (response) {
+                            //console.log(response);
+                            if (response.data.Codigo == 0) {
+
+                                Swal.fire({
+                                    title: response.data.Descripcion,
+                                    icon: 'success',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#153d77',
+                                    cancelButtonColor: false,
+                                    confirmButtonText: 'Aceptar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.reload();
+                                    }
+                                })
+                                if (response.data.NotificacionSms != null) {
+                                    function toasterOptions() {
+                                        toastr.options = {
+                                            "closeButton": false,
+                                            "debug": false,
+                                            "newestOnTop": false,
+                                            "progressBar": true,
+                                            "positionClass": "toast-bottom-right",
+                                            "preventDuplicates": false,
+                                            "onclick": null,
+                                            "showDuration": "300",
+                                            "hideDuration": "1000",
+                                            "timeOut": "5000",
+                                            "extendedTimeOut": "1000",
+                                            "showEasing": "swing",
+                                            "hideEasing": "linear",
+                                            "showMethod": "fadeIn",
+                                            "hideMethod": "fadeOut"
+                                        };
+                                    };
+                                    toasterOptions();
+                                    toastr.success(response.data.NotificacionSms);
+                                }
+
+                            }
+                            else {
+                                setTimeout(() => {
+                                    Swal.fire({
+                                        title: "Ocurrio un problema",
+                                        text: response.data.Descripcion,
+                                        icon: 'error',
+                                        showCancelButton: false,
+                                        confirmButtonColor: '#153d77',
+                                        cancelButtonColor: false,
+                                        confirmButtonText: 'Aceptar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.reload();
+                                        }
+                                    })
+                                }, 1500);
+
+                            }
+
+                        },
+                    });
+                    return false;
+        });
+    });
+</script>

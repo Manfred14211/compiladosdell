@@ -1,0 +1,118 @@
+﻿@model iveCincoFrame.Models.Asasmblea.AsignacionesAsambelasDto
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <!--Inicio-->
+
+
+                            @Html.Partial("_MensajeParcial")
+                            @using (Html.BeginForm())
+                            {
+                                @Html.HiddenFor(model => model.idTblAsistenciasAsambaleas)
+                                @Html.HiddenFor(model => model.nombres)
+                                @Html.HiddenFor(model => model.numeroAsociado)
+                                @Html.HiddenFor(model => model.numeroDpi)
+                                @Html.HiddenFor(model => model.tipoAsociado)
+                                @Html.HiddenFor(model => model.estadoTarjetaCredito)
+                                @Html.HiddenFor(model => model.estadoCreditos)
+                                @Html.HiddenFor(model => model.telefono)
+                                @Html.HiddenFor(model => model.genero)
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                    @Html.Label("¿Esta interesado en obtener nuestra tarjeta de credito o tarjeta de debito?", new { @class = "form-label" })
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-id-card-clip"></i>
+                                        </span>
+                                        @Html.DropDownListFor(m => m.formTarjetaCredito, ViewBag.formTarjetaCredito as SelectList, "Seleccione una opcion", new { @class = "form-control" })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.formTarjetaCredito, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                    @Html.Label("¿Tiene la app movil Cooitzá instalada en su Telefono?", new { @class = "form-label" })
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-address-card"></i>
+                                        </span>
+                                        @Html.DropDownListFor(m => m.formAppMovil, ViewBag.formAppMovil as SelectList, "Seleccione una opcion", new { @class = "form-control" })
+                                        @*@Html.DropDownList("formAppMovil", null, htmlAttributes: new { @class = "form-control" })*@
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.formAppMovil, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                    @Html.Label("¿Le interesa obtener un seguro con nostros?", new { @class = "form-label" })
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-user-tie"></i>
+                                        </span>
+                                        @*@Html.DropDownList("formCredito", null, htmlAttributes: new { @class = "form-control" })*@
+                                        @Html.DropDownListFor(m => m.formCredito, ViewBag.formCredito as SelectList, "Seleccione una opcion", new { @class = "form-control" })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.formCredito, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                    @Html.Label("¿Le gustaria terner algun plan de inversion - plazo fijo con nosotros o ahorro programado?", new { @class = "form-label" })
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-user-tie"></i>
+                                        </span>
+                                        @Html.DropDownListFor(m => m.formZumaPagos, ViewBag.formZumaPagos as SelectList, "Seleccione una opcion", new { @class = "form-control" })
+                                        @*@Html.DropDownList("formZumaPagos", null, htmlAttributes: new { @class = "form-control" })*@
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.formZumaPagos, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-none">
+                                    @Html.Label("¿Se le entrega Kit de Asamblea?", new { @class = "form-label" })
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-person-dots-from-line"></i>
+                                        </span>
+                                        @Html.DropDownListFor(m => m.formTarjetaDebito, ViewBag.formTarjetaDebito as SelectList, "Seleccione una opcion", new { @class = "form-control" })
+                                        @*@Html.DropDownList("formTarjetaDebito", null, htmlAttributes: new { @class = "form-control" })*@
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.formTarjetaDebito, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    @Html.Label("Firma del asociado", new { @class = "form-label" })
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="cnv" name="cnv" style="height: 100px"></textarea>
+                                    </div>
+  
+                                </div>
+
+                                <div class="row px-1 px-sm-1 px-md-3 px-lg-4 text-center" id="container-boton">
+                                    <div class="col-12 col-sm-12  col-md-12 col-lg-12 align-items-center">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+
+                                            <button type="submit" class="btn btn-success btn-lg" id="completar-asistencia">Completar Asistencia <i class="fa-solid fa-circle-check"></i></button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            }
+
+                            <!--fin-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

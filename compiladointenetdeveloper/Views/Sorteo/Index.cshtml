@@ -1,0 +1,153 @@
+﻿@model iveCincoFrame.Models.Sorteo.SorteoDto
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    @Html.Partial("_MensajeParcial")
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header mb-0">
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button type="button" id="btn-jugar" class="btn btn-success btn-lg" style="background-color: #43a047 !important; border-color: #43a047; ">Girar Ruleta</button>
+                            <br />
+                        </div>
+                        <div>
+                            <div class="container" id="datasorteo">
+                                <div id="ruleta">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="container text-center">
+                            <h1 class="text-primary">Sorteo Maraton Escolar <strong style="color: #fdd835">2023</strong></h1>
+                            <h2 class="text-muted ">Cooitzá R.L.</h2>
+                            <div>
+
+                                <img src="~/Content/img/imgsorteop.png" class="img-fluid"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '#btn-jugar', function () {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetDataSorteo", "Sorteo")',
+                beforeSend: function (response) {
+                    $('#datasorteo').html('<center> <img  src="@ViewBag.Imagenruleta"/></center>');
+                },
+                success: function (response) {
+                    $('#datasorteo').html('');
+                    $('#datasorteo').html(response);
+
+                },
+            });
+            return false;
+        });
+
+        $(document).on('click', '#btn-confirmar', function () {
+            //var NombreAgencia = $("#nombre").text();
+            //var numeroAsociado = $("#numeroAsociado").text();
+            var idTblEntregas = $("#idTblEntregas").text();
+
+            var entrega = {
+                idTblEntregas: idTblEntregas
+            };
+
+            //alert(idTblEntregas);
+
+            //alert(NombreAgencia);
+            //alert(numeroAsociado);
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ConfirmarEntrega", "Sorteo")',
+                data: entrega,
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+                    if (response == "ok") {
+
+                        window.location.reload();
+                        function toasterOptions() {
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                        };
+
+
+                        toasterOptions();
+
+                        toastr.success('Registro guardado con exito');
+
+                    }
+                    else {
+                        function toasterOptions() {
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                        };
+                        toasterOptions();
+
+                        toastr.error('Fallo el registro error:' + response);
+                    }
+
+                }
+            });
+            return false;
+        });
+
+
+    })
+
+
+</script>
+
