@@ -1,2 +1,29 @@
-﻿
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuevos Estatutos</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>Generador de Código QR</h1>
+    <div id="qrcode"></div>
+
+    <script>
+    // Obtén una referencia al elemento HTML donde se mostrará el código QR
+    var qrcodeContainer = document.getElementById('qrcode');
+
+    // Crea un nuevo objeto QRCode
+    var qrcode = new QRCode(qrcodeContainer, {
+      width: 128, // Ancho del código QR
+      height: 128 // Altura del código QR
+    });
+
+    // URL que se utilizará para generar el código QR
+    var url = 'https://api.cooitza.gt/sistema/TblBiblioteca/VisualizarArchivo/38';
+
+    // Genera el código QR con la URL especificada
+    qrcode.makeCode(url);
+    </script>
+</body>
+</html>
 
