@@ -1,0 +1,89 @@
+﻿.borders {
+    border: 3px dashed #7e7e7e;
+}
+
+.txt-color {
+    color: #a3a3a3;
+}
+
+.material-symbols-outlined {
+    font-size: 58px;
+    text-align: center;
+    color: #686868;
+}
+
+.row.dragging {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+    }
+}
+
+
+
+
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #ddd;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+    }
+
+        td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px
