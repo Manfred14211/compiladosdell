@@ -134,7 +134,9 @@ else
                     </div>
 
                 </div>
+                <div id="contedorData">
 
+                </div>
                 
 
                 @*@Html.Action("Anuncios")*@
@@ -157,7 +159,15 @@ else
 
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
+            getAnuncios(function (opciones) {
 
+                return opciones;
+            })
+                .then(function (resp) {
+                    console.log(resp);
+                    pintarAnuncios(resp.data);
+
+                });
         // Función para mostrar la animación de carga
         function mostrarAnimacion(titulo, texto) {
             Swal.fire({
@@ -172,8 +182,8 @@ else
         }
         function pintarAnuncios(data) {
             return new Promise((resolve, reject) => {
-                $("#contenedor-anuncios").html('');//limiar el tablero
-                $("#contenedor-anuncios").html(`<div class="container">
+                $("#contedorData").html('');//limiar el tablero
+                $("#contedorData").html(`<div class="container">
                                                     <div class="card card-waves">
                                                         <div class="row mt-3 mx-3 text-center">
                                                             <h1 style="color: #0c4899 !important;">Anuncios</h1>
@@ -181,12 +191,7 @@ else
                                                             <div class="row">
                                                                 <div class="text-center">
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                                        <a href="@Url.Action("Index","Home")" class="btn btn-outline-primary btn-lg" id="home">
-                                                                            <div class="icono-texto">
-                                                                                <i class="align-middle fas fa-fw fa-home"></i>
-                                                                                <span class="texto">Inicio</span>
-                                                                            </div>
-                                                                        </a>
+                                 
                                                                     </div>
                                                                 </div>
                                                             </div>
