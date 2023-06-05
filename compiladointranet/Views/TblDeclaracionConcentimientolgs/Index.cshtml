@@ -1,0 +1,127 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblDeclaracionConcentimientolg>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="row">
+                                <div class="col-2">
+                                    <img src="~/Content/img/principal.png" alt="Cooitza" class="img-fluid" />
+                                </div>
+
+                                <div class="col-6">
+                                    <br />
+                                    <br />
+                                    <center>
+                                        <h1>Consentimiento de Seguro Colectivo de Vida y Gastos Médicos</h1>
+                                    </center>
+                                </div>
+                                <div class="col-4">
+                                    <img src="~/Content/img/chn.png" alt="Cooitza" class="img-fluid" />
+                                </div>
+                            </div>
+
+
+                            
+                                <div class="row mt-1">
+                                    <div class="col text-start">
+                                        <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "TblDeclaracionConcentimientolgs")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-clipboard-check py-1"></i>GENERAR NUEVO CONSENTIMIENTO</button>
+                                    </div>
+                                </div>
+                            
+                                
+                                
+                            
+                            <table class="table">
+                                <tr>
+                                    <th></th>
+
+                                    <th>
+                                        No. De CERTIFICADO
+                                    </th>
+
+                                    <th>
+                                        apellidos
+                                    </th>
+                                    <th>
+                                        Nombres
+                                    </th>
+                                    <th>
+                                        Teléfono
+                                    </th>
+                                    <th>
+                                        DPI No
+                                    </th>
+
+                                    <th>
+                                        Sexo
+                                    </th>
+                                    <th>
+                                        Fecha Sistema
+                                    </th>
+
+
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @Html.ActionLink("Consentimiento", "Details", new { id = item.idTblDeclaracionConcentimientolg }) |
+                                        </td>
+
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg2)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg4)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg5)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg8)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg11)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lg13)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.fechaCreacion)
+                                        </td>
+
+
+                                    </tr>
+                                }
+
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,110 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblMonitorGrabacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+
+
+                        <h2>Index</h2>
+
+                        <p>
+                            <a class="btn btn-primary form-control" href="/TblMonitorGrabacions/Create" role="button"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> NUEVA CERTIFICACION</a>
+                            
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.cantidadCamarasFuncionando)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.capturaPatalla)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.dvrFuncionando)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.sucursalTieneInternet)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.dvrGrabando)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.comentario)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idTblUsuario)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.fechaCreacion)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.fechaModificacion)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CatUbicaciones.codigo)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cantidadCamarasFuncionando)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.capturaPatalla)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dvrFuncionando)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.sucursalTieneInternet)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.dvrGrabando)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.comentario)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.idTblUsuario)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.fechaCreacion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.fechaModificacion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CatUbicaciones.codigo)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idTblMonitorGrabacion }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idTblMonitorGrabacion }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idTblMonitorGrabacion })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

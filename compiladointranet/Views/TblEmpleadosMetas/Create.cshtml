@@ -1,0 +1,277 @@
+﻿@model iveCincoFrame.Models.Tableros.EmpleadosModel.GuardarEmpleado
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblEmpleadosMetas")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+                            <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-plus-circle"></i> Nuevo Registro</div>
+                            <br />
+                            @using (Html.BeginForm())
+                            {
+                                <div class="row">
+                                    <div class="col-12">
+                                        @*<div class="p-3 mb-4" style="border-width: 2px; border-style: dashed; border-color: #bdbdbd;">*@
+                                        <!-- Form Row-->
+                                        <div class="row gx-3">
+                                            <div class="col-md-3">
+                                                @Html.Label("Anio", new { @class = "form-label" })
+                                                @Html.DropDownList("idCatAnios", null, htmlAttributes: new { @class = "form-select" })
+                                                @Html.ValidationMessageFor(model => model.idCatAnios, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-3">
+                                                @Html.Label("mes", new { @class = "form-label" })
+                                                @Html.DropDownList("idCatMeses", null, htmlAttributes: new { @class = "form-select" })
+                                                @Html.ValidationMessageFor(model => model.idCatMeses, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <!-- Form Row-->
+                                        <div class="row gx-3">
+                                            <div class="col-md-4">
+                                                @Html.Label("Sucursal", new { @class = "form-label" })
+                                                @Html.DropDownList("idCatUbicaciones", null, htmlAttributes: new { @class = "form-control" })
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.Label("Monto asignado a la Sucursal", new { @class = "form-label" })
+                                                <input type="text" class="form-control" name="montoAsignado" id="montoAsignado" readonly />
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.Label("Cantidad asiganda a la Sucursal", new { @class = "form-label" })
+                                                <input type="text" class="form-control" name="CantidadAsignada" id="cantidadAsignada" readonly />
+                                            </div>
+                                        </div>
+                                        <!-- Form Row-->
+                                        <div class="row gx-3">
+                                            <div class="col-md-4">
+                                                @Html.Label("Colaborador", new { @class = "form-label" })
+                                                <select class="form-select" aria-label="Default select example" id="codigoEmpleado" name="codigoEmpleado">
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.Label("Tipo de producto", new { @class = "form-label" })
+                                                @Html.DropDownList("idCatTipificacionProductos", null, htmlAttributes: new { @class = "form-select" })
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.Label("Producto", new { @class = "form-label" })
+                                                @Html.DropDownList("idTblProductosCooitza", null, htmlAttributes: new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <!-- Form Row-->
+                                        <div class="row gx-3">
+                                            <div class="col-md-12 d-none">
+                                                @Html.Label("intranetId", new { @class = "form-label" })
+                                                <input type="text" class="form-control " id="idTblUsuarios" name="idTblUsuarios" />
+                                            </div>
+                                        </div>
+
+                                        @*</div>*@
+                                    </div>
+
+                                    <div class="col-12">
+                                        <!-- Form Row-->
+                                        <div class="row gx-3 d-none">
+                                            <div class="col-md-6">
+                                                @Html.Label("Meta Anual", new { @class = "form-label" })
+                                                @Html.EditorFor(model => model.metaAnual, new { htmlAttributes = new { @class = "form-control", @placeholder = "0.00" } })
+                                                @Html.ValidationMessageFor(model => model.metaAnual, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-6">
+                                                @Html.Label("Cantidad meta Anual", new { @class = "form-label" })
+                                                @Html.EditorFor(model => model.cantidadAnual, new { htmlAttributes = new { @class = "form-control", @placeholder = "0" } })
+                                                @Html.ValidationMessageFor(model => model.cantidadAnual, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <!-- Form Row-->
+                                        <div class="row gx-3">
+                                            <div class="col-md-6">
+                                                @Html.Label("Meta Mensual", new { @class = "form-label" })
+                                                @Html.EditorFor(model => model.metaMensual, new { htmlAttributes = new { @class = "form-control", @placeholder = "0.00" } })
+                                                @Html.ValidationMessageFor(model => model.metaMensual, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-md-6">
+                                                @Html.Label("Cantidad meta Mensual", new { @class = "form-label" })
+                                                @Html.EditorFor(model => model.cantidadMensual, new { htmlAttributes = new { @class = "form-control", @placeholder = "0" } })
+                                                @Html.ValidationMessageFor(model => model.cantidadMensual, "", new { @class = "text-danger" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row ">
+                                    <button type="submit" value="Create" class="btn btn-primary"><i class="align-middle me-2 fas fa-fw fa-check"></i> Guardar Registro</button>
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //select search enable
+        $('#idCatUbicaciones').select2();
+
+        $('#idTblProductosCooitza').select2();
+        $('#codigoEmpleado').select2();
+        $('#idCatTipificacionProductos').select2();
+
+        $('#idCatAnios').select2();
+        $('#idCatMeses').select2();
+
+        /*llamado de colaboradores*/
+        var sid = parseInt($("#idCatUbicaciones").val());
+        getColaboradores(sid);
+
+        /*llamdo de productos*/
+        var id = parseInt($("#idCatTipificacionProductos").val());
+        getProductos(id);
+
+        /*llamado a todos los colaboradores de una sucrusal*/
+        var iid = $("#codigoEmpleado").val()
+        getIntranetId(iid);
+
+        $("#saldo").on({
+            "focus": function (event) {
+                $(event.target).select();
+            },
+            "keyup": function (event) {
+                $(event.target).val(function (index, value) {
+                    return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+        $("#metaAnual").on({
+            "focus": function (event) {
+                $(event.target).select();
+            },
+            "keyup": function (event) {
+                $(event.target).val(function (index, value) {
+                    return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+        $("#metaMensual").on({
+            "focus": function (event) {
+                $(event.target).select();
+            },
+            "keyup": function (event) {
+                $(event.target).val(function (index, value) {
+                    return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+
+        $("#idCatTipificacionProductos").change(function () {
+
+            var id = parseInt($("#idCatTipificacionProductos").val());
+            getProductos(id);
+        })
+
+        function getProductos(number) {
+            $("#idTblProductosCooitza").empty();
+            $.ajax({
+                   type: 'POST',
+                   url: '@Url.Action("ObtenerProductos", "TblSucrusalesProductosCooitzas")',
+                   dataType:'json',
+                data: { IdTipificacion: number },
+                success: function (response) {
+                    //console.log(response);
+                    ////debugger;
+                    $("#idTblProductosCooitza").append('<option  value="0" disabled selected>Selececcione</option>');
+                    $.each(response, function (i, coordinadores) {
+                        $("#idTblProductosCooitza").append('<option value="'
+                            + coordinadores.Value + '">'
+                            + coordinadores.Text + '</option>');
+                    });
+
+                },
+                error: function (ex) {
+                       alert('No se pueden cargar los coordinadores' + ex)
+                }
+            });
+            return false;
+
+        }
+        $("#idCatUbicaciones").change(function () {
+
+            var sid = parseInt($("#idCatUbicaciones").val());
+            getColaboradores(sid);
+        })
+
+        function getColaboradores(sid)
+        {
+
+            //alert("cambio");
+             $("#codigoEmpleado").empty();
+                $.ajax({
+                       type: 'POST',
+                       url: '@Url.Action("ObtenerColaboradorSucursal", "TblEmpleadosMetas")',
+                       dataType:'json',
+                    data: { idSucursal: sid },
+                    success: function (response) {
+
+                        //debugger;
+                        $("#codigoEmpleado").append('<option  value="0" selected>SELECCIONAR TODOS</option>');
+                        $.each(response, function (i, empleados) {
+                            $("#codigoEmpleado").append('<option value="'
+                                + empleados.Value + '">'
+                                + empleados.Text + '</option>');
+                        });
+
+                    },
+                    error: function (ex) {
+                           alert('No se pueden cargar los empleados' + ex)
+                    }
+                });
+                return false;
+
+        }
+        $("#codigoEmpleado").change(function () {
+
+            var iid = $("#codigoEmpleado").val()
+            getIntranetId(iid);
+
+        })
+        function getIntranetId(iid)
+        {
+             $("#idTblUsuarios").empty();
+                $.ajax({
+                       type: 'POST',
+                       url: '@Url.Action("ObtenerIdIntranet", "TblEmpleadosMetas")',
+                       dataType:'json',
+                    data: { idEmpleado: iid },
+                    success: function (response) {
+                        //console.log(response);
+                        $(idTblUsuarios).val(response)
+                    },
+                    error: function (ex) {
+                           alert('ocurrio un problema al obtener el id del empleado' + ex)
+                    }
+                });
+                return false;
+        }
+
+
+    });
+
+</script>

@@ -1,0 +1,389 @@
+﻿
+@{
+    ViewBag.Title = "Orden";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap" rel="stylesheet">
+<style>
+    h1 {
+        font-family: 'Konkhmer Sleokchher', sans-serif;
+        font-weight: 400;
+
+    }
+    .input-duplicado {
+        background-color: #c8e6c9; /* Cambia el color de fondo a tu preferencia */
+    }
+</style>
+<div class="container d-none">
+    <input type="number" class="form-control" id="idCatTiposTableros" value="@ViewBag.idCatTiposTableros" />
+</div>
+<h2>@ViewBag.Tablero</h2>
+<div class="mb-3 d-flex justify-content-sm-between">
+    <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblPunteosProductosTableros")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button>
+
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <nav class="nav btn-group">
+                <a href="#" id="orden" class="btn btn-primary" data-bs-toggle="tab"><i class="align-middle me-2 fas fa-fw fa-align-justify"></i> Orden</a>
+                <a href="#" id="punteos" class="btn btn-light" data-bs-toggle="tab"><i class="align-middle me-2 fas fa-fw fa-allergies"></i> Punteos</a>
+            </nav>
+        </div>
+    </div>
+    <div>.</div>
+</div>
+<hr />
+<div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+    <table class="table" id="datatables-reponsive">
+        <thead class="table-dark">
+            <tr>
+                <th class="filtro-col" data-filtro="#" style="width:5%">#</th>
+                <th class="filtro-col" data-filtro="idTblProductosCooitza" hidden="hidden">idTblProductosCooitza</th>
+                <th class="filtro-col" data-filtro="idCatTiposTableros" hidden="hidden">idCatTiposTableros</th>
+                <th class="filtro-col" data-filtro="Descripcion" style="width:30%">Descripción</th>
+                <th class="filtro-col" data-filtro="Tipificacion" style="width:25%">Tipificación</th>
+                <th class="filtro-col" data-filtro="Tablero" style="width:30%">Tablero</th>
+                <th class="filtro-col" data-filtro="Orden" style="width:10%">Orden</th>
+            </tr>
+        </thead>
+        <tbody class="small" id="tbody-productos">
+            @for (int i = 0; i < 10; i++)
+            {
+                <tr>
+                    <td>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <th>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </th>
+                    <td>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <hr />
+    <div class="row">
+        <button type="button" class="btn btn-primary btn-lg" id="guardarCambios">Guardar</button>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let idCatTiposTableros = document.getElementById('idCatTiposTableros').value;
+    var url = '@Url.Action("GetProductosOrden", "TblPunteosProductosTableros")' + '?idCatTiposTableros=' + idCatTiposTableros;
+    console.log(url);
+    getProductos(url, function(opciones) {
+            return opciones;
+        })
+        .then(function(respuesta) {
+            //agregar un timeout de 2 segundos
+            if (respuesta.codigo == 1) {
+                console.log(respuesta);
+                console.log(respuesta.listado);
+                // Llamar a la función pintarDatosEnTabla y cerrar la alerta cuando haya terminado
+                pintarDatosEnTabla(respuesta.listado).then(() => {
+                    swal.close();
+                });
+            } else if (respuesta.codigo == 2){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Tablero sin productos',
+                    text: respuesta.descripcion,
+                    confirmButtonColor: '#153d77',
+                    customClass: {
+                      confirmButton: 'btn-lg'
+                    },
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonHtml: true,
+                    allowOutsideClick: false,
+                    preConfirm: function () {
+                      // Redireccionar a la URL generada en Razor
+                      window.location.href = '@Url.Action("Index", "TblPunteosProductosTableros")';
+                    }
+                  });
+
+                // toastr.success(respuesta.descripcion);
+                // swal.close();
+            }
+            else {
+                toastr.success(respuesta.descripcion);
+                swal.close();
+            }
+        })
+        .catch(function(error) {
+            console.error(error);
+        });
+    // Función para pintar datos en la tabla
+    function pintarDatosEnTabla(data) {
+        return new Promise((resolve, reject) => {
+          $("#tbody-productos").html('');
+
+          let contador = 0;
+          $.each(data, function(key, item) {
+            contador++;
+            var html = '';
+            html += '<tr>';
+            html += '<td class="fw-bold">' + contador + '</td>';
+            html += '<td class="fw-bold"  id="idTblProductosCooitza" hidden="hidden">' + item.idTblProductosCooitza + '</td>';
+            html += '<td class="fw-bold">' + item.descripcion + '</td>';
+            html += '<td class="fw-bold">' + item.tipificacion + '</td>';
+            html += '<td class="fw-bold">' + item.tipoTablero + '</td>';
+            html += `<td class="table-action">
+              <div class="col-12">
+                <input type="number" class="form-control input-orden" value="${item.orden}">
+              </div>
+            </td>`;
+            html += '</tr>';
+            $("#tbody-productos").append(html);
+          });
+
+          // Resolver la promesa cuando se hayan pintado los datos en la tabla
+          resolve();
+        });
+      }
+
+      // Evento para detectar duplicados y aplicar estilo de fondo verde
+    $("#tbody-productos").on("input", ".input-orden", function() {
+        var $input = $(this);
+        var orden = $input.val();
+
+        // Reiniciar estilos en todos los input-orden
+        $(".input-orden").removeClass("input-duplicado");
+
+        // Verificar duplicados y aplicar clase CSS
+        $(".input-orden").each(function() {
+        var $currentInput = $(this);
+        var currentOrden = $currentInput.val();
+
+        if ($currentInput[0] !== $input[0] && currentOrden === orden) {
+            $input.addClass("input-duplicado");
+            $currentInput.addClass("input-duplicado");
+        }
+        });
+    });
+
+    // Evento para desmarcar input-orden duplicados cuando el usuario elimina el valor
+    $("#tbody-productos").on("focusout", ".input-orden", function() {
+        var $input = $(this);
+        var orden = $input.val();
+
+        // Verificar si el valor está duplicado y desmarcar los duplicados
+        if ($input.hasClass("input-duplicado")) {
+        $(".input-orden").each(function() {
+            var $currentInput = $(this);
+            var currentOrden = $currentInput.val();
+
+            if ($currentInput[0] !== $input[0] && currentOrden === orden) {
+            $currentInput.removeClass("input-duplicado");
+            }
+        });
+        }
+    });
+
+
+      /* - - - - - - - - - - función para obtener los productos */
+      function getProductos(url, beforeSendCallback) {
+      //  - - - - -  show loading animation
+      Swal.fire({
+          title: 'Cargando los registros',
+          html: 'Por favor espere mientras se cargan los registros',
+          allowOutsideClick: false,
+          timerProgressBar: true,
+          showConfirmButton: false,
+          willOpen: () => {
+          Swal.showLoading();
+          }
+      });
+
+      // Aquí se declara el objeto opciones que se enviará dentro de la función enviarSolicitud
+      let opciones = {
+          method: 'GET',
+          headers: {
+          'Content-Type': 'application/json'
+          }
+      };
+
+      // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+      if (beforeSendCallback && typeof beforeSendCallback === 'function') {
+          opciones = beforeSendCallback(opciones);
+      }
+
+      // Enviar solicitud con timeout
+      return new Promise((resolve, reject) => {
+          setTimeout(() => {
+              fetch(url, opciones)
+                  .then(function (response) {
+                      if (!response.ok) {
+                          console.log('Error al enviar la solicitud');
+                          toastr.success('Ocurrió un error al enviar la solicitud. Recarga la página.');
+                      }
+                      swal.close();
+                      return response.json();
+                      })
+                      .then(function (data) {
+                      resolve(data);
+                  })
+                  .catch(function (error) {
+                  console.long(error);
+                  toastr.success('Ocurrió un error inesperado al cargar la información. Recarga la página.');
+                  swal.close();
+                  reject(error);
+                  });
+              }, 2000); // Retraso de 2 segundos (2000 milisegundos)
+      });
+      }
+
+        /* - - - - - - - - - - funcion guardar datos*/
+        $("#guardarCambios").on('click', function(e) {
+            var datos = [];
+
+            // Recorrer cada fila de la tabla
+            $("#tbody-productos tr").each(function() {
+                var fila = {};
+                fila.idTblProductosCooitza = $(this).find("#idTblProductosCooitza").text();
+                fila.orden = $(this).find(".input-orden").val();
+                datos.push(fila);
+            });
+
+            function setOrdenProductosTableros(url, data, beforeSendCallback) {
+                //  - - - - -  show loading animation
+                Swal.fire({
+                    title: 'Guardando los datos',
+                    html: 'Por favor espere mientras se completa este proceso',
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+                // - - - - - show loading animation fin codigo
+                // Configurar opciones de solicitud
+                // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+                let opciones = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                };
+                // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+                if (beforeSendCallback && typeof beforeSendCallback === 'function') {
+                    opciones = beforeSendCallback(opciones);
+                }
+                // Enviar solicitud
+                return fetch(url, opciones)
+                    .then(function(response) {
+                        if (!response.ok) {
+                            console.log('Error al enviar la solicitud');
+                            toastr.success('ocurrio un error al enviar la solicitud recarga la pagina');
+                        }
+                        swal.close();
+                        return response.json();
+                    })
+                    .catch(function(error) {
+                        console.long(error);
+                        toastr.success('ocurrio un error inesperado al cargar la informacion recarga la pagina');
+                        swal.close();
+                    });
+            }
+
+            var url = '@Url.Action("CreateOrden", "TblPunteosProductosTableros")';
+            setOrdenProductosTableros(url, datos, function(opciones) {
+
+                    return opciones;
+                })
+                .then(function(respuesta) {
+
+                    console.log(respuesta);
+                    if (respuesta.codigo == 1) {
+                        toastr.success(respuesta.descripcion);
+                        swal.close();
+                        /**si no ocurrio alguna exepcion se llama de nuevo a la funcion get productos*/
+
+                        let idCatTiposTableros = document.getElementById('idCatTiposTableros').value;
+                        var url = '@Url.Action("GetProductosOrden", "TblPunteosProductosTableros")' + '?idCatTiposTableros=' + idCatTiposTableros;
+                        /**se agrgo un timeout para apresiar la carga de los productos*/
+                        Swal.fire({
+                            title: 'Validando el orden de los productos',
+                            html: 'Por favor espere',
+                            allowOutsideClick: false,
+                            timerProgressBar: true,
+                            showConfirmButton: false,
+                            willOpen: () => {
+                                Swal.showLoading();
+                            }
+                        });
+                        setTimeout(function() {
+                            swal.close();
+                            getProductos(url, function(opciones) {
+                                return opciones;
+                            })
+                            .then(function(respuesta) {
+                                if (respuesta.codigo == 1) {
+                                    // Llamar a la función pintarDatosEnTabla y cerrar la alerta cuando haya terminado
+                                    console.log('llamando a la funcion pintarDatosEnTabla');
+                                    pintarDatosEnTabla(respuesta.listado).then(() => {
+                                        swal.close();
+                                    });
+                                } else {
+                                    toastr.error(respuesta.descripcion);
+                                    swal.close();
+                                }
+                            })
+                            .catch(function(error) {
+                                console.error(error);
+                            });
+                        }, 2000);
+                    } else {
+                        toastr.error(respuesta.descripcion);
+                        swal.close();
+                    }
+                })
+                .catch(function(error) {
+                    console.error(error);
+                });
+
+        });
+            /* - - - - - - - - - - funcion guardar datos*/
+        $("#orden").on('click', function (e) {
+            let idCatTiposTableros = document.getElementById('idCatTiposTableros').value;
+            window.location.href = '@Url.Action("Orden", "TblPunteosProductosTableros")' + '?idCatTiposTableros=' + idCatTiposTableros;
+        });
+        $("#punteos").on('click', function (e) {
+            let idCatTiposTableros = document.getElementById('idCatTiposTableros').value;
+            window.location.href = '@Url.Action("Details", "TblPunteosProductosTableros")' + '?idCatTiposTableros=' + idCatTiposTableros;
+        });
+});
+
+</script>
+

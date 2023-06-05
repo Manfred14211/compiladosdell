@@ -1,0 +1,211 @@
+﻿@model iveCincoFrame.Models.TblAfiliaciones
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TblAfiliaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoAsociado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoAsociado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaSolicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaSolicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contratoVisa1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contratoVisa1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contratoVisa2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contratoVisa2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cartaBanco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cartaBanco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cartaCooperativa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cartaCooperativa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boletaPagoPos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boletaPagoPos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaEnvioVisa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaEnvioVisa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaRecepcionAfiliacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaRecepcionAfiliacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoAfiliacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoAfiliacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idTerminal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTerminal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idEstadoZuma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idEstadoZuma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroCuentaAhorro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroCuentaAhorro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroRecibo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroRecibo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idTblUsuarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTblUsuarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaModificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaModificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idTblUsuarioModifica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTblUsuarioModifica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatEstados.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatUbicaciones.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatUbicaciones.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatZuma.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatZuma.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTblAfiliaciones }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

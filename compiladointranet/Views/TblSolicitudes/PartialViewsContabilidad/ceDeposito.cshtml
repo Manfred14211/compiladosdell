@@ -1,0 +1,137 @@
+﻿@model iveCincoFrame.Models.Auditoria.listaDepositosModel
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+
+        <div class="form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.idTblDepositos, new { @class = "form-control", Type = "hidden" })
+            </div>
+            <div class="row">
+                <label class="control-label">Detalle: </label>
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.descripcion, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <label class="control-label">Fecha de Deposito: </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.fechaDeposito, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                        @Html.ValidationMessageFor(model => model.fechaDeposito, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">No. de Boleta: </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.noBoleta, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.noBoleta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="control-label">No. de Cuenta: </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.noCuenta, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.noCuenta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label class="control-label">Monto: </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.monto, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @if (Model.imagenComprobanteDeposito == null)
+                {
+                    <label class="control-label">Imagen o Archivo del Comprobante: </label>
+                    <div class="col-md-12">
+                        @*@Html.EditorFor(model => model.imagenComprobanteDeposito, new { htmlAttributes = new { @class = "form-control" } })*@
+                        <input type="file" id="FileImagenBoletaCDV" class="form-control" accept="image/*" />
+                        @Html.ValidationMessageFor(model => model.imagenComprobanteDeposito, "", new { @class = "text-danger" })
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6">
+                        <label class="form-label">Imagen o Archivo del Comprobante</label>
+                        <input type="file" id="FileImagenBoletaCDV" class="form-control" accept="image/*" />
+                        @Html.ValidationMessageFor(model => model.imagenComprobanteDeposito, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        <label for="verImagenDeposito" class="form-label">Ver Comprobante</label>
+                        <br />
+                        <button type="button" class="btn btn-primary">
+                            <span>
+                                <i class="align-middle me-2 fas fa-fw fa-eye verComprobanteBoletaDV" role="img" codigoDV="@Model.idTblDepositos"></i>
+                            </span>
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+    <script>
+        $(document).ready(function () {
+            $('#cerrarModalCD').click(function () {
+                $("#idSoliciC").val("")
+            });
+            $('#cerrarModalCB').click(function () {
+                $("#idSoliciC").val("")
+            });
+
+            $('.verComprobanteBoletaDV').click(function ()
+            {
+                var codigo = $(this).attr('codigoDV');
+                //alert(codigo);
+                $.ajax(
+                    {
+                        type: 'GET',
+                        url: '@Url.Action("VerImagenDeposito", "TblSolicitudes")',
+                        data:
+                        {
+                            id: codigo,
+                        },
+                        beforeSend: function (response)
+                        {
+                            response.setRequestHeader("If-Modified-Since", "0");
+                            response.setRequestHeader("Cache-Control", "no-cache");
+                        },
+                        success: function (response)
+                        {
+                            $('#modalVBDepositoV').modal("show");
+                            $('#detalleIDepositoV').html(response);
+                        },
+                    });
+                return false;
+            });
+
+        });
+    </script>
+
+
+<!-- Modal ver comprobante Deposito -->
+<div class="modal fade" id="modalVBDepositoV" tabindex="-1" aria-labelledby="modalVBDepositoVLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Comprobante Deposito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="detalleIDepositoV"></div>
+            </div>
+        </div>
+    </div>
+</div>

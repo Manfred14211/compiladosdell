@@ -1,0 +1,346 @@
+﻿@model iveCincoFrame.Models.Auditoria.editarFacturasVM
+
+@*@using (Html.BeginForm("EdicionDetalleFactura", "TblSolicitudes", FormMethod.Post, new { enctype = "multipart/form-data" }))*@
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.idTblFacturas)
+
+
+    <div class="col-12">
+        @Html.Label("Proveedor", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-12">
+            @Html.DropDownList("idTblProveedoreslst", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idTblProveedores, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-12">
+        @Html.Label("Fecha de Factura", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.fechaDeFactura, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+            @Html.ValidationMessageFor(model => model.fechaDeFactura, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-12">
+        @Html.Label("No de Factura", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.noDeFactura, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.noDeFactura, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-12">
+        @Html.Label("No de Serie", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.serie, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.serie, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-12">
+        @Html.Label("Fecha de Vencimiento", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.fechaDeVencimiento, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+            @Html.ValidationMessageFor(model => model.fechaDeVencimiento, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-12">
+        @Html.Label("Monto Factura", htmlAttributes: new { @class = "control-label col-md-6" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.monto, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.imagenFactura != null)
+        {
+            <div class="col-6">
+                <label class="control-label">Imagen Factura</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
+                    <input type="file" id="FileEFactura" class="form-control" accept="image/*" />
+                </div>
+            </div>
+            <div class="col-6">
+                <label for="verImagenCFactura" class="form-label">Ver Imagen Factura o Comprobante</label>
+                <br />
+                <button type="button" class="btn btn-primary"><span><i class="align-middle me-2 fas fa-fw fa-eye verImagenCFactura" codigoFa="@Model.idTblFacturas"></i></span></button>
+            </div>
+        }
+        else
+        {
+            <div class="col-12">
+                <label class="control-label">Imagen Factura</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
+                    <input type="file" id="FileEFactura" class="form-control" accept="image/*" />
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-12">
+        <label for="razonFacturaS" class="form-label">Razon Factura</label>
+        @Html.TextAreaFor(model => model.razon, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.razon, "", new { @class = "text-danger" })
+    </div>
+
+
+    //MAESTRO DETALLE PARA RUBROS
+    <br />
+    <div class="row" id="opcionesRubros">
+        <div class="col-12">
+            <button type="button" class="btn btn-warning">
+                Agregar Rubro<i class="bi bi-plus" role="img" aria-label="Editar"></i><i class="fa-solid fa-location-dot cargarModalRubro"></i>
+            </button>
+            <br>
+            <div id="detalleRubros">
+                @Html.Action("detalleRubros", new { id = Model.idTblFacturas })
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(document).ready(function ()
+    {
+        $('#guardarRubros').click(function (e) {
+            var idTblFacturas = $('#idTblFacturas').val();
+            var idCatRubros = $('#idCatRubros').val();
+            var detalle = $('#observacionRubro').val();
+               // alert(idCatUbicaciones);
+                //alert(observaciondestino);
+
+            var grupoRubro =
+            {
+                idTblFacturas: idTblFacturas,
+                idCatRubros: idCatRubros,
+                detalle: detalle
+            };
+
+               // alert(observaciondestino);
+            $.ajax({
+                type: 'POST',
+                    //data: grupoRubro,
+                url: '@Url.Action("GuardarRubro", "TblSolicitudes")',
+                data: grupoRubro,
+                cache: false,
+                beforeSend: function (response) {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#cerrarModalR').click();
+                    $('.editarFactura').click();
+                    cargardetalle(response);
+                    limpiarRubros();
+                },
+            });
+            return false;
+
+            function limpiarRubros()
+            {
+                $('#idTblFacturas').val("");
+                    //$('#idCatRubros').empty();
+                    //$('#idCatRubros').val("");
+                $('#observacionRubro').val("");
+            }
+
+            function cargardetalle(num)
+            {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleRubros", "TblSolicitudes")',
+                    data: {
+                        id: num,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (id)
+                    {
+                        $('#detalleRubros').html(id);
+                    },
+                });
+                return false;
+            }
+        });
+
+        $('.verImagenCFactura').click(function ()
+        {
+            var codigoFa = $(this).attr('codigoFa');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("VerImagenFactura", "TblSolicitudes")',
+                data: {
+                    id: codigoFa,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response) {
+                        //$('#modalEditarFacturas').modal('hide');
+                    //$('#detalleEditarFacturas').html(response);
+                    $('#detalleFacturaCA').html(response);
+                    $('#modalVerFacturaS').modal('show');
+                },
+            });
+            return false;
+        });
+
+        $('#editarFacturaS').click(function (e)
+        {
+            if (window.FormData !== undefined)
+            {
+                var fileUploadF = $("#FileEFactura").get(0);
+                var filesF = fileUploadF.files[0];
+
+                    // Create  a FormData object
+                var fileData = new FormData();
+
+                if (filesF != null) {
+                    fileData.append("imagenF", filesF);
+                }
+                if (filesF == null) {
+                    fileData.append("imagenFacturaS", "sindatosF1Itza");
+                }
+                // datos generales del formulario para registro de vehiculo
+                fileData.append("idFacturaS", $('#idTblFacturas').val());
+                fileData.append("noDeFactura", $("#noDeFactura").val());
+                fileData.append("idTblProveedores", $("#idTblProveedoreslst").val());
+                fileData.append("serieFactura", $("#serie").val());
+                fileData.append("fechaDeFactura", $("#fechaDeFactura").val());
+                fileData.append("montoFactura", $("#monto").val());
+                fileData.append("fechaDeVencimiento", $("#fechaDeVencimiento").val());
+                fileData.append("razonF", $("#razon").val());
+
+                $.ajax({
+                    url: '/TblSolicitudes/UpdateFacturaS', //URL to upload files
+                    type: "POST", //as we will be posting files and other method POST is used
+                        //dataType: "JSON",
+                    processData: false, //remember to set processData and ContentType to false, otherwise you may get an error
+                    contentType: false,
+                    data: fileData,
+                    beforeSend: function (result)
+                    {
+                        result.setRequestHeader("If-Modified-Since", "0");
+                        result.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (result) {
+                        limpiarDatosFactura();
+                        $('#cerrarModalEFactura').click();
+                        $('#cerrarModalFacturasI').click();
+                        cargardetallefacturas(result);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            }
+            else
+            {
+                alert("Archivos no soportados.");
+            }
+            function cargardetallefacturas(numero)
+            {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleFacturas", "TblSolicitudes")',
+                    data:
+                    {
+                        id: numero,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response)
+                    {
+                        $('#agregarFacturasDetalle').html(response);
+                        $('#modalAgregarFacturaSolicitud').modal('show');
+                    },
+                });
+                return false;
+            }
+        });
+
+        function limpiarDatosFactura()
+        {
+            $('#idTblFacturas').val("");
+            $("#noFactura").val("");
+            $('#idTblProveedoreslst').empty();
+            $('#idTblProveedoreslst').val("");
+            $("#serie").val("");
+            $('#fechaFactura').val("");
+            $('#monto').val("");
+            $('#fechaVencimiento').val("");
+            $('#razon').val("");
+        }
+
+        $('.cargarModalRubro').click(function () {
+            $('#modalAgregarRubro').modal('show');
+        });
+
+            //$('#cerrarModalEFactura').click(function () {
+            //    //limpiarRubros();
+            //});
+            //$('#cerrarModalR').click(function () {
+            //    //limpiarRubros();
+            //});
+
+    });
+</script>
+
+<!-- Modal ver Comprobante Factura -->
+<div class="modal fade" id="modalVerFacturaS" role="dialog" tabindex="-1" aria-labelledby="modalVerFacturaSLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalVerFacturaS">Comprobante Deposito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="detalleFacturaCA"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL AGREGAR RUBROS -->
+<div class="modal fade" id="modalAgregarRubro" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="modalAgregarRubroLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAgregarRubroLabel">Agregar Rubro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="idCatRubros" class="form-label">Seleccione Rubro</label>
+                    @Html.DropDownList("idCatRubros", null, htmlAttributes: new { @class = "form-select" })
+                </div>
+
+                <div class="mb-3">
+                    <label for="observacionRubro" class="form-label">Observacion</label>
+                    <textarea class="form-control" id="observacionRubro" rows="3"></textarea>
+                    <div id="emailHelp" class="form-text">Informacion adicional a otro rubro.</div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cerrarModalR" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="guardarRubros">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

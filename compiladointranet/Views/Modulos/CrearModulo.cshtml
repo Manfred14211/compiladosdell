@@ -1,0 +1,158 @@
+﻿
+
+
+@model iveCincoFrame.Models.Modulos.TblModuloAdd
+
+@{
+    ViewBag.Title = "Agregar MOdulo";
+    Layout = null;
+}
+<link href="~/CSS/Iconosstyle.css" rel="stylesheet">
+<div class="row">
+    <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblModulos")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #153d77 !important;"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+    <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-check-circle"></i> Agregar Modulo</div>
+
+    <div class="col-xl-12 card" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+        <!-- Account details card-->
+
+        <div class="card-body">
+            <h3>Detalles del Modulo</h3>
+            <form>
+                <!-- Form Row-->
+                <div class="row gx-3 mb-3">
+                    <div class="col-md-4">
+                        <label class="small mb-1" for="codigo">Descripcion</label>
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </div>
+                    <!-- Form Group (first name)-->
+                    <div class="col-md-4">
+                        <label class="small mb-1" for="titulo">Titulo</label>
+                        @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Titulo, "", new { @class = "text-danger" })
+                    </div>
+                    <!-- Form Group (organization name)-->
+                    <div class="col-md-4">
+                        <label class="small mb-1" for="nombre">Orden</label>
+                        @Html.EditorFor(model => model.Orden, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Orden, "", new { @class = "text-danger" })
+                    </div>
+                    </div>
+                <div class="col-md-4 d-none">
+                    <input type="number" class="form-control" id="idicono" />
+                </div>
+
+                <div class="mt-3 mb-3">
+                    <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="background: #153d77 !important;">
+                        Seleccionar Icono <i class="align-middle me-2 fas fa-fw fa-angle-down"></i>
+                    </button>
+
+
+                    <div class="collapse mt-3" id="collapseExample" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                        <div class="card card-body">
+                            <div class="scroller">
+                                <div class="row container__box py-3" id="contenedor-iconos">
+                                    @foreach (var item in Model.Iconos)
+                                    {
+                                        <div class="col">
+                                            <div class="card box">
+                                                <div class="header">
+                                                    <div class="mx-2">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input cambioestado" codigo="@item.idCatIconos" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        </div>
+                                                        <div class="d-none">@item.idCatIconos</div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body icono">
+                                                    <h3 style="color: #153d77 !important;"><i class="@item.clase"></i></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row  mb-3">
+                    <button type="button" class="btn btn-primary btn-lg" id="GuardarModulo" style="background: #153d77 !important;">Guardar Modulo <i class="align-middle me-2 fas fa-fw fa-check"></i></button>
+                    <!-- Form Group (birthday)-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+$(document).ready(function () {
+
+        @*$("#idCatIconos").empty();
+        $.ajax({
+               type: 'GET',
+               url: '@Url.Action("ObtenerIconos", "TblModulos")',
+               dataType:'json',
+            success: function (response) {
+
+                //debugger;
+                $("#idCatIconos").append('<option  value="0" disabled selected>Selececcione</option>');
+                $.each(response, function (i, iconosList) {
+                    $("#idCatIconos").append('<option value="' + iconosList.Value + '"><span><i class="' + iconosList.Text +'"></i></span>Hola</option>');
+                });
+
+            },
+            error: function (ex) {
+                   alert('No se pueden cargar los coordinadores' + ex)
+            }
+        });
+        return false;*@
+
+        $(".cambioestado").on('change', function () {
+            if (seleccionados = $('input:radio:checked').length > 1) {
+                alert('No se puede seleccionar mas de 1 icono');
+                $(this).prop('checked', false);
+                return;
+            }
+        });
+
+
+       $('.cambioestado').on('click', function () {
+
+            var codigo = $(this).attr('codigo');
+            if (this.checked) // if changed state is "CHECKED"
+            {
+                //alert(codigo);
+                $('#idicono').val('');
+                $('#idicono').val(codigo);
+
+                function toasterOptions() {
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": true,
+                        "positionClass": "toast-bottom-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+                };
+                toasterOptions();
+                toastr.success('Icono seleccionado');
+            }
+       });
+
+
+});
+</script>

@@ -1,0 +1,306 @@
+﻿@model iveCincoFrame.Models.TblBiblioteca
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/CSS/uploadfile2.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="row">
+                                <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblBiblioteca")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+                                <div class="card-actions bg-warning-dark text-white"><i class="align-middle me-2 fas fa-fw fa-exclamation-triangle"></i> Editar Item</div>
+                                <div class="col-xl-12 card" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                                    <div class="card-body">
+                                        <h3>Detalles del Item</h3>
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.Partial("_MensajeParcial")
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.idTblBiblioteca)
+                                            @Html.HiddenFor(model => model.idCatEstados)
+                                            @Html.HiddenFor(model => model.ordenHome)
+                                            <!-- Form Row-->
+                                            <div class="row">
+                                                <div class="col-7">
+                                                    <div class="row mt-0 mb-0">
+                                                        <!-- Form Group (organization name)-->
+                                                        <div class="col-md-6">
+                                                            @Html.Label("Titúlo", new { @class = "form-label" })
+                                                            @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del item a publicar" } })
+                                                            @Html.ValidationMessageFor(model => model.titulo, "", new { @class = "text-danger mt-2" })
+                                                        </div>
+                                                        <!-- Form Group (organization name)-->
+                                                        <div class="col-md-6">
+                                                            @Html.Label("Detalle del item", new { @class = "form-label" })
+                                                            @Html.EditorFor(model => model.detalle, new { htmlAttributes = new { @class = "form-control", @placeholder = "detalle del archivo o documento a publicar" } })
+                                                            @Html.ValidationMessageFor(model => model.detalle, "", new { @class = "text-danger mt-2" })
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row mt-0 mb-0">
+                                                        <!-- Form Group (organization name)-->
+                                                        <div class="col-md-6">
+                                                            @Html.Label("Jerarquia", new { @class = "control-label" })
+                                                            @Html.DropDownList("idCatJerarquia", null, htmlAttributes: new { @class = "form-select" })
+                                                            @Html.ValidationMessageFor(model => model.idCatJerarquia, "", new { @class = "text-danger mt-2" })
+                                                        </div>
+                                                        <!-- Form Group (organization name)-->
+                                                        <div class="col-md-6">
+                                                            @Html.Label("Fecha del Documento", new { @class = "control-label" })
+                                                            @Html.TextBoxFor(m => m.fechaDocumento, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                                                            @Html.ValidationMessageFor(model => model.fechaDocumento, "", new { @class = "text-danger m-2" })
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row mt-0 mb-0">
+                                                        <!-- Form Group (organization name)-->
+                                                        <div class="col-md-6">
+                                                            @Html.Label("Estado en Biblioteca", new { @class = "control-label" })
+                                                            @Html.DropDownList("idCatEstados", null, htmlAttributes: new { @class = "form-select" })
+                                                            @Html.ValidationMessageFor(model => model.idCatEstados, "", new { @class = "text-danger m-2" })
+                                                        </div>
+                                                        <!-- Form Group (organization name)-->
+                                                        <div class="col-md-6">
+                                                            @Html.Label("Publicado en Inicio", new { @class = "control-label" })
+                                                            @Html.DropDownList("idCatOpciones", null, htmlAttributes: new { @class = "form-select" })
+                                                            @Html.ValidationMessageFor(model => model.idCatOpciones, "", new { @class = "text-danger mt-2" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-0 mb-0">
+                                                        @if (ViewBag.bloqueado == 1)
+                                                        {
+                                                            <!-- Form Group (first name)-->
+                                                            <div class="col-md-6">
+                                                                @Html.Label("Origen del Archivo", new { @class = "control-label" })
+
+                                                                @Html.DropDownList("idCatOrigen", null, htmlAttributes: new { @class = "form-select" })
+
+                                                                @Html.ValidationMessageFor(model => model.idCatOrigen, "", new { @class = "text-danger mt-2" })
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <!-- Form Group (first name)-->
+                                                            <div class="col-md-6">
+                                                                @Html.Label("Origen del Archivo", new { @class = "form-label" })
+
+                                                                @Html.DropDownList("idCatOrigen", null, htmlAttributes: new { @class = "form-select" })
+
+                                                                @Html.ValidationMessageFor(model => model.idCatOrigen, "", new { @class = "text-danger mt-2" })
+                                                            </div>
+                                                        }
+                                                        <!-- Form Group (organization name)-->
+                                                        <div class="col-md-6 d-none">
+                                                            @Html.Label("Archivo", new { @class = "control-label" })
+                                                            @Html.EditorFor(model => model.nombreArchivo, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.nombreArchivo, "", new { @class = "text-danger m-2" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-12 text-center" id="visor">
+
+                                                            </div>
+                                                            <div class="col-12 mt-2 text-center">
+                                                                <h4>@Model.titulo</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="row gx-3 mb-3">
+                                                                    <!-- Form Group (organization name)-->
+                                                                    <div class="col-md-12">
+                                                                        @Html.Label("Tipo de Archivo", new { @class = "control-label" })
+                                                                        @Html.DropDownList("idCatTipoArchivo", null, htmlAttributes: new { @class = "form-select" })
+                                                                        @Html.ValidationMessageFor(model => model.idCatTipoArchivo, "", new { @class = "text-danger mt-2" })
+                                                                    </div>
+   
+                                                                </div>
+                                                                <div id="video">
+                                                                    @Html.Label("Url del Video", new { @class = "control-label" })
+                                                                    @Html.TextAreaFor(model => model.urlVideo, new { @class = "form-control", @rows = "3", @placeholder = "Enlace del video" })
+
+                                                                </div>
+                                                                <div class="col-md-12 col-xs-12 col-sm-12" id="upload">
+                                                                    <!-- Form Group (organization name)-->
+                                                                    <div class="col-md-8 mt-2">
+                                                                        <div class="alert alert-success alerta alert-dismissible" role="alert">
+                                                                            <div class="alert-message">
+                                                                                <strong>Correcto!</strong> Archivo Cargado
+                                                                            </div>
+
+                                                                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="table-responsive">
+
+                                                                        <center><div id="fotografiaseguimiento"><h1><i class="align-middle me-2 fas fa-fw fa-cloud-upload-alt"></i></h1></div></center>
+                                                                        <br>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary btn-lg" data-bs-dismiss="modal">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col text-center">
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar Archivo</button>
+                                                            @if (@ViewBag.idCatTipoArchivoSelect == 5)
+                                                            {
+                                                                <a href="@Model.urlVideo" target="_blank" class="btn btn-success btn-lg"><i class="align-middle me-2 fas fa-fw fa-file"></i>Ver Archivo </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="@ViewBag.urlString" target="_blank" class="btn btn-success btn-lg"><i class="align-middle me-2 fas fa-fw fa-file"></i>Ver Archivo </a>
+                                                            }
+                                                            <button type="submit" value="Save" class="btn btn-primary btn-lg"><i class="align-middle me-2 fas fa-fw fa-check"></i> Guardar Cambios</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery.uploadfile.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+
+
+        //$("#idCatTipoArchivo").val(4);
+        //$("#idCatTipoArchivo").val(@ViewBag.idCatTipoArchivoSelect);
+        var selectTipoArchivo = @ViewBag.idCatTipoArchivoSelect;
+        otenerIcono(selectTipoArchivo);
+
+        if (selectTipoArchivo == 5) {
+            $('#upload').hide();
+            $('#video').show();
+        }
+        else
+        {
+            $('#video').hide();
+            $('#upload').html('<div class="table-responsive"><center><div id="fotografiaseguimiento">Subir Archivo</div></center><br></div>');
+            $('#upload').show();
+        }
+        
+        
+
+        function otenerIcono(selectTipoArchivo) {
+
+
+            if (selectTipoArchivo == 5) {
+                $('#visor').html('');
+                $('#visor').html('<i class="align-middle me-2 fas fa-fw fa-play-circle" style="font-size:12rem;"></i>');
+            }
+            else if (selectTipoArchivo == 4)
+            {
+                $('#visor').html('');
+                $('#visor').html('<i class="align-middle me-2 far fa-fw fa-image" style="font-size:12rem;"></i>');
+            }
+            else
+            {
+                $('#visor').html('');
+                $('#visor').html('<i class="align-middle me-2 fas fa-fw fa-file-pdf" style="font-size:12rem;"></i>');
+            }
+        }
+
+
+
+
+        $("#idCatTipoArchivo").change(function () {
+            var selectValue = $(this).val();
+            otenerIcono(selectValue);//se ejecuta la funcion pra cambiar el icono
+
+            //alert(selectValue);
+            if (selectValue == 5) {
+                $('#upload').html('');
+                $('#video').show();
+            }
+            else
+            {
+                $('#video').hide();
+                $('#upload').html();
+                $('#upload').html('<div class="table-responsive"><center><div id="fotografiaseguimiento">Subir Archivo</div></center><br></div>');
+            }
+            //$("#idArchivo").val(selectValue);
+
+            //$("#upload").click();
+             var data = {
+                 "idcattiposarchivos": selectValue
+                 };
+
+            $("#fotografiaseguimiento").uploadFile({
+                url: '@Url.Action("UploadFiles", "CargaDeArchivos")',
+                multiple: true,
+                fileName: "file",
+                maxFileSize: 21048500,
+                formData: data,
+                showProgress: true,
+                afterUploadAll:function(dato)
+                {
+                    // location.reload();
+                    //console.log(dato.responses[0]);
+                    //alert("ARCHIVO CARGADO CON EXITO");
+                    $('#archivo').val(dato.responses[0]);
+                    $('#nombreArchivo').val(dato.responses[0]);
+                    $('.ajax-upload-dragdrop').hide();
+                    //$('.alerta').show();
+
+                }
+             });
+        });
+
+
+        
+        
+
+
+
+
+    });
+</script>

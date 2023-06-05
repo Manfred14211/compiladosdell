@@ -1,0 +1,93 @@
+﻿@model iveCincoFrame.Models.TblSmsCore
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <div class="card-actions mx-3 text-white bg-success-dark mt-0 mb-1" style=""><i class="align-middle me-2 fas fa-fw fa-plus-circle"></i>Mensajes Auditoria</div>
+    <div class="mb-0 mx-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblSmsCores")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #153d77;"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+        <div class="col-12 col-sm-12  col-md-12 col-lg-12" id="container-mMensual">
+            @Html.Label("Mensaje", new { @class = "form-label" })
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="align-middle me-2 fas fa-fw fa-comment-alt"></i>
+                </span>
+
+                @Html.EditorFor(model => model.mensaje, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mensaje, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            @Html.Label("Segmento", new { @class = "form-label" })
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="align-middle me-2 fas fa-fw fa-clone"></i>
+                </span>
+                @Html.EditorFor(model => model.segmento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.segmento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-12 col-sm-12  col-md-4 col-lg-4" id="container-mMensual">
+            @Html.Label("Resultado del mensaje", new { @class = "form-label" })
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="align-middle me-2 fas fa-fw fa-comment-dots"></i>
+                </span>
+
+                @Html.EditorFor(model => model.resultadoMensaje, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.resultadoMensaje, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+            @Html.Label("Llave", new { @class = "form-label" })
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="align-middle me-2 fas fa-fw fa-key"></i>
+                </span>
+                @Html.EditorFor(model => model.llave, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.llave, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-12 col-sm-12  col-md-4 col-lg-4">
+            @Html.Label("Telefono", new { @class = "form-label" })
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="align-middle me-2 fas fa-fw fa-phone"></i>
+                </span>
+
+                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 mx-3">
+        <button type="submit" class="btn btn-primary btn-lg" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #153d77;">Crear Registro</button>
+    </div>
+
+
+</div>
+}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('telefono');
+
+        // agregamos un escucha de eventos para el evento 'input'
+        input.addEventListener('input', function (event) {
+            // eliminamos cualquier carácter que no sea un número
+            input.value = input.value.replace(/[^0-9]/g, '');
+        });
+    });
+
+</script>

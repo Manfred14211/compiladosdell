@@ -1,0 +1,125 @@
+﻿@model IEnumerable<iveCincoFrame.Models.Historiales.HistorialDto>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="container text-center">
+                                <h1 class="text-primary" style="color: #0c4899 !important;">Historial de Ingresos</h1>
+                                <hr />
+                            </div>
+                            <table class="table table-hover table-sm" id="tbl-directorios">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>
+                                            Modulo
+                                        </th>
+                                        <th>
+                                            SubModulo
+                                        </th>
+                                        <th>
+                                            Usuario
+                                        </th>
+                                        <th>
+                                            Nombres
+                                        </th>
+                                        <th>
+                                            FechaHora
+                                        </th>
+                                        <th>
+                                            Contenido
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="small">
+                                    @{var iterador = 1;}
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @iterador
+                                            </td>
+                                            <td>
+                                                @item.Modulo
+                                            </td>
+                                            <td>
+                                                @item.SubModulo
+                                            </td>
+                                            <td>
+                                                @item.Usuario
+                                            </td>
+                                            <td>
+                                                @item.Nombres
+                                            </td>
+                                            <td>
+                                                @item.FechaHora
+                                            </td>
+                                            <td>
+
+                                                <div class="dropdown-center">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="align-middle me-2 fas fa-fw fa-business-time"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><div class="card"><div class="card-body">@item.Contenido</div></div></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+
+
+                                        </tr>
+                                        iterador++;
+                                    }
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#tbl-directorios').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true,
+            scrollY:400
+        });
+    });
+
+</script>

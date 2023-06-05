@@ -1,0 +1,365 @@
+﻿@model iveCincoFrame.Models.Asasmblea.AsignacionesAsambelasDto
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-5 text-center">
+                                        <h1 class="display-4 mb-3">
+                                            Bienvenido!
+                                        </h1>
+                                        <p class="lead">Consulta por medio del numero de DPI para validar la Información</p>
+                                    </div>
+                                    <div class="container">
+                                        <div class="d-grid d-sm-flex gap-3">
+                                            <div class="input-group input-group-lg mb-3">
+                                                <input class="form-control me-0" type="text" id="dpi" name="dpi" placeholder="Buscar Asociado" aria-label="Search" autofocus="" maxlength="13">
+                                                <button type="submit" class="btn btn-primary" id="buscar-asociado">Buscar <i class="align-middle me-2 fas fa-fw fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- End Col -->
+                            </div>
+                            <div class="row">
+                                @Html.Partial("_MensajeParcial")
+                                <div class="container">
+                                    @using (Html.BeginForm("EditDataAsociado", "TblAsistenciasAsambaleas"))
+                                    {
+                                        @Html.HiddenFor(model => model.idTblAsistenciasAsambaleas)
+                                        <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+
+                                            <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                @Html.Label("Nombre completo", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-id-card-clip"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.nombres, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del Asociado", @readOnly = "readonly" } })
+                                                    @*<input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombre del Asociado" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.nombres, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+                                                @Html.Label("Numero de asociado", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-person-dots-from-line"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.numeroAsociado, new { htmlAttributes = new { @class = "form-control", @placeholder = "COI00000", @readOnly = "readonly" } })
+                                                    @*<input type="text" class="form-control" id="numeroAsociado" name="numeroAsociado" placeholder="COI00000" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.numeroAsociado, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12  col-md-4 col-lg-4">
+                                                @Html.Label("Numero de Identificación (DPI)*", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-address-card"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.numeroDpi, new { htmlAttributes = new { @class = "form-control", @placeholder = "0000000000000", @readOnly = "readonly" } })
+                                                    @*<input type="text" class="form-control" id="numeroDpi" name="numeroDpi" placeholder="0000000000000" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.numeroDpi, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12  col-md-4 col-lg-4">
+                                                @Html.Label("Tipo de Asociado", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3" id="input-tipo-asociado">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-user-tie"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.tipoAsociado, new { htmlAttributes = new { @class = "form-control", @placeholder = "-----", @readOnly = "readonly" } })
+                                                    @*<input type="text" class="form-control" id="tipoAsociado" name="tipoAsociado" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.tipoAsociado, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+                                            <div class="col-12 col-sm-12  col-md-3 col-lg-3">
+                                                @Html.Label("Estado en Tarjeta de Credito", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-credit-card"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.estadoTarjetaCredito, new { htmlAttributes = new { @class = "form-control", @placeholder = "-----", @readOnly = "readonly" } })
+                                                    @*<input type="text" class="form-control" id="estadoTarjetaCredito" name="estadoTarjetaCredito" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.estadoTarjetaCredito, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                                                @Html.Label("Estado en Creditos", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.estadoCreditos, new { htmlAttributes = new { @class = "form-control", @placeholder = "-----", @readOnly = "readonly" } })
+                                                    @*<input type="text" class="form-control" id="estadoCreditos" name="estadoCreditos" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.estadoCreditos, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col-12 col-sm-12  col-md-3 col-lg-3">
+                                                @Html.Label("Telefono de Contacto", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-phone"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @placeholder = "00000000", @readOnly = "readonly" } })
+                                                    @*<input type="text" class="form-control" id="telefono" name="telefono" placeholder="-----" readonly />*@
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="col-12 col-sm-12  col-md-3 col-lg-3">
+                                                @Html.Label("Genero", new { @class = "form-label" })
+                                                <div class="input-group input-group-lg mb-3">
+                                                    <span class="input-group-text">
+                                                        <i class="fa-solid fa-street-view"></i>
+                                                    </span>
+                                                    @Html.EditorFor(model => model.genero, new { htmlAttributes = new { @class = "form-control", @placeholder = "----------", @readOnly = "readonly" } })
+                                                    
+                                                </div>
+                                                @Html.ValidationMessageFor(model => model.genero, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="row px-1 px-sm-1 px-md-3 px-lg-4 text-center" id="container-boton">
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12 align-items-center">
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+
+                                                        <div class="row px-1 px-sm-1 px-md-3 px-lg-4 text-center" id="container-boton">
+                                                            <div class="col-12 col-sm-12  col-md-12 col-lg-12 align-items-center">
+                                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                                    <button type="button" class="btn btn-warning btn-lg" id="cancelar-asistencia">Cancelar <i class="fa-solid fa-x"></i></button>
+                                                                    <button type="submit" class="btn btn-primary btn-lg" id="continuar-asistencia">Continuar Asistencia <i class="fa-solid fa-hand-point-right"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // document.getElementById("continuar-asistencia").addEventListener("click", function () {
+  //     var id = document.getElementById("idTblAsistenciasAsambaleas").value;
+  //     Swal.fire({
+  //       title: "Validando Asistencia",
+  //       text: "Espere un momento por favor...",
+  //       allowOutsideClick: false,
+  //       allowEscapeKey: false,
+  //       showConfirmButton: false,
+  //       didOpen: () => {
+  //         Swal.showLoading();
+  //       },
+  //     });
+  //     // Recargar la página después de 3 segundos
+  //     setTimeout(function () {
+  //       location.href ='@Url.Action("EditDataAsociado", "TblAsistenciasAsambaleas")?id=' + id;
+  //     }, 3000);
+  //   });
+
+  document.getElementById("dpi").addEventListener("keyup", function (event) {
+    if (event.which === 13) {
+      document.getElementById("buscar-asociado").click();
+    }
+  });
+
+  function validarAsociados(url, data, beforeSendCallback) {
+    //  - - - - -  show loading animation
+    Swal.fire({
+      title: "Validando los datos ingresados",
+      html: "Por favor espere ...",
+      allowOutsideClick: false,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      willOpen: () => {
+        Swal.showLoading();
+      },
+    });
+    // - - - - - show loading animation fin codigo
+    // Configurar opciones de solicitud
+    // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+    let opciones = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+    if (beforeSendCallback && typeof beforeSendCallback === "function") {
+      opciones = beforeSendCallback(opciones);
+    }
+    // Enviar solicitud
+    return fetch(url, opciones)
+      .then(function (response) {
+        if (!response.ok) {
+          toasterOptions();
+          toastr.error("Ocurrio un problema al resolver los datos de la consulta intenta mas tarde");
+          Swal.fire({
+            icon: "error",
+            title: "Error de consulta",
+            text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+            confirmButtonColor: "#153d77",
+            customClass: {
+              confirmButton: "btn-lg",
+            },
+            confirmButtonText: "Aceptar",
+            confirmButtonHtml: true,
+            allowOutsideClick: false,
+            preConfirm: function () {
+              // Redireccionar a la URL generada en Razor
+              window.location.href = '@Url.Action("Index", "Asambleas")';
+            },
+          });
+        }
+        swal.close();
+        return response.json();
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error de consulta",
+          text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+          confirmButtonColor: "#153d77",
+          customClass: {
+            confirmButton: "btn-lg",
+          },
+          confirmButtonText: "Aceptar",
+          confirmButtonHtml: true,
+          allowOutsideClick: false,
+          preConfirm: function () {
+            // Redireccionar a la URL generada en Razor
+            window.location.href = '@Url.Action("Index", "Asambleas")';
+          },
+        });
+      });
+  }
+  function toasterOptions() {
+    toastr.options = {
+      closeButton: false,
+      debug: false,
+      newestOnTop: false,
+      progressBar: true,
+      positionClass: "toast-bottom-right",
+      preventDuplicates: false,
+      onclick: null,
+      showDuration: "300",
+      hideDuration: "1000",
+      timeOut: "5000",
+      extendedTimeOut: "1000",
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut",
+    };
+  }
+
+  $("#buscar-asociado").on("click", function (e) {
+    e.preventDefault();
+    var btn = $(this);
+    if (!btn.hasClass("disabled")) {
+      /* - - - - - - - inicia la llamada a la funcion  validarAsociados- - - - - - - */
+      var url = '@Url.Action("BuscarcarDpi", "Asambleas")';
+      var asociado = document.getElementById("dpi").value;
+      var data = {
+        dpi: asociado,
+      };
+      validarAsociados(url, data, function (opciones) {
+        return opciones;
+      })
+        .then(function (respuesta) {
+          swal.close();
+          /**mostrando la animacion */
+          Swal.fire({
+            title: "Resolviendo los datos para el asociado",
+            html: "Por favor espere",
+            allowOutsideClick: false,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            willOpen: () => {
+              Swal.showLoading();
+            },
+          });
+          setTimeout(function () {
+            console.log(respuesta);
+            if (respuesta.Codigo != 1) {
+              //pinta descripcion de la respuesta
+              swal.close(); //deteiene la animcacion
+              toasterOptions();
+              toastr.error(respuesta.Descripcion);
+            } else {
+              swal.close();
+              if (respuesta.Listado.Estado == 201) {
+                toasterOptions(); //configuracion de toaster
+                toastr.success(respuesta.Listado.Descripcion);
+              } else {
+                toasterOptions(); //configuracion de toaster
+                toastr.error(respuesta.Listado.Descripcion);
+                alert(respuesta.Listado.Descripcion);
+              }
+              document.getElementById("dpi").value = ""; // Limpia el campo de entrada dpi
+              /** Asignar los valores a los input*/
+              document.getElementById("idTblAsistenciasAsambaleas").value =respuesta.Listado.idTblAsistenciasAsambaleas;
+              document.getElementById("nombres").value =respuesta.Listado.Nombre;
+              document.getElementById("numeroAsociado").value =respuesta.Listado.Asociado;
+              document.getElementById("numeroDpi").value =respuesta.Listado.Dpi;
+              document.getElementById("tipoAsociado").value =respuesta.Listado.CLASEASOCIADO;
+              document.getElementById("estadoTarjetaCredito").value =respuesta.Listado.MORATC;
+              document.getElementById("estadoCreditos").value =respuesta.Listado.MORA;
+              document.getElementById("telefono").value =respuesta.Listado.Telefono;
+              document.getElementById("genero").value = respuesta.Listado.Sexo;
+            }
+          }, 3000);
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Error de consulta",
+            text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+            confirmButtonColor: "#153d77",
+            customClass: {
+              confirmButton: "btn-lg",
+            },
+            confirmButtonText: "Aceptar",
+            confirmButtonHtml: true,
+            allowOutsideClick: false,
+            preConfirm: function () {
+              // Redireccionar a la URL generada en Razor
+              window.location.href = '@Url.Action("Index", "Asambleas")';
+            },
+          });
+        });
+      /* - - - - - - - finaliza la llamada de la funcion - - - - - - - - - - - - - - -*/
+    } else {
+      return false;
+    }
+  });
+});
+
+</script>

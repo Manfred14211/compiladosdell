@@ -1,0 +1,59 @@
+﻿@model iveCincoFrame.Models.Usuarios.RespuestaAsociado
+
+@using (Html.BeginForm())
+{
+
+    @*<h2>Infroamcion del usuario</h2>*@
+    <div class="container">
+        <div class="row">
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Asociado</label>
+                <div class="col-sm-10">
+                    <div class="input-group col-md-12">
+                        @Html.EditorFor(model => model.NumeroAsociado, new { htmlAttributes = new { @class = "form-control usuario-nombre ", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Nombres</label>
+                <div class="col-sm-10">
+                    <div class="input-group col-md-12">
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Dpi</label>
+                <div class="col-sm-10">
+                    <div class="input-group col-md-12">
+                        @Html.EditorFor(model => model.Dpi, new { htmlAttributes = new { @class = "form-control  correo-institucional", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Direccion</label>
+                <div class="col-sm-10">
+                    <div class="input-group col-md-12">
+                        @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control  correo-institucional", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Correo</label>
+                <div class="col-sm-10">
+                    <div class="input-group col-md-12">
+                        @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control  correo-institucional", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-form-label col-sm-2">Telefono</label>
+                <div class="col-sm-10">
+                    <div class="input-group col-md-12">
+                        @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control  correo-institucional", @readonly = "readonly" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

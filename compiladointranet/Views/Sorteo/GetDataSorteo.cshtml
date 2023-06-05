@@ -1,0 +1,30 @@
+﻿@model iveCincoFrame.Models.Sorteo.DataSorteoResponse
+@{
+
+    Layout = null;
+}
+<style>
+    .claseDelDiv {
+        background-image: url("/Content/img/confetti.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<div class="card col-xl-12 col-md-12 col-sm-12 col-lg-12 claseDelDiv">
+    <div class="card-body col-xl-12 col-md-12 col-sm-12 col-lg-12 ">
+        <div class="text-center">
+            <h1 style="color: #fdd835">Felicidades!</h1>
+            <br />
+            <h3>Agencia: <span id="idTblEntregas">@ViewBag.idTblEntregas</span></h3>
+            <h3>Agencia: <span id="nombre">@Model.Nombre</span></h3>
+            <h3>No. Asociado: <span id="numeroAsociado" style="color: #43a047">@Model.NoAsociado</span> </h3>
+            <h3>Nombre Completo: <span class="text-primary">@Model.NombreCompleto</span></h3>
+        </div>
+    </div>
+    <div class="container mb-5">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="button" id="btn-confirmar" class="btn btn-primary btn-lg">Entregar Premio</button>
+        </div>
+    </div>
+</div>
+

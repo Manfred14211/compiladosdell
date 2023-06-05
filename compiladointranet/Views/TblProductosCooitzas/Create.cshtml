@@ -1,0 +1,208 @@
+﻿@model iveCincoFrame.Models.Metas.MetasDtos.ProductosCooitzaDto
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="row">
+                                <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblProductosCooitzas")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+                                <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-plus-circle"></i> Nuevo Producto</div>
+
+                                <div class="col-xl-12 card" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                                    <div class="card-body">
+                                        <h3>Detalles del Producto</h3>
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.Partial("_MensajeParcial")
+                                            <!-- Form Row-->
+                                            <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                    @Html.Label("Nombre del Producto", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="fa-solid fa-calendar-days"></i>
+                                                        </span>
+                                                        @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre del producto a publicar" } })
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger mt-2" })
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                    @Html.Label("Tipificacion", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="fa-solid fa-boxes-stacked"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idCatTipificacionProductos", null, htmlAttributes: new { @class = "form-select" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Form Row-->
+                                            <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                    @Html.Label("Saldo Cierre", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="fa-solid fa-calendar-days"></i>
+                                                        </span>
+                                                        @Html.EditorFor(model => model.saldoCierre, new { htmlAttributes = new { @class = "form-control", @placeholder = "0.00" } })
+
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.saldoCierre, "", new { @class = "text-danger mt-2" })
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                    @Html.Label("Cantidad Cierre", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="fa-solid fa-check-to-slot"></i>
+                                                        </span>
+
+                                                        @Html.EditorFor(model => model.cantidadCierre, new { htmlAttributes = new { @class = "form-control", @placeholder = "0" } })
+
+                                                    </div>
+                                                    @Html.ValidationMessageFor(model => model.cantidadCierre, "", new { @class = "text-danger mt-2" })
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                    <br />
+                                                    @Html.Label("Tipo de evaluación para este producto *", new { @class = "form-label" })
+                                                    <p class="text-primary">
+                                                        Esta opción configura como sera evaluado el producto
+                                                        - Monto (Se refire al valor )
+                                                        - Cantidad (El producto sera evaulado por el numero de unidades)
+                                                    </p>
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="align-middle me-2 fas fa-fw fa-chart-pie"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idCatTiposMedicion", null, htmlAttributes: new { @class = "form-select" })
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                    <br />
+                                                    @Html.Label("Tipo de Operacion que se aplicara a este producto", new { @class = "form-label" })
+                                                    <p class="text-success">
+                                                        Esta opción configura el tipo de operacion que realizara este producto
+                                                        - Utilice Decremento para evaluar moras
+                                                    </p>
+                                                    <p class="text-success"> - Utilice Crecimiento para evaluar crecimientos</p>
+                                                    <p class="text-success"> - Urilice No aplica si el producto no realizara alguna operacion (por defecto la opcion "No aplica" suma los datos)</p>
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="fa-solid fa-calculator"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idCatTiposOperacion", null, htmlAttributes: new { @class = "form-select" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                    <br />
+                                                    @Html.Label("Origen de los Conteos y Montos", new { @class = "form-label" })
+                                                    <p class="text-success">
+                                                        Esta opción configura el origen o de que fuente se obtendran los datos a comparar
+
+                                                    </p>
+
+
+                                                    <p class="text-success"> - Utilice la opcion Datos del core para obtener la infromacion del sistema core de la cooperativa</p>
+                                                    <p class="text-success"> - Utilice la opcion Archivo Externo para obtener la informacion de un archivo que se cargara previamente para los conteos o montos</p>
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+
+                                                            <i class="align-middle me-2 fas fa-fw fa-database"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idCatTiposConsultas", null, htmlAttributes: new { @class = "form-select" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                    <br />
+                                                    @Html.Label("Filtro de evaluación", new { @class = "form-label" })
+                                                    <p class="text-success">
+                                                        Esta opción configura el el grado de evaluacion que tendra el producto
+
+                                                    </p>
+
+
+                                                    <p class="text-success"> - Utilice la opción Regiones si el producto se evaluara unicamente a nivel regiones</p>
+                                                    <p class="text-success"> - Utilice la opción Regiones y Sucursales  si el producto se evaluara unicamente a nivel regiones y sucursales</p>
+                                                    <p class="text-success"> - Utilice la opción Regiones, Sucursales y Ejecutivos  si el producto se evaluara a nivel regiones y sucursales y ejecutivos</p>
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+
+                                                            <i class="align-middle me-2 fas fa-fw fa-filter"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idCatTiposFiltrosEvaluaciones", null, htmlAttributes: new { @class = "form-select" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                    <br />
+                                                    @Html.Label("Tablero donde estara visible el producto", new { @class = "form-label" })
+                                                    <p class="text-success">
+                                                        Esta opcion configura el tablero donde sera visible el producto
+
+                                                    </p>
+
+
+                                                   
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+
+                                                            <i class="fa-solid fa-table-columns"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idCatTiposTableros", null, htmlAttributes: new { @class = "form-select" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <button type="submit" value="Create" class="btn btn-primary btn-lg"><i class="align-middle me-2 fas fa-fw fa-check"></i> Guardar Registro</button>
+                                            </div>
+
+                                        }
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        //select search enable
+        $('#idCatTipificacionProductos').select2({
+            theme: 'bootstrap-5'
+        });
+
+        $("#saldoCierre").on({
+            "focus": function (event) {
+                $(event.target).select();
+            },
+            "keyup": function (event) {
+                $(event.target).val(function (index, value) {
+                    return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                });
+            }
+        });
+    });
+
+
+
+
+
+</script>

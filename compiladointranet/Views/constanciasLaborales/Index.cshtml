@@ -1,0 +1,188 @@
+﻿@model IEnumerable<iveCincoFrame.Models.constanciasLaborales>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+                        <div class="col-12">
+                            <div class="container text-center">
+                                <h1 class="text-primary" style="color: #0c4899 !important;">Constancias de Ingresos</h1>
+                                <hr />
+                            </div>
+                            <div class="d-flex justify-content-center justify-content-md-start">
+
+                                <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Create", "constanciasLaborales")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-plus"></i>Nueva Constancia</button></div>
+                            </div>
+                            @Html.Partial("_MensajeParcial")
+                            <table id="talConstancias" class="table table-striped" style="width:100%">
+                                <thead class="table-dark">
+                                    <tr>
+
+                                        <th>
+                                            Dirigido
+                                        </th>
+                                        <th>
+                                            Codigo Colaborador
+                                        </th>
+                                        <th>
+                                            Nombre Completo
+                                        </th>
+                                        <th>
+                                            DPI
+                                        </th>
+                                        <th>
+                                            Inicio de Labores
+                                        </th>
+                                        <th>
+                                            Puesto
+                                        </th>
+                                        <th>
+                                            Salario Base
+                                        </th>
+                                        <th>
+                                            Bonificacion
+                                        </th>
+                                        <th>
+                                            Estado de la Solicitud
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.otroDestino))
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.otroDestino)
+                                                }
+                                                else
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.CatUbicaciones.nombre)
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.codigoEmpleado)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.nombreCompleto)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.dpi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.inicioLabores)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.puesto)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.salarioBase)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.bonificacionesLey)
+                                            </td>
+                                            @if (item.idCatEstatosRrhh == 3)
+                                            {
+                                                <td>
+                                                    <div class="">
+                                                        @Html.DisplayFor(modelItem => item.CatEstadosRrhh.descripcion)
+                                                    </div>
+
+                                                    <div class="dropdown-center">
+                                                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: #0c4899 !important;">
+                                                            <i class="align-middle me-2 fas fa-fw fa-comment-alt"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#">@item.comentarioRrhh</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            }
+                                            else if (item.idCatEstatosRrhh == 1)
+                                            {
+
+                                                <td>
+                                                    <div>
+                                                        @Html.DisplayFor(modelItem => item.CatEstadosRrhh.descripcion)
+                                                    </div>
+                                                </td>
+
+                                            }
+                                            else if (item.idCatEstatosRrhh == 2)
+                                            {
+                                                <td>
+                                                    <div class="">
+                                                        @Html.DisplayFor(modelItem => item.CatEstadosRrhh.descripcion)
+                                                    </div>
+
+                                                    <a href="~/ConstanciasLaborales/Details/@item.keyConstancia" target="_blank" class="btn mb-1 btn-secondary"><i class="align-middle me-2 fas fa-fw fa-file-pdf"></i></a>
+                                                </td>
+                                            }
+
+                                        </tr>
+                                    }
+                                </tbody>
+
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#talConstancias').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+
+    });
+</script>
+
+

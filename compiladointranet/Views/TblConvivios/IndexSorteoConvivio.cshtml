@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "IndexSorteoConvivio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<div class="row">
+    @Html.Partial("_MensajeParcial")
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header mb-0">
+                <div class="container">
+                    <h1 class="fc-toolbar-title text-center">Sorteo</h1>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container">
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="button" id="btn-jugar" class="btn btn-warning btn-lg">Girar</button>
+                        <br />
+                    </div>
+                </div>
+                <div class="container" id="datasorteo">
+                    <div id="ruleta">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '#btn-jugar', function () {
+            $("#btn-jugar").attr('disabled', 'disabled');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetDataSorteoConvivio", "TblConvivios")',
+                beforeSend: function (response) {
+
+                       $('#datasorteo').html('<center> <img  src="https://cooitza.gt/intranet/Content/img/ruleta.gif"/></center>');       
+ 
+                },
+                success: function (response) {
+                    $('#datasorteo').html('');
+                    $('#datasorteo').html(response);
+                    
+
+                },
+            });
+            return false;
+        });
+
+        $(document).on('click', '#btn-confirmar', function () {
+            var codigoAsociado = $("#codigoAsociado").text();
+            
+
+            var entrega = {
+                "codigoAsociado": codigoAsociado
+            };
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ConfirmarEntrega", "TblConvivios")',
+                data: entrega,
+                beforeSend: function (response) {
+                },
+                success: function (response) {
+                    if (response == "ok") {
+
+                        window.location.reload();
+                        function toasterOptions() {
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                        };
+
+
+                        toasterOptions();
+
+                        toastr.success('Registro guardado con exito');
+
+                    }
+                    else {
+                        function toasterOptions() {
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toast-bottom-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+                        };
+                        toasterOptions();
+
+                        toastr.error('Fallo el registro error:' + response);
+                    }
+
+                }
+            });
+            return false;
+        });
+
+
+    })
+
+
+</script>

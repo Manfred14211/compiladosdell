@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tecnologias-section" id="tecnologia">
+    <div class="container">
+       
+        <h1 class="page-section-heading text-center display-5 font-weight-bold text-white">Gestionar IVE 05</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom1">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="lni lni-cog"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- technology boxes -->
+        <div class="container__box">
+
+            <div class="box bx-2" onclick="location.href='@Url.Action("Create", "TblPeriodos")'">
+                <i class="lni lni-zip"></i>
+                <h3 class="font-weight-bold">GENERAR IVE-05</h3>
+                <h4 class="font-weight-bold">gENERAR IVE-05</h4>
+            </div>
+            <div class="box bx-1 " onclick="location.href='@Url.Action("VistaPeriodos", "TblPeriodos")'">
+                <i class="lni lni-layers"></i>
+                <h3 class="font-weight-bold">H I S T O R I C O </h3>
+                <h4 class="font-weight-bold">H I S T O R I C O</h4>
+            </div>
+        </div>
+        
+    </div>
+</div>

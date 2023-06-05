@@ -1,0 +1,159 @@
+﻿
+@model iveCincoFrame.Models.Rrhh.ContanciasDto
+
+@{
+    ViewBag.Title = "DetailsRrhh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #codigoEmpleado {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+
+    #nombreCompleto {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+
+    #codigoEmpleado {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+
+    #dpi {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+
+    #inicioLabores {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+
+    #salarioBase {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+
+    #bonificacionesLey {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+
+    #puesto {
+        background-color: #ffffff;
+        border-color: #00b248;
+    }
+</style>
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+
+                            <div class="card-body mb-4" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                                <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-check-circle"></i> Agregar Usuario</div>
+                                <div class="text-center">
+                                    <h3>Detalles de la Solicitud</h3>
+                                </div>
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.Partial("_MensajeParcial")
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    ¿La solicitud es para un destinatario Externo?
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-4" id="grupoOtros">
+                                            @Html.Label("Destinatario de la Carta", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.otroDestino, new { htmlAttributes = new { @class = "form-control", @placeholder = "Escribe el destinatario de la carta" } })
+                                        </div>
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-4" id="grupoCatAgencia">
+                                            @Html.Label("Agencia destino", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.DropDownListFor(m => m.idAgencias, ViewBag.idAgencias as SelectList, "Seleccione una Sucursal", new { @class = "form-control" })
+                                        </div>
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-4">
+                                            @Html.Label("Codigo de Empleado", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.codigoEmpleado, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.codigoEmpleado } })
+                                        </div>
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-4">
+                                            @Html.Label("Nombre Completo", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.nombreCompleto, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.nombreCompleto } })
+                                        </div>
+                                    </div>
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-4">
+                                            @Html.Label("Dpi", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.dpi, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.dpi } })
+                                        </div>
+                                        <!-- Form Group (last name)-->
+                                        <div class="col-md-4">
+                                            @Html.Label("inicio de Labores", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.inicioLabores, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.inicioLabores } })
+                                        </div>
+                                        <!-- Form Group (last name)-->
+                                        <div class="col-md-4">
+                                            @Html.Label("Salario Base", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.salarioBase, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = "Q" + ViewBag.salarioBase } })
+                                        </div>
+                                    </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-4">
+                                            @Html.Label("Bonificaciones de Ley", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.bonificacionesLey, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = "Q" + ViewBag.bonificacionesLey } })
+                                        </div>
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-4">
+                                            @Html.Label("Puesto", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.puesto, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.puesto } })
+                                        </div>
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-4 d-none">
+                                            @Html.Label("GeneroId", new { htmlAttributes = new { @class = "form-label" } })
+                                            @Html.EditorFor(model => model.generoId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = ViewBag.genero } })
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <button type="submit" class="btn btn-primary btn-lg" value="Create"> <i class="align-middle me-2 fas fa-fw fa-paper-plane"></i> Enviar Solicitud</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

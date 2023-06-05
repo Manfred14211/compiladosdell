@@ -1,0 +1,269 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblSolicitudes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-xl-12 col-md-12 col-sm-12 col-lg-12">
+    <div class="card-body col-xl-12 col-md-12 col-sm-12 col-lg-12 ">
+        <h1>Historial de Solicitudes</h1>
+
+
+        <section class="container-botom">
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-secondary" })
+        </section>
+
+        <div class="table-responsive table-solicitudes" id="container-tablesolicitud">
+            <table class="table table-bordered table-striped table-hover" id="tbl-solicitudes" width="100%" cellpadding="0">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha Final</th>
+                        <th>Tipo Solicitud</th>
+                        <th>Motivo</th>
+                        <th>Monto</th>
+                        <th>Estado Proceso</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                @{var iterador = 1;}
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td scope="row">@iterador</td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.fechaInicio)*@
+                                @String.Format("{0:dd/MM/yyyy}", item.fechaInicio)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.fechaFinal)*@
+                                @String.Format("{0:dd/MM/yyyy}", item.fechaFinal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CatTipoSolicitudes.descripcion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombreSolicitud)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.monto)
+                            </td>
+                            <td>
+                                <!-- ESTADO DE GERENTE -->
+                                <button type="button" class="btn btn-success btn-sm detalleEstadoGerente" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Gerente" data-bs-toggle="modal" data-bs-target="#modalEstadoGerente">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                                <!-- ESTADO DE CONTABILIDAD -->
+                                <button type="button" class="btn btn-success btn-sm detalleEstadoContabilidad" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Contabilidad" data-bs-toggle="modal" data-bs-target="#modalEstadoContabilidad">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                                <!-- ESTADO DE AUDITORIA -->
+                                <button type="button" class="btn btn-success btn-sm detalleEstadoAuditoria" codigo="@item.idTblSolicitudes" data-toggle="tooltip" title="Estado Auditoria" data-bs-toggle="modal" data-bs-target="#modalEstadoAuditoria">
+                                    <i class="align-middle me-2 fas fa-fw fa-check-circle"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="align-middle me-2 fas fa-fw fa-cog"></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li>@Html.ActionLink("Editar", "Edit", new { id = item.idTblSolicitudes }, htmlAttributes: new { @class = "btn btn-outline-warning btn-sm form-control" })</li>
+                                    <li><a class="dropdown-item VerDepositosSC" codigo="@item.idTblSolicitudes"><i class="align-middle me-2 fas fa-fw fa-money-bill"></i>  Depositar</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        iterador++;
+                    }
+                </tbody>
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
+
+        <script>
+    $(document).ready(function () {
+        $('#tbl-solicitudes').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "(Filtrado de MAX total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true
+        });
+
+        //Ver estados
+        $('.detalleEstadoGerente').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+                //alert(codigo);
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("estadoGerente", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#VerdetalleEstadoGerente').html(response);
+                },
+            });
+            return false;
+        });
+
+        $('.detalleEstadoContabilidad').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+                //alert(codigo);
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("estadoContabilidad", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    detalleDepositoGl();
+                    $('#VerdetalleEstadoContabilidad').html(response);
+                },
+            });
+            return false;
+            function detalleDepositoGl()
+            {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("detalleDepositosGlobales", "TblSolicitudes")',
+                    data:
+                    {
+                        id: codigo,
+                    },
+                    beforeSend: function (response)
+                    {
+                        response.setRequestHeader("If-Modified-Since", "0");
+                        response.setRequestHeader("Cache-Control", "no-cache");
+                    },
+                    success: function (response)
+                    {
+                        $('#DetalleDeposito').html(response);
+                    },
+                });
+                return false;
+            }
+        });
+
+        $('.detalleEstadoAuditoria').click(function ()
+        {
+            var codigo = $(this).attr('codigo');
+                //alert(codigo);
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("estadoAuditoria", "TblSolicitudes")',
+                data:
+                {
+                    id: codigo,
+                },
+                beforeSend: function (response)
+                {
+                    response.setRequestHeader("If-Modified-Since", "0");
+                    response.setRequestHeader("Cache-Control", "no-cache");
+                },
+                success: function (response)
+                {
+                    $('#VerdetalleEstadoAuditoria').html(response);
+                },
+            });
+            return false;
+        });
+
+
+    });
+        </script>
+
+
+
+
+        <!-- MODAL VER ESTADO DEL GERENTE -->
+        <div class="modal fade" id="modalEstadoGerente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEstadoGerenteLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title text-light" id="modalEstadoGerenteLabel">Estado Gerente</h5>
+                        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="VerdetalleEstadoGerente"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cerrarModalEG" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL VER ESTADO DE CONTABILIDAD -->
+        <div class="modal fade" id="modalEstadoContabilidad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEstadoContabilidadLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title text-light" id="modalEstadoContabilidadLabel">Estado Contabilidad</h5>
+                        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="VerdetalleEstadoContabilidad"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cerrarModalEA" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL VER ESTADO DE AUDITORIA -->
+        <div class="modal fade" id="modalEstadoAuditoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEstadoAuditoriaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title text-light" id="modalEstadoAuditoriaLabel">Estado Auditoria</h5>
+                        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="VerdetalleEstadoAuditoria"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cerrarModalEA" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,198 @@
+﻿@model iveCincoFrame.Models.TblAsignaciones
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <div class="row">
+                                <div class="mb-3"><button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "TblAsignaciones")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button></div>
+                                <div class="card-actions bg-success-dark text-white"><i class="align-middle me-2 fas fa-fw fa-plus-circle"></i> Nueva Asignacion de Metas</div>
+
+                                <div class="col-xl-12 card" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);">
+                                    <div class="card-body">
+                                        <h3>Detalles del Producto</h3>
+                                        @using (Html.BeginForm())
+                                        {
+
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.Partial("_MensajeParcial")
+                                            <div class="row px-1 px-sm-1 px-md-3 px-lg-4">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                    @Html.Label("Año", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="align-middle me-2 fas fa-fw fa-calendar-check"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idCatAnios", null, htmlAttributes: new { @class = "form-select" })
+                                                        @Html.ValidationMessageFor(model => model.idCatAnios, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12  col-md-12 col-lg-12 d-none">
+                                                    @Html.Label("Mes", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="align-middle me-2 fas fa-fw fa-calendar-check"></i>
+                                                        </span>
+
+                                                        @Html.DropDownList("idCatMeses", null, htmlAttributes: new { @class = "form-select" })
+                                                        @Html.ValidationMessageFor(model => model.idCatMeses, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                    @Html.Label("Tipificacion", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="fa-solid fa-boxes-stacked"></i>
+                                                        </span>
+
+                                                        @Html.DropDownList("idCatTipificacionProductos", null, htmlAttributes: new { @class = "form-select" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                                    @Html.Label("Productos", new { @class = "form-label" })
+                                                    <div class="input-group input-group-lg mb-3">
+                                                        <span class="input-group-text">
+                                                            <i class="align-middle me-2 fas fa-fw fa-calendar-check"></i>
+                                                        </span>
+                                                        @Html.DropDownList("idTblProductosCooitza", null, htmlAttributes: new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.idTblProductosCooitza, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                @*<div class="col-12 col-sm-12  col-md-12 col-lg-12" id="monto-mensual">
+                                                        @Html.Label("Monto Meta Mensual", new { @class = "form-label" })
+                                                        <div class="input-group input-group-lg mb-3">
+                                                            <span class="input-group-text">
+                                                                <i class="fa-solid fa-user-pen"></i>
+                                                            </span>
+                                                            <input type="text" name="montoMetaA" id="montoMetaA" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-12  col-md-12 col-lg-12" id="cantidad-mensual">
+                                                        @Html.Label("Cantidad Meta Mensual", new { @class = "form-label" })
+                                                        <div class="input-group input-group-lg mb-3">
+                                                            <span class="input-group-text">
+                                                                <i class="fa-solid fa-toolbox"></i>
+                                                            </span>
+                                                            <input type="number" name="cantidadMetaA" id="cantidadMetaA" class="form-control" placeholder="0" />
+                                                        </div>
+                                                    </div>*@
+                                            </div>
+                                            @*<div class="row px-1 px-sm-1 px-md-3 px-lg-4 d-none">
+                                                    <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+                                                        @Html.Label("Tipo de medicion Id", new { @class = "form-label" })
+                                                        <div class="input-group input-group-lg mb-3">
+                                                            <span class="input-group-text">
+                                                                <i class="fa-solid fa-tag"></i>
+                                                            </span>
+                                                            <input type="number" class="form-control" name="idTiposMedicion" id="idTiposMedicion" />
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+                                            <hr>
+                                            <div class="row">
+                                                <button type="submit" value="Create" class="btn btn-primary btn-lg"><i class="align-middle me-2 fas fa-fw fa-check"></i> Continuar con la asignación</button>
+                                            </div>
+
+                                        }
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        //$('#monto-mensual').hide();
+        //$('#cantidad-mensual').hide();
+        $('#idCatTipificacionProductos').select2({
+            theme: 'bootstrap-5'
+        });
+        $('#idTblProductosCooitza').select2({
+            theme: 'bootstrap-5'
+        });
+        $('#idCatAnios').select2({
+            theme: 'bootstrap-5'
+        });
+        $('#idCatMeses').select2({
+            theme: 'bootstrap-5'
+        });
+        /*cargar dropdownlist con los prodictos */
+        var id = parseInt($("#idCatTipificacionProductos").val());
+        getProductos(id);
+        $("#idCatTipificacionProductos").change(function () {
+            var id = parseInt($("#idCatTipificacionProductos").val());
+            getProductos(id);
+        })
+        function getProductos(number) {
+            $("#idTblProductosCooitza").empty();
+            $.ajax({
+                   type: 'POST',
+                   url: '@Url.Action("ObtenerProductos", "TblSucrusalesProductosCooitzas")',
+                   dataType:'json',
+                data: { IdTipificacion: number },
+                success: function (response) {
+                    //console.log(response);
+                    ////debugger;
+                    $("#idTblProductosCooitza").append('<option  value="0" disabled selected>Selececcione</option>');
+                    $.each(response, function (i, coordinadores) {
+                        $("#idTblProductosCooitza").append('<option value="'
+                            + coordinadores.Value + '">'
+                            + coordinadores.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                       alert('No se pueden cargar los coordinadores' + ex)
+                }
+            });
+            return false;
+        }
+        @*$("#idTblProductosCooitza").change(function () {
+            var siP = parseInt($("#idTblProductosCooitza").val());
+            getTiposMedicionProductos(siP);
+        })
+        function getTiposMedicionProductos(number) {
+            $.ajax({
+                   type: 'POST',
+                   url: '@Url.Action("GetTiposMedicionProductos", "TblSucrusalesProductosCooitzas")',
+                   dataType:'json',
+                data: { idProducto: number },
+                success: function (response) {
+                    $('#idTiposMedicion').val(response);
+                    if (response == 1)
+                    {
+                        $('#monto-mensual').hide();
+                        $('#cantidad-mensual').show();
+                        //$('#empleado-monto-mensual').hide();
+                        //$('#empleado-cantidad-mensual').show();
+                    }
+                    else
+                    {
+                        $('#monto-mensual').show();
+                        $('#cantidad-mensual').hide();
+                        //$('#empleado-monto-mensual').show();
+                        //$('#empleado-cantidad-mensual').hide();
+                    }
+                },
+                error: function (ex) {
+                       alert('No se pueden cargar los coordinadores' + ex)
+                }
+            });
+            return false;
+        }*@
+    });
+</script>

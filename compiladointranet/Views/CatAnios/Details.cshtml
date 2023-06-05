@@ -1,0 +1,42 @@
+﻿@model iveCincoFrame.Models.CatAnios
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <h2>Details</h2>
+
+                            <div>
+                                <h4>CatAnios</h4>
+                                <hr />
+                                <dl class="dl-horizontal">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.descripcion)
+                                    </dt>
+
+                                    <dd>
+                                        @Html.DisplayFor(model => model.descripcion)
+                                    </dd>
+
+                                </dl>
+                            </div>
+                            <p>
+                                @Html.ActionLink("Edit", "Edit", new { id = Model.idCatAnios }) |
+                                @Html.ActionLink("Back to List", "Index")
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

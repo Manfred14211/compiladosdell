@@ -1,0 +1,47 @@
+﻿@model iveCincoFrame.Models.clasesIve.periodoCreateModel
+
+@{
+    ViewData["Title"] = "Cargar IVE-05";
+}
+<div class="row">
+
+    <div class="col-12 col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="fc-toolbar-title">Cargar nuevo archivo</h2>
+                <h6 class="card-subtitle text-muted">Elija el rango de fechas y el archivo de Excel a subir</h6>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "TblPeriodos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="container">
+                        <div class="mb-3 col-sm-10">
+                            <label class="form-label">Fecha de Inicio</label>
+                            @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "form-control", type = "date", value = "dd/mm/yyyy" } })
+                            @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3 col-sm-10">
+                            <label class="form-label">Fecha Fin</label>
+                            @Html.EditorFor(model => model.fechaFin, new { htmlAttributes = new { @class = "form-control ", type = "date", value = "dd/mm/yyyy" } })
+                            @Html.ValidationMessageFor(model => model.fechaFin, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3 col-sm-10">
+                            <label class="form-label">Archivo Excel</label>
+                            @Html.LabelFor(model => model.archivo)
+                            @Html.TextBoxFor(model => model.archivo, new { @class = "form-control", type = "file", accept = ".xlsx" })
+                            @Html.ValidationMessageFor(model => model.archivo, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3 row">
+                            <div class="col-sm-12 ms-sm-auto">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @*<form>*@
+
+                @*</form>*@
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+﻿@model IEnumerable<iveCincoFrame.Models.MonitorGrabacion.Dtos.CertificacionesList>
+<div class="card-header text-center">
+    <div class="container text-center">
+        <h1 class="text-primary" style="color: #0c4899 !important;">Certificacion de Sucursales Cooitzá</h1>
+        <hr />
+    </div>
+    <div class="d-flex justify-content-center justify-content-md-start">
+        <button type="button" id="nueva-certificacion" class="btn btn-primary btn-lg" style="background: #0c4899 !important;">Nueva Certificación</button>
+    </div>
+    @Html.Partial("_MensajeParcial")
+    <br />
+
+
+    <div id="transac-directorios" class="col-12">
+
+        <table class="table" id="tblCeertificaciones">
+            <thead class="table-dark small">
+                <tr>
+                    <th>#</th>
+                    <th>Codigo</th>
+                    <th>Region</th>
+                    <th>Sucursal</th>
+                    <th>Camaras Instaladas</th>
+                    <th>Camaras Funcionando</th>
+                    <th>DVR Funcionando</th>
+                    <th>DVR Grabando</th>
+                    <th>Tiene Internet</th>
+                    <th>Camaras sin errores</th>
+                    <th>Horario de Grabación</th>
+                    <th>Diferencia de Horas</th>
+                    <th>Diferencia de Minutos</th>
+                    <th>Comentario</th>
+                    <th>Certifica</th>
+                    <th>Imagen</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{var iterador = 1;}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="small">
+                            @iterador
+                        </td>
+                        <td class="small">
+                            @item.Codigo
+                        </td>
+                        <td class="small">
+                            @item.Region
+                        </td>
+                        <td class="small">
+                            @item.Sucrusal
+                        </td>
+                        <td class="small">
+                            @item.CantidadCamrasInstaldas
+                        </td>
+                        <td class="small">
+                            @item.CantidadCamrasFuncionando
+                        </td>
+                        <td>
+                            <h5 class="font-weight-bold"><i class="@item.DvrFuncionando"></i></h5>
+
+                        </td>
+                        <td>
+                            <h5 class="font-weight-bold"><i class="@item.DvrGrabando"></i></h5>
+                        </td>
+                        <td>
+                            <h5 class="font-weight-bold"><i class="@item.TieneInternet"></i></h5>
+
+                        </td>
+                        <td>
+                            <h5 class="font-weight-bold"><i class="@item.ErrorDeCamras"></i></h5>
+
+                        </td>
+                        <td class="small">
+                            <h5 class="font-weight-bold"><i class="@item.ErrorHorario"></i></h5>
+
+                        </td>
+                        <td>
+                            @item.DiferecnciaHoras
+                        </td>
+                        <td>
+                            @item.DiferenciaMinutos
+                        </td>
+                        <td class="small">
+                            <div class="dropdown-center">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background: #0c4899 !important;">
+                                    <i class="align-middle me-2 fas fa-fw fa-comment-alt"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @if (!string.IsNullOrEmpty(item.Comentario))
+                                    {
+                                        <li><a class="dropdown-item" href="#"><strong class="text-primary">Comentario General: </strong>@item.Comentario</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a class="dropdown-item" href="#"><strong class="text-primary">Comentario General: </strong>Sin Comentarios</a></li>
+                                    }
+                                    @if (true)
+                                    {
+                                        <li><a class="dropdown-item" href="#"><strong class="text-success">Comentario Camaras: </strong>@item.DetalleCamaras</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a class="dropdown-item" href="#"><strong class="text-success">Comentario Camaras: </strong>Sin comentarios</a></li>
+                                    }
+                                </ul>
+                            </div>
+
+                        </td>
+                        <td class="small">
+                            @item.Cerrifica
+                        </td>
+                        <td class="small">
+                            <a href="@item.Imagen" target="_blank" class="btn btn-primary btn-lg" style="background: #0c4899 !important;"><i class="fa-solid fa-image"></i></a>
+                        </td>
+
+                    </tr>
+                    iterador++;
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#tblCeertificaciones').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+            responsive: true,
+            paging: false
+        });
+    });
+</script>

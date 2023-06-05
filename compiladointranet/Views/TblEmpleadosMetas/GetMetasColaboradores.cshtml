@@ -1,0 +1,118 @@
+﻿@model IEnumerable<iveCincoFrame.Models.Tableros.EmpleadosModel.EmpleadosIndex>
+<table class="table" id="datatables-reponsive-m">
+    <thead>
+        <tr class="small">
+            <th style="width:10%;">Sucursal</th>
+            <th style="width:30%;">Colaborador</th>
+            <th style="width:20%;">Monto Meta Mensual</th>
+            <th style="width:10%;">Cantidad Meta Mensual</th>
+            <th style="width:10%;">Año</th>
+            <th style="width:10%;">Mes</th>
+            <th style="width:10%;">Producto</th>
+            <th style="width:10%;">Acciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="small">
+                <th>
+                    @Html.DisplayFor(modelItem => item.Sucursal)
+                </th>
+                <th>
+                    <div class="d-flex align-items-center">
+                        <!-- Avatar -->
+                        <div class="mx-1 mb-0 mt-0">
+                            <img class="avatar-img rounded-circle" src="https://app.cooitza.com.gt/Images/Seguridad/Usuarios/@item.Imagen" height="35" width="35" alt="avatar">
+                        </div>
+                        <!-- Info -->
+                        <div class="mb-0 mt-0">
+                            <h3 class="mb-0 fw-bold small"> @Html.DisplayFor(modelItem => item.NombreCompleto)</h3>
+                        </div>
+                    </div>
+                   
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MetaMensual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantidadMetaMensual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Anio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto)
+                </td>
+
+                <td class="table-action">
+                    <a href="#" id="editar-monto-cantidad" codigo="@item.idTblMetasEmpleados"><i class="align-middle me-2 fas fa-fw fa-pencil-alt"></i></a>
+                    <a href="#" id="eliminar-meta-empleado" codigo="@item.idTblMetasEmpleados"><i class="align-middle fas fa-fw fa-trash"></i></a>
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr class="align-right">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+    $("#datatables-reponsive-m").DataTable({
+        responsive: true,
+        lengthChange: false,
+        ordering: false,
+        info: false,
+        searching: false,
+        footerCallback: function (tfoot, data, start, end, display) {
+            var api = this.api(), data;
+
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ?
+                    i.replace(/[\Q,]/g, '') * 1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+
+            // computing column Total of the complete result
+            var monto = api
+                .column(2)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+            var cantidad = api
+                .column(3)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+
+
+
+
+            $(api.column(0).footer()).html('Total');
+            $(api.column(2).footer()).html(monto);
+            $(api.column(3).footer()).html(cantidad);
+
+
+
+        }
+    });
+</script>

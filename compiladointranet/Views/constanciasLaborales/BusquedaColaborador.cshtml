@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "BusquedaColaborador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "constanciasLaborales", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="my-3">
+
+                            <div id="transac-directorios" class="col-12">
+                                <div class="row">
+                                    <div class="col-6 text-center">
+                                        <h1 class="text-primary">Busqueda de colaboradores</h1>
+                                        <p class="lead mb-4">Realiza la busqueda por medio del DPI del Colaborador</p>
+                                        <input type="text" value="1" name="id" id="id" class="d-none" />
+                                        <input type="text" value="1" name="metodo" id="metodo" class="d-none" />
+                                        <div class="shadow rounded">
+                                            <div class="input-group input-group-joined input-group-joined-xl border-0">
+                                                <input class="form-control me-0" type="text" id="dpi" name="dpi" placeholder="Escribe el Dpi del Colaborador" aria-label="Search" autofocus="">
+                                                <button type="submit" class="btn btn-primary" id="buscar-colaborador">Buscar Colaborador</button>
+                                            </div>
+                                        </div>
+                                        <div class="container mt-4 text-center">
+                                            <h4><span class="text-primary">Recursos Humanos Cooitzá R.L:</span> <span class="text-muted">@ViewBag.tipoafilicacion</span></h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="container">
+                                            <img src="~/Content/img/peopleavatars.png" class="img-fluid" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        .
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

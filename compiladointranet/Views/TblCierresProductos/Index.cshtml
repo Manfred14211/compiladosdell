@@ -1,0 +1,104 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblCierresProductos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="my-3">
+
+                        <div id="transac-directorios" class="col-12">
+                            <h2>Index</h2>
+
+                            <p>
+                                @Html.ActionLink("Create New", "Create")
+                            </p>
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.saldo)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cantidad)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.idCatMeses)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.idCatAnios)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.fechaAlta)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.fechaModificacion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TblUsuarios.usuario)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TblUsuarios1.usuario)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TblProductosCooitza.descripcion)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.saldo)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cantidad)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.idCatMeses)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.idCatAnios)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.fechaAlta)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.fechaModificacion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblUsuarios.usuario)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblUsuarios1.usuario)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CatEstados.descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TblProductosCooitza.descripcion)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.idTblCierresProductos }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.idTblCierresProductos }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.idTblCierresProductos })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

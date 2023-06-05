@@ -1,0 +1,417 @@
+﻿@model IEnumerable<iveCincoFrame.Models.TblConsultasIPass>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+<main class="content">
+    <div class="mb-3 d-flex justify-content-sm-between">
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Index", "Home")'" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #0c4899 !important;"><i class="align-middle me-2 fas fa-fw fa-arrow-alt-circle-left"></i></button>
+
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <nav class="nav btn-group">
+                    <a href="#" id="asociados" class="btn btn-success" data-bs-toggle="tab"><i class="fa-solid fa-user-large"></i> Asociados</a>
+                    <a href="#" id="noAsociados" class="btn btn-light" data-bs-toggle="tab"><i class="fa-solid fa-user-large-slash"></i> No Asociados</a>
+                    <a href="#" id="getArchivos" class="btn btn-primary" data-bs-toggle="tab"><i class="fa-solid fa-file-arrow-down"></i> Descargar Reporte</a>
+                </nav>
+            </div>
+        </div>
+        <div>.</div>
+    </div>
+    <hr />
+    <table id="datatables-reponsive" class="table table-striped" style="width:100%">
+        <thead class="small">
+            <tr>
+                <th>Codigo de Asociado</th>
+                <th>Numero de Documento</th>
+                <th>Nombre</th>
+                <th>Resultado Final</th>
+                <th>Clasificación</th>
+                <th>Estado</th>
+                <th>Usuario Consulta</th>
+                <th>Fecha Consulta</th>
+                <th>Sucursal</th>
+                <th>Asociado</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody id="tbody-consultas" class="small">
+            @for (int i = 0; i < 15; i++)
+            {
+            <tr role="row">
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+                <td class="text-center" role="cell">
+                    <p class="placeholder-glow">
+                        <span class="placeholder col-12"></span>
+                    </p>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        /* - - - - - - - - - - funcion para pintar datos en tabla*/
+        function pintarDatosEnTabla(data) {
+            return new Promise((resolve, reject) => {
+                $("#tbody-consultas").html(''); // Limpiar el tbody
+                $.each(data, function (key, item) {
+                    let idTblConsultasIPass = item.idTblConsultasIPass;
+                    var enlace = '@Url.Action("Details", "TblConsultasIPasses")?id=' + idTblConsultasIPass;
+                    var html = '';
+                    html += '<tr>';
+                    html += '<td>' + (item.codigoDeAsociado || '') + '</td>';
+                    html += '<td>' + (item.numeroDoc || '') + '</td>';
+                    html += '<td>' + (item.nombre ? item.nombre.replace(/null/g, '') : '') + '</td>';
+                    html += '<td class="fw-bold">' + (item.trc3 || '') + '</td>';
+                    html += '<td class="fw-bold">' + (item.trClasificacion || '') + '</td>';
+                    html += '<td>' + (item.trEstatus || '') + '</td>';
+                    html += '<td>' + (item.idTblUsuariosConsultas || '') + '</td>';
+                    html += '<td>' + (item.fechaConsulta || '') + '</td>';
+                    html += '<td class="fw-bold">' + (item.idSucursal || '') + '</td>';
+                    html += '<td>' + (item.asociado || '') + '</td>';
+                    html += `<td class="table-action">
+                              <a href="${enlace}" id="detalle">
+                               <i class="fa-solid fa-pencil"></i>
+                              </a>
+                </td>`;
+                    html += '</tr>';
+                    $("#tbody-consultas").append(html);
+                });
+                // Resolver la promesa cuando se hayan pintado los datos en la tabla
+                resolve();
+            });
+        }
+
+
+        function getConsultas(url, beforeSendCallback) {
+            //  - - - - -  show loading animation
+            Swal.fire({
+                title: 'Obteniendo los registros',
+                html: 'Por favor espere mientras se completa este proceso',
+                allowOutsideClick: false,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+            // Configurar opciones de solicitud
+            // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+            let opciones = {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+            if (beforeSendCallback && typeof beforeSendCallback === 'function') {
+                opciones = beforeSendCallback(opciones);
+            }
+            // Enviar solicitud
+            return fetch(url, opciones)
+                .then(function (response) {
+                    if (!response.ok) {
+                        console.log('Error al resolver los datos de la consulta');
+                        toastr.success('Ocurrio un problema al resolver los datos de la consulta');
+                    }
+                    swal.close();
+                    return response.json();
+                })
+                .catch(function (error) {
+                    console.long(error);
+                    toastr.success('Ocurrio un problema al resolver los datos de la consulta');
+                    swal.close();
+                });
+        }
+
+
+        var url = '@Url.Action("GetConsultas", "TblConsultasIPasses")?id=1';
+            getConsultas(url,function(opciones) {
+    	        return opciones;
+            })
+            .then(function(respuesta) {
+                swal.close();
+                console.log(respuesta);
+                /**mostrando la animacion */
+                Swal.fire({
+                    title: "Resolviendo los registros",
+                    html: "Por favor espere",
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+                setTimeout(function () {
+                    if (respuesta.Codigo == 1) {
+                        console.log(respuesta)
+                        console.log(respuesta.Listado)
+                        // Llamar a la función pintarDatosEnTabla y cerrar la alerta cuando haya terminado
+                        pintarDatosEnTabla(respuesta.Listado).then(() => {
+                            swal.close();
+                            $("#datatables-reponsive").DataTable({
+                                responsive: true,
+                                paging: false,
+                                ordering: false
+                            });
+                        });
+                    } else {
+                        toastr.success(respuesta.Descripcion);
+                        swal.close();
+                    }
+                }, 3000);
+
+            })
+            .catch(function(error) {
+                toastr.success('Ocurrio un problea al resover los datos de la consulta');
+                console.log(error);
+            });
+
+            $("#asociados").on("click", function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            if (!btn.hasClass("disabled")) {
+              /* - - - - - - - inicia la llamada a la funcion  validarAsociados- - - - - - - */
+              var url = '@Url.Action("GetConsultas", "TblConsultasIPasses")?id=1';
+              getConsultas(url,function(opciones) {
+                return opciones;
+                })
+                .then(function(respuesta) {
+
+                    swal.close();
+                    console.log(respuesta);
+                    /**mostrando la animacion */
+                    Swal.fire({
+                        title: "Resolviendo los registros",
+                        html: "Por favor espere",
+                        allowOutsideClick: false,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        willOpen: () => {
+                            Swal.showLoading();
+                        },
+                    });
+                    setTimeout(function () {
+                        if (respuesta.Codigo == 1) {
+                            console.log(respuesta)
+                            console.log(respuesta.Listado)
+                            // Llamar a la función pintarDatosEnTabla y cerrar la alerta cuando haya terminado
+                            pintarDatosEnTabla(respuesta.Listado).then(() => {
+                                swal.close();
+                            });
+                        } else {
+                            toastr.success(respuesta.Descripcion);
+                            swal.close();
+                        }
+                    }, 3000);
+                })
+                .catch(function(error) {
+                    toastr.success('Ocurrio un problea al resover los datos de la consulta');
+                    console.log(error);
+                });
+            } else {
+                return false;
+            }
+
+        });
+        $("#noAsociados").on("click", function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            if (!btn.hasClass("disabled")) {
+              /* - - - - - - - inicia la llamada a la funcion  validarAsociados- - - - - - - */
+              var url = '@Url.Action("GetConsultas", "TblConsultasIPasses")?id=2';
+              getConsultas(url,function(opciones) {
+                return opciones;
+                })
+                .then(function(respuesta) {
+                    swal.close();
+                    console.log(respuesta);
+                    /**mostrando la animacion */
+                    Swal.fire({
+                        title: "Resolviendo los registros",
+                        html: "Por favor espere",
+                        allowOutsideClick: false,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        willOpen: () => {
+                            Swal.showLoading();
+                        },
+                    });
+                    setTimeout(function () {
+                        if (respuesta.Codigo == 1) {
+                            console.log(respuesta)
+                            console.log(respuesta.Listado)
+                            // Llamar a la función pintarDatosEnTabla y cerrar la alerta cuando haya terminado
+                            pintarDatosEnTabla(respuesta.Listado).then(() => {
+                                swal.close();
+                            });
+                        } else {
+                            toastr.success(respuesta.Descripcion);
+                            swal.close();
+                        }
+                    }, 3000);
+                })
+                .catch(function(error) {
+                    toastr.success('Ocurrio un problea al resover los datos de la consulta');
+                    console.log(error);
+                });
+            } else {
+                return false;
+            }
+
+        });
+        $("#getArchivos").on("click", function (e) {
+        e.preventDefault();
+        var btn = $(this);
+        if (!btn.hasClass("disabled"))
+        {
+          let url = '@Url.Action("GetArchivo", "TblConsultasIPasses")';
+          getArchivo(url, function (opciones) {
+            return opciones;
+          })
+            .then((response) => {
+              console.log(response);
+                /**mostrando la animacion */
+                Swal.fire({
+                    title: "Resolviendo el archivo ReporteIpass",
+                    html: "Por favor espere ...",
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
+              setTimeout(function () { 
+                  // Validar si la respuesta es un blob
+                  swal.close();
+                  if (response.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                      const currentDate = new Date();
+                      const formattedDate = currentDate.toISOString().split('T')[0]; // Obtiene la fecha actual en formato YYYY-MM-DD
+                      const formattedTime = currentDate.toLocaleTimeString().replace(/:/g, ''); // Obtiene la hora actual en formato HHMMSS
+                      const fileName = `ReporteIpass_${formattedDate}_${formattedTime}.xlsx`;
+                      // Al recibir los datos de la respuesta en formato blob
+                      const url = window.URL.createObjectURL(new Blob([response])); // Crea un objeto URL a partir de los datos blob
+                      const link = document.createElement("a"); // Crea un elemento ancla (<a>) para descargar el archivo
+                      link.href = url; // Establece la URL del enlace a la URL creada anteriormente
+                      link.setAttribute("download", fileName); // Establece el atributo 'download' del enlace para descargar el archivo y le da un nombre al archivo
+                      document.body.appendChild(link); // Agrega el enlace al cuerpo del documento HTML
+                      link.click(); // Hace clic en el enlace para descargar el archivo
+                      window.URL.revokeObjectURL(url); // Elimina el objeto URL creado anteriormente
+
+                  } else {
+                      toastr.error("Error al generar el archivo ")
+                  }
+              }, 3000);
+
+            })
+            .catch((error) => {
+              // Si ocurre un error en alguna parte del proceso
+              //console.error(error); // Registra el error en la consola del navegador
+              toastr.error("La solicitud se envio correctamente pero ocurrio un problema al resolver el archivo."); // Muestra una alerta con el mensaje de error
+            });
+
+        } else {
+          return false;
+        }
+        });
+
+      function getArchivo(url, beforeSendCallback) {
+        //  - - - - -  show loading animation
+        Swal.fire({
+            title: 'Generado Archivo',
+            html: 'Por favor espere mientras se completa este proceso',
+            allowOutsideClick: false,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            willOpen: () => {
+                Swal.showLoading();
+            }
+        });
+        // Configurar opciones de solicitud
+        // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+        let opciones = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+        if (beforeSendCallback && typeof beforeSendCallback === 'function') {
+            opciones = beforeSendCallback(opciones);
+        }
+        // Enviar solicitud
+        return fetch(url, opciones)
+            .then(function (response) {
+                if (!response.ok) {
+                    console.log('Error al resolver los datos de la consulta');
+                    toastr.success('Ocurrio un problema al resolver los datos de la consulta');
+                }
+                swal.close();
+                return response.blob();
+            })
+            .catch(function (error) {
+                console.long(error);
+                toastr.error('Ocurrio un problema al resolver los datos de la consulta');
+                swal.close();
+            });
+      }
+
+    });
+</script>

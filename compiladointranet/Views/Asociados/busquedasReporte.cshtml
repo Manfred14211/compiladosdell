@@ -1,0 +1,88 @@
+﻿@model IEnumerable<iveCincoFrame.Models.Usuarios.Oceana.BusquedasLista>
+
+
+<table  id="tabla-reporte-busquedas" class="table table-striped table-hover">
+    <thead >
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Usuario
+            </th>
+            <th>
+                Fecha de busqueda
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Respuesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Asociado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                Dpi Consultado
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @{var iterador = 1;}
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @iterador;
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaBusqueda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Respuesta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Asociado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dpi)
+                </td>
+
+            </tr>
+            iterador++;
+        }
+    </tbody>
+
+
+</table>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#tabla-reporte-busquedas').DataTable({
+
+            responsive: {
+                details: {
+                    type: 'column'
+                }
+            },
+            columnDefs: [{
+                className: 'dtr-control',
+                orderable: false,
+                targets: 0
+            }],
+            order: [1, 'asc']
+        });
+
+    });
+</script>
