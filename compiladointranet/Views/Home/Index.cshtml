@@ -318,7 +318,35 @@ else
                     swal.close();
                     return { error: true, data: null };
                 });
-        }
+            }
+
+
+            var pagina = 1; // Variable para rastrear la página actual
+            var isLoading = false; // Variable para evitar múltiples solicitudes mientras se está cargando
+
+            $(window).scroll(function () {
+                // Verificar si el usuario ha llegado al final de la página
+                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                    // Verificar si ya se está cargando una solicitud
+                    if (!isLoading) {
+                        cargarMasAnuncios();
+                    }
+                }
+            });
+
+            function cargarMasAnuncios() {
+                isLoading = true;
+                getAnuncios(pagina, function (opciones) {
+                    return opciones;
+                })
+                    .then(function (resp) {
+                        console.log(resp);
+                        pintarAnuncios(resp.data);
+                        pagina++;
+                        isLoading = false;
+                    });
+            }
+
     });
     </script>
 }
