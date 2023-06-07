@@ -20,10 +20,12 @@
         </div>
         <div>.</div>
     </div>
+
     <hr />
     <table id="datatables-reponsive" class="table table-striped" style="width:100%">
         <thead class="small">
             <tr>
+                <th>Consulta GRI</th>
                 <th>Codigo de Asociado</th>
                 <th>Numero de Documento</th>
                 <th>Nombre</th>
@@ -40,63 +42,68 @@
         <tbody id="tbody-consultas" class="small">
             @for (int i = 0; i < 15; i++)
             {
-            <tr role="row">
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-                <td class="text-center" role="cell">
-                    <p class="placeholder-glow">
-                        <span class="placeholder col-12"></span>
-                    </p>
-                </td>
-            </tr>
+                <tr role="row">
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                    <td class="text-center" role="cell">
+                        <p class="placeholder-glow">
+                            <span class="placeholder col-12"></span>
+                        </p>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
@@ -114,21 +121,27 @@
                     var enlace = '@Url.Action("Details", "TblConsultasIPasses")?id=' + idTblConsultasIPass;
                     var html = '';
                     html += '<tr>';
-                    html += '<td>' + (item.codigoDeAsociado || '') + '</td>';
-                    html += '<td>' + (item.numeroDoc || '') + '</td>';
-                    html += '<td>' + (item.nombre ? item.nombre.replace(/null/g, '') : '') + '</td>';
-                    html += '<td class="fw-bold">' + (item.trc3 || '') + '</td>';
-                    html += '<td class="fw-bold">' + (item.trClasificacion || '') + '</td>';
-                    html += '<td>' + (item.trEstatus || '') + '</td>';
-                    html += '<td>' + (item.idTblUsuariosConsultas || '') + '</td>';
-                    html += '<td>' + (item.fechaConsulta || '') + '</td>';
-                    html += '<td class="fw-bold">' + (item.idSucursal || '') + '</td>';
-                    html += '<td>' + (item.asociado || '') + '</td>';
+                    let claseRow = "text-primary";
+                    if (item.idErrorGri != 1 ) {
+                        claseRow = "text-danger";
+                    }
+                    html += `<td class="${claseRow}"><i class="${item.estadoClaseGri}"></i></td>`;
+                    html += `<td class="${claseRow}">${item.codigoDeAsociado || ''}</td>`;
+                    html += `<td class="${claseRow}">${item.numeroDoc || ''}</td>`;
+                    html += `<td class="${claseRow}">${item.nombre ? item.nombre.replace(/null/g, '') : ''}</td>`;
+                    html += `<td class="${claseRow}" class="fw-bold">${item.trc3 || ''}</td>`;
+                    html += `<td class="${claseRow}" class="fw-bold">${item.trClasificacion || ''}</td>`;
+                    html += `<td class="${claseRow}">${item.trEstatus || ''}</td>`;
+                    html += `<td class="${claseRow}">${item.idTblUsuariosConsultas || ''}</td>`;
+                    html += `<td class="${claseRow}">${item.fechaConsulta || ''}</td>`;
+                    html += `<td class="${claseRow}" class="fw-bold">${item.idSucursal || ''}</td>`;
+                    html += `<td>${item.asociado || ''}</td>`;
                     html += `<td class="table-action">
+
                               <a href="${enlace}" id="detalle">
                                <i class="fa-solid fa-pencil"></i>
                               </a>
-                </td>`;
+                            </td>`;
                     html += '</tr>';
                     $("#tbody-consultas").append(html);
                 });
@@ -338,7 +351,7 @@
                         Swal.showLoading();
                     },
                 });
-              setTimeout(function () { 
+              setTimeout(function () {
                   // Validar si la respuesta es un blob
                   swal.close();
                   if (response.type === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
