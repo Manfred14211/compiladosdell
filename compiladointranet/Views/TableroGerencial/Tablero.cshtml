@@ -516,9 +516,29 @@
                 return opciones;
             })
             .then(function (resp) {
-                 console.log(resp);
-                 pintarTablero(resp.data);
-
+                console.log(resp);
+                if (resp.data.Codigo == 1) {
+                    pintarTablero(resp.data);
+                }
+                else
+                {
+                  Swal.fire({
+                    icon: "error",
+                    title: "Ocurrio un problema al resolver los datos,notifica al administrador",
+                    text: resp.dat.Descripcion ,
+                    confirmButtonColor: "#153d77",
+                    customClass: {
+                      confirmButton: "btn-lg",
+                    },
+                    confirmButtonText: "Aceptar",
+                    confirmButtonHtml: true,
+                    allowOutsideClick: false,
+                    preConfirm: function () {
+                      // Redireccionar a la URL generada en Razor
+                      window.location.href = '@Url.Action("Home", "TableroGerencial")';
+                    },
+                  });
+                }
              });
         }
 
@@ -586,8 +606,8 @@
                                             <select class="form-select" id="idMeses" aria-label="Default select example">
                                                 <option value="3">Marzo</option>
                                                 <option value="4">Abril</option>
-                                                <option selected value="5">Mayo</option>
-                                                <option disabled value="6">Junio</option>
+                                                <option value="5">Mayo</option>
+                                                <option selected value="6">Junio</option>
                                                 <option disabled value="7">Julio</option>
                                                 <option disabled value="8">Agosto</option>
                                                 <option disabled value="9">Septiembre</option>
@@ -731,11 +751,11 @@
                                     contador++;
                                     tablaColumnasCompletas += `<tr>
                                         <td class="text-start">${contador}</td>
-                                        <td class="text-start">${productoItem.Descripcion}</td>
-                                        <td class="text-center">${productoItem.CierreAnioAnterior}</td>
-                                        <td class="text-center">${productoItem.SaldoFechaActual}</td>
-                                        <td class="text-center">${productoItem.CrecimientoLogrado}</td>
-                                        <td class="text-center">${productoItem.MetaAcumulada}</td>
+                                        <td class="text-start small">${productoItem.Descripcion}</td>
+                                        <td class="text-center small">${productoItem.CierreAnioAnterior}</td>
+                                        <td class="text-center small">${productoItem.SaldoFechaActual}</td>
+                                        <td class="text-center small">${productoItem.CrecimientoLogrado}</td>
+                                        <td class="text-center small">${productoItem.MetaAcumulada}</td>
                                         <td role="cell">
                                                 <div class="progress">
                                                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="${productoItem.Progreso}" aria-valuenow="${productoItem.Grafica}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -774,10 +794,10 @@
                                     tablaColumnasCompletas += `<tr>
                                         <td class="text-start">${contador}</td>
                                         <td class="text-start">${productoItem.Descripcion}</td>
-                                        <td class="text-center">${productoItem.CierreAnioAnterior}</td>
-                                        <td class="text-center">${productoItem.SaldoFechaActual}</td>
-                                        <td class="text-center">${productoItem.CrecimientoLogrado}</td>
-                                        <td class="text-center">${productoItem.MetaAcumulada}</td>
+                                        <td class="text-center small">${productoItem.CierreAnioAnterior}</td>
+                                        <td class="text-center small">${productoItem.SaldoFechaActual}</td>
+                                        <td class="text-center small">${productoItem.CrecimientoLogrado}</td>
+                                        <td class="text-center small">${productoItem.MetaAcumulada}</td>
                                         <td role="cell">
                                                 <div class="progress">
                                                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="${productoItem.Progreso}" aria-valuenow="${productoItem.Grafica}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -841,7 +861,7 @@
                                                                     <th class="text-center" style="width:10%" role="columnheader">Cierre 2022</th>
                                                                     <th class="text-center" style="width:10%" role="columnheader">Saldo a la Fecha</th>
                                                                     <th class="text-center" style="width:10%" role="columnheader">Crecimiento 2023</th>
-                                                                    <th class="text-center" style="width:10%" role="columnheader">Meta Acumulada</th>
+                                                                    <th class="text-center" style="width:10%" role="columnheader">Meta del mes</th>
                                                                     <th style="width:20%" role="columnheader">Alcance</th>
                                                                     <th class="text-center small text-center" style="width:10%" role="columnheader">% de alcance</th>
                                                                     ${columnasNotas}
@@ -965,12 +985,12 @@
                 //                </div>`;
                 //$("#tablero").append(htmlModal);
 
-                //se construye la grafica 
+                //se construye la grafica
                 //$.each(data.Regionales, function (key, item) {
 
                 //});
 
-                
+
                 //function actualizarTabla(arrayDatos) {
                 //    var tablaHTML = '<table>';
                 //    tablaHTML += `<thead>
@@ -1008,7 +1028,7 @@
                 //}
 
                 //actualizarTabla(data.PunteosProductos);
-                
+
 
                 // Seleccionar todos los enlaces de la página
                 const filtro = document.querySelector('#filtro');
