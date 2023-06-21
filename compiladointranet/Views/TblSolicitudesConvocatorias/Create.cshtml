@@ -1,0 +1,855 @@
+﻿@model iveCincoFrame.Models.TblSolicitudesConvocatorias
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Formulario de aplicacines cooitza" name="intranet">
+    <meta content="Manfred Sirin" name="author">
+    <title>Bootstrap 5 Multi-Step Form</title>
+    <!--jquery min-->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="~/Content/SolicitudesAplicaciones/style.css" rel="stylesheet">
+    <!--iconos fontawesome-->
+    <script src="https://kit.fontawesome.com/ac17241314.js" crossorigin="anonymous"></script>
+    <!-- FONT -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <!--TOASTR-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+</head>
+<body>
+    <div class="container d-flex align-items-center min-vh-100">
+        <div class="row g-0 justify-content-center">
+            <!-- TITLE -->
+            <div class="col-lg-4 offset-lg-1 mx-0 px-0">
+                <div id="title-container">
+                    <img class="covid-image" src="~/Content/img/principal minimum.png">
+                    <h2>Convocatoria 2023</h2>
+                    <h3>Puestos</h3>
+                    <p>Ingresar tu número de DPI (Documento Personal de Identificación) para validar la información y aplicar a los diferentes puestos disponibles en Cooitzá</p>
+                </div>
+            </div>
+            <!-- FORMS -->
+            <div class="col-lg-7 mx-5 px-5">
+                <div class="qbox-container">
+
+                    @using (Html.BeginForm("EditDataAsociado", "TblAsistenciasAsambaleas", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate", id = "form-wrapper", @name = "form-wrapper" }))
+                    {
+                        <div id="steps-container">
+                            <input class="d-none" type="number" id="idTblSolicitudesConvocatorias" />
+                            <div class="col" id="step1">
+                                <h4>ARTICULO 97. TRANSITORIO: Para la elección de cargos directivos podrán participar por esta única vez aquellas personas que hayan participado como mínimo en dos Asambleas Generales Anuales Obligatorias, posterior a ello, se observará conforme a lo establecido en el Artículo 42 de estos Estatutos.</h4>
+                                <h4>Ha participado en 2 Asambleas Anuales Ordinarias Obligatorias?</h4>
+                                <div class="mb-3 mt-3">
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="input1">
+                                        <option selected disabled>Selecciona una opción</option>
+                                        <option value="1">Si</option>
+                                        <option value="2">No</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary next-btn" id="next-btn">Siguiente</button>
+                            </div>
+                            <div class="col mt-2" style="display: none;" id="step2">
+                                <h4>Porfavor escribe el numero de tu DPI para validar tus datos</h4>
+                                <div class="q-box__question">
+                                    <div class="container">
+                                        <div class="d-grid d-sm-flex gap-3">
+                                            <div class="input-group input-group-lg mb-3">
+                                                <input class="form-control me-0" type="text" id="dpi" name="dpi" placeholder="0000-00000-0000" aria-label="Search" autofocus="" maxlength="15">
+                                                <button type="button" class="btn btn-primary" id="buscar-asociado">Buscar <i class="align-middle me-2 fas fa-fw fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="asociadoInfo"></div>
+                                <div id="asambleasTabla"></div>
+                                <div class="botonera1">
+                                    <button type="button" class="btn btn-primary prev-btn" id="prev-btn">Volver</button>
+                                    <button type="button" class="btn btn-primary next-btn d-none" id="next-btn2">Siguiente</button>
+                                </div>
+
+                            </div>
+                            <div class="col" style="display: none;" id="step3">
+
+
+
+
+                                <div class="row text-start">
+                                    @Html.Action("Archivos", "TblSolicitudesConvocatorias")
+                                </div>
+                                <hr />
+                                <h5>Seleccione el cargo directivo que desea aplicar:</h5>
+                                <div class="mb-3">
+                                    @Html.DropDownList("idCatPuestosConvocatorias", ViewBag.idCatPuestosConvocatorias as SelectList, "Seleccione una opción", new { @class = "form-select", @required = "required" })
+                                </div>
+                                <h5>Describa brevemente su experiencia profesional:</h5>
+                                <div class="mb-3">
+                                    @Html.TextAreaFor(model => model.form1, new { @class = "form-control", @rows = "5" })
+                                </div>
+                                <h5>Por que está interesado en el Cargo:</h5>
+                                <div class="mb-3">
+                                    @Html.TextAreaFor(model => model.form2, new { @class = "form-control", @rows = "5" })
+
+                                </div>
+                                <button type="button" class="btn btn-primary prev-btn" id="prev-btn2">Volver</button>
+                                <button type="button" class="btn btn-primary next-btn" id="submit-btn">Enviar</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+<script>
+function dropHandler(ev) {
+  // Prevenir comportamiento predeterminado (cargar archivo en el navegador)
+  ev.preventDefault();
+
+  // Obtener archivo arrastrado
+  var file = ev.dataTransfer.files[0];
+
+  // Comprobar que es un archivo válido de PDF
+  if (file.type !== "application/pdf") {
+    alert("Solo se permiten archivos en formato PDF");
+    return false; // Agregamos el return false; para evitar redireccionamiento
+  }
+
+  // Comprobar que el archivo no excede el tamaño máximo
+  if (file.size > 8 * 1024 * 1024) {
+    alert("El archivo no debe exceder los 8MB");
+    return false; // Agregamos el return false; para evitar redireccionamiento
+  }
+
+  // Crear una nueva instancia de FileList con el archivo
+  var fileList = new DataTransfer();
+  fileList.items.add(file);
+
+  // Asignar el FileList al input de tipo file
+  document.getElementById("uploadFile").files = fileList.files;
+
+  // Remover la clase de CSS que activa la animación
+  ev.currentTarget.classList.remove("dragging");
+}
+function dragOverHandler(ev) {
+  // Prevenir comportamiento predeterminado (cargar archivo en el navegador)
+  ev.preventDefault();
+  // Agregar la clase de CSS que activa la animación
+  ev.currentTarget.classList.add("dragging");
+}
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("dpi").addEventListener("keyup", function (event) {
+    if (event.which === 13) {
+      document.getElementById("buscar-asociado").click();
+    }
+  });
+  // Obtener referencias a los elementos del DOM
+  const nextButton = document.getElementById("next-btn");
+  const nextButton2 = document.getElementById("next-btn2");
+  const prevButton = document.getElementById("prev-btn");
+  const prevButton2 = document.getElementById("prev-btn2");
+  const submitButton = document.getElementById("submit-btn");
+  const step1 = document.getElementById("step1");
+  const step2 = document.getElementById("step2");
+  const step3 = document.getElementById("step3");
+
+  // Event listener para el botón "Next" en el Paso 1
+  nextButton.addEventListener("click", function () {
+    // Obtener el valor seleccionado del select
+    const selectElement = document.getElementById("input1");
+    const selectValue = selectElement.value;
+    const defaultValue = selectElement.options[0].value; // Valor por defecto
+
+    // Verificar si se ha seleccionado una opción
+    if (selectValue === defaultValue) {
+      // Mostrar un mensaje de error o realizar alguna acción de validación
+      alert("Por favor, selecciona una opción.");
+      return false; // Agregamos el return false; para evitar redireccionamiento
+    }
+    // Verificar si el valor seleccionado es "2"
+    if (selectValue === "2") {
+      // Mostrar el mensaje de alerta
+      alert(
+        "Lo sentimos, para aplicar debes haber participado en dos Asambleas Generales Ordinarias."
+      );
+      return false; // Agregamos el return false; para evitar redireccionamiento
+    }
+
+    // Ocultar el Paso 1
+    step1.style.display = "none";
+    // Mostrar el Paso 2
+    step2.style.display = "block";
+  });
+
+  // Event listener para el botón "Previous" en el Paso 2
+  prevButton.addEventListener("click", function () {
+    // Ocultar el Paso 2
+    step2.style.display = "none";
+    // Mostrar el Paso 1
+    step1.style.display = "block";
+  });
+
+  // Event listener para el botón "Next" en el Paso 2
+  nextButton2.addEventListener("click", function () {
+    // Ocultar el Paso 2
+    step2.style.display = "none";
+    // Mostrar el Paso 3
+    step3.style.display = "block";
+  });
+
+  // Event listener para el botón "Previous" en el Paso 3
+  prevButton2.addEventListener("click", function () {
+    // Ocultar el Paso 3
+    step3.style.display = "none";
+    // Mostrar el Paso 2
+    step2.style.display = "block";
+  });
+
+  var numeroDocInput = document.getElementById("dpi");
+  numeroDocInput.addEventListener("input", function () {
+    formatNumber(this);
+  });
+
+  function formatNumber(input) {
+    var formatted = input.value.replace(/[^\d]/g, ""); // Remover caracteres que no sean números
+
+    // Aplicar formato XXXX-XXXXX-XXXX
+    var parts = [];
+    while (formatted.length > 0) {
+      parts.push(formatted.substring(0, 4));
+      formatted = formatted.substring(4);
+    }
+    input.value = parts.join("-");
+  }
+  // Event listener para la presentación del formulario
+  submitButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Evitar la presentación del formulario para este ejemplo
+    // Realizar acciones adicionales o validación del formulario antes de enviarlo
+    // Puedes usar AJAX u otros métodos para enviar los datos del formulario
+  });
+
+  /*PETICIONES FETCH Y VALIDACIONES*/
+  function toasterOptions() {
+    toastr.options = {
+      closeButton: false,
+      debug: false,
+      newestOnTop: false,
+      progressBar: true,
+      positionClass: "toast-bottom-right",
+      preventDuplicates: false,
+      onclick: null,
+      showDuration: "600",
+      hideDuration: "3000",
+      timeOut: "8000",
+      extendedTimeOut: "3000",
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut",
+    };
+  }
+  $("#enviar-Solicitud").on("click", function (e) {
+    /*funcion para enviar la solcitud*/
+    function enviarArchivo(url, data, beforeSendCallback) {
+      // show loading animation
+      Swal.fire({
+        title: "Guardando Archivo...",
+        html: "Mensaje: Por favor espere mientras se realiza este proceso",
+        allowOutsideClick: false,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        willOpen: () => {
+          Swal.showLoading();
+        },
+      });
+      // Configurar opciones de solicitud
+      // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+      let opciones = {
+        method: "POST",
+        body: data,
+      };
+      // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+      if (beforeSendCallback && typeof beforeSendCallback === "function") {
+        opciones = beforeSendCallback(opciones);
+      }
+      // Enviar solicitud
+      return fetch(url, opciones)
+        .then(function (response) {
+          if (!response.ok) {
+            swal.close();
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Ocurrio un problema al resolver los datos del archivo, notifica al administrador",
+              confirmButtonColor: "#153d77",
+              customClass: {
+                confirmButton: "btn-lg",
+              },
+              confirmButtonText: "Aceptar",
+              confirmButtonHtml: true,
+              allowOutsideClick: false,
+              preConfirm: function () {
+                // Redireccionar a la URL generada en Razor
+                window.location.href =
+                  '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+              },
+            });
+          }
+
+          return response.json();
+        })
+        .catch(function (error) {
+          toastr.error(
+            "ocurrio un error inesperado al enviar la solicitud fetch"
+          );
+          swal.close();
+        });
+    }
+    /*finaliza la funcion*/
+    /*se declaran las varibles a enviar en la solicitud*/
+    var file = document.getElementById("uploadFile").files[0];
+    // Verificar que se haya cargado un archivo
+    if (!file) {
+      toasterOptions();
+      toastr.error("Debe seleccionar un archivo para enviar.");
+      return false; // Agregamos el return false; para evitar redireccionamiento
+    }
+    // Validar que se haya seleccionado una opción
+    var seleccion = document.getElementById("idCatDocumentosConvocatorias").value;
+    var idTblSolicitudesConvocatorias = document.getElementById("idTblSolicitudesConvocatorias").value;
+    if (seleccion === "") {
+      toasterOptions();
+      toastr.error("Debe seleccionar el tipo de documento que desea cargar");
+      return false; // Agregamos el return false; para evitar redireccionamiento
+    }
+    // Crear instancia de FormData
+    var formData = new FormData();
+    // Agregar el archivo al FormData
+    formData.append("archivo", file);
+    formData.append("idCatDocumentosConvocatorias", seleccion);
+    formData.append(
+      "idTblSolicitudesConvocatorias",
+      idTblSolicitudesConvocatorias
+    );
+
+    /*instrucciones que evitan que se envie varias veces la peticion bloquea el boton*/
+    e.preventDefault();
+    var btn = $(this);
+    if (!btn.hasClass("disabled")) {
+      //se llama a la funion enviarSolicitud
+      let url = '@Url.Action("GuardarArchivo", "TblSolicitudesConvocatorias")';
+      enviarArchivo(url, formData, function (opciones) {
+        return opciones;
+      })
+        .then(function (respuesta) {
+          document.getElementById("idCatDocumentosConvocatorias").value = "";
+          const fileInput = document.getElementById("uploadFile");
+          fileInput.value = null;
+          console.log(respuesta);
+          if (respuesta.codigo === 1) {
+            swal.close();
+            toasterOptions();
+            toastr.success(respuesta.descripcion);
+          } else {
+            toasterOptions();
+            toastr.error(respuesta.descripcion);
+            swal.close();
+          }
+        })
+        .catch(function (error) {
+          document.getElementById("idCatDocumentosConvocatorias").value = "";
+          const fileInput = document.getElementById("uploadFile");
+          fileInput.value = null;
+          console.log(error);
+          toasterOptions();
+          toastr.error(
+            "OCURRIO UN PROBLEMA AL RESOLVER LOS DATOS DE RESPUESTA"
+          );
+        });
+    } else {
+      toasterOptions();
+      toastr.error("EXISTEN DATOS INCOMPLETOS");
+      return false; // Agregamos el return false; para evitar redireccionamiento
+    }
+  });
+  $(document).on("click", "#aceptar", function () {
+    window.location.href =
+      '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+  });
+
+  $("#buscar-asociado").on("click", function (e) {
+    e.preventDefault();
+
+    var btn = $(this);
+    if (!btn.hasClass("disabled")) {
+      function getResults(url, data, beforeSendCallback) {
+        //  - - - - -  show loading animation
+        Swal.fire({
+          title: "Validando los datos ingresados",
+          html: "Por favor espere ...",
+          allowOutsideClick: false,
+          timerProgressBar: true,
+          showConfirmButton: false,
+          willOpen: () => {
+            Swal.showLoading();
+          },
+        });
+        // - - - - - show loading animation fin codigo
+        // Configurar opciones de solicitud
+        // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+        let opciones = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+        // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+        if (beforeSendCallback && typeof beforeSendCallback === "function") {
+          opciones = beforeSendCallback(opciones);
+        }
+        // Enviar solicitud
+        return fetch(url, opciones)
+          .then(function (response) {
+            if (!response.ok) {
+              Swal.fire({
+                icon: "error",
+                title: "Error de consulta",
+                text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+                confirmButtonColor: "#153d77",
+                customClass: {
+                  confirmButton: "btn-lg",
+                },
+                confirmButtonText: "Aceptar",
+                confirmButtonHtml: true,
+                allowOutsideClick: false,
+                preConfirm: function () {
+                  // Redireccionar a la URL generada en Razor
+                  window.location.href =
+                    '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+                },
+              });
+            }
+            swal.close();
+            return response.json();
+          })
+          .catch(function (error) {
+            Swal.fire({
+              icon: "error",
+              title: "Error de consulta",
+              text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+              confirmButtonColor: "#153d77",
+              customClass: {
+                confirmButton: "btn-lg",
+              },
+              confirmButtonText: "Aceptar",
+              confirmButtonHtml: true,
+              allowOutsideClick: false,
+              preConfirm: function () {
+                // Redireccionar a la URL generada en Razor
+                window.location.href =
+                  '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+              },
+            });
+          });
+      }
+      function renderAsambleasTabla(asambleas) {
+        return new Promise((resolve, reject) => {
+          let html = `<table class="table table-striped table-hover">
+      <thead>
+          <tr class="text-center">
+              <th scope="col">#</th>
+              <th scope="col">Asambleas Asistidas</th>
+          </tr>
+      </thead>
+      <tbody class="text-center small">`;
+
+          asambleas.forEach((asamblea, index) => {
+            html += `<tr>
+          <th scope="row">${index + 1}</th>
+          <td class="small">${asamblea}</td>
+      </tr>`;
+          });
+
+          html += `</tbody>
+      </table>`;
+
+          let asambleasTabla = document.getElementById("asambleasTabla");
+          asambleasTabla.innerHTML = "";
+          asambleasTabla.innerHTML = html;
+          resolve();
+        });
+      }
+
+      function renderAsociadoInfo(asociado) {
+        return new Promise((resolve, reject) => {
+          let html = `<div class="row">
+                <div class="col-3">
+                    <h5 class="small">Nombres:</h5>
+                </div>
+                <div class="col-9">
+                    <h5 class="small">${asociado.nombres}</h5>
+                </div>
+                <div class="col-3">
+                    <h5 class="small">No.Asociado:</h5>
+                </div>
+                <div class="col-9">
+                    <h5 class="small">${asociado.numeroAsociado}</h5>
+                </div>
+                <div class="col-3">
+                    <h5 class="small">Dpi:</h5>
+                </div>
+                <div class="col-9">
+                    <h5 class="small">${asociado.dpi}</h5>
+                </div>
+                <div class="col-3">
+                    <h5 class="small">Tipo:</h5>
+                </div>
+                <div class="col-9">
+                    <h5 class="small">${asociado.tipoAsociado}</h5>
+                </div>
+                <div class="col-3">
+                    <h5 class="small">Telefono:</h5>
+                </div>
+                <div class="col-9">
+                    <h5 class="small">${asociado.telefono}</h5>
+                </div>
+                <div class="col-3">
+                    <h5 class="small">Edad:</h5>
+                </div>
+                <div class="col-9">
+                    <h5 class="small">${asociado.edad}</h5>
+                </div>
+                <div class="col-3">
+                    <h5 class="small">Profesion:</h5>
+                </div>
+                <div class="col-9">
+                    <h5 class="small">${asociado.profesion}</h5>
+                </div>
+            </div>
+            <hr>`;
+
+          resolve();
+          console.log("resolviendo promesa html");
+          let asociadoInfo = document.getElementById("asociadoInfo");
+          asociadoInfo.innerHTML = "";
+          asociadoInfo.innerHTML = html;
+        });
+      }
+
+      /* - - - - - - - inicia la llamada a la funcion  validarAsociados- - - - - - - */
+      var url = '@Url.Action("GetResultados", "TblSolicitudesConvocatorias")';
+      var asociado = document.getElementById("dpi").value;
+      var data = {
+        dpi: asociado,
+      };
+      getResults(url, data, function (opciones) {
+        return opciones;
+      })
+        .then(function (respuesta) {
+          swal.close();
+          /**mostrando la animacion */
+          Swal.fire({
+            title: "Resolviendo los datos para el asociado",
+            html: "Por favor espere",
+            allowOutsideClick: false,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            willOpen: () => {
+              Swal.showLoading();
+            },
+          });
+          setTimeout(function () {
+            console.log(respuesta);
+            if (respuesta.codigo == 1) {
+              document.getElementById("next-btn2").classList.remove("d-none");
+
+              document.getElementById("idTblSolicitudesConvocatorias").value =
+                respuesta.idTblSolicitudesConvocatorias; //asigno el valor del id
+              swal.close();
+              document.getElementById("dpi").readOnly = true;
+
+              renderAsociadoInfo(respuesta.asociado)
+                .then(() => {
+                  toasterOptions(); //configuracion de toaster
+                  toastr.success(respuesta.descripcion);
+                })
+                .catch((error) => {
+                  console.error("Error al renderizar el HTML:", error);
+                });
+              renderAsambleasTabla(respuesta.asambleas)
+                .then(() => {})
+                .catch((error) => {
+                  console.error("Error al renderizar el HTML:", error);
+                });
+            } else if (respuesta.codigo == 201) {
+              swal.close();
+              document.getElementById("dpi").readOnly = true;
+
+              document.querySelector(".botonera1").innerHTML = "";
+              document.querySelector(".botonera1").innerHTML =
+                '<button type="button" class="btn btn-primary next-aceptar" id="aceptar">Aceptar</button>';
+              renderAsociadoInfo(respuesta.asociado)
+                .then(() => {
+                  toasterOptions(); //configuracion de toaster
+                  toastr.error(respuesta.descripcion);
+                })
+                .catch((error) => {
+                  console.error("Error al renderizar el HTML:", error);
+                });
+              renderAsambleasTabla(respuesta.asambleas)
+                .then(() => {})
+                .catch((error) => {
+                  console.error("Error al renderizar el HTML:", error);
+                });
+            } else {
+              swal.close();
+              toasterOptions(); //configuracion de toaster
+              toastr.error(respuesta.descripcion);
+              document.querySelector(".botonera1").innerHTML = "";
+              document.querySelector(".botonera1").innerHTML =
+                '<button type="button" class="btn btn-primary next-aceptar" id="aceptar">Aceptar</button>';
+              document.getElementById("dpi").readOnly = true;
+
+              Swal.fire({
+                icon: "error",
+                title: "Error de consulta",
+                text: respuesta.descripcion,
+                confirmButtonColor: "#153d77",
+                customClass: {
+                  confirmButton: "btn-lg",
+                },
+                confirmButtonText: "Aceptar",
+                confirmButtonHtml: true,
+                allowOutsideClick: false,
+                preConfirm: function () {
+                  // Redireccionar a la URL generada en Razor
+                  window.location.href =
+                    '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+                },
+              });
+            }
+          }, 3000);
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Error de consulta",
+            text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+            confirmButtonColor: "#153d77",
+            customClass: {
+              confirmButton: "btn-lg",
+            },
+            confirmButtonText: "Aceptar",
+            confirmButtonHtml: true,
+            allowOutsideClick: false,
+            preConfirm: function () {
+              // Redireccionar a la URL generada en Razor
+              window.location.href =
+                '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+            },
+          });
+        });
+
+      /* - - - - - - - finaliza la llamada de la funcion - - - - - - - - - - - - - - -*/
+    } else {
+      return false;
+    }
+  });
+  function completarSolicitud(url, data, beforeSendCallback) {
+    //  - - - - -  show loading animation
+    Swal.fire({
+      title: "Validando los datos ingresados",
+      html: "Por favor espere ...",
+      allowOutsideClick: false,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      willOpen: () => {
+        Swal.showLoading();
+      },
+    });
+    // - - - - - show loading animation fin codigo
+    // Configurar opciones de solicitud
+    // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+    let opciones = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+    if (beforeSendCallback && typeof beforeSendCallback === "function") {
+      opciones = beforeSendCallback(opciones);
+    }
+    // Enviar solicitud
+    return fetch(url, opciones)
+      .then(function (response) {
+        if (!response.ok) {
+          Swal.fire({
+            icon: "error",
+            title: "Error de consulta",
+            text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+            confirmButtonColor: "#153d77",
+            customClass: {
+              confirmButton: "btn-lg",
+            },
+            confirmButtonText: "Aceptar",
+            confirmButtonHtml: true,
+            allowOutsideClick: false,
+            preConfirm: function () {
+              // Redireccionar a la URL generada en Razor
+              window.location.href = '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+            },
+          });
+        }
+        swal.close();
+        return response.json();
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Error de consulta",
+          text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+          confirmButtonColor: "#153d77",
+          customClass: {
+            confirmButton: "btn-lg",
+          },
+          confirmButtonText: "Aceptar",
+          confirmButtonHtml: true,
+          allowOutsideClick: false,
+          preConfirm: function () {
+            // Redireccionar a la URL generada en Razor
+            window.location.href = '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+          },
+        });
+      });
+  }
+  document.getElementById("submit-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    var btn = $(this);
+    if (!btn.hasClass("disabled")) {
+      /* - - - - - - - inicia la llamada a la funcion  validarAsociados- - - - - - - */
+      var url = '@Url.Action("Edit", "TblSolicitudesConvocatorias")';
+      var idTblSolicitudesConvocatorias = document.getElementById("idTblSolicitudesConvocatorias").value;
+      var form1 = document.getElementById("form1").value;
+      var form2 = document.getElementById("form2").value;
+      var idCatPuestosConvocatorias = document.getElementById("idCatPuestosConvocatorias").value;
+
+      if (idCatPuestosConvocatorias === "") {
+        toasterOptions();
+        toastr.error("Debe seleccionar el puesto al que desea aplicar");
+        return false; // Agregamos el return false; para evitar redireccionamiento
+      }
+      if (form1 === "") {
+        toasterOptions();
+        toastr.error("Debe incluir su su experiencia profesional");
+        return false; // Agregamos el return false; para evitar redireccionamiento
+      }
+      if (form2 === "") {
+        toasterOptions();
+        toastr.error("Debe incluir el motivo por el cual está interesado en el Cargo");
+        return false; // Agregamos el return false; para evitar redireccionamiento
+      }
+      var data = {
+        idTblSolicitudesConvocatorias: idTblSolicitudesConvocatorias,
+        form1:form1,
+        form2:form2,
+        idCatPuestosConvocatorias:idCatPuestosConvocatorias
+      };
+      completarSolicitud(url, data, function (opciones) {
+        return opciones;
+      })
+        .then(function (respuesta) {
+          swal.close();
+          /**mostrando la animacion */
+          Swal.fire({
+            title: "Guardando la información...",
+            html: "Por favor espere",
+            allowOutsideClick: false,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            willOpen: () => {
+              Swal.showLoading();
+            },
+          });
+          setTimeout(function () {
+            console.log(respuesta);
+            if (respuesta.codigo != 1) {
+              swal.close();
+              toasterOptions();
+              toastr.error(respuesta.descripcion);
+            }
+            else {
+              swal.close();
+              if (respuesta.codigo == 1) {
+                toasterOptions(); //configuracion de toaster
+                toastr.success(respuesta.descripcion);
+                Swal.fire({
+                  icon: "success",
+                  title: "Correcto",
+                  text: respuesta.descripcion,
+                  confirmButtonColor: "#153d77",
+                  customClass: {
+                    confirmButton: "btn-lg",
+                  },
+                  confirmButtonText: "Aceptar",
+                  confirmButtonHtml: true,
+                  allowOutsideClick: false,
+                  preConfirm: function () {
+                    // Redireccionar a la URL generada en Razor
+                    window.location.href = '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+                  },
+                });
+              } else {
+                toasterOptions(); //configuracion de toaster
+                toastr.error(respuesta.descripcion);
+              }
+            }
+          }, 3000);
+        })
+        .catch(function (error) {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Ocurrio un problema al resolver los datos,notifica al administrador",
+            confirmButtonColor: "#153d77",
+            customClass: {
+              confirmButton: "btn-lg",
+            },
+            confirmButtonText: "Aceptar",
+            confirmButtonHtml: true,
+            allowOutsideClick: false,
+            preConfirm: function () {
+              // Redireccionar a la URL generada en Razor
+              window.location.href = '@Url.Action("Create", "TblSolicitudesConvocatorias")';
+            },
+          });
+        });
+
+      /* - - - - - - - finaliza la llamada de la funcion - - - - - - - - - - - - - - -*/
+  } else {
+    return false;
+  }
+  });
+});
+
+
+
+</script>

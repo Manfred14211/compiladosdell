@@ -1,0 +1,184 @@
+﻿@model iveCincoFrame.Models.TblSolicitudesConvocatorias
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TblSolicitudesConvocatorias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dpi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroAsociado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroAsociado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aplica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aplica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipoAsociado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoAsociado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.profesion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profesion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.documento1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.documento1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.documento2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.documento2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.documento3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.documento3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.documento4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.documento4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.documento5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.documento5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCatConvocatorias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCatConvocatorias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.form1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.form1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.form2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.form2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatPuestosConvocatorias.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatPuestosConvocatorias.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatEstados.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatEstados.descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

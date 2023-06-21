@@ -1,0 +1,169 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Formulario de aplicacines cooitza" name="intranet">
+    <meta content="Manfred Sirin" name="author">
+    <title>Bootstrap 5 Multi-Step Form</title>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="~/Content/SolicitudesAplicaciones/style.css" rel="stylesheet">
+    <!-- FONT -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container d-flex align-items-center min-vh-100">
+        <div class="row g-0 justify-content-center">
+            <!-- TITLE -->
+            <div class="col-lg-4 offset-lg-1 mx-0 px-0">
+                <div id="title-container">
+                    <img class="covid-image" src="~/Content/img/principal minimum.png">
+                    <h2>Aplicaciones</h2>
+                    <h3>Puestos</h3>
+                    <p>Ingresar tu número de DPI (Documento Personal de Identificación) para validar la información y aplicar a los diferentes puestos disponibles en Cooitzá</p>
+                </div>
+            </div>
+            <!-- FORMS -->
+            <div class="col-lg-7 mx-5 px-5">
+                <div class="qbox-container">
+                    <form class="needs-validation" id="form-wrapper" method="post" name="form-wrapper" novalidate="">
+                        <div id="steps-container">
+                            <div class="col" id="step1">
+                                <h4>¿Has participado en más de dos Asambleas Generales Ordinarias?</h4>
+                                <div class="mb-3 mt-3">
+                                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="input1">
+                                        <option selected disabled>Selecciona una opción</option>
+                                        <option value="1">Si</option>
+                                        <option value="2">No</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn btn-primary next-btn" id="next-btn">Siguiente</button>
+                            </div>
+                            <div class="col" style="display: none;" id="step2">
+                                <h4>Porfavor escribe el numero de tu DPI para validar tus datos</h4>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="input3">
+                                </div>
+                                <button type="button" class="btn btn-primary prev-btn" id="prev-btn">Volver</button>
+                                <button type="button" class="btn btn-primary next-btn" id="next-btn2">Siguiente</button>
+                            </div>
+                            <div class="col" style="display: none;" id="step3">
+                                <h3>Step 3</h3>
+                                <div class="mb-3">
+                                    <label for="input5" class="form-label">Field 5:</label>
+                                    <input type="text" class="form-control" id="input5">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="input6" class="form-label">Field 6:</label>
+                                    <input type="text" class="form-control" id="input6">
+                                </div>
+                                <button type="button" class="btn btn-primary prev-btn" id="prev-btn2">Volver</button>
+                                <button type="submit" class="btn btn-primary next-btn" id="submit-btn">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener referencias a los elementos del DOM
+            const nextButton = document.getElementById("next-btn");
+            const nextButton2 = document.getElementById("next-btn2");
+            const prevButton = document.getElementById("prev-btn");
+            const prevButton2 = document.getElementById("prev-btn2");
+            const submitButton = document.getElementById("submit-btn");
+            const step1 = document.getElementById("step1");
+            const step2 = document.getElementById("step2");
+            const step3 = document.getElementById("step3");
+
+            // Event listener para el botón "Next" en el Paso 1
+            nextButton.addEventListener("click", function () {
+                // Obtener el valor seleccionado del select
+                const selectElement = document.getElementById("input1");
+                const selectValue = selectElement.value;
+                const defaultValue = selectElement.options[0].value; // Valor por defecto
+
+                // Verificar si se ha seleccionado una opción
+                if (selectValue === defaultValue) {
+                    // Mostrar un mensaje de error o realizar alguna acción de validación
+                    alert("Por favor, selecciona una opción.");
+                    return; // Detener el avance al siguiente paso
+                }
+                // Verificar si el valor seleccionado es "2"
+                if (selectValue === "2") {
+                    // Mostrar el mensaje de alerta
+                    alert("Lo sentimos, para aplicar debes haber participado en dos Asambleas Generales Ordinarias.");
+                    return; // Detener el avance al siguiente paso
+                }
+
+                // Ocultar el Paso 1
+                step1.style.display = "none";
+                // Mostrar el Paso 2
+                step2.style.display = "block";
+            });
+
+            // Event listener para el botón "Previous" en el Paso 2
+            prevButton.addEventListener("click", function () {
+                // Ocultar el Paso 2
+                step2.style.display = "none";
+                // Mostrar el Paso 1
+                step1.style.display = "block";
+            });
+
+            // Event listener para el botón "Next" en el Paso 2
+            nextButton2.addEventListener("click", function () {
+                // Ocultar el Paso 2
+                step2.style.display = "none";
+                // Mostrar el Paso 3
+                step3.style.display = "block";
+            });
+
+            // Event listener para el botón "Previous" en el Paso 3
+            prevButton2.addEventListener("click", function () {
+                // Ocultar el Paso 3
+                step3.style.display = "none";
+                // Mostrar el Paso 2
+                step2.style.display = "block";
+            });
+
+            var numeroDocInput = document.getElementById('numeroDoc');
+            numeroDocInput.addEventListener('input', function () {
+                formatNumber(this);
+            });
+
+            function formatNumber(input) {
+                var formatted = input.value.replace(/[^\d]/g, ''); // Remover caracteres que no sean números
+
+                // Aplicar formato XXXX-XXXXX-XXXX
+                var parts = [];
+                while (formatted.length > 0) {
+                    parts.push(formatted.substring(0, 4));
+                    formatted = formatted.substring(4);
+                }
+                input.value = parts.join('-');
+            }
+            // Event listener para la presentación del formulario
+            submitButton.addEventListener("click", function (event) {
+                event.preventDefault(); // Evitar la presentación del formulario para este ejemplo
+                // Realizar acciones adicionales o validación del formulario antes de enviarlo
+                // Puedes usar AJAX u otros métodos para enviar los datos del formulario
+            });
+        });
+
+    </script>
+
+</body>
+</html>

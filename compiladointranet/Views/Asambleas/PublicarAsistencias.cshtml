@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "PublicarAsistencias";
+    Layout = "~/Views/Shared/_Layaut_Intranet.cshtml";
+}
+
+<link href="~/CSS/StyleUpload.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<div class="container-drop">
+    <div ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" class="row borders rounded-3 m-2 p-5 gap-2">
+        <span class="material-symbols-outlined">upload_file</span>
+        <label class="text-center p-0 m-0 fs-3 fw-bold" for="uploadFile">Arrastra y suelta el archivo aquí</label>
+
+        <div class="col-sm-4 m-auto text-center">
+            <label class="txt-color pb-2">Archivos Soportados | Excel (.xls, .xlsx).</label>
+            <input type="file"
+                   class="form-control"
+                   name="uploadFile"
+                   id="uploadFile" accept=".xlsx, xls" />
+            <label class="txt-color pt-2">Maximum Size: 10MB</label>
+        </div>
+    </div>
+</div>
+<div class=" row mx-1">
+    <button class="btn btn-primary btn-lg" id="enviar-Solicitud" style="box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%); background: #153d77;">Publicar Archivo</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+            function toasterOptions() {
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+    }
+        $("#enviar-Solicitud").on('click', function (e) {
+        /*funcion para enviar la solcitud*/
+        function enviarArchivo(url, data, beforeSendCallback) {
+            // show loading animation
+            // show loading animation
+            let timerInterval
+            Swal.fire({
+                title: 'Publicando Archivo...',
+                html: 'Mensaje: Por favor espere mientras se realiza este proceso',
+                allowOutsideClick: false,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+            // Configurar opciones de solicitud
+            // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+            let opciones = {
+                method: 'POST',
+                body: data
+            };
+            // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+            if (beforeSendCallback && typeof beforeSendCallback === 'function') {
+                opciones = beforeSendCallback(opciones);
+            }
+            // Enviar solicitud
+            return fetch(url, opciones)
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Error al enviar la solicitud');
+
+                    }
+                    swal.close();
+
+                    return response.json();
+                })
+                .catch(function (error) {
+
+                    toastr.error('ocurrio un error inesperado al enviar la solicitud fetch');
+                    swal.close();
+                });
+        }
+        /*finaliza la funcion*/
+        /*se declaran las varibles a enviar en la solicitud*/
+        var file = document.getElementById("uploadFile").files[0];
+        // Verificar que se haya cargado un archivo
+        if (!file) {
+            alert("Debe seleccionar un archivo para enviar.");
+            return;
+        }
+        // Crear instancia de FormData
+        var formData = new FormData();
+        // Agregar el archivo al FormData
+        formData.append("archivo", file);
+
+        /*instrucciones que evitan que se envie varias veces la peticion bloquea el boton*/
+        e.preventDefault();
+        var btn = $(this);
+        if (!btn.hasClass('disabled')) {
+            //se llama a la funion enviarSolicitud
+            let url = '@Url.Action("CargaRegistros", "Asambleas")';
+            enviarArchivo(url, formData, function (opciones) {
+
+                return opciones;
+            })
+            .then(function (respuesta) {
+
+                    console.log(respuesta);
+                    if (respuesta.Codigo === 1) {
+                        swal.close();
+                        const fileInput = document.getElementById('uploadFile');
+                        fileInput.value = null;
+                        toasterOptions();
+                        toastr.success(respuesta.Descripcion);
+                        console.log(respuesta)
+
+
+                    } else {
+                        const fileInput = document.getElementById('uploadFile');
+                        fileInput.value = null;
+                        toasterOptions();
+                        toastr.error(respuesta.Descripcion);
+                        swal.close();
+                    }
+            })
+            .catch(function (error) {
+                const fileInput = document.getElementById('uploadFile');
+                fileInput.value = null;
+                console.log(error);
+                toasterOptions();
+                toastr.error(error);
+            });
+        }
+        else {
+            return false;
+        }
+    });
+    });
+
+</script>

@@ -564,6 +564,22 @@
                     } else {
                         swal.close();
                         // El código de estado está fuera del rango de éxito
+                           Swal.fire({
+                            icon: "error",
+                            title: "Ocurrio un problema al resolver los datos,notifica al administrador",
+                            text: resp.dat.Descripcion ,
+                            confirmButtonColor: "#153d77",
+                            customClass: {
+                              confirmButton: "btn-lg",
+                            },
+                            confirmButtonText: "Aceptar",
+                            confirmButtonHtml: true,
+                            allowOutsideClick: false,
+                            preConfirm: function () {
+                              // Redireccionar a la URL generada en Razor
+                              window.location.href = '@Url.Action("Home", "TableroGerencial")';
+                            },
+                          });
                         return { error: true, data: null };
                     }
                 })
@@ -707,6 +723,22 @@
                         } else {
                             swal.close();
                             // El código de estado está fuera del rango de éxito
+                              Swal.fire({
+                                icon: "error",
+                                title: "Ocurrio un problema al resolver los datos,notifica al administrador",
+                                text: resp.dat.Descripcion ,
+                                confirmButtonColor: "#153d77",
+                                customClass: {
+                                  confirmButton: "btn-lg",
+                                },
+                                confirmButtonText: "Aceptar",
+                                confirmButtonHtml: true,
+                                allowOutsideClick: false,
+                                preConfirm: function () {
+                                  // Redireccionar a la URL generada en Razor
+                                  window.location.href = '@Url.Action("Home", "TableroGerencial")';
+                                },
+                              });
                             return { error: true, data: null };
                         }
                 })
