@@ -9,176 +9,176 @@
 
 <div class="qbox-container">
     <div class="form-check ps-0 q-box">
-        @using (Html.BeginForm("EditDataAsociado", "TblAsistenciasAsambaleas", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate", id = "myForm" }))
+        @using (Html.BeginForm("GuardarPersona", "TblConsultasIPasses", FormMethod.Post, new { @class = "needs-validation", @novalidate = "novalidate", id = "myForm" }))
         {
-        <div class="row px-1 px-sm-1 px-md-3 px-lg-6">
-            @Html.Partial("_MensajeParcial")
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Tipo de Documento", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-id-card-clip"></i>
-                    </span>
-                    @Html.DropDownListFor(m => m.idCatTiposDocumentosIpass, ViewBag.idCatTiposDocumentosIpass as SelectList, "Seleccione una opción", new { @class = "form-select", @required = "required" })
-                    <div class="invalid-feedback">
-                        Por favor, seleccione un tipo de documento.
-                    </div>
-                    <div class="valid-feedback">
-                        ¡Se ve bien!
-                    </div>
-                </div>
-            </div>
-
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-8">
-                @Html.Label("Numero de Documento", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-address-card"></i>
-                    </span>
-                    @Html.EditorFor(model => model.numeroDoc, new { htmlAttributes = new { @class = "form-control", @required = "required", id = "numeroDoc" } })
-                    <div class="invalid-feedback">
-                        Por favor, introduce un número de identificación válido en el formato requerido (xxxx-xxxxx-xxxx).
-                    </div>
-                    <div class="valid-feedback">
-                        ¡Se ve bien!
+            <div class="row px-1 px-sm-1 px-md-3 px-lg-6">
+                @Html.Partial("_MensajeParcial")
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Tipo de Documento", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                        </span>
+                        @Html.DropDownListFor(m => m.tipoDocumento, ViewBag.tipoDocumento as SelectList, "Seleccione una opción", new { @class = "form-select", @required = "required" })
+                        <div class="invalid-feedback">
+                            Por favor, seleccione un tipo de documento.
+                        </div>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Primer Nombre", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-bars"></i>
-                    </span>
-                    @Html.EditorFor(model => model.primerNombre, new { htmlAttributes = new { @class = "form-control" } })
-
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Segundo Nombre", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3" id="input-tipo-asociado">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-bars"></i>
-                    </span>
-                    @Html.EditorFor(model => model.segundoNombre, new { htmlAttributes = new { @class = "form-control" } })
-
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Tercer Nombre", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-bars"></i>
-                    </span>
-                    @Html.EditorFor(model => model.tercerNombre, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Primer Apellido", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-bars"></i>
-                    </span>
-                    @Html.EditorFor(model => model.primerApellido, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Segundo Apellido", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-bars"></i>
-                    </span>
-                    @Html.EditorFor(model => model.segundoApellido, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Apellido Casada", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-bars"></i>
-                    </span>
-                    @Html.EditorFor(model => model.apellidoCasada, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Fecha de Nacimiento", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 far fa-fw fa-calendar"></i>
-                    </span>
-                    @Html.EditorFor(model => model.fechaNacimiento, new { htmlAttributes = new { @class = "form-control", type = "date", @required = "required" } })
-                    <div class="invalid-feedback">
-                        Por favor, introduce una fecha de nacimiento válida.
-                    </div>
-                    <div class="valid-feedback">
-                        ¡Se ve bien!
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-8">
+                    @Html.Label("Numero de Documento", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-address-card"></i>
+                        </span>
+                        @Html.EditorFor(model => model.numeroDoc, new { htmlAttributes = new { @class = "form-control", @required = "required", id = "numeroDoc" } })
+                        <div class="invalid-feedback">
+                            Por favor, introduce un número de identificación válido en el formato requerido (xxxx-xxxxx-xxxx).
+                        </div>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Nacionalidad", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-map-marked-alt"></i>
-                    </span>
-                    @Html.DropDownListFor(m => m.idCatNacionalidades, ViewBag.idCatNacionalidades as SelectList, "Seleccione una opcion", new { @class = "form-select" })
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Primer Nombre", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-bars"></i>
+                        </span>
+                        @Html.EditorFor(model => model.primerNombre, new { htmlAttributes = new { @class = "form-control" } })
 
-                </div>
-                @Html.ValidationMessageFor(model => model.idCatNacionalidades, "", new { @class = "text-danger" })
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Genero", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-person"></i>
-                    </span>
-                    @Html.DropDownListFor(m => m.idCatGenerosIpass, ViewBag.idCatGenerosIpass as SelectList, "Seleccione una opcion", new { @class = "form-select" })
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Estado Civil", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-person"></i>
-                    </span>
-                    @Html.DropDownListFor(m => m.idCatGenerosIpass, ViewBag.idCatEstadosCivilesIpass as SelectList, "Seleccione una opcion", new { @class = "form-select" })
-                </div>
-            </div>
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Fecha de vencimiento del DPI", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="align-middle me-2 fas fa-fw fa-user-alt-slash"></i>
-                    </span>
-                    @Html.EditorFor(model => model.expiracion, new { htmlAttributes = new { @class = "form-control", type = "date", @required = "required" } })
-                    <div class="invalid-feedback">
-                        Por favor, introduce una fecha de vencimiento válida.
-                    </div>
-                    <div class="valid-feedback">
-                        ¡Se ve bien!
                     </div>
                 </div>
-            </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Segundo Nombre", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3" id="input-tipo-asociado">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-bars"></i>
+                        </span>
+                        @Html.EditorFor(model => model.segundoNombre, new { htmlAttributes = new { @class = "form-control" } })
 
-            <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
-                @Html.Label("Pais de nacimiento", new { @class = "form-label" })
-                <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text">
-                        <i class="fa-solid fa-earth-americas"></i>
-                    </span>
-                    @Html.DropDownListFor(m => m.idCatCountriesBirth, ViewBag.idCatCountriesBirth as SelectList, "Seleccione una opcion", new { @class = "form-select" })
+                    </div>
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Tercer Nombre", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-bars"></i>
+                        </span>
+                        @Html.EditorFor(model => model.tercerNombre, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Primer Apellido", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-bars"></i>
+                        </span>
+                        @Html.EditorFor(model => model.primerApellido, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Segundo Apellido", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-bars"></i>
+                        </span>
+                        @Html.EditorFor(model => model.segundoApellido, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Apellido Casada", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-bars"></i>
+                        </span>
+                        @Html.EditorFor(model => model.apellidoCasada, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Fecha de Nacimiento", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 far fa-fw fa-calendar"></i>
+                        </span>
+                        @Html.EditorFor(model => model.fechaNacimiento, new { htmlAttributes = new { @class = "form-control", type = "date", @required = "required" } })
+                        <div class="invalid-feedback">
+                            Por favor, introduce una fecha de nacimiento válida.
+                        </div>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                    </div>
+                </div>
 
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Nacionalidad", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-map-marked-alt"></i>
+                        </span>
+                        @Html.DropDownListFor(m => m.nacionalidad, ViewBag.nacionalidad as SelectList, "Seleccione una opcion", new { @class = "form-select" })
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nacionalidad, "", new { @class = "text-danger" })
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Genero", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-person"></i>
+                        </span>
+                        @Html.DropDownListFor(m => m.genero, ViewBag.genero as SelectList, "Seleccione una opcion", new { @class = "form-select" })
+                    </div>
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Estado Civil", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-person"></i>
+                        </span>
+                        @Html.DropDownListFor(m => m.estadoCivil, ViewBag.estadoCivil as SelectList, "Seleccione una opcion", new { @class = "form-select" })
+                    </div>
+                </div>
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Fecha de vencimiento del DPI", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="align-middle me-2 fas fa-fw fa-user-alt-slash"></i>
+                        </span>
+                        @Html.EditorFor(model => model.expiracion, new { htmlAttributes = new { @class = "form-control", type = "date", @required = "required" } })
+                        <div class="invalid-feedback">
+                            Por favor, introduce una fecha de vencimiento válida.
+                        </div>
+                        <div class="valid-feedback">
+                            ¡Correcto!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="q-box col-12 col-sm-12 col-md-4 col-lg-4">
+                    @Html.Label("Pais de nacimiento", new { @class = "form-label" })
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </span>
+                        @Html.DropDownListFor(m => m.paisNacimiento, ViewBag.paisNacimiento as SelectList, "Seleccione una opcion", new { @class = "form-select" })
+
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" id="cancelar-asistencia" class="btn btn-outline-danger">Limipar campos</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Buscar <i class="align-middle me-2 fas fa-fw fa-search"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="text-center">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" id="cancelar-asistencia" class="btn btn-outline-danger">Limipar campos</button>
-                    <button type="submit" class="btn btn-primary btn-lg">Buscar <i class="align-middle me-2 fas fa-fw fa-search"></i></button>
-                </div>
-            </div>
-        </div>
 
 
         }
@@ -187,43 +187,202 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        (function () {
-            'use strict';
 
-            var forms = document.querySelectorAll('.needs-validation');
+document.addEventListener("DOMContentLoaded", function () {
+  (function () {
+    "use strict";
 
-            Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
+    var forms = document.querySelectorAll(".needs-validation");
 
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-        })();
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener(
+        "submit",
+        function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
 
-        var numeroDocInput = document.getElementById('numeroDoc');
-        numeroDocInput.addEventListener('input', function () {
-            formatNumber(this);
-        });
-
-        function formatNumber(input) {
-            var formatted = input.value.replace(/[^\d]/g, ''); // Remover caracteres que no sean números
-
-            // Aplicar formato XXXX-XXXXX-XXXX
-            var parts = [];
-            while (formatted.length > 0) {
-                parts.push(formatted.substring(0, 4));
-                formatted = formatted.substring(4);
-            }
-            input.value = parts.join('-');
-        }
-
-
-
+          form.classList.add("was-validated");
+        },
+        false
+      );
     });
+  })();
+
+  var numeroDocInput = document.getElementById("numeroDoc");
+  numeroDocInput.addEventListener("input", function () {
+    formatNumber(this);
+  });
+
+  function formatNumber(input) {
+    var formatted = input.value.replace(/[^\d]/g, ""); // Remover caracteres que no sean números
+
+    // Aplicar formato XXXX-XXXXX-XXXX
+    var parts = [];
+    while (formatted.length > 0) {
+      parts.push(formatted.substring(0, 4));
+      formatted = formatted.substring(4);
+    }
+    input.value = parts.join("-");
+  }
+  function toasterOptions() {
+    toastr.options = {
+      closeButton: false,
+      debug: false,
+      newestOnTop: false,
+      progressBar: true,
+      positionClass: "toast-bottom-right",
+      preventDuplicates: false,
+      onclick: null,
+      showDuration: "300",
+      hideDuration: "1000",
+      timeOut: "5000",
+      extendedTimeOut: "1000",
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut",
+    };
+  }
+  function validarPersona(url, data, beforeSendCallback) {
+    //  - - - - -  show loading animation
+    Swal.fire({
+      title: "Resolviendo los datos...",
+      html: "Por favor espere",
+      allowOutsideClick: false,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      willOpen: () => {
+        Swal.showLoading();
+      },
+    });
+    // - - - - - show loading animation fin codigo
+    // Configurar opciones de solicitud
+    // aqui se declara el objeto opciones el cual se enviara dentro de la funcion enviarSolicitud
+    let opciones = {
+      method: "POST",
+      body:data,
+    };
+    // Si se proporciona una función beforeSendCallback, llámala antes de enviar la solicitud
+    if (beforeSendCallback && typeof beforeSendCallback === "function") {
+      opciones = beforeSendCallback(opciones);
+    }
+    // Enviar solicitud
+    return fetch(url, opciones)
+      .then(function (response) {
+        console.log(response);
+        if (!response.ok) {
+          console.log("error en el envio de la fetch");
+          toasterOptions();
+          toastr.error(
+            "Ocurrio un problema al resolver los datos de la consulta, notifica al dministrador"
+          );
+          Swal.fire({
+            icon: "error",
+            title: "Error de consulta",
+            text: "Ocurrio un problema al resolver los datos, notifica al administrador",
+            confirmButtonColor: "#153d77",
+            customClass: {
+              confirmButton: "btn-lg",
+            },
+            confirmButtonText: "Aceptar",
+            confirmButtonHtml: true,
+            allowOutsideClick: false,
+            preConfirm: function () {
+              // Redireccionar a la URL generada en Razor
+              window.location.href =
+                '@Url.Action("Create", "TblConsultasIPasses")';
+            },
+          });
+        }
+        swal.close();
+        console.log("se retorna el json");
+        return response.json();
+      })
+      .catch(function (error) {
+        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Error de consulta",
+          text: "Ocurrio un problema al resolver los datos, notifica al administrador",
+          confirmButtonColor: "#153d77",
+          customClass: {
+            confirmButton: "btn-lg",
+          },
+          confirmButtonText: "Aceptar",
+          confirmButtonHtml: true,
+          allowOutsideClick: false,
+          preConfirm: function () {
+            // Redireccionar a la URL generada en Razor
+            window.location.href =
+              '@Url.Action("Create", "TblConsultasIPasses")';
+          },
+        });
+      });
+  }
+
+  var form = document.getElementById("myForm");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita el envío del formulario por defecto
+
+    var url = form.action;
+    var tblConsultasIPass = new FormData(this);
+
+    /* - - - - - - - inicia la llamada a la funcion  validarAsociados- - - - - - - */
+    validarPersona(url, tblConsultasIPass, function (opciones) {
+      return opciones;
+    })
+      .then(function (respuesta) {
+        console.log("se esta realiza el llamado a al funcion");
+        console.log(respuesta);
+        swal.close();
+        /**mostrando la animacion */
+        Swal.fire({
+          title: "Iniciando solicitud ...",
+          html: "Por favor espere",
+          allowOutsideClick: false,
+          timerProgressBar: true,
+          showConfirmButton: false,
+          willOpen: () => {
+            Swal.showLoading();
+          },
+        });
+        setTimeout(function () {
+          console.log(respuesta);
+          if (respuesta.codigo != 1) {
+            swal.close();
+            toasterOptions();
+            toastr.error(respuesta.descripcion);
+          }
+          else
+          {
+            swal.close();
+            toasterOptions(); //configuracion de toaster
+              toastr.success(respuesta.descripcion);
+            //alert(respuesta.Listado.Descripcion);
+          }
+        }, 3000);
+      })
+      .catch(function (error) {
+        console.log(error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Error de consulta",
+          text: "Ocurrio un problema al resolver los datos,intenta mas tarde",
+          confirmButtonColor: "#153d77",
+          customClass: {
+            confirmButton: "btn-lg",
+          },
+          confirmButtonText: "Aceptar",
+          confirmButtonHtml: true,
+          allowOutsideClick: false,
+          preConfirm: function () {
+            // Redireccionar a la URL generada en Razor
+            window.location.href = '@Url.Action("Index", "Asambleas")';
+          },
+        });
+      });
+  });
+});
 </script>

@@ -1,7 +1,115 @@
 ﻿@{
     Layout = null;
 }
+<style>
+.wrapper {
+  width: 430px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.05);
+}
 
+.wrapper header {
+  color: #2F4E72;
+  font-size: 27px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.wrapper form {
+  height: 167px;
+  display: flex;
+  cursor: pointer;
+  margin: 30px 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 2px dashed #2F4E72;
+}
+
+section .row {
+  margin-bottom: 10px !important;
+  background: #e9f0ff !important;
+  list-style: none !important;
+  padding: 15px 20px !important;
+  border-radius: 5px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+section .row i {
+  color: #2F4E72;
+  font-size: 30px;
+}
+
+section .details span {
+  font-size: 14px !important;
+}
+
+.progress-area .row .content {
+  width: 100%;
+  margin-left: 15px;
+}
+
+.progress-area .details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+  justify-content: space-between;
+}
+
+.progress-area .content .progress-bar {
+  height: 6px;
+  width: 100%;
+  margin-bottom: 4px;
+  background: #fff;
+  border-radius: 30px;
+}
+
+.content .progress-bar .progress {
+  height: 100%;
+  width: 0%;
+  background: #2F4E72;
+  border-radius: inherit;
+}
+
+.uploaded-area {
+  max-height: 232px;
+  overflow-y: scroll;
+}
+
+.uploaded-area.onprogress {
+  max-height: 150px;
+}
+
+.uploaded-area::-webkit-scrollbar {
+  width: 0px;
+}
+
+.uploaded-area .row .content {
+  display: flex;
+  align-items: center;
+}
+
+.uploaded-area .row .details {
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+}
+
+.uploaded-area .row .details .size {
+  color: #404040;
+  font-size: 11px;
+}
+
+.uploaded-area i.fa-check {
+  font-size: 16px;
+}
+
+</style>
 <link href="~/CSS/StyleUpload.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <div class="container-drop">
@@ -19,7 +127,9 @@
         </div>
         <div class="col-12 text-center">
             @Html.DropDownList("idCatDocumentosConvocatorias", ViewBag.idCatDocumentosConvocatorias as SelectList, "Seleccione una opción", new { @class = "form-select", @required = "required" })
-
+        </div>
+        <div class="col-12 text-center">
+            <section class="uploaded-area"></section>
         </div>
     </div>
 </div>

@@ -84,7 +84,7 @@ label {
 }
 
 #steps-container {
-    margin: auto;
+    /*margin: auto;*/
     width: 500px;
     min-height: 420px;
     display: flex;
