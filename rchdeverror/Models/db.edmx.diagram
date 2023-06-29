@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="46cf166cb05244459151aa185126b6cf" Name="Diagram1">
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatOpcionesAsamblea" Width="1.5" PointX="18.75" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblAsistenciasAsambalea" Width="1.5" PointX="21" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSmsCore" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatBusqueda" Width="1.5" PointX="3.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatPermiso" Width="1.5" PointX="11.25" PointY="73.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatPersona" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.Tbl_U_Roles" Width="1.5" PointX="9" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblBitacoraBusquedaUsuario" Width="1.5" PointX="18" PointY="67.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblModulo" Width="1.5" PointX="9" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblPermisosUsuario" Width="1.5" PointX="14.25" PointY="75.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblPersona" Width="1.5" PointX="1.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblRole" Width="1.5" PointX="6" PointY="83.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSesion" Width="1.5" PointX="3.75" PointY="69.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSubModulo" Width="1.5" PointX="23.25" PointY="61.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblUsuario" Width="1.5" PointX="3.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblUsuarios_Coordinador" Width="1.5" PointX="9" PointY="46.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosPublicado" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatImagenesIntranet" Width="1.5" PointX="12" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatJerarquia" Width="1.5" PointX="3.75" PointY="72.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatOrigen" Width="1.5" PointX="13.75" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipoArchivo" Width="1.5" PointX="10.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblBiblioteca" Width="1.5" PointX="9" PointY="70" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblLogBiblioteca" Width="1.5" PointX="10.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.catestadoscallcenter" Width="1.5" PointX="3.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.tblbitacorapremora" Width="1.5" PointX="6" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.tblpremora" Width="1.5" PointX="12" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblCarteraCredito" Width="1.5" PointX="12" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblResuman" Width="1.5" PointX="6.5" PointY="113" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblResumenSaldo" Width="1.5" PointX="8.75" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatOpcionesChn" Width="1.5" PointX="0.75" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDeclaracionConcentimientolg" Width="1.5" PointX="14" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDeclaracionSalud" Width="1.5" PointX="3" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDeclaracionSaludchnlg" Width="1.5" PointX="6" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDeclaracionSaludlg" Width="1.5" PointX="3" PointY="101.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblCoasiste" Width="1.5" PointX="16.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatDestinatariosCorreo" Width="1.5" PointX="15" PointY="46.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatSistemasCorreo" Width="1.5" PointX="15" PointY="51" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSistemasCorreosDestinatariosCorreo" Width="1.5" PointX="22.25" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CAJAENTERA2022" Width="1.5" PointX="16.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatAnio" Width="1.5" PointX="23.25" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatMes" Width="1.5" PointX="23.25" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatNombre" Width="1.5" PointX="10.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatParentesco" Width="1.5" PointX="11.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatParentescosGastosM" Width="1.5" PointX="11.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatProveedoresPago" Width="1.5" PointX="18.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposDocumento" Width="1.5" PointX="11.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposKilometraje" Width="1.5" PointX="18.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.tblAdminpantalla" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblBitacoraService" Width="1.5" PointX="28.5" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblConvivioImagene" Width="1.5" PointX="3.75" PointY="81.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDirectorio" Width="1.5" PointX="23.25" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDirectoriosAgencia" Width="1.5" PointX="6" PointY="107.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblHistoriale" Width="1.5" PointX="0.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblImagenesConvivio" Width="1.5" PointX="20.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblLogCatalogosRch" Width="1.5" PointX="20.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblPermisosUsuarios1" Width="1.5" PointX="21.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatClasificacionFactura" Width="1.5" PointX="3.75" PointY="90" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatColaboradore" Width="1.5" PointX="3.75" PointY="93.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatDepartamentosRepublica" Width="1.5" PointX="3.75" PointY="97.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatDepartamentosTrabajo" Width="1.5" PointX="1.5" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadoCivil" Width="1.5" PointX="3.75" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstado" Width="1.5" PointX="1.5" PointY="73.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosTiempo" Width="1.5" PointX="9.5" PointY="100.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatIcono" Width="1.5" PointX="3.75" PointY="77.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatLugare" Width="1.5" PointX="16.25" PointY="87.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatOpcione" Width="1.5" PointX="1.5" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatPuesto" Width="1.5" PointX="15" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatPunto" Width="1.5" PointX="15.5" PointY="111.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatRegione" Width="1.5" PointX="3.75" PointY="138.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatSerieFactura" Width="1.5" PointX="3.75" PointY="142.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatSexo" Width="1.5" PointX="3.75" PointY="146" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposCredito" Width="1.5" PointX="22.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposKilometraje1" Width="1.5" PointX="6" PointY="74.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipoUbicacione" Width="1.5" PointX="3.75" PointY="149.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatUbicacione" Width="1.5" PointX="13.25" PointY="108.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.MunicipiosRepublica" Width="1.5" PointX="11" PointY="89.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblCaracterisitcasGrabacion" Width="1.5" PointX="11.75" PointY="82.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblConvivio" Width="1.5" PointX="3.75" PointY="154.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblHistoriales1" Width="1.5" PointX="25.5" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblProveedore" Width="1.5" PointX="6" PointY="79.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblCarteraCredito1" Width="1.5" PointX="5.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipoInstitucione" Width="1.5" PointX="3.75" PointY="158.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipoTransaccione" Width="1.5" PointX="3.75" PointY="162.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblHistorico" Width="1.5" PointX="6" PointY="118.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblPeriodo" Width="1.5" PointX="3.75" PointY="165.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipificacionProducto" Width="1.5" PointX="9" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposConsulta" Width="1.5" PointX="11" PointY="78.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposDistribucione" Width="1.5" PointX="22.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposFiltro" Width="1.5" PointX="19" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposFiltrosEvaluacione" Width="1.5" PointX="11" PointY="113.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposMedicion" Width="1.5" PointX="3.75" PointY="170.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposOperacion" Width="1.5" PointX="11" PointY="116.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblAsignacione" Width="1.5" PointX="25.5" PointY="57.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblAsignacionesEjecutivosSucursale" Width="1.5" PointX="9" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblCierresProducto" Width="1.5" PointX="25.5" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblEmpleadosMeta" Width="1.5" PointX="33" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblGruposAgencia" Width="1.5" PointX="9" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblProductosCooitza" Width="1.5" PointX="13.25" PointY="88.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblRolesMeta" Width="1.5" PointX="16.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSucrusalesProductosCooitza" Width="1.5" PointX="27.75" PointY="61" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblMigracion" Width="1.5" PointX="18" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatDestinatariosCorreo1" Width="1.5" PointX="12" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatDestinatariosSm" Width="1.5" PointX="12" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosTecnico" Width="1.5" PointX="20.25" PointY="83.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatHorarioServicio" Width="1.5" PointX="15" PointY="60.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatServiciosMonitor" Width="1.5" PointX="15" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblCertificacionesTecnico" Width="1.5" PointX="22.5" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblGirasTecnico" Width="1.5" PointX="17.25" PointY="57.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblHorario" Width="1.5" PointX="22.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblMonitorGrabacion" Width="1.5" PointX="18" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosBusquedasRch" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosLiberacionesRch" Width="1.5" PointX="18.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosLoginRch" Width="1.5" PointX="18" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosReservasRch" Width="1.5" PointX="23.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosTransaccione" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatRelationshipRemitente" Width="1.5" PointX="19" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposRemesa" Width="1.5" PointX="16.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblConfiguracionesRch" Width="1.5" PointX="20" PointY="57" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblLogCatalogosRch1" Width="1.5" PointX="0.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblLoginRch" Width="1.5" PointX="20.25" PointY="66.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblTransaccionesRch" Width="1.5" PointX="8" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosRrhh" Width="1.5" PointX="3.75" PointY="172.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.constanciasLaborale" Width="1.5" PointX="6" PointY="89.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTblUsuariosXTblSistema" Width="1.5" PointX="11.25" PointY="124.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSistema" Width="1.5" PointX="3.75" PointY="176.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblUsuarios1" Width="1.5" PointX="9" PointY="105.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstatusTransac" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblPropiedade" Width="1.5" PointX="7.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSiguePagar" Width="1.5" PointX="25.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSigueTransac" Width="1.5" PointX="23" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatBanco" Width="1.5" PointX="9" PointY="65.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatCuentasProveedore" Width="1.5" PointX="23.25" PointY="43.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatDescripcionesProveedore" Width="1.5" PointX="26.25" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatProveedoresPagos1" Width="1.5" PointX="28.5" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposCreditosProveedore" Width="1.5" PointX="9.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposCuenta" Width="1.5" PointX="9" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadoSolicitude" Width="1.5" PointX="12" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatProveedoresCooitza" Width="1.5" PointX="21" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatProveedoresExterno" Width="1.5" PointX="26.25" PointY="48.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposEmpresasProveedore" Width="1.5" PointX="15" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposMoneda" Width="1.5" PointX="12" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposMovimiento" Width="1.5" PointX="21" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTiposProveedore" Width="1.5" PointX="15" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSolicitudesCooitza" Width="1.5" PointX="21" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSolicitudesMoviemiento" Width="1.5" PointX="28.5" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSolicitudesMovimientosDetalle" Width="1.5" PointX="30.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatPromocione" Width="1.5" PointX="3.75" PointY="179.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblEntrega" Width="1.5" PointX="6" PointY="97.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblAgencia" Width="1.5" PointX="20.25" PointY="70.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblTransUnion" Width="1.5" PointX="24.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblTransUnionTest" Width="1.5" PointX="24.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblUniversale" Width="1.5" PointX="24.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblUniversalesTest" Width="1.5" PointX="25.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatEstadosViatico" Width="1.5" PointX="11.25" PointY="96.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatOpcionesVehiculo" Width="1.5" PointX="14.25" PointY="96.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatRubro" Width="1.5" PointX="3.75" PointY="184.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipoAnticipo" Width="1.5" PointX="3.75" PointY="188" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipoPlaca" Width="1.5" PointX="3.75" PointY="191.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatTipoSolicitude" Width="1.5" PointX="3.75" PointY="195" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.Tbl_Cc_Rubros" Width="1.5" PointX="6" PointY="128.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDeposito" Width="1.5" PointX="16.5" PointY="81.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblDestino" Width="1.5" PointX="16.5" PointY="95.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblEstado_Solicitudes" Width="1.5" PointX="21" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblFactura" Width="1.5" PointX="14.25" PointY="81.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblFacturasXcatRubro" Width="1.5" PointX="16.5" PointY="126.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSolicitude" Width="1.5" PointX="6" PointY="101.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblSolicitudesXtblVehiculo" Width="1.5" PointX="18.75" PointY="132.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblVehiculo" Width="1.5" PointX="16.5" PointY="131" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.CatZuma" Width="1.5" PointX="17.25" PointY="99.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.TblAfiliacione" Width="1.5" PointX="19.5" PointY="94.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cooitzacoretestModel.Caja2022" Width="1.5" PointX="27.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_formAppMovil" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_formCredito" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_formTarjetaCredito" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_formTarjetaDebito" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_formZumaPagos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsistenciasAsambaleas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsistenciasAsambaleas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsistenciasAsambaleas_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatBusquedas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBitacoraBusquedaUsuarios_CatBusquedas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPermisos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPermisos_TblModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPermisos_TblSubModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPersonas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblPersonas_CatPersonas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_Tbl_U_Permisos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_Tbl_U_Permisos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_Tbl_U_Roles_TblRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBitacoraBusquedaUsuarios_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBitacoraBusquedaUsuarios_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblHistoriales_TblModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblModulos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblModulos_CatIconos1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblModulos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblModulos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblPermisosUsuarios_TblModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSubModulos_TblModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblPermisosUsuarios_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblPermisosUsuarios_TblSubModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblPersonas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_TblPersonas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblRoles_CatColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblRoles_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSesion_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBitacoraService_TblSubModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblHistoriales_TblSubModulos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSubModulos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSubModulos_CatIconos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSubModulos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatBancos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreo_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreo_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosSms_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosSms_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadosLoginRch_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadosLoginRch_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadoSolicitudes_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatHorarioServicios_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatHorarioServicios_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatImagenesIntranet_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresCooitzas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresExternos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresExternos_TblUsuariosModifica" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPuestos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPuestos_TblUsuarios2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatServiciosMonitor_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatServiciosMonitor_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatSistemasCorreos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatSistemasCorreos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipificacionProductos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipificacionProductos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposCuentas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposCuentas_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposCuentas_TblUsuariosModifica" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposEmpresasProveedores_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposEmpresasProveedores_TblUsuariosModifica" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposKilometraje_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposKilometraje_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposMonedas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposMovimientos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposProveedores_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposProveedores_TblUsuariosModifica" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_constanciasLaborales_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsignaciones_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsignacionesEjecutivosSucursales_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_tblbitacorapremora_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBitacoraService_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCarteraCredito_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCertificacionesTecnicos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCertificacionesTecnicos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCierresProductos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCierresProductos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblConfiguracionesRchTest_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblConfiguracionesRchTest_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSaludchnlg_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDirectorios_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDirectorios_TblUsuarios2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_TblUsuarios2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEntregas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEstado_Solicitudes_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEstado_Solicitudes_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGirasTecnicos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGirasTecnicos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGirasTecnicos_TblUsuarios2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGirasTecnicos_TblUsuarios3" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGruposAgencias_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGruposAgencias_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblHistoriales_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMigracion_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMigracion_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMonitorGrabacion_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_tblpremora_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_tblpremora_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSistemasCorreosDestinatariosCorreos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSistemasCorreosDestinatariosCorreos_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudes_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudes_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesCooitzas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMoviemientos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMovimientosDetalle_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_CatDepartamentosTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_CatOpciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_Coordinador_TblUsuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_Coordinador_TblUsuarios2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_Coordinador_TblUsuarios3" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_Coordinador_TblUsuarios4" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_Coordinador_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatImagenesIntranet_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_catJerarquia_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBiblioteca_catJerarquia" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatOrigen_CatDepartamentosTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatOrigen_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBiblioteca_CatOrigen" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBiblioteca_CatEstados2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblBiblioteca_CatOpciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_tblbitacorapremora_catestadoscallcenter" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_tblpremora_catestadoscallcenter" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_tblbitacorapremora_tblpremora" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_tblpremora_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCarteraCredito_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCarteraCredito_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblResumenSaldo_TblResumen" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblResumenSaldo_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg10" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg11" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg12" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg13" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg14" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg15" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg16" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg17" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg18" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg19" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg20" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg21" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg22" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg23" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg24" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg25" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg26" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg27" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg28" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg29" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg30" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg31" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg32" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg33" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg34" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg35" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg36" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg37" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg38" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg39" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg40" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg41" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg42" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg43" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg44" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg45" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg46" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg47" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg48" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg49" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg50" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg51" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg52" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg53" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg54" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg55" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg56" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg57" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg58" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg59" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg60" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg61" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg62" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg63" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lg64" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh10" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh11" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh12" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh13" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh14" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh15" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh16" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh17" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh18" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh19" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh20" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh21" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh22" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh23" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh24" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh25" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh26" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh27" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh28" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh29" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh3" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh30" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh31" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh32" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh33" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh34" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh35" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh36" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh37" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh38" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh39" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh4" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh40" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh41" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh42" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh43" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh44" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh45" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh46" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh47" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh48" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh49" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh5" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh50" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh51" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh52" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh53" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh54" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh6" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh7" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh8" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_lgcnh9" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn10" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn11" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn12" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn13" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn14" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn15" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn16" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn17" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn18" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn19" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn20" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn21" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn22" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn23" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn24" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn25" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn26" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn27" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn28" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn29" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn3" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn30" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn31" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn32" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn33" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn34" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn35" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn36" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn37" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn38" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn39" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn4" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn40" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn41" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn42" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn43" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn44" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn45" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn46" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn47" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn48" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn49" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn5" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn50" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn51" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn52" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn53" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn54" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn55" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn56" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn6" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn7" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn8" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatOpcionesChn9" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescos1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescos2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescos3" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescosGastosM" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescosGastosM1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescosGastosM2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatParentescosGastosM3" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatTiposDocumentos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatTiposDocumentos1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatTiposDocumentos2" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionConcentimientolg_CatTiposDocumentos3" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDeclaracionSalud_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreos_CatOpciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSistemasCorreosDestinatariosCorreos_CatDestinatariosCorreos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatSistemasCorreos_CatDepartamentosTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatSistemasCorreos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSistemasCorreosDestinatariosCorreos_CatSistemasCorreos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSistemasCorreosDestinatariosCorreos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsignaciones_CatAnios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCierresProductos_CatAnios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_CatAnios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_CatAnios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsignaciones_CatMeses" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCierresProductos_CatMeses" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_CatMeses" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_CatMeses" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblConvivioImagenes_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDirectorios_CatDepartamentosTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDirectorios_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDirectorios_CatPuestos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDirectoriosAgencias_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDirectoriosAgencias_CatRegiones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatClasificacionFacturas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProveedores_CatClasificacionFacturas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatColaboradores_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_Tbl_Cc_Rubros_CatColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDepartamentosRepublicas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatUbicaciones_CatDepartamentosRepublicas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_MunicipiosRepublicas_CatDepartamentosRepublicas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDepartamentosTrabajo_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPuestos_CatDepartamentosTrabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadoCivil_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_CatEstadoCivil" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatBancos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreo_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosSms_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadosLoginRch_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadoSolicitudes_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadosRrhh_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadosViaticos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatHorarioServicios_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatIconos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatLugares_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatOpciones_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatOpcionesVehiculos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPromociones_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresCooitzas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresExternos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPuestos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPuntos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatRegiones_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatRubros_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatSerieFacturas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatServiciosMonitor_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatSexo_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTblUsuariosXTblSistemas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipificacionProductos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipoAnticipo_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipoInstituciones_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipoPlacas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposCuentas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposEmpresasProveedores_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposMedicion_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposMonedas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposMovimientos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipoSolicitudes_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposProveedores_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipoTransacciones_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTipoUbicaciones_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatUbicaciones_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_constanciasLaborales_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_MunicipiosRepublicas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_Tbl_Cc_Rubros_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAfiliaciones_CatEstados1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAgencias_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCaracterisitcasGrabacion_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCertificacionesTecnicos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCierresProductos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblConfiguracionesRchTest_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblConvivio_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDepositos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDestinos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEstado_Solicitudes_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblFacturas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblFacturasXcatRubros_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGirasTecnicos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGruposAgencias_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblHistoricos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMigracion_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMonitorGrabacion_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMonitorGrabacion_CatEstados1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblPeriodos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProveedores_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSistemas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudes_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesCooitzas_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMoviemientos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMovimientosDetalle_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_CatEstados1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblVehiculos_CatEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCaracterisitcasGrabacion_CatEstadosTiempo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMonitorGrabacion_CatEstadosTiempo1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatLugares_MunicipiosRepublicas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatUbicaciones_CatLugares" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatDestinatariosCorreo_CatOpciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAgencias_CatOpciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMonitorGrabacion_CatOpciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPuntos_CatTipoUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatPuntos_CatUbicaciones1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatUbicaciones_CatRegiones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_constanciasLaborales_CatSexo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblUsuarios_CatSexo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGirasTecnicos_CatTiposKilometraje" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatUbicaciones_CatTipoUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatUbicaciones_MunicipiosRepublicas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatUbicaciones_TblCaracterisitcasGrabacion" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_constanciasLaborales_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAfiliaciones_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsignacionesEjecutivosSucursales_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCertificacionesTecnicos_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDestinos_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblGruposAgencias_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblMonitorGrabacion_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_CatUbicaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAgencias_TblProveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblFacturas_TblProveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblHistoricos_TblPeriodos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_CatTipificacionProductos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_CatTiposConsultas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTiposFiltros_TblRolesMetas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_CatTiposFiltrosEvaluaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_CatTiposMedicion" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblProductosCooitza_CatTiposOperacion" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAsignaciones_TblProductosCooitza" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_TblAsignaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCierresProductos_TblProductosCooitza" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_TblProductosCooitza" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEmpleadosMetas_TblSucrusalesProductosCooitza" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSucrusalesProductosCooitza_TblProductosCooitza" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCertificacionesTecnicos_CatEstadosTecnicos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatHorarioServicios_CatServiciosMonitor" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblCertificacionesTecnicos_TblGirasTecnicos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblTransaccionesRchTest_CatEstadosTransaccionWebService" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblLoginRch_CatEstadosLoginRch" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblTransaccionesRchTest_CatEstadosTransacciones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatRelationshipRemitentes_CatTiposRemesas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_constanciasLaborales_CatEstadosRrhh" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTblUsuariosXTblSistemas_TblSistemas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatTblUsuariosXTblSistemas_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatEstadosViaticos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatOpcionesVehiculos_TblUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSiguePagar_CatEstatusTransac" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSigueTransac_CatEstatusTransac" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSiguePagar_TblSigueTransac" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatCuentasProveedores_CatBancos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresExternos_CatBancos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatCuentasProveedores_CatTiposCuentas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresPagos_CatCuentasProveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresPagos_CatDescripcionesProveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresExternos_CatTiposCuentas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMoviemientos_CatEstadoSolicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresExternos_CatTiposEmpresasProveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_CatProveedoresExternos_CatTiposProveedores" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMoviemientos_CatProveedoresExternos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMoviemientos_CatProveedoresExternos1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMovimientosDetalle_CatTiposMonedas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMovimientosDetalle_CatTiposMovimientos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMoviemientos_TblSolicitudesCooitzas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesMovimientosDetalle_TblSolicitudesMoviemientos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEntregas_CatPromociones" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblDepositos_CatEstadosViaticos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblEstado_Solicitudes_CatEstadosViaticos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudes_CatEstadosViaticos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblVehiculos_CatOpcionesVehiculos1" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_Tbl_Cc_Rubros_CatRubros" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblFacturasXcatRubros_CatRubros" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudes_CatTipoAnticipo" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblVehiculos_CatTipoPlacas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudes_CatTipoSolicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblFacturasXcatRubros_TblFacturas" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblSolicitudesXtblVehiculos_TblVehiculos" ManuallyRouted="false" />
+        <AssociationConnector Association="cooitzacoretestModel.FK_TblAfiliaciones_catZuma" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
